@@ -1,0 +1,909 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="#">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="Cache-Control" content="public">
+     <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    
+
+<!-- 引入 Vue 和 Vant 的 JS 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vant@2.10/lib/vant.min.js"></script>
+<script src="__CDN__/assets/list/muban1/static/js/jquery.min.js"></script>
+<script src="__CDN__/assets/list/muban1/static/lib/layer/layer.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+    function onBridgeReady() {
+        WeixinJSBridge.call('hideOptionMenu');
+    }
+
+    if (typeof WeixinJSBridge == "undefined") {
+        if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    } else {
+        onBridgeReady();
+    }
+</script>
+
+    <title>🈲·止·转·发</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            font-size: 13.33333333333vw;
+            border-radius: 0.0rem;
+        }
+
+        #__vconsole * {
+            font-size: 0.28rem !important;
+        }
+
+        #dplayer * {
+            font-size: 12px !important;
+        }
+
+        .dplayer-video-wrap {
+            -webkit-transform: translateZ(0px);
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        image {
+            height: auto;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+
+        uni-page-body {
+            height: 100%;
+        }
+
+        .ml20 {
+            margin-left: 0.20rem;
+        }
+
+        .ml40 {
+            margin-left: 0.40rem;
+        }
+
+        .mt20 {
+            margin-top: 0.1rem;
+        }
+
+        .mt10 {
+            margin-top: 0.10rem;
+        }
+
+        .color-ff {
+            color: #2e2e2e !important;
+        }
+
+        .f24 {
+            font-size: 0.24rem !important;
+        }
+
+        .flex-1 {
+            flex: 1;
+            width: 100%;
+        }
+
+        .wrap {
+            height: 100%;
+        }
+
+        .index,
+        .play {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .video {
+            background: #000;
+            width: 100%;
+        }
+
+        .video-type {
+            background-image: linear-gradient(to right, #555eee, #774488);
+            background-image: linear-gradient(to right, #ff0030, #c000ff);
+            font-size: 0.24rem;
+            color: #fff;
+            padding: 0.12rem 5px;
+            margin-top: 0.02rem;
+            border-radius: 0.15rem;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .type-row {
+            font-size: 0;
+        }
+
+        .type-item {
+            font-weight: bold;
+            display: inline-block;
+            font-size: 0.32rem;
+            color: #fff;
+            padding: 0.02rem 0;
+            text-align: center;
+            width: 14.2855555%;
+        }
+
+        .type-active {
+            background-image: linear-gradient(#fffaaa, #fff000);
+             !important;
+            border-radius: 0.10rem;
+            color: #da2b30;
+        }
+
+        .type-search {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .type-search * {
+            font-size: 15px !important;
+        }
+
+        .type-have {
+            background-image: linear-gradient(#fffaaa, #fff000);
+            color: #f53036;
+            font-weight: bold;
+            border-radius: 0.10rem;
+            padding: 0.05rem;
+        }
+
+        .yigou {
+            background-image: linear-gradient(#fffaaa, #fff000);
+            color: #f53036;
+            font-weight: bold;
+            font-size: 0.30rem;
+            border-radius: 0.10rem;
+        }
+
+        .line {
+            border-top: 1px solid #333;
+            width: 94%;
+            margin: 0.10rem auto;
+        }
+
+        .input-text {
+            background: #FFFFFF;
+            border: 1px solid #FFFFFF;
+            height: 0.67rem;
+            border-radius: 0.16rem;
+            padding: 0 0.20rem;
+            margin-left: 0.30rem;
+            width: 3.5rem;
+        }
+
+        .input-text::placeholder {
+            font-size: 0.28rem;
+            color: #707070
+        }
+
+        .btn-search {
+            font-weight: bold;
+            color: #fff;
+            font-size: 0.34rem;
+            margin-left: 0.30rem;
+        }
+
+        .foot {
+            background-image: linear-gradient(to right, #ff0030, #c000ff);
+            height: 0.90rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            color: #fff;
+            font-size: 0.30rem;
+        }
+
+        .foot-item {
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.10rem;
+            font-size: 0.3rem;
+            width: fit-content
+        }
+
+        .foot-active {
+            background-image: linear-gradient(#fffaaa, #fff000);
+             !important;
+            border-radius: 0.10rem;
+            color: #da2b30;
+        }
+
+        .list {
+            font-size: 0;
+        }
+
+        .list-item {
+            margin-top: 0.11rem;
+            vertical-align: -8px;
+            width: 49%;
+            height: 3.2rem;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 0.05rem;
+        }
+
+        .list-item:nth-of-type(2n) {}
+
+        .img-wrap {
+            height: 2.5rem;
+            border-radius: 0.15rem;
+            
+            position: relative;
+            overflow: hidden;
+            -webkit-transform: translateZ(0px);
+        }
+
+        .img-tips-left {
+            background: #000;
+            color: #fff;
+            font-size: 0.18rem;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 9;
+            padding: 0.05rem 0.10rem;
+            filter: alpha(Opacity=80);
+            -moz-opacity: 0.5;
+            opacity: 0.65;
+            border-radius: 0.1rem;
+        }
+
+        .thumb {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-title {
+            font-size: 0.25rem;
+            line-height: 16px;
+            font-weight: bold;
+            border: thin solid #b9b9b9;
+            margin-top: 1px;
+            border-radius: 5px;
+            height: 33px;
+            overflow: hidden;
+            padding-left: 4px;
+        }
+
+        .view {
+            flex: 1;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .v-body {
+            min-height: 101%;
+            padding-bottom: 0.20rem;
+        }
+
+        .uni-video {
+            width: 100%;
+            height: 215px;
+            display: inline-block;
+            line-height: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .uni-video-container {
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            object-position: inherit;
+        }
+
+        .uni-video-video {
+            width: 100%;
+            height: 100%;
+            object-position: inherit;
+        }
+
+        .mod {
+            box-shadow: 0 0 0 999px rgba(0, 0, 0, .85);
+            width: 7rem;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            background: #3a3a3a;
+            color: #fff;
+            font-size: 0.24rem;
+            margin-top: -10%;
+            border-radius: 1.5rem;
+        }
+
+        .mod-img-wrap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .mod-img {
+            width: 7rem;
+            height: 6rem;
+            border-radius: 0.15rem;
+            border: 1px solid #ddd;
+            background: #000000;
+        }
+
+        .mod-title {
+            font-weight: bold;
+            padding: 0.1rem;
+            font-size: 0.24rem;
+            height: 40px;
+            margin-top: -16px;
+        }
+
+        .mod-foot {
+            height: 1.1rem;
+            align-items: center;
+        }
+
+        .mod-foot-item {
+            margin-top: 6px;
+            font-weight: bold;
+            height: 100%;
+            padding: 0 0.55rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 0.43rem;
+            border-radius: 0.20rem;
+        }
+
+        .mod-active {
+            color: #FFFFFF;
+            background-image: linear-gradient(to right, #ff0030, #c000ff);
+        }
+
+        .none {
+            display: none !important;
+        }
+
+        .desc {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000;
+            font-size: 0.34rem;
+            margin-top: 0.10rem;
+            font-weight: bold;
+        }
+
+        .play-foot {
+            height: 0.90rem;
+            background-image: linear-gradient(to right, #ff0030, #c000ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.35rem;
+            color: #fff;
+        }
+
+        .mask {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            _position: absolute;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .opacity {
+            opacity: 0.3;
+            filter: alpha(opacity=30);
+            background-color: #000;
+        }
+    </style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.10/lib/index.css"/>
+
+<style>
+    .demo-dialog img {
+    box-sizing: border-box;
+    width: 100%;
+    height: 250;
+    padding: 25px 20px 0;
+}
+
+.van-dialog__header {
+    padding-top: 26px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    font-size: 16px;
+}
+.van-button__text{
+      background-image: linear-gradient(to right, #555eee, #774488);
+    background-image: linear-gradient(to right, #ff0030, #c000ff);
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+    border-top-left-radius: 999px;
+    border-bottom-left-radius: 999px;
+    font-weight: 500;
+    font-size: 14px;
+    width: 100%;
+    color: #fff;
+    line-height: 2.2;
+    text-align: center;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    width: 90%;
+}
+
+.van-button--primary {
+    color: #fff;
+    /* background-color: #07c160; */
+    /* border: 1px solid #07c160; */
+    border: none;
+}
+.type-row .active{
+    background-image: linear-gradient(#fffaaa, #fff000);
+    color: #f53036;
+    font-weight: bold;
+    font-size: 0.30rem;
+    border-radius: 0.10rem;
+}
+
+.xgplayer-skin-default .xgplayer-start {
+    margin: 0;
+    width: 100px;
+    height: 100px;
+    left: -31%;
+    left: right;
+    
+    top: -7px;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    z-index: 99999;
+}
+
+.xgplayer-skin-default .xgplayer-icon-play {
+    margin: 0;
+    width: 100px;
+    height: 100px;
+    left: -31%;
+    left: right;
+    
+    top: -7px;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    z-index: 99999;
+}
+
+.xgplayer-skin-default .xgplayer-start div svg {
+    fill: hsla(0,0%,100%,.7);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    bottom: 9%;
+    left: 7%;
+}
+
+</style>
+<script src="//cdn.jsdelivr.net/npm/xgplayer@2.9.6/browser/index.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div id="app" class="wrap root">
+        
+        <form action="" method="post" name="form" style="display:none">
+  
+</form>
+
+        <div id="content" style="display:none;"></div>
+        <div class="index">
+            <div class="view" id="index_view">
+                <div class="v-body">
+                    
+                    <div class="hezi" v-if="hezi">
+            <div id="mse" style="width: 100%"></div>
+        </div>
+        
+        
+                    <div class="video-type">
+                        <div class="type-row">
+                            
+                            <div class="type-item " key="-1" :class="activeClass == -1 ? 'active':''"
+                    @click="doGetList(-1,'cat')">全部</div>
+                            <div class="type-item" data-cid="0" v-for="(item,index) in cat" @click="doGetList(index , item)" :key="index"
+                    :class="activeClass == index ? 'active':''">{{item.title}}</div>
+
+                            <div class="type-item " key="99" :class="activeClass == 99 ? 'active':''" @click="yigou()">已购</div>
+                        </div>
+                        <div class="type-search mt20"><span class="type-have" @click="dingbu()">今日新片</span>
+                            <div>
+                                <input type="text"  v-model="params.key" class="input-text color-ff" placeholder="输入搜索关键词"></div>
+                            <div class="btn-search"  @click="sousuoa()">搜 索 ▹</div>
+                        </div>
+                    </div>
+                    <div class="list">
+
+                        <van-list v-model="loading" :finished="finished" :finished-text="msg" @load="doGetList" offset="700"
+                          direction="down">
+                    
+                            <div class="van-clearfix">
+                        
+                         <lazy-component>
+
+                        <div class="list-item mt20" v-for="item in list">
+                            <div class="img-wrap"  @click="doPay(item)">
+                                <img alt="" class="thumb"
+                                    v-lazy="item.img"><span
+                                    class="img-tips-left">已有{{item.rand}}人付款<font
+                                        style="color:#FF0000;font-size:0.23rem;font-weight:bold">{{item.money}}</font>元观看</span>
+                            </div>
+                            <div class="video-title">{{item.title}}</div>
+                        </div>
+                         </lazy-component>
+                        
+                        </div>
+                        
+                        </van-list>
+                        
+                        
+
+                    </div>
+                </div><br>
+            </div>
+            <div class="foot" style="margin-left:-5px">
+                <div class="type-item foot-item" @click="doGetList(-1,'cat')">•热门推荐</div>
+                <div>
+                    <div class="foot-item foot-active" @click="yigou()">✚已购买</div>
+                </div>
+                <div class="foot-item" @click="dingbu()">返回顶部</div> 
+            </div>
+        </div>
+         <van-dialog class="demo-dialog van-dialog" v-model="dialog.pay.status" :title="ds_title" confirm-button-text="关闭" show-confirm-button>
+    <img :src="ds_img"  />
+    
+    <van-button square  style="    width: 100%;border:none;" v-for="(item,index) in dialog.pay.pay" :class="setClass(item)" class="index-pay-item" @click="linkTo(item.url)"> {{item.name}}</van-button>
+  
+
+    </van-dialog>
+    </div>
+    
+   
+
+</body>
+
+<script>
+
+    $(document).ready(function () {
+
+        let player = new Player({
+            "id": "mse",
+            "url": "{$hezi.video}",
+            "playsinline": true,
+            "x5-video-player-fullscreen": "false",
+            "x5-video-orientation": "portraint",
+            "x5-video-player-type": "h5",
+            "fluid": true,
+          //  "autoplay": true
+        });
+
+    });
+
+    Vue.config.productionTip = false;
+    Vue.config.lang = 'zh-CN';
+    
+    var dy = "{$dy}";
+        Vue.use(vant.Lazyload, {
+      lazyComponent: true,
+    });
+    Vue.use(vant.Dialog);
+  
+    new Vue({
+        el: '#app',
+        
+        data: {
+            list: [],
+            current: "",
+            itemindex:0,
+            activeClass: -1,
+            cat: [],
+            banner: [],
+            ds_title:"打赏后观影",
+            ds_img:"",
+            total: 0,
+            hezi: false,
+            loading: false,
+            finished: false,
+            vid: 0,
+            msg: '没有更多了',
+            params: {
+                action: "list",
+                f: "<?php echo $_GET['f']?>",
+                page: 1,
+                row: 50,
+                encode: 1,
+                cid: '',
+                key: '',
+                payed: ''
+            },
+            catParam: {
+                limit: 910, f: "<?php echo $_GET['f']?>",
+                encode: 1,
+            },
+
+            dialog: {
+                fav: {
+                    status: false,
+                    img: "",
+                    url: "",
+                },
+                pay: {
+                    status: false,
+                    pay: [],
+
+                }
+            }
+        },
+        mounted: function () {
+            //this.doFav();
+            this.getCat();
+
+    
+            var hezi = this.getQueryVariable('hezi');
+            if (hezi > 0) {
+                this.hezi = true;
+            }
+        },
+        methods: {
+            getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] == variable) {
+                        return pair[1];
+                    }
+                }
+                return (false);
+            },
+            setClass(item){
+                return "action"+item.flg
+            },
+            doRate() {
+                
+                return parseInt(Math.random() * (10000 - 90) + 90);
+            },
+            linkTo(e) {
+
+                layer.msg("正在调起支付...", {
+                    icon: 16,
+                    time: 3000
+                });
+                if(dy == "1")
+                {
+                    document.form.action = e;
+                    document.form.submit();
+                     return 
+                }
+                location.href = e;
+            },
+            yigou() {
+                let vm = this;
+ 
+            console.log()
+                vm.finished = false;
+                vm.params.page = 1;
+                vm.params.payed = 1;
+                vm.params.key = '';
+                vm.params.cid = '';
+                vm.list = [];
+                vm.msg = "空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容";
+
+                $.ajax({
+                    url: '/index/index/vlist',
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: vm.params,
+                    complete: function (XMLHttpRequest, textStatus) {
+                    },
+                    success: function (data) {
+                        if (data.status == 1) {
+                            vm.params.page++;
+
+                            vm.total = data.total;
+                            let temp = data.data;
+                            vm.list = vm.list.concat(temp);
+                            vm.loading = false;
+                            if (vm.list.length == data.total) {
+                                vm.finished = true;
+                                vant.Notify({ type: 'success', message: vm.msg });
+                            }
+                        } else {
+                            layer.alert(data.msg);
+                        }
+                    }
+                });
+
+
+            },
+            sousuoa(e) {
+
+                let vm = this;
+                vm.params.page = 1;
+                vm.list = [];
+                this.doGetList("-1", '');
+            },
+            dingbu(){
+                
+location.reload();
+
+            },
+            doCopyUrl() {
+                let vm = this;
+                var clipboard = new Clipboard("#doCopyValue");
+                clipboard.on('success', function (e) {
+                    vm.$message.success('复制成功');
+                    clipboard.destroy();
+                });
+                clipboard.on('error', function (e) {
+                    vm.$message.errot('复制失败');
+                    console.log(e);
+                });
+            },
+            doPay(item) {
+                console.log(item);
+                let vm = this;
+                vm.vid = item.id;
+                vm.ds_img = item.img;
+                vm.ds_title = item.title;
+
+                if (item.pay == 1) {
+                    
+                     if(dy == "1")
+                {
+                    document.form.action = item.url;
+                    document.form.submit();
+                    return 
+                }
+                
+                    window.location.href = item.url;
+                    return;
+                }
+                $.ajax({
+                    url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid=" + item.id + "&money=" + item.money,
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: {},
+                    complete: function (XMLHttpRequest, textStatus) {
+                    },
+                    success: function (data) {
+                        console.log(data);
+
+                        vm.dialog.pay.pay = data;
+                        vm.dialog.pay.status = true;
+                    }
+                });
+            },
+            doGetList(index, row) {
+                let vm = this;
+                console.log(row);
+                
+
+                vm.activeClass = index;
+
+                vm.params.payed = '';
+                if (row != undefined && row.id != undefined) {
+                    vm.list = [];
+                    vm.params.page = 1;
+                    vm.params.cid = row.id;
+                    
+                }
+                if (row == "cat") {
+
+
+                    vm.list = [];
+                    vm.finished = false;
+                    vm.params.page = 1;
+                    vm.params.key = '';
+                    vm.params.cid = '';
+                }
+                console.log(vm.params);
+
+                $.ajax({
+                   
+                    url: '/index/index/vlist',
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: vm.params,
+                    complete: function (XMLHttpRequest, textStatus) {
+                    },
+                    success: function (data) {
+                        if (data.status == 1) {
+                            vm.params.page++;
+
+                            vm.total = data.total;
+                            let temp = data.data;
+                            vm.list = vm.list.concat(temp);
+                            vm.loading = false;
+                            if (vm.list.length == data.total) {
+                                vm.finished = true;
+                                                vm.msg="没有更多了";
+
+                            }
+                        } else {
+                            layer.alert(data.msg);
+                        }
+                    }
+                });
+
+
+            },
+            getCat() {
+                let vm = this;
+                $.ajax({
+                    url: '/index/index/cat',
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: vm.catParam,
+                    complete: function (XMLHttpRequest, textStatus) {
+                    },
+                    success: function (data) {
+
+                        vm.cat = data.data;
+                    }
+                });
+
+            },
+            doSearch() {
+                window.location.href = "/index/index/pagecat/?f=<?php echo $_GET['f'];?>";
+
+            },
+            doFav() {
+                let vm = this;
+                vm.dialog.fav.url = "{$fov}";
+
+                vm.dialog.fav.status = true;
+            },
+
+        }
+    })
+</script>
+

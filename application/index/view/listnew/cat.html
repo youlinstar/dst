@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" class="pixel-ratio-1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>分类</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <link href="./list_files/article.css" rel="stylesheet">
+    <style>body{background-color:#FFFFFF;}</style></head>
+<body style="display: block;"><script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+
+
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 30 + 'px'
+
+    })
+</script>
+
+
+
+<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/weui.min.css">
+
+<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/vieWanimate.css">
+
+<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/main.css">
+
+<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/wx.css">
+
+
+<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/lib/vant/css/index.css"/>
+
+<script src="__CDN__/assets/list/muban1/static/lib/vue/vue.js"></script>
+<script src="__CDN__/assets/list/muban1/static/lib/vant/js/vant.min.js"></script>
+<script src="__CDN__/assets/list/muban1/static/js/jquery.min.js"></script>
+<script src="__CDN__/assets/list/muban1/static/lib/layer/layer.js"></script>
+
+<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/lib/el-ui/css/index.css">
+<script src="__CDN__/assets/list/muban1/static/lib/el-ui/index.js"></script>
+
+
+
+
+
+<style>
+
+
+    .weui-search-bar {
+        position: relative;
+        padding: 8px 10px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        box-sizing: border-box;
+        background-color: #efeff4;
+        -webkit-text-size-adjust: 100%;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .channelbox .search-keywords ul li {
+        margin-bottom: 10px;
+        margin-left: 10px;
+        width: calc(19.66% - 12px);
+        text-align: center;
+        color: #666666;
+        background-color: #EAEAEA;
+        padding: 0px 0px;
+        border-radius: 10px;
+        float: left;
+        height: 41px;
+        line-height: 41px;
+    }
+
+    .van-list__finished-text{
+        margin-bottom: 10%;
+    }
+
+    .likelist{
+
+        margin-top:10px;
+
+    }
+
+    .likelist li{
+
+        margin-bottom:10px;
+
+        height:60px;
+
+        overflow:hidden;
+
+        display:block;
+
+    }
+
+    .likelist li img{
+
+        width:30%;
+
+        display:block;
+
+        float:left;
+
+        height:60px;
+
+    }
+
+    .likelist p{
+
+        width:70%;
+
+        float:left;
+
+        height:60px;
+
+        line-height:25px;
+
+        padding:5px 10px;
+
+        text-overflow: ellipsis;
+
+        display: -webkit-box;
+
+        -webkit-line-clamp: 2;
+
+        overflow: hidden;
+
+        -webkit-box-orient: vertical;
+
+    }
+
+    .liketitle{
+
+        margin-top:10px;
+
+    }
+
+    #myvideo{
+
+        margin-top:10px;
+
+    }
+
+    .pay-item{
+
+        width:100%;
+
+        height:30px;
+
+        line-height:30px;
+
+        margin-top:10px;
+
+        border-radius:5px;
+
+        border:1px solid #CCCCCC;
+
+        text-align:center;
+
+        color:#666;
+
+    }
+
+    .pay-item:last-child{
+
+        margin-bottom:10px;
+
+    }
+
+</style>
+
+
+<div class="box body channelbox" data-href="type" style="display: block;">
+    <?php if(!isset($_GET['type'])):?>
+    <div class="channellist-box"><ul class="channellist">
+        <?php foreach(array_splice($cat , 0,10) as $v):?>
+        <li data-cid="81"><a style="color: black"  href="?f=<?php echo $_GET['f'];?>&type=search&keyword=&cid=<?php echo $v['id']?>"><img src="<?php echo $v['image']?>"><span><?php echo $v['title']?></span></a></li>
+        <?php endforeach;?>
+    </ul></div>
+    <?php endif;?>
+
+    <div class="weui-search-bar" id="searchBar"><style>
+        .weui-search-bar__cancel-btn1{
+            display: block;
+            margin-left: 10px;
+            line-height: 28px;
+            color: #09bb07;
+            white-space: nowrap;
+        }
+        input::-ms-input-placeholder{
+            text-align: center;
+        }
+        input::-webkit-input-placeholder {
+            text-align: center;
+        }
+    </style>
+        <form class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="text" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+                <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+            </div>
+            <label class="weui-search-bar__label" id="searchText">
+
+                <input type="text"  style="width: 98%;height: 100%;border: 0;outline: none" id="keys" placeholder="请输入搜索内容" required="">
+
+                <input type="hidden" name="f" value="<?php echo $_GET['f']?>">
+            </label>
+        </form>
+        <a href="javascript:" class="weui-search-bar__cancel-btn1" id="searchSubmit1" >搜索</a></div>
+
+
+    <?php if(!isset($_GET['type'])):?>
+    <div class="search-keywords"><h3 class="his" style="display:none;">历史搜索<i class="fa fa-trash" onclick="javascript:ClearHis();"></i></h3>
+        <ul class="his hiswords" style="display:none;"></ul>
+        <h3>热门分类<i class="fa fa-eye"></i></h3>
+        <ul>
+
+            <?php foreach($cats as $vv):?>
+            <li data-words="<?php echo $vv['title']?>"><a style="color: black"  href="?f=<?php echo $_GET['f'];?>&type=search&keyword=&cid=<?php echo $vv['id']?>"><?php echo $vv['title']?></a></li>
+            <?php endforeach;?>
+            <div style="clear:both;"></div>
+        </ul>
+    </div>
+    <?php endif;?>
+
+
+    <div id="app">
+        <div  v-if="list.length>0" >
+            </h4>
+            <div class="list">
+                <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="doGetList" offset="150"
+                          direction="down">
+                    <div class="van-clearfix">
+                        <li class="list-item" v-for="item in list" @click="doPay(item)">
+                            <div class="thumb"><img :src="item.img"></div>
+                            <p class="name">{{item.title}}</p><br>
+                            <p class="plays">{{doRate()}}人已付费观看</p>
+                        </li>
+                    </div>
+                </van-list>
+            </div>
+        </div>
+
+        <!--打赏代码-->
+         <!--打赏代码-->
+    <div id="WX-window-TKEy5SPt5wisSxt-Shade" v-if="dialog.pay.status" class="WX-window-shade">
+        <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
+            <div class="WX-Window-main" style="width:70%"><h2>打赏后观影</h2>
+                <div class="WX-Window-body">
+
+                    <span class="niubi">{{ds_title}}</span>
+                    <div class="ds_tankuang">
+                        <img :src="ds_img" style="width:0%;height:0px">
+                    </div>
+                    <li v-for="(item,index) in dialog.pay.pay" class="pay-item" @click="linkTo(item.url)">
+
+
+                        <a style="color: black;font-size:1.5em;">
+
+                            <img
+                                    height="32px"
+                                    style="display: inline-block; vertical-align: middle;"
+                                    :src="__CDN__item.img"
+                            >
+
+                            {{item.name}}
+                        </a>
+
+                    </li>
+
+                    <p style="color:#f74550;line-height:25px;margin:10px auto;">
+                        温馨提示：推荐使用浏览器打开收藏观看。<br>
+                    </p>
+
+                </div>
+                <div class="WX-Window-footer"><a @click="dialog.pay.status=false,dialog.pay.pay=[]"
+                                                 href="javascript:void(0);" style="width:calc(95% - 10px);"
+                                                 class="WX-Window-btn cannel">关闭</a></div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+</div>
+
+
+<div class="footer"><ul>
+    <li class="">
+        <a href="/index/index/lists/?f=<?php echo $_GET['f'];?>">
+            <img src="__CDN__/assets/list/muban1/tab-home.png"
+            >
+            <span>首页</span>
+        </a>
+    </li>
+    <li class="active">
+        <a href="/index/index/pagecat/?f=<?php echo $_GET['f'];?>">
+            <img src="__CDN__/assets/list/muban1/tab-cate-current.png">
+            <span>分类</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="/index/index/lists/?f=<?php echo $_GET['f'];?>">
+            <img src="__CDN__/assets/list/muban1/tab-cart.png" >
+            <span>已购</span>
+        </a>
+    </li>
+</ul></div>
+
+<script>
+
+    $(document).ready(function(){
+
+        $("#searchSubmit1").click(function(){
+            var keys = $("#keys").val();
+            location.href="/index/index/pagecat?f=<?php echo $_GET['f']?>&type=search&keyword="+keys;
+        });
+    });
+
+    Vue.config.productionTip = false;
+    Vue.config.lang = 'zh-CN';
+    new Vue({
+        el: '#app',
+        data: {
+            list: [],
+            cat:[],
+            banner: [
+            ],
+            loading: false,
+            finished: false,
+            msg:'没有更多了',
+            params: {
+                action: "list",
+                f: "<?php echo $_GET['f']?>",
+                page: 1,
+                row: 50,
+                encode:1,
+                cid:"<?php echo isset($_GET['cid']) ? $_GET['cid'] : ''; ?>",
+                key:"<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>",
+                payed:''
+            },
+            catParam:{
+                limit:9, f: "<?php echo $_GET['f']?>",
+                encode:1,
+            },
+
+            dialog: {
+                fav: {
+                    status: false,
+                    url: "",
+                },
+                pay: {
+                    status: false,
+                    data: []
+                }
+            }
+        },
+        mounted: function () {
+            //this.doFav();
+            this.doGetList();
+
+        },
+        methods: {
+            doRate(){
+                return parseInt(Math.random()*(10000-90) + 90);
+            },
+            linkTo (e) {
+                layer.msg("正在吊起支付...",{
+                    icon:16,
+                    time:-1
+                });
+                location.href=e;
+            },
+            doCopyUrl() {
+                let vm = this;
+                var clipboard = new Clipboard("#doCopyValue");
+                clipboard.on('success', function (e) {
+                    vm.$message.success('复制成功');
+                    clipboard.destroy();
+                });
+                clipboard.on('error', function (e) {
+                    vm.$message.errot('复制失败');
+                    console.log(e);
+                });
+            },
+            doPay(item) {
+                console.log(item);
+                let vm = this;
+                vm.vid = item.id;
+
+                if(item.pay == 1)
+                {
+                    window.location.href=item.url;
+                    return;
+                }
+                $.ajax({
+                    url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid="+item.id+"&money="+item.money,
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: {},
+                    complete: function (XMLHttpRequest, textStatus) {
+                    },
+                    success: function (data) {
+                        console.log(data);
+
+                        vm.dialog.pay.pay = data;
+                        vm.dialog.pay.status = true;
+                    }
+                });
+            },
+            doGetList() {
+                let vm = this;
+
+                $.ajax({
+                    // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                    url: '/index/index/vlist',
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: vm.params,
+                    complete: function (XMLHttpRequest, textStatus) {
+                    },
+                    success: function (data) {
+                        if (data.status == 1) {
+                            vm.params.page++;
+
+                            let temp = data.data;
+                            vm.list = vm.list.concat(temp);
+                            vm.loading = false;
+                            if (vm.list.length == data.total) {
+                                vm.finished = true;
+                            }
+                        } else {
+                            layer.alert(data.msg);
+                        }
+                    }
+                });
+
+
+            },
+            doSearch() {
+                window.location.href = '/user.php?uid=1&type=channel';
+            },
+            doFav() {
+                let vm = this;
+                vm.dialog.fav.url = "";
+                vm.dialog.fav.status = true;
+            },
+
+        }
+    })
+
+
+</script>
+
+</body></html>
