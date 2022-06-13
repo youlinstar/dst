@@ -61,7 +61,7 @@ class Index extends Frontend
         $url = $this->request->url();
         $qiantao = config('site.qiantao');
         $url = str_replace("/index/index/index","/index/index/lists",$url);
-        
+
         if($qiantao == 1 && $this->is_wxBrowers() == false)
         {
             //$url = $url . "&qiantao=$qiantao";
@@ -82,15 +82,13 @@ class Index extends Frontend
             return $this->error("该用户已经被禁用!");
         }
         
-         $d = config('site.doiyin');
-        $domain = trim($this->getDomain(2)).urldecode($url);
-        
-    
+        $d = config('site.doiyin');
+        $domain = trim(getDomain(2)).urldecode($url);
         if($d == 1)
         {
             
           //  $url = str_replace("/index/index/lists","/index/index/dlist",$url);
-            $domain = $this->getDomain(2).urldecode($url);
+            $domain = getDomain(2).urldecode($url);
             $this->assign('url' , $domain);
             return $this->view->fetch("third/jump");
         }

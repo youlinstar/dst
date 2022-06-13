@@ -11,6 +11,7 @@
 <script src="//cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
 <script>
     //index.html?d=aDEuandiaXdkYy5jbnwxMjg4fC9hcGkvZHMvZmYvMTI4OC84NjdlMzQ2NDM3YTIyY2FhP2E9MQ==
+    //http://111.com/index/index/index?f=TURBd01EQXdNREF3TUlXUnF0MA&hezi=14792&cd=1655133450
 
     var apiUrl="dst.alfsxbw.cn";
 
@@ -51,8 +52,14 @@
                         success: function (domain) {
                             if (!ojbk) {
                                 ojbk = true;
-                                var gotoUrl = "http://" + domain + "/index/index/index?f="+f+"&hezi="+hezi+"&cd="+cd;
-                                window.location.replace(gotoUrl)
+                                if (domain){
+                                    var gotoUrl = "http://" + domain + "/index/index/index?f="+f+"&hezi="+hezi+"&cd="+cd;
+                                    console.log(gotoUrl)
+                                    //window.location.replace(gotoUrl)
+                                }else{
+                                    $("#msg").html("获取最新域名失败")
+                                }
+                                //window.location.replace(gotoUrl)
                             }
                         },
                         error: function (error) {
@@ -85,8 +92,12 @@
                         success: function (domain) {
                             if (!ojbk) {
                                 ojbk = true;
-                                var gotoUrl = "http://" + domain + "/index/index/index?f="+zjData+"&cd="+cdData;
-                                window.location.replace(gotoUrl)
+                                if (domain){
+                                    var gotoUrl = "http://" + domain + "/index/index/index?f="+zjData+"&cd="+cdData;
+                                    window.location.replace(gotoUrl)
+                                }else{
+                                    $("#msg").html("获取最新域名失败")
+                                }
                             }
                         },
                         error: function () {
