@@ -27,16 +27,17 @@
 			}
 	        var data = $('form').serializeArray();
 	        $.post($('form').attr('action'), data, function(data, textStatus, xhr) {
-	            layer.msg(data.msg);
-	            if (data.code == 0) {
-	                setTimeout(function() {
-	                    window.location.reload();
-	                }, 1000);
-	            }
-	            if(data.code == 1)
-				{
-					window.location.href = data.url;
-				}
+	            layer.msg(data.msg, function(){
+					if (data.code == 0) {
+						setTimeout(function() {
+							window.location.reload();
+						}, 1000);
+					}
+					if(data.code == 1)
+					{
+						window.location.href = data.url;
+					}
+				});
 	        }, 'json');
 	    });
 
