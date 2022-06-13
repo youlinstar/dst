@@ -1,0 +1,129 @@
+
+<style>
+
+    form{
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        flex-wrap: wrap;
+
+    }
+
+    form>div{
+
+        width: 30%;
+
+    }
+</style>
+<div class="panel panel-default panel-intro">
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+
+
+
+            <div class="asked">
+                <form  id="forms"  class="layui-form" method="post" action="auth/admin/add">
+                    <div class="form-group">
+                        <label>代理账号:</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="1" value="{:date('YmdHis')}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>密码：</label>
+                        <input type="text" class="form-control" id="passwd" name="password" placeholder="请求输入密码"  value="{:rand()}">
+                    </div>
+
+                    <!--<div class="form-group">
+                        <label>代理抽成<font style="color:#A1A1A1">（例如：5 代表5%,下级收入100元你拿5元）</font></label>
+                        <input type="text" class="form-control" id="ticheng" name="ticheng" placeholder="请输入提成%"  value="{$admin_info.ticheng}">
+                    </div>-->
+
+                    <div class="form-group" style="padding-top: 1%">
+                        <label>代理抽成: <span class="text-warning" id="caonima">当前设置为{$admin_info.ticheng}%  【下级代理订单收入100你将抽成:{$admin_info.ticheng}.00元】
+                        </span>
+                        </label>
+                        <div class="col-xs-12 col-sm-8">
+                            <input type="hidden" class="form-control" id="ticheng" name="ticheng" value="{$admin_info.ticheng}"   />
+                            <div id="slideTest15" class="demo-slider" style="margin-top: 2%;margin-bottom: 5px;"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group" style="display:{if $is_admin == 1} block{else} none{/if}">
+                        <label>提现手续费：<font style="color:#A1A1A1">（例如：20 代表20%,最大不能超过100）</font></label>
+                        <input type="text" class="form-control" id="poundage" name="poundage" placeholder="请输入扣量%"  value="{$admin_info.poundage}">
+                    </div>
+
+                    <div class="form-group" style="display:none;">
+                        <label>发布视频最低金额：<font style="color:#A1A1A1"></font></label>
+                        <input type="text" class="form-control" id="min_publish" name="min_publish" placeholder="请输入最低金额"  value="{$admin_info.min_publish}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>所属组:</label>
+                        {:build_select('group[]', $groupdata, 2, ['class'=>'form-control', 'id'=>'select_id' , 'data-rule'=>'required'])}
+                    </div>
+
+                    {if $is_admin == 1}
+                    <div class="form-group">
+                        <label>扣量：<font style="color:#A1A1A1">（20 代表每20次成功交易的订单扣一次,最大不能超过100）</font></label>
+                        <input type="text" class="form-control" id="kouliang" name="kouliang" placeholder="请输入扣量%"  value="{$admin_info.kouliang}">
+                    </div>
+                    {else}
+                    <div class="form-group" style="display: none">
+                        <label>扣量：<font style="color:#A1A1A1">（20 代表每20次成功交易的订单扣一次,最大不能超过100）</font></label>
+                        <input type="text" class="form-control" id="kouliang" name="kouliang" placeholder="请输入扣量%"  value="{$admin_info.kouliang}">
+                    </div>
+
+                    {/if}
+
+                    <input type="hidden" class="form-control" id="min_fee" name="min_fee" placeholder="请输入扣量%"  value="{$admin_info.min_fee}">
+
+                    <input type="hidden" class="form-control" id="pay_model" name="pay_model" placeholder="请输入扣量%"  value="0">
+                    <input type="hidden" class="form-control" id="short" name="short" placeholder="请输入扣量%"  value="0">
+
+
+
+                    {:token()}
+                    <button type="button" id="save" class="btn btn-info btn-block" style="background:#1E9FFF;border:1px solid #1E9FFF">一键新增代理</button>
+
+                </form>
+
+            </div>
+
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+
+                    <div id="toolbar" class="toolbar">
+                        {:build_toolbar('refresh')}
+                    </div>
+
+                    <table id="table" class="table layui-table  table-bordered table-hover"
+                           data-operate-edit="{:$auth->check('auth/admin/edit')}" 
+                           data-operate-del="{:$auth->check('auth/admin/del')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+
+
+    var current = "{$admin_info.ticheng}";
+    var wocao = "{$admin_info.ticheng}";
+    var admint = "{$admin.ticheng}";
+
+    var is_admin = '{$is_admin}';
+    var short = {:json_encode($short)};
+    var pay_info = {:json_encode($pay_info)};
+    console.log(short);
+
+</script>

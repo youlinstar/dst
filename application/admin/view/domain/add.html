@@ -1,0 +1,71 @@
+<form id="add-form" class="form-horizontal layui-form" role="form" data-toggle="validator" method="POST" action="">
+
+    <!--<div class="form-group">-->
+        <!--<label class="control-label col-xs-12 col-sm-2">{:__('Domain')}:</label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<input id="c-domain" data-rule="required" class="form-control" name="row[domain]" type="text" value="">-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="layui-form-item">
+
+        <label class="layui-form-label">域名</label>
+
+        <div class="layui-input-block">
+
+
+            <textarea placeholder="可批量添加域名,每行一个域名，回车换行" id="c-domain" class="layui-textarea" name="row[domain]" style="margin-top: 0px; margin-bottom: 0px; height: 134px;"></textarea>
+
+            <div class="layui-form-mid layui-word-aux">注意：总域名不能超过20个，否则影响检测效率</div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select  id="c-type" data-rule="required" class="form-control layui-input" name="row[type]">
+                {foreach name="typeList" item="vo"}
+                    <option value="{$key}" {in name="key" value="1"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <div class="radio">
+            {foreach name="statusList" item="vo"}
+            <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="1"}checked{/in} /> {$vo}</label>
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <!--<div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_bind')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-is_bind" data-rule="required" class="form-control" name="row[is_bind]" type="number" value="0">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Bing_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-bing_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[bing_time]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Uid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-uid" data-rule="required" class="form-control" name="row[uid]" type="number" value="0">
+        </div>
+    </div>-->
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

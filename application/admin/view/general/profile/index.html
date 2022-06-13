@@ -1,0 +1,189 @@
+<style>
+    .profile-avatar-container {
+        position: relative;
+        width: 100px;
+        margin: 0 auto;
+    }
+
+    .profile-avatar-container .profile-user-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-avatar-container .profile-avatar-text {
+        display: none;
+    }
+
+    .profile-avatar-container:hover .profile-avatar-text {
+        display: block;
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background: #444;
+        opacity: .6;
+        color: #fff;
+        top: 0;
+        left: 0;
+        line-height: 100px;
+        text-align: center;
+    }
+
+    .profile-avatar-container button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+</style>
+<div class="row animated fadeInRight">
+    <div class="col-md-4">
+        <div class="box box-success">
+            <div class="panel-heading">
+                {:__('Profile')}
+            </div>
+            <div class="panel-body">
+
+                <form id="update-form" class="layui-form" role="form" data-toggle="validator" method="POST" action="{:url('general.profile/update')}">
+                    {:token()}
+                    <input type="hidden" id="c-avatar" name="row[avatar]" value="{$admin.avatar|htmlentities}"/>
+                    <div class="box-body box-profile">
+
+                        <!--<div class="profile-avatar-container">
+                            <img class="profile-user-img img-responsive img-circle plupload" src="{$admin.avatar|cdnurl|htmlentities}" alt="">
+                            <div class="profile-avatar-text img-circle">{:__('Click to edit')}</div>
+                            <button id="plupload-avatar" class="plupload" data-input-id="c-avatar"><i class="fa fa-upload"></i> {:__('Upload')}</button>
+                        </div>
+
+                        <h3 class="profile-username text-center">{$admin.username|htmlentities}</h3>
+
+                        <p class="text-muted text-center">{$admin.email|htmlentities}</p>
+                        <div class="form-group">
+                            <label for="username" class="control-label">{:__('Username')}:</label>
+                            <input type="text" class="form-control" id="username" name="row[username]" value="{$admin.username|htmlentities}" disabled/>
+                        </div>-->
+                       <!-- <div class="form-group">
+                            <label for="email" class="control-label">{:__('Email')}:</label>
+                            <input type="text" class="form-control" id="email" name="row[email]" value="{$admin.email|htmlentities}" data-rule="required;email"/>
+                        </div>-->
+                        <div class="form-group">
+                            <label for="nickname" class="control-label">{:__('Nickname')}:</label>
+                            <input type="text" class="form-control" id="nickname" name="row[nickname]" value="{$admin.nickname|htmlentities}" data-rule="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">{:__('Password')}:</label>
+                            <input type="password" class="form-control" id="password" placeholder="{:__('Leave password blank if dont want to change')}" autocomplete="new-password" name="row[password]" value="" data-rule="password"/>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">QQ:</label>
+                            <input type="number" class="form-control" id="qq" placeholder="QQ"  name="row[qq]" value="{$admin.qq|htmlentities}" data-rule=""/>
+                        </div>
+
+                        {if $is_admin == 1}
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">扣量:</label>
+                            <input type="number" class="form-control" id="kouliang" placeholder="扣量"  name="row[kouliang]" value="{$admin.kouliang|htmlentities}" data-rule=""/>
+                            <span class="text-danger">20 代表每20次成功交易的订单扣一次,最大不能超过100）</span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">代理费率:</label>
+                            <input type="number" class="form-control" id="poundage" placeholder="代理费率"  name="row[poundage]" value="{$admin.poundage|htmlentities}" data-rule=""/>
+                            <span class="text-danger">提现手续费百分比，填 30 代表30%）</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">最低提现金额:</label>
+                            <input type="number" class="form-control" id="min_fee" placeholder="最低提现金额"  name="row[min_fee]" value="{$admin.min_fee|htmlentities}" data-rule=""/>
+                            <span class="text-danger">代理最低提现金额（元）</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">最低发布金额:</label>
+                            <input type="number" class="form-control" id="min_publish" placeholder="最低发布金额"  name="row[min_publish]" value="{$admin.min_publish|htmlentities}" data-rule=""/>
+                            <span class="text-danger">最低发布金额（元）</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">域名自动切换:</label>
+                            {:build_select('row[jiance]', $jiance, $admin['jiance'], ['class'=>'form-control', 'required'=>''])}
+                            <div class="layui-form-mid layui-word-aux">检测类型:<span style="color: red">wechat / qq
+                                / douyin</span> 留空不执行<br>检测地址为:<span style="color: red">{$check_url}</span>
+                                在宝塔设置计划任务1分钟执行一次<br> 获取有效域名地址为:<span style="color: red">{$check_url1}</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">检测token:</label>
+                            <input type="text" class="form-control" id="jiance_tokan" placeholder="检测token"  name="row[jiance_token]" value="{$admin.jiance_token|htmlentities}" data-rule=""/>
+                            <span class="text-danger">域名检测接口网址91up.top</span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">防封入口:</label>
+                            <input type="text" class="form-control" id="wx_check_api" placeholder="防封入口"  name="row[wx_check_api]" value="{$admin.wx_check_api|htmlentities}" data-rule=""/>
+                            <span class="text-danger">填写则开启入口防封</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">(1) 微信支付:</label>
+                            {:build_select('row[pay_model]', $pay, $admin['pay_model'], ['class'=>'form-control', 'required'=>'required'])}
+                        </div>
+
+                       <!-- <div class="form-group">
+                            <label for="password" class="control-label">(2) 支付宝支付:</label>
+                            {:build_select('row[pay_model1]', $pay, $admin['pay_model1'], ['class'=>'form-control', 'required'=>'required'])}
+                        </div>-->
+                    {/if}
+
+                        <div class="form-group">
+                            <label for="password" class="control-label">短链接切换:</label>
+                            {:build_select('row[short]', $short, $admin['short'], ['class'=>'form-control', 'required'=>''])}
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">{:__('Submit')}</button>
+                            <button type="reset" class="btn btn-default">{:__('Reset')}</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-8">
+        <div class="panel panel-default panel-intro panel-nav">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#one" data-toggle="tab"><i class="fa fa-list"></i> {:__('Admin log')}</a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="one">
+                        <div class="widget-body no-padding">
+                            <div id="toolbar" class="toolbar">
+                                {:build_toolbar('refresh')}
+                            </div>
+                            <table id="table" class="table layui-table  table-bordered table-hover" width="100%">
+
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

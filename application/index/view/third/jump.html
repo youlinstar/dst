@@ -1,0 +1,281 @@
+
+
+<html>
+<head>
+    <title>正在跳转</title>
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+    <style>
+        body{background:#fff;}
+
+        @keyframes move {
+            50% {
+                transform: translateX(-0.5rem) rotate(-5deg);
+            }
+            100% {
+                transform: translateX(0.25rem) rotate(1deg);
+            }
+        }
+        @keyframes eyes {
+            0% {
+                transform: scaleY(1) translate(0, 0);
+            }
+            10% {
+                transform: scaleY(-1) translate(0, -0.5rem);
+            }
+            100% {
+                transform: scaleY(-1) translate(0, -0.5rem);
+            }
+        }
+        @keyframes lip {
+            to {
+                transform: scaleY(0.7);
+            }
+        }
+        @keyframes saliva {
+            0% {
+                transform: scaleY(1.5);
+            }
+            50% {
+                transform: scaleY(1.75);
+            }
+            75% {
+                transform: scaleY(1.6);
+            }
+            100% {
+                transform: scaleY(2);
+            }
+        }
+        *,
+        *:after,
+        *:before {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 50%;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #f5f4ed;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container .icecream {
+            width: 27rem;
+            height: 58rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container .icecream:hover {
+            animation: move 1s ease-in-out infinite alternate;
+        }
+        .container .icecream:hover .icecream-body__slice:nth-child(3) .eye {
+            animation: eyes 1s ease-in infinite alternate;
+        }
+        .container .icecream:hover .icecream-body__slice:nth-child(3) .mouth__lip {
+            animation: lip 0.5s ease-in infinite alternate;
+        }
+        .container .icecream:hover .icecream-body__slice:nth-child(3) .mouth__saliva {
+            opacity: 0;
+        }
+        .container .icecream .icecream-body {
+            display: flex;
+            flex-direction: column;
+            height: 75%;
+            width: 100%;
+            border-radius: 27rem 27rem 6rem 6rem;
+            border: 1.4rem solid #461b19;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 2.5rem 2.5rem 0 #d3cec4;
+        }
+        .container .icecream .icecream-body:before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: 20rem 27rem 0 0;
+            position: absolute;
+            box-shadow: inset 1.8rem 0 0 rgba(255, 255, 255, 0.2);
+        }
+        .container .icecream .icecream-body:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: 27rem 18rem 0 0;
+            position: absolute;
+            box-shadow: inset -2.4rem 0 0 rgba(0, 0, 0, 0.2);
+        }
+        .container .icecream .icecream-body__slice {
+            display: flex;
+            border-bottom: 1rem solid #461b19;
+        }
+        .container .icecream .icecream-body__slice:nth-child(2n-1) {
+            height: 30%;
+        }
+        .container .icecream .icecream-body__slice:nth-child(2n) {
+            height: 20%;
+        }
+        .container .icecream .icecream-body__slice:nth-child(1) {
+            background: #a9d8ea;
+        }
+        .container .icecream .icecream-body__slice:nth-child(2) {
+            background: #ab96db;
+        }
+        .container .icecream .icecream-body__slice:nth-child(3) {
+            align-items: center;
+            justify-content: center;
+            background: #fcbad2;
+        }
+        .container .icecream .icecream-body__slice:nth-child(3) .eye {
+            width: 2.8rem;
+            height: 1.5rem;
+            background: #461b19;
+            border-radius: 2.8rem 2.8rem 0 0;
+            position: relative;
+            margin-bottom: 3.5rem;
+            transform-origin: 0 50%;
+        }
+        .container .icecream .icecream-body__slice:nth-child(3) .eye:before {
+            content: "";
+            width: 0.9rem;
+            height: 0.9rem;
+            background: #461b19;
+            border-radius: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transform: translate(0, 0.4rem);
+            position: absolute;
+            z-index: 1;
+        }
+        .container .icecream .icecream-body__slice:nth-child(3) .eye:after {
+            content: "";
+            width: 0.9rem;
+            height: 0.9rem;
+            background: #461b19;
+            border-radius: 100%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: translate(0, 0.4rem);
+            position: absolute;
+            z-index: 1;
+        }
+        .container .icecream .icecream-body__slice:nth-child(3) .eye__retina {
+            width: 1rem;
+            height: 1rem;
+            background: #fcbad2;
+            border-radius: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-0.5rem, 0.5rem);
+            z-index: 1;
+        }
+        .container .icecream .icecream-body__slice:nth-child(3) .mouth {
+            position: relative;
+            width: 3rem;
+            height: 2.8rem;
+            margin: 0 1rem;
+        }
+        .container .icecream .icecream-body__slice:nth-child(3) .mouth__lip {
+            width: 100%;
+            height: 100%;
+            background: #461b19;
+            border-radius: 30% 30% 50% 50% / 29% 29% 65% 65%;
+            position: absolute;
+            z-index: 1;
+        }
+        .container .icecream .icecream-body__slice:nth-child(3) .mouth__saliva {
+            width: 1.5rem;
+            height: 2.5rem;
+            background: #ffffff;
+            border-radius: 1rem;
+            position: absolute;
+            transform-origin: 0 0;
+            z-index: 0;
+            animation: saliva 0.75s cubic-bezier(0.4, 0, 1, 1) infinite alternate;
+        }
+        .container .icecream .icecream-body__slice:nth-child(4) {
+            background: #ffffd2;
+            border-bottom: 0;
+        }
+        .container .icecream .icecream-stick {
+            display: flex;
+            height: 25%;
+            width: 10rem;
+            border-radius: 0 0 10rem 10rem;
+            border: 1.7rem solid #461b19;
+            border-top: 0;
+            background: #ffd379;
+            position: relative;
+            box-shadow: 2.5rem 2.4rem 0 #d3cec4;
+        }
+        .container .icecream .icecream-stick:before {
+            content: "";
+            width: 100%;
+            height: 3.5rem;
+            background: #d9ae58;
+            position: absolute;
+        }
+
+    </style>
+
+</head>
+<body style="text-align:center;">
+<!--<img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1747397754,1061122755&fm=26&gp=0.jpg" alt="正在跳转" class="img-responsive">-->
+<div class="container">
+    <div class="icecream">
+        <div class="icecream-body">
+            <div class="icecream-body__slice"></div>
+            <div class="icecream-body__slice"></div>
+            <div class="icecream-body__slice">
+                <span class="eye"><span class="eye__retina"></span></span>
+                <div class="mouth"><span class="mouth__lip"></span><span class="mouth__saliva"></span></div>
+                <span class="eye"><span class="eye__retina"></span></span>
+            </div>
+            <div class="icecream-body__slice"></div>
+        </div>
+        <div class="icecream-stick"></div>
+    </div>
+
+
+    <div data-v-69122123="" style="position: absolute;
+    z-index: 999;
+    bottom: 6%;
+    font-size: 50px;" class="title">请稍后,正在加载中..</div>
+
+</div>
+
+</div>
+
+
+ 
+
+<form action="{$url}" id="myform" method="post"></form>
+
+<script type="text/javascript">
+    setTimeout("document.getElementById(\"myform\").submit(); ",1000);
+    // window.onload=function(){
+    //     document.getElementById("myform").submit();
+    // }
+</script>
+
+</body>
+</html>

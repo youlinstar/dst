@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'Id'          => 'id',
+    'Uid'         => '用户uid',
+    'Video_id'    => '视频文件ID',
+    'Video_name'  => '视频文件名',
+    'Video_url'   => '视频链接',
+    'Erwei'       => '收款二维码',
+    'Short_url'   => '短链接',
+    'Money'       => '单片金额',
+    'Money1'       => '包日金额',
+    'Money2'       => '包月金额',
+    'Mianfei'     => '是否免费',
+    'Effect_time' => '有效时间',
+    'Input_time'  => '添加时间',
+    'Over_time'   => '过期时间',
+    'Long_time'   => '长按二维码次数',
+    'Lose_time'   => '失去焦点次数',
+    'Read_num'    => '访问量',
+    'Status'      => '是否启用',
+    'Title'       => '标题',
+    'Category.name' => '类型',
+    'try_see' => '试看(秒)',
+    'Delete' => '批量删除',
+    'Img' => '封面图',
+];

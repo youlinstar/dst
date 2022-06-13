@@ -1,0 +1,125 @@
+
+Tracing dependencies for: require-backend
+Error: Error: Module loading did not complete for: require-backend, jquery, layui, bootstrap, layer, toastr, fast, backend, backend-init, table, bootstrap-table, bootstrap-table-lang, bootstrap-table-export, tableexport, bootstrap-table-commonsearch, bootstrap-table-template, bootstrap-table-jumpto, form, upload, validator, validator-core, validator-lang
+    at Function.build.checkForErrors (/work/fast-ds/application/admin/command/Min/r.js:27410:19)
+
+
+/work/fast-ds/public/assets/css/backend.min.css
+----------------
+/work/fast-ds/public/assets/css/../css/bootstrap.css
+/work/fast-ds/public/assets/css/../css/fastadmin.css
+/work/fast-ds/public/assets/css/../css/skins/_all-skins.css
+/work/fast-ds/public/assets/css/../css/iconfont.css
+/work/fast-ds/public/assets/css/../libs/font-awesome/css/font-awesome.min.css
+/work/fast-ds/public/assets/css/../libs/toastr/toastr.min.css
+/work/fast-ds/public/assets/css/../libs/fastadmin-layer/dist/theme/default/layer.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-table/dist/bootstrap-table.min.css
+/work/fast-ds/public/assets/css/../libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-daterangepicker/daterangepicker.css
+/work/fast-ds/public/assets/css/../libs/nice-validator/dist/jquery.validator.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-select/dist/css/bootstrap-select.min.css
+/work/fast-ds/public/assets/css/../libs/fastadmin-selectpage/selectpage.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-slider/slider.css
+/work/fast-ds/public/assets/css/../libs/layui/css/layui.css
+/work/fast-ds/public/assets/css/backend.css
+
+
+Tracing dependencies for: require-backend
+Error: Error: Module loading did not complete for: require-backend, jquery, layui, bootstrap, layer, toastr, fast, backend, backend-init, table, bootstrap-table, bootstrap-table-lang, bootstrap-table-export, tableexport, bootstrap-table-commonsearch, bootstrap-table-template, bootstrap-table-jumpto, form, upload, validator, validator-core, validator-lang
+    at Function.build.checkForErrors (/work/fast-ds/application/admin/command/Min/r.js:27410:19)
+
+
+/work/fast-ds/public/assets/css/backend.min.css
+----------------
+/work/fast-ds/public/assets/css/../css/bootstrap.css
+/work/fast-ds/public/assets/css/../css/fastadmin.css
+/work/fast-ds/public/assets/css/../css/skins/_all-skins.css
+/work/fast-ds/public/assets/css/../css/iconfont.css
+/work/fast-ds/public/assets/css/../libs/font-awesome/css/font-awesome.min.css
+/work/fast-ds/public/assets/css/../libs/toastr/toastr.min.css
+/work/fast-ds/public/assets/css/../libs/fastadmin-layer/dist/theme/default/layer.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-table/dist/bootstrap-table.min.css
+/work/fast-ds/public/assets/css/../libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-daterangepicker/daterangepicker.css
+/work/fast-ds/public/assets/css/../libs/nice-validator/dist/jquery.validator.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-select/dist/css/bootstrap-select.min.css
+/work/fast-ds/public/assets/css/../libs/fastadmin-selectpage/selectpage.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-slider/slider.css
+/work/fast-ds/public/assets/css/../libs/layui/css/layui.css
+/work/fast-ds/public/assets/css/backend.css
+
+
+Tracing dependencies for: require-backend
+Error: Error: Module loading did not complete for: require-backend, jquery, layui, bootstrap, layer, toastr, fast, backend, backend-init, table, bootstrap-table, bootstrap-table-lang, bootstrap-table-export, tableexport, bootstrap-table-commonsearch, bootstrap-table-template, bootstrap-table-jumpto, form, upload, validator, validator-core, validator-lang
+    at Function.build.checkForErrors (/work/fast-ds/application/admin/command/Min/r.js:27410:19)
+
+
+/work/fast-ds/public/assets/css/backend.min.css
+----------------
+/work/fast-ds/public/assets/css/../css/bootstrap.css
+/work/fast-ds/public/assets/css/../css/fastadmin.css
+/work/fast-ds/public/assets/css/../css/skins/_all-skins.css
+/work/fast-ds/public/assets/css/../css/iconfont.css
+/work/fast-ds/public/assets/css/../libs/font-awesome/css/font-awesome.min.css
+/work/fast-ds/public/assets/css/../libs/toastr/toastr.min.css
+/work/fast-ds/public/assets/css/../libs/fastadmin-layer/dist/theme/default/layer.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-table/dist/bootstrap-table.min.css
+/work/fast-ds/public/assets/css/../libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-daterangepicker/daterangepicker.css
+/work/fast-ds/public/assets/css/../libs/nice-validator/dist/jquery.validator.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-select/dist/css/bootstrap-select.min.css
+/work/fast-ds/public/assets/css/../libs/fastadmin-selectpage/selectpage.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-slider/slider.css
+/work/fast-ds/public/assets/css/../libs/layui/css/layui.css
+/work/fast-ds/public/assets/css/backend.css
+
+
+Tracing dependencies for: require-backend
+Error: Error: Module loading did not complete for: require-backend, jquery, layui, bootstrap, layer, toastr, fast, backend, backend-init, table, bootstrap-table, bootstrap-table-lang, bootstrap-table-export, tableexport, bootstrap-table-commonsearch, bootstrap-table-template, bootstrap-table-jumpto, form, upload, validator, validator-core, validator-lang
+    at Function.build.checkForErrors (/work/fast-ds/application/admin/command/Min/r.js:27410:19)
+
+
+/work/fast-ds/public/assets/css/backend.min.css
+----------------
+/work/fast-ds/public/assets/css/../css/bootstrap.css
+/work/fast-ds/public/assets/css/../css/fastadmin.css
+/work/fast-ds/public/assets/css/../css/skins/_all-skins.css
+/work/fast-ds/public/assets/css/../css/iconfont.css
+/work/fast-ds/public/assets/css/../libs/font-awesome/css/font-awesome.min.css
+/work/fast-ds/public/assets/css/../libs/toastr/toastr.min.css
+/work/fast-ds/public/assets/css/../libs/fastadmin-layer/dist/theme/default/layer.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-table/dist/bootstrap-table.min.css
+/work/fast-ds/public/assets/css/../libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-daterangepicker/daterangepicker.css
+/work/fast-ds/public/assets/css/../libs/nice-validator/dist/jquery.validator.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-select/dist/css/bootstrap-select.min.css
+/work/fast-ds/public/assets/css/../libs/fastadmin-selectpage/selectpage.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-slider/slider.css
+/work/fast-ds/public/assets/css/../libs/layui/css/layui.css
+/work/fast-ds/public/assets/css/backend.css
+
+
+Tracing dependencies for: require-backend
+Error: Error: Module loading did not complete for: require-backend, jquery, layui, bootstrap, layer, toastr, fast, backend, backend-init, table, bootstrap-table, bootstrap-table-lang, bootstrap-table-export, tableexport, bootstrap-table-commonsearch, bootstrap-table-template, bootstrap-table-jumpto, form, upload, validator, validator-core, validator-lang
+    at Function.build.checkForErrors (/work/fast-ds/application/admin/command/Min/r.js:27410:19)
+
+
+/work/fast-ds/public/assets/css/backend.min.css
+----------------
+/work/fast-ds/public/assets/css/../css/bootstrap.css
+/work/fast-ds/public/assets/css/../css/fastadmin.css
+/work/fast-ds/public/assets/css/../css/skins/_all-skins.css
+/work/fast-ds/public/assets/css/../css/iconfont.css
+/work/fast-ds/public/assets/css/../libs/font-awesome/css/font-awesome.min.css
+/work/fast-ds/public/assets/css/../libs/toastr/toastr.min.css
+/work/fast-ds/public/assets/css/../libs/fastadmin-layer/dist/theme/default/layer.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-table/dist/bootstrap-table.min.css
+/work/fast-ds/public/assets/css/../libs/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-daterangepicker/daterangepicker.css
+/work/fast-ds/public/assets/css/../libs/nice-validator/dist/jquery.validator.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-select/dist/css/bootstrap-select.min.css
+/work/fast-ds/public/assets/css/../libs/fastadmin-selectpage/selectpage.css
+/work/fast-ds/public/assets/css/../libs/bootstrap-slider/slider.css
+/work/fast-ds/public/assets/css/../libs/layui/css/layui.css
+/work/fast-ds/public/assets/css/backend.css
+

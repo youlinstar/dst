@@ -1,0 +1,120 @@
+
+<style>
+    .no-margins{
+        font-size: 31px;
+        text-align: center;
+    }
+    .fa fa-wechat{
+        background-color: red;
+    }
+    .content{
+        margin:10px
+    }
+    .link-img{
+        width:45px;
+        height:45px;
+        color:#5a8bff;
+        border-radius: 10px;
+        margin-top: 5%;
+    }
+    .link-text{
+        color: #2d2424;
+        position: relative;
+        top: 13%;
+        font-size: 15px;
+    }
+</style>
+
+<div class="layui-row layui-col-space10" style="margin-bottom: 10px">
+    <div class="layui-col-sm4 layui-col-xs12">
+        <div class="layui-card shortUrl">
+            <a class="layui-card-body btn-Method" data-type="shortUrl" style="text-align: center;display:block; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
+        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;  ">
+                <img src="/assets/img/ico/link.png" class="link-img">
+                <span class="link-text">推广链接</span>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="layui-col-sm4 layui-col-xs12">
+        <div class="layui-card tgqrcode">
+            <a class="layui-card-body btn-Method" data-type="tgqrcode" style="display:block;text-align: center;ursor:pointer; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
+        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;">
+                <img src="/assets/img/ico/qr.png" class="link-img">
+                <span class="link-text">二维码推广</span>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="layui-col-sm4 layui-col-xs12">
+        <div class="layui-card muban">
+            <a class="layui-card-body btn-Method" data-type="muban" style="display:block;text-align: center; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
+        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;">
+                <img src="/assets/img/ico/html.png" class="link-img">
+                <span class="link-text">模版切换</span>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="panel panel-default panel-intro">
+    {:build_heading()}
+
+
+
+
+    <div class="panel-body">
+
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar">
+                        <a href="javascript:;" class="btn btn-primary btn-refresh" title="{:__('Refresh')}" ><i class="fa fa-refresh"></i> </a>
+
+
+                        <a class="layui-btn layui-btn-sm layui-btn-warm btn-Method editMoney" data-type="editMoney" href="javascript:" >一键修改金额</a>
+
+                        
+                        <a class="layui-btn layui-btn-sm layui-btn-normal btn-Method trySee" data-type="trySee" href="javascript:" >一键修改试看</a>
+
+                            <a class="layui-btn layui-btn-sm layui-btn-normal btn-Method dateFee" data-type="dateFee" href="javascript:"  >设置包日金额</a>
+
+
+ <a class="layui-btn layui-btn-sm layui-btn-normal btn-Method weekFee" data-type="weekFee" href="javascript:"  >设置包周金额</a>
+ 
+                            <a class="layui-btn layui-btn-sm layui-btn-normal btn-Method monthFee" data-type="monthFee" href="javascript:"  >设置包月金额</a>
+
+
+                        <!--<a href="javascript:;" class="btn btn-success btn-add {:$auth->check('link/add')?'':'hide'}" title="{:__('Add')}" ><i class="fa fa-plus"></i> {:__('Add')}</a>
+                        <a href="javascript:;" class="btn btn-success btn-edit btn-disabled disabled {:$auth->check('link/edit')?'':'hide'}" title="{:__('Edit')}" ><i class="fa fa-pencil"></i> {:__('Edit')}</a>-->
+                        <a href="javascript:;" class="btn btn-danger btn-del btn-disabled disabled {:$auth->check('link/del')?'':'hide'}" title="{:__('Delete')}" ><i class="fa fa-trash"></i> {:__('Delete')}</a>
+                        <a href="javascript:;" class="btn btn-danger del-all {:$auth->check('link/del')?'':'hide'}" title="全部删除" ><i class="fa fa-trash"></i> 全部删除</a>
+                    </div>
+                    <table id="table" class="table   table-bordered table-hover table-nowrap"
+                           data-operate-edit="{:$auth->check('link/edit')}" 
+                           data-operate-del="{:$auth->check('link/del')}" 
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="qrshow" style="display:none; position:fixed; left:0; right0: top:0; bottom:0;background:#000; opacity:0.2; width:100%;height:100%;z-index:999" ></div>
+<div id="qrimgcon" style="display:none;text-align:center; padding: 10px;background:#fff; border-radius:2px;border:1px solid#d1d1d1; position:fixed;left:50%;top:50%;z-index:9999;-webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    transform:translate(-50%,-50%);"></div>
+
+<script>
+
+    var userinfo = {:json_encode($userinfo)};
+    var push_url = "{$url}";
+    console.log(userinfo ,push_url);
+</script>

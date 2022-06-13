@@ -1,0 +1,118 @@
+
+
+<style>
+    #ribbon{
+        display: none;
+    }
+</style>
+
+<div class="layui-col-md12 ">
+            {foreach name='list'  item="vo" key="k"}
+
+            <div class="content-main layui-col-md3 layui-col-sm12">
+
+                <div class="layui-fluid">
+
+                    <div class="layui-card">
+
+                        <div class="layui-card-header">
+                            {$vo['title']}
+                        </div>
+
+                        <div class="layui-card-body" style="text-align:center;">
+                            <form class="layui-form">
+                                <div class="layui-form-item">
+                                    <img src="{$vo.image}" style="height:300px;width: 100%"/>
+                                </div>
+                                <div class="layui-form-item">
+                                    <input type="hidden"  autocomplete="off" name="title" class="layui-input" value="{$vo.title}">
+                                    <input type="hidden"  autocomplete="off" name="muban" class="layui-input" value="{$vo.muban}">
+                                    <input type="hidden" name="id" value="{$vo.id}">
+                                    {if condition="$userinfo['view_id'] == $vo['id']"}
+                                        <button class="layui-btn layui-col-md12 layui-col-sm12 layui-btn-disabled">当前模板</button>
+                                        {else/}
+                                        <button type="button" class="sub layui-btn layui-col-md12 layui-col-sm12" lay-submit="" lay-filter="sub">切换到模板</button>
+                                    {/if}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/foreach}
+</div>
+
+
+
+
+
+
+            <script type="text/javascript" src="__CDN__/assets/libs/layui/layui.all.js"></script>
+
+
+
+    <script type="text/javascript">
+
+
+
+
+
+        layui.use(['jquery','form'], function(){
+
+            var form = layui.form
+
+                ,$=layui.jquery;
+
+
+            $(".sub").click(function(){
+                var info = $(this).parents('form').serialize();
+                $.ajax({
+
+                    url: "",
+
+                    type : "POST",
+
+                    dataType:'json',
+
+                    data:info,
+
+                    cache: false,
+
+                    async:false,
+
+                    success: function (data) {
+
+                        if (data.code == 0) {
+
+                            layer.msg(data.msg,{time:1500},function(){
+
+                                parent.layer.closeAll();
+
+                                //window.parent.location.reload();
+
+                            });
+
+                        }else{
+
+                            layer.msg(data.msg);
+
+                        }
+
+                    }
+
+                });
+            });
+
+            //监听提交
+
+
+
+
+
+        });
+
+
+
+    </script>
+
+</block>

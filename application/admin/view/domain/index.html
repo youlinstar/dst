@@ -1,0 +1,111 @@
+<style>
+    .content{
+        margin:10px
+    }
+    .fa fa-wechat{
+        background-color: red;
+    }
+    .content{
+        margin:10px
+    }
+    .link-img{
+        width:45px;
+        height:45px;
+        color:#5a8bff;
+        border-radius: 10px;
+        margin-top: 5%;
+    }
+    .link-text{
+        color: #2d2424;
+        position: relative;
+        top: 13%;
+        font-size: 15px;
+    }
+</style>
+
+<div class="layui-row layui-col-space10" style="margin-bottom: 10px">
+    <div class="layui-col-sm4 layui-col-xs12">
+        <div class=" layui-card muban " onclick="add();">
+            <a href="javascript:;" class="layui-card-body btn-Method btn-add {:$auth->check('hezi/add')?'':'hide'}" title="{:__('Add')}" style="display:block;text-align: center; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
+        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;">
+                <img src="/assets/img/ico/ymtj.png" class="link-img">
+                <span class="link-text">批量添加域名</span>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="layui-col-sm4 layui-col-xs12">
+        <div class="layui-card tgqrcode" onclick="deleteList()">
+            <a class="layui-card-body btn-Method getCheckData1" data-all="all" data-type="tgqrcode" style="display:block;text-align: center;ursor:pointer; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
+        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;">
+                <img src="/assets/img/ico/ymsc.png" class="link-img">
+                <span class="link-text">删除拦截域名</span>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="layui-col-sm4 layui-col-xs12">
+        <div class="layui-card muban" onclick="Refresh();">
+            <a class="layui-card-body btn-Method del-all" data-type="muban" style="display:block;text-align: center; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
+        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;">
+                <img src="/assets/img/ico/scdefault.png" class="link-img">
+                <span class="link-text">删除</span>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+<div class="panel panel-default panel-intro">
+
+
+
+
+    <div class="panel-body">
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="one">
+                <div class="widget-body no-padding">
+                    <div id="toolbar" class="toolbar">
+                        <a href="javascript:;"  class="btn btn-primary btn-refresh" title="{:__('Refresh')}" ><i class="fa fa-refresh"></i> </a>
+                        <a href="javascript:;" id="add" class="btn btn-success btn-add {:$auth->check('domain/add')?'':'hide'}" title="{:__('Add')}" style="display: none" ><i class="fa fa-plus"></i> {:__('Add')}</a>
+                        <a href="javascript:;" class="btn btn-success btn-edit btn-disabled disabled {:$auth->check('domain/edit')?'':'hide'}" title="{:__('Edit')}" ><i class="fa fa-pencil"></i> {:__('Edit')}</a>
+                        <a href="javascript:;" id="delete" class="btn btn-danger btn-del btn-disabled disabled {:$auth->check('domain/del')?'':'hide'}" style="display: none" title="{:__('Delete')}" ><i class="fa fa-trash"></i> {:__('Delete')}</a>
+                    </div>
+                    <table id="table" class="table layui-table table-bordered table-hover table-nowrap"
+                           data-operate-edit="{:$auth->check('domain/edit')}"
+                           data-operate-del="{:$auth->check('domain/del')}"
+                           width="100%">
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function add() {
+        document.getElementById("add").click();
+    }
+    function Refresh() {
+        document.getElementById("delete").click();
+    }
+    function deleteList() {
+        $.ajax({
+            url: "domain/deleteList",
+            type : "POST",
+            dataType:'json',
+            cache: false,
+            async:false,
+            success: function (data) {
+               if(data>0){
+                   layer.alert('拦截域名已删除', {icon: 6});
+               }else{
+                   layer.msg('删除失败!', {icon: 5});
+               }
+            }
+        });
+    }
+</script>

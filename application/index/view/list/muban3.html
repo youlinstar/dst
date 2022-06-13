@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" class="pixel-ratio-1">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>涅槃首页</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <style>body {
+        background-color: #FFFFFF;
+    }</style>
+</head>
+<body style="display: block;">
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 30 + 'px'
+
+    })
+</script>
+
+<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/font-awesome.min.css">
+<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/main.css">
+<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/wx.css">
+
+
+<script src="__CDN__/assets/list/muban1/static/lib/vue/vue.js"></script>
+<script src="__CDN__/assets/list/muban1/static/lib/vant/js/vant.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.10/lib/index.css"/>
+<script src="__CDN__/assets/list/muban1/static/js/jquery.min.js"></script>
+<script src="__CDN__/assets/list/muban1/static/lib/layer/layer.js"></script>
+
+
+<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/lib/el-ui/css/index.css">
+<script src="__CDN__/assets/list/muban1/static/lib/el-ui/index.js"></script>
+<script src="__CDN__/assets/list/muban1/static/clipboard/clipboard.min.js" type="text/javascript"></script>
+<script src="//cdn.jsdelivr.net/npm/xgplayer@2.9.6/browser/index.js" charset="utf-8"></script>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+    function onBridgeReady() {
+        WeixinJSBridge.call('hideOptionMenu');
+    }
+
+    if (typeof WeixinJSBridge == "undefined") {
+        if (document.addEventListener) {
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+    } else {
+        onBridgeReady();
+    }
+</script>
+<style>
+
+    .list .list-item .plays {
+        color: #f90823;
+        font-size: 1.1rem;
+        padding-left: 5px;
+        line-height: 0px;
+        margin-bottom: 10px;
+    }
+
+    .home {
+        padding-top: 0;
+    }
+
+    .van-list__finished-text {
+        margin-bottom: 10%;
+    }
+
+    .likelist li {
+
+        margin-bottom: 10px;
+
+        height: 60px;
+
+        overflow: hidden;
+
+        display: block;
+
+    }
+
+    .likelist li img {
+
+        width: 30%;
+
+        display: block;
+
+        float: left;
+
+        height: 60px;
+
+    }
+
+    .likelist p {
+
+        width: 70%;
+
+        float: left;
+
+        height: 60px;
+
+        line-height: 25px;
+
+        padding: 5px 10px;
+
+        text-overflow: ellipsis;
+
+        display: -webkit-box;
+
+        -webkit-line-clamp: 2;
+
+        overflow: hidden;
+
+        -webkit-box-orient: vertical;
+
+    }
+
+    .liketitle {
+
+        margin-top: 10px;
+
+    }
+
+    #myvideo {
+
+        margin-top: 10px;
+
+    }
+
+    .pay-item {
+
+        width: 100%;
+
+        height: 40px;
+
+        line-height: 40px;
+
+        margin-bottom: 8%;
+
+        border-radius: 5px;
+
+        border: 1px solid #CCCCCC;
+
+        text-align: center;
+
+        color: #666;
+
+    }
+
+    .pay-item:last-child {
+
+        margin-bottom: 10px;
+
+    }
+
+    html,
+    body {
+        height: 100%;
+        background-color: #f2f3f5;
+    }
+
+    .list {
+        margin-top: 30%;
+        padding-bottom: 20px;
+    }
+
+    .body .channel ul li span {
+        color: #fff;
+        font-size: 1.2em;
+        font-weight: 500;
+    }
+
+    .licat {
+        width: 10px;
+    }
+
+    .channel {
+        background-image: linear-gradient(to right, #f53036, #da2b30);
+        border-radius: 4%;
+
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        width: 100%;
+    }
+
+    .body .channel ul li {
+       width: 13%;
+    float: left;
+    height: 21px;
+    
+    border-radius: 6px;
+    line-height: 21px;
+    margin-bottom: 0px;
+    
+    margin-left: 3px;
+    margin-top: 2%;
+    }
+
+    }
+    .weui-panel__hd {
+        padding-left: 2%;
+        color: rgb(250, 67, 106);
+        font-weight: 500;
+    }
+
+    .body .channel ul li.active span {
+        color: #fff940;
+
+    }
+</style>
+<style>
+    .con {
+        width: 100%;
+        height: 35px;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: fixed;
+        color: #fff;
+        text-align: center;
+        border-radius: 10px;
+        line-height: 35px;
+        z-index: 999;
+        display: none;
+        font-size: 16px;
+    }
+
+    .hezi {
+        height: 212px;
+        background-color: #303133;
+        margin-bottom: 7%;
+    }
+
+    .sousuo {
+        width: 100%;
+        height: 43px;
+        padding-top: 3%;
+    }
+
+    .btns {
+        border: none;
+        padding: 1px;
+        font-size: 14px;
+        background-color: #fff940;
+        color: red;
+        margin-left: 10%;
+        border-radius: 3px;
+        font-weight: 500;
+    }
+
+    .inputKey {
+        border-radius: 3px;
+        border: none;
+        padding: 1%;
+        margin-left: 7%;
+        font-size: 13px;
+    }
+
+    .sousuospan {
+        color: #fff;
+        margin-left: 3%;
+        font-size: 14px;
+    }
+
+    .bootoms {
+        height: 40px;
+        position: fixed;
+        background-image: linear-gradient(to right, #f53036, #da2b30);
+
+        width: 100%;
+        bottom: 0px;
+        z-index: 99;
+    }
+
+    .btn-s {
+        border: none;
+        margin-left: 10%;
+        margin-top: 2%;
+        font-size: 1.2em;
+        font-weight: 500;
+    }
+
+    .plays {
+        position: relative;
+    }
+
+    .list .list-item {
+        width: 47%;
+        height: 45vw;
+        margin-left: 2%;
+        float: left;
+
+    }
+
+    .list .list-item .name {
+        color: #666666;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+    }
+
+    .active {
+        color: #fff940;
+    }
+    .ds_tankuang{
+        height: 130px;
+    width: 100%;
+    margin-bottom: 4%;
+    }
+    .niubi{
+        font-size: 1.3em;
+  
+    }
+
+</style>
+<div id="app">
+    <p class=con></p>
+    <div class="box body home" style="display:block;" data-href="0">
+
+
+        
+        <div class="channel">
+            <ul>
+                <li class="licat" data-cid="0" key="-1" :class="activeClass == -1 ? 'active':''"
+                    @click="doGetList(-1,'cat')">
+                    <a style="color: black">
+                        <span>全部</span>
+                    </a>
+                </li>
+                <li class="licat" data-cid="0" v-for="(item,index) in cat" @click="doGetList(index , item)" :key="index"
+                    :class="activeClass == index ? 'active':''">
+                    <a style="color: black">
+                        <span :class="activeClass == index ? 'active':''">{{item.title}}</span>
+                    </a>
+                </li>
+
+                <li class="licat" data-cid="0" key="99" :class="activeClass == 99 ? 'active':''" @click="yigou()">
+                    <a style="color: rgb(250, 67, 106)">
+                        <span style="color:#fff940">已购</span>
+                    </a>
+                </li>
+
+                <div style="clear:both;"></div>
+            </ul>
+            <div class="sousuo">
+                <button class="btns" @click="doGetList(-1,'cat')">今日新片</button>
+                <input class="inputKey" v-model="params.key" type="text" placeholder="输入搜索关键词">
+                <span class="sousuospan" @click="sousuoa()">搜索 👉</span>
+            </div>
+        </div>
+
+        <div class="list">
+            <div class="hezi" v-if="hezi">
+            <div id="mse" style="width: 100%"></div>
+        </div>
+            <div id="list">
+                <van-list v-model="loading" :finished="finished" :finished-text="msg" @load="doGetList" offset="700"
+                          direction="down">
+                    <div class="van-clearfix">
+                         <lazy-component>
+                        <li class="list-item" v-for="item in list" @click="doPay(item)">
+                            
+                             
+                            <div  class="thumb">
+                              
+                                <img v-lazy="item.img" >
+                               
+                                </div>
+                            <p class="plays">{{item.rand}}人付款&nbsp;&nbsp;
+                                价格:{{item.money}}元</p>
+                            
+                            
+                            <p class="name">{{item.title}}</p>
+                        </li>
+                         </lazy-component>
+                    </div>
+                </van-list>
+                <div style="clear:both;"></div>
+
+            </div>
+
+
+            <div class="bootoms">
+
+                <span class="btn-s" style="color:#fff" @click="doGetList(-1,'cat')">热门推荐</span>
+                <button class="btn-s" style="background-color:#fff940:color:red;background-color: #fff940;
+    border-radius: 5px;
+    color: red;" @click="yigou()">＋已购买
+                </button>
+                <a class="btn-s" style="color:#fff" href="#">返回顶部</a>
+
+            </div>
+        </div>
+
+
+    </div>
+    
+    
+      
+  
+
+
+
+    <!--打赏代码-->
+    <div id="WX-window-TKEy5SPt5wisSxt-Shade" v-if="dialog.pay.status" class="WX-window-shade">
+        <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
+            <div class="WX-Window-main" style="width:70%"><h2>打赏后观影</h2>
+                <div class="WX-Window-body">
+
+                    <span class="niubi">{{ds_title}}</span>
+                    <div class="ds_tankuang">
+                        <img :src="ds_img" style="width:100%;height:130px">
+                    </div>
+                    <li v-for="(item,index) in dialog.pay.pay" class="pay-item" @click="linkTo(item.url)">
+
+
+                        <a style="color: black;font-size:1.5em;">
+
+                            <img
+                                    height="32px"
+                                    style="display: inline-block; vertical-align: middle;"
+                                    :src="__CDN__item.img"
+                            >
+
+                            {{item.name}}
+                        </a>
+
+                    </li>
+
+                    <p style="color:#f74550;line-height:25px;margin:10px auto;">
+                        温馨提示：推荐使用浏览器打开收藏观看。<br>
+                    </p>
+
+                </div>
+                <div class="WX-Window-footer"><a @click="dialog.pay.status=false,dialog.pay.pay=[]"
+                                                 href="javascript:void(0);" style="width:calc(95% - 10px);"
+                                                 class="WX-Window-btn cannel">关闭</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!--收藏代码-->
+    <div id="WX-window-TKEy5SPt5wisSxt-Shadee" v-if="dialog.fav.status" class="WX-window-shade">
+        <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
+            <div class="WX-Window-main" style="width:80%"><h2>保存本站</h2>
+                <div class="WX-Window-body">
+                    <p style="color:#f74550;line-height:25px;margin-top:10px;text-align:center;">
+                        长按保存二维码或复制链接收藏本站
+                    </p>
+                    <img width="100%" :src="'/qrcode/build?text='+dialog.fav.url"
+                         style="display:block;margin:auto;">
+                    <!--<div class="CopyUrl">
+                        <span class="UrlData">{{dialog.fav.url}}</span>
+                        <a href="javascript:void(0);" id="doCopyValue" :data-clipboard-text="dialog.fav.url"
+                           @click="doCopyUrl()" class="CopyUrlBtn">复制</a>
+                    </div>-->
+                </div>
+                <div class="WX-Window-footer"><a @click="dialog.fav.status=false" href="javascript:void(0);"
+                                                 style="width:calc(95% - 10px);"
+                                                 class="WX-Window-btn cannel">关闭</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box ListPage"></div>
+
+
+
+<form action="" method="post" name="form" style="display:none">
+  
+</form>
+</div>
+<style>
+    .CopyUrl {
+        width: 90%;
+        height: 70px;
+        margin: auto;
+    }
+
+    .CopyUrl span {
+        display: block;
+        float: left;
+        padding: 5px 0px;
+    }
+
+    .CopyUrl a {
+        display: block;
+        padding: 5px 10px;
+        color: #13ce66;
+        float: right;
+    }
+</style>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        let player = new Player({
+            "id": "mse",
+            "url": "{$hezi.video}",
+            "playsinline": true,
+            "x5-video-player-fullscreen": "false",
+            "x5-video-orientation": "portraint",
+            "x5-video-player-type": "h5",
+            "fluid": true,
+        });
+
+    });
+
+    Vue.config.productionTip = false;
+    Vue.config.lang = 'zh-CN';
+    
+    console.log(vant);
+        Vue.use(vant.Lazyload, {
+      lazyComponent: true,
+    });
+  
+  var dy = "{$dy}";
+    new Vue({
+        el: '#app',
+        
+        data: {
+            list: [],
+            current: "",
+            activeClass: -1,
+            cat: [],
+            banner: [],
+            ds_title:"打赏后观影",
+            ds_img:"",
+            total: 0,
+            hezi: false,
+            loading: false,
+            finished: false,
+            vid: 0,
+            msg: '没有更多了',
+            params: {
+                action: "list",
+                f: "<?php echo $_GET['f']?>",
+                page: 1,
+                row: 50,
+                encode: 1,
+                cid: '',
+                key: '',
+                payed: ''
+            },
+            catParam: {
+                limit: 910, f: "<?php echo $_GET['f']?>",
+                encode: 1,
+            },
+
+            dialog: {
+                fav: {
+                    status: false,
+                    img: "",
+                    url: "",
+                },
+                pay: {
+                    status: false,
+                    pay: [],
+
+                }
+            }
+        },
+        mounted: function () {
+            //this.doFav();
+            this.getCat();
+
+    
+            var hezi = this.getQueryVariable('hezi');
+            if (hezi > 0) {
+                this.hezi = true;
+            }
+        },
+        methods: {
+            getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] == variable) {
+                        return pair[1];
+                    }
+                }
+                return (false);
+            },
+            doRate() {
+                return parseInt(Math.random() * (10000 - 90) + 90);
+            },
+            linkTo(e) {
+
+                layer.msg("正在调起支付...", {
+                    icon: 16,
+                    time: 3000
+                });
+                
+                if(dy == "1")
+                {
+                    document.form.action = e;
+                    document.form.submit();
+                     return 
+                }
+                
+                location.href = e;
+            },
+            yigou() {
+                let vm = this;
+ 
+            console.log()
+                vm.finished = false;
+                vm.params.page = 1;
+                vm.params.payed = 1;
+                vm.params.key = '';
+                vm.params.cid = '';
+                vm.list = [];
+                vm.msg = "空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容";
+
+                $.ajax({
+                    url: '/index/index/vlist',
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: vm.params,
+                    complete: function (XMLHttpRequest, textStatus) {
+                    },
+                    success: function (data) {
+                        if (data.status == 1) {
+                            vm.params.page++;
+
+                            vm.total = data.total;
+                            let temp = data.data;
+                            vm.list = vm.list.concat(temp);
+                            vm.loading = false;
+                            if (vm.list.length == data.total) {
+                                vm.finished = true;
+                                vant.Notify({ type: 'success', message: vm.msg });
+                            }
+                        } else {
+                            layer.alert(data.msg);
+                        }
+                    }
+                });
+
+
+            },
+            sousuoa(e) {
+
+                let vm = this;
+                vm.params.page = 1;
+                vm.list = [];
+                this.doGetList("-1", '');
+            },
+            doCopyUrl() {
+                let vm = this;
+                var clipboard = new Clipboard("#doCopyValue");
+                clipboard.on('success', function (e) {
+                    vm.$message.success('复制成功');
+                    clipboard.destroy();
+                });
+                clipboard.on('error', function (e) {
+                    vm.$message.errot('复制失败');
+                    console.log(e);
+                });
+            },
+            doPay(item) {
+                console.log(item);
+                let vm = this;
+                vm.vid = item.id;
+                vm.ds_img = item.img;
+                vm.ds_title = item.title;
+
+                if (item.pay == 1) {
+                    
+                     if(dy == "1")
+                {
+                    document.form.action = item.url;
+                    document.form.submit();
+                    return 
+                }
+                
+                
+                    window.location.href = item.url;
+                    return;
+                }
+                $.ajax({
+                    url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid=" + item.id + "&money=" + item.money,
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: {},
+                    complete: function (XMLHttpRequest, textStatus) {
+                    },
+                    success: function (data) {
+                        console.log(data);
+
+                        vm.dialog.pay.pay = data;
+                        vm.dialog.pay.status = true;
+                    }
+                });
+            },
+            doGetList(index, row) {
+                let vm = this;
+                console.log(row);
+                
+
+                vm.activeClass = index;
+
+                vm.params.payed = '';
+                if (row != undefined && row.id != undefined) {
+                    vm.list = [];
+                    vm.params.page = 1;
+                    vm.params.cid = row.id;
+                    
+                }
+                if (row == "cat") {
+
+
+                    vm.list = [];
+                    vm.finished = false;
+                    vm.params.page = 1;
+                    vm.params.key = '';
+                    vm.params.cid = '';
+                }
+                console.log(vm.params);
+
+                $.ajax({
+                    // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                    url: '/index/index/vlist',
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: vm.params,
+                    complete: function (XMLHttpRequest, textStatus) {
+                    },
+                    success: function (data) {
+                        if (data.status == 1) {
+                            vm.params.page++;
+
+                            vm.total = data.total;
+                            let temp = data.data;
+                            vm.list = vm.list.concat(temp);
+                            vm.loading = false;
+                            if (vm.list.length == data.total) {
+                                vm.finished = true;
+                                                vm.msg="没有更多了";
+
+                            }
+                        } else {
+                            layer.alert(data.msg);
+                        }
+                    }
+                });
+
+
+            },
+            getCat() {
+                let vm = this;
+                $.ajax({
+                    // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                    url: '/index/index/cat',
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: vm.catParam,
+                    complete: function (XMLHttpRequest, textStatus) {
+                    },
+                    success: function (data) {
+
+                        vm.cat = data.data;
+                        /*if (data.status == 1) {
+                            vm.params.page++;
+    
+                            let temp = data.data;
+                            vm.list = vm.list.concat(temp);
+                            vm.loading = false;
+                            if (vm.list.length == data.total) {
+                                vm.finished = true;
+                            }
+                        } else {
+                            layer.alert(data.msg);
+                        }*/
+                    }
+                });
+
+            },
+            doSearch() {
+                window.location.href = "/index/index/pagecat/?f=<?php echo $_GET['f'];?>";
+
+            },
+            doFav() {
+                let vm = this;
+                vm.dialog.fav.url = "{$fov}";
+
+                vm.dialog.fav.status = true;
+
+
+                /* $.ajax({
+                     // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                     url: '/h5/api/dwz.php',
+                     type: 'GET',
+                     dataType: 'JSON',
+                     data: {action: "getUrl", uid: "1"},
+                     complete: function (XMLHttpRequest, textStatus) {
+                     },
+                     success: function (data) {
+                         if (data.status == 1) {
+                             vm.dialog.fav.url = data.data;
+     
+                             vm.dialog.fav.status = true;
+                         } else {
+                             layer.alert(data.message);
+                         }
+                     }
+                 });*/
+            },
+
+        }
+    })
+</script>
+<script>var topdata = "20px";
+
+function geturl(url) {
+    var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+    httpRequest.open('GET', url, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+    httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+    /**
+     * 获取数据后的处理程序
+     */
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            var json = httpRequest.responseText;//获取到json字符串，还需解析
+            console.log(json);
+            return json;
+        }
+    };
+}
+</script>
+<script src=https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js></script>
+</body>
+</html>

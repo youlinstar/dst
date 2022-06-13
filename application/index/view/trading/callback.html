@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>正在校验订单</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/layer/2.2/layer.js"></script>
+    <style>
+        @charset "utf-8";
+        /* CSS Document */
+        /*--公用--*/
+        body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul, img {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #fff;
+            -webkit-text-size-adjust: none;
+            margin: 0;
+            padding: 0;
+            font-family: '微软雅黑';
+        }
+
+        ol, ul, li {
+            list-style: none;
+            border: 0
+        }
+
+        a {
+            border: 0;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+
+        .clear {
+            clear: both;
+            width: 100%;
+        }
+        /*--主要内容--*/
+        .paywarp{max-width: 750px;min-width: 320px; margin:1rem auto 0px; background:#FFF}
+        .payment_code,.payment_img{ margin:0px auto; text-align: center; padding:1rem  2rem 0rem 2rem}
+        .payment_img{ padding:0px 1.5rem}
+        .payment_code img,.payment_img img{width:100%}
+        .payment_text{ font-size:1rem; color:#ee0be6; text-align:center; padding-bottom:1.5rem}
+        .main {max-width: 750px;min-width: 320px;margin: 0 auto;}
+        @media screen and (min-width:320px) {
+            html{
+                font-size: 16px;
+            }
+        }
+        @media screen and (min-width:480px) {
+            html {
+                font-size: 18px;
+            }
+        }
+        @media screen and (min-width:640px) {
+            html {
+                font-size: 20px;
+            }
+        }
+        .t_wrap {
+            width: 100%;
+            height: 2.7rem;
+            background: #f54337;
+            text-align: center;
+            line-height: 2.7rem;
+            overflow: hidden;
+            position: fixed;
+            z-index: 9999;
+            top: 0px;
+        }
+        .t_wrap .top {
+            font-size: 1.1rem;
+            color: #fff;
+            text-align: center;
+            padding: 0 0.6rem;
+            background: #fe443b;
+        }
+        .t_wrap .top a {
+            color: #fff;
+        }
+
+        /* 图片广告位 */
+        .adense2{ width:100%; height:auto; overflow: hidden;margin:0.5rem 0; position:relative;}
+        .adense2 img{ width:100%}
+
+
+
+        /*精彩推荐*/
+        .hot_recommended{ padding: 0.5rem 0.5rem; margin-top:0.5rem;color: #212121;background-image: -webkit-linear-gradient(top,transparent 50%,#d7d7d7 50%);background-position: bottom left;background-repeat: no-repeat;background-size: 100% 1px;font-size: 1.1rem; background-color:#fff}
+        .article_list{ height:auto; width: 96%;padding: 0rem 2% 0.5rem;verflow: hidden;background: #fff;}
+        .article_list dl{ width:100%;padding: .5rem 0;background-image: -webkit-linear-gradient(top,transparent 50%,#d7d7d7 50%); background-image: -moz-linear-gradient(top,transparent 50%,#d7d7d7 50%); background-position: bottom left;background-repeat: no-repeat;background-size: 100% 2px; overflow:hidden; height:auto}
+        .article_list dl dt{float: left;width:80px;height:65px;margin-right: 2%;}
+        @media(min-width:360px) {.article_list dl dt {width:90px;height:70px}}
+        @media(min-width:360px){.article_list dl dd.slice_title{ height:48px}}
+        .article_list dl dt img{ width: 100%; height:100%;}
+        .article_list dl dd{ height:auto;overflow: hidden; font-size:0.9rem}
+        .article_list dl dd a{color: #3E3E3E; display: block}
+        .article_list dl dd a.cblue{color: #3E3E3E; height: 40px;}
+        @media(min-width:360px){.article_list dl dd a.cblue{ height:50px; line-height: 25px;}}
+        @media(min-width:750px){.article_list dl dd a.cblue{ height:62px; line-height: 31px;}}
+        .article_list .art-list__subtit {margin-top: 2px; font-size: .85rem; color: #999;}
+        .article_list dl dd span{color: #666; float: left; font-size:0.8rem; margin-top:0.5rem}
+        @media(min-width:750px) {.article_list dl dt {width:120px;height:90px}}
+        @media(min-width:750px){.article_list dl dd.slice_title{ height:60px}}
+
+    </style>
+</head>
+<body ontouchstart id="body">
+
+
+
+<empty name="show">
+    <form action="" id="myform" method='post' style="display:block;">
+      
+    </form>
+    <div class="main-box">
+        <div id="img_div" style="position:relative;width:100%;text-align:center;background-color:#fff;padding-bottom:20px;">
+
+
+            <p style='font-size:1rem;color:#22AB39;display:block;' id="over_time"></p>
+
+            <!--   <span style='font-size:1rem;color:#22AB39;display:block;' class="hider">小小功能需要您的支持</span> -->
+        </div>
+
+    </div>
+    <div id="window_div" style="width:60%;background-color:rgba(0,0,0,0.7);height:40px;position:fixed;top:40%;left:20%;text-align:center;line-height:40px;display:none;">
+        <span style="color:#fff;font-size:14px;">正在加载中。。。。</span>
+    </div>
+
+    <!-- <script type="text/javascript" src="/Public/Home/js/countnum.js"></script> -->
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+
+    <script type="text/javascript">
+        // alert('平台维护中，请勿支付');
+        order_ing =0;
+        var id = "{:I('get.id','0','intval')}";
+        var vid = "{$v}";
+        var pay_sn = "{:I('get.pay_sn')}";
+        var url = "/index/trading/checkOrderStatus?f={$f}&transact={$transact}";
+        var h = 0;
+        var t1;
+        var dy = "{$dy}";
+
+        //t1 = setInterval(ajax_data(id,vid,url,'lose',pay_sn),1000);
+
+        //实时刷新时间单位为毫秒
+        function change(id,vid,url){
+            var i = 0;
+            var j = 0;
+            document.addEventListener('visibilitychange', function() {
+                var isHidden = document.hidden;
+                if (isHidden) {
+                    i = Date.parse(new Date());
+                }else{
+
+                    //异步订单握手
+                    j = Date.parse(new Date());
+                    if(j-i >= 100){
+                        loading = layer.load(0, {
+                            shade: [0.4,'#000'] //0.1透明度的白色背景
+                        });
+                        h=0
+                        ajax_data(id,vid,url,'lose');
+                    }else{
+                        if(h==1){
+                            //去掉定时器
+                            window.clearTimeout(t1);
+                            order_ing =0;
+                            layer.msg('支付失败');
+                            h = 0;
+                        }
+                    }
+
+                }
+            });
+        }
+
+        function ajax_data(id,vid,url,type,pay_sn){
+
+
+            $.ajax({
+                type:'post',
+                dataType:'json',
+                data:{id:id,vid:vid,type:type,pay_sn:pay_sn},
+                url:url,
+                success:function(data){
+                    console.log(data.data);
+                    // console.log(data.msg);
+                    //alert(data.status)
+                    if(data.data.status == 1){
+                        layer.msg('已支付正在跳转。。。',{'time':500},function(){
+                            
+                            
+                            if(dy == 1)
+                            {
+                                
+                                
+                                document.getElementById("myform").action = "/index/index/video?f={$f}&vid=" + data.data.vid;
+                                document.getElementById("myform").submit();
+
+                                return ;
+                            }
+                           
+                            location.href = "/index/index/video?f={$f}&vid=" + data.data.vid;
+                            //document.getElementById("myform").submit();
+                        })
+                        // alert(11)
+                        //alert(data.status)
+
+                        // setTimeout(,1000);
+                    }else if(data.status == 3){
+                        h = 0;
+                        layer.close(loading);
+                        //去掉定时器
+                        window.clearTimeout(t1);
+                        order_ing =0;
+                        layer.msg('支付失败');
+                    }
+                }
+            });
+        }
+
+        // console.log(document.referrer);
+    </script>
+
+
+    <script type="text/javascript">
+        var countdown=0;
+        settime();
+        function settime() {
+            var val =$('#over_time');
+            ajax_data(id,vid,url,'lose',pay_sn);
+            if (countdown == 1) {
+                $('img').hide();
+                $('.hider').hide();
+                val.html('已支付成功，正在加载内容');
+            } else {
+
+                val.html('正在校验请稍后请稍后........');
+
+                countdown--;
+                if(countdown<=-120){
+                    order_ing =0;
+                    //window.clearTimeout(t1);
+                    window.clearTimeout(t2);
+                    val.html('校验超时');
+                }
+                t2 =setTimeout(function() {
+                    settime(val)
+                },1000)
+            }
+
+        }
+    </script>
+
+    <else/>
+
+</empty>
+<div class="main">
+
+</div>
+</body>
+
+
+</html>

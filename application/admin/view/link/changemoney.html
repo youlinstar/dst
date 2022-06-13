@@ -1,0 +1,83 @@
+
+
+    <div class="content-main">
+
+        <div class="layui-fluid">
+
+            <div class="layui-card">
+
+                <div class="layui-card-header">
+
+                    (单位：元)
+
+                </div>
+
+                <div class="layui-card-body">
+
+                    <form class="layui-form">
+
+                        <div class="layui-form-item">
+
+                            <input type="text"  id="money" name="money" autocomplete="off" placeholder="请输入金额" class="layui-input" value="{:rand(3,10)}">
+                        </div>
+                        <button type="button" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="sub1">修改</button>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="__CDN__/assets/libs/layui/layui.all.js"></script>
+    <script defer type="text/javascript">
+
+            var forms = layui.form,$=layui.jquery;
+
+            console.log($);
+            $(document).ready(function(){
+
+                    $(".layui-btn").click(function(){
+                        $.ajax({
+                            url: "",
+                            type : "POST",
+                            dataType:'json',
+                            data:{
+
+                                money:$("#money").val(),
+                            },
+                            cache: false,
+                            async:false,
+                            success: function (data) {
+                                if (data.code == 0) {
+
+                                    layer.msg(data.msg,{time:1500},function(){
+
+                                        parent.layer.closeAll();
+
+                                        window.parent.location.reload();
+                                    });
+
+                                }else{
+                                    layer.msg(data.msg);
+                                }
+                            }
+                        });
+                    });
+
+
+                    // layer.alert(JSON.stringify(data.field), {
+
+                    //     title: '最终的提交信息'
+
+                    // });
+
+                    return false;
+                });
+
+    </script>

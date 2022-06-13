@@ -1,0 +1,16 @@
+dingchengpay: 订单处理返回结果{"s":"\/index\/pay\/dingchengpay","money":"1","name":"# 20210910023734698463 \u5728\u7ebf\u652f\u4ed8","out_trade_no":"20210910023734698463","pid":"132553","trade_no":"2021091002373591535","trade_status":"TRADE_SUCCESS","type":"wxpay","sign":"e31d5413a80075bf56492927c2f350b1","sign_type":"MD5"}
+订单处理完成
+订单处理返回结果1
+success
+dingchengpay: 订单处理返回结果{"s":"\/index\/pay\/dingchengpay","money":"3","name":"# 20210911221312950474 \u5728\u7ebf\u652f\u4ed8","out_trade_no":"20210911221312950474","pid":"153546","trade_no":"2021091122131336214","trade_status":"TRADE_SUCCESS","type":"wxpay","sign":"d1d975afa9b3e7ee0a8f516517571eab","sign_type":"MD5"}
+订单处理完成
+订单处理返回结果1
+success
+dingchengpay: 订单处理返回结果{"s":"\/index\/pay\/dingchengpay","money":"6","name":"# 20210911223331145898 \u5728\u7ebf\u652f\u4ed8","out_trade_no":"20210911223331145898","pid":"329668","trade_no":"2021091122333219876","trade_status":"TRADE_SUCCESS","type":"wxpay","sign":"3cb75d42cfff9b6d6eef1a4885f4f4d3","sign_type":"MD5"}
+订单处理完成
+订单处理返回结果1
+success
+dingchengpay: 订单处理返回结果{"s":"\/index\/pay\/dingchengpay","money":"3","name":"# 20210912071430734515 \u5728\u7ebf\u652f\u4ed8","out_trade_no":"20210912071430734515","pid":"329668","trade_no":"2021091207143384689","trade_status":"TRADE_SUCCESS","type":"wxpay","sign":"dd800fee0c7aec40aab4477fbcbdd5cc","sign_type":"MD5"}
+订单处理完成
+订单处理返回结果1
+success
