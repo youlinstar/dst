@@ -26,15 +26,22 @@ class Short extends Backend
         
         $id = $this->request->param('id');
         $path = '';
-        if ($id) {
+        /*if ($id) {
             $url = $this->getPushUrls() .
             $path = "/index/index/index?hezi={$id}&f=" . id_encode($this->auth->id);
         } else {
             $url = $this->getPushUrls() . "/index/index/index?f=" . id_encode($this->auth->id);
             $path = "/index/index/index?f=" . id_encode($this->auth->id);
+        }*/
+        if (!empty($id)) {
+            $url = $this->getPushUrls($id).
+            $path='?d='.id_encode($this->auth->id)."|".$id."|".time();
+        } else {
+            $url=$this->getPushUrls().
+                $path='?f='.id_encode($this->auth->id).'&cd='.time();
         }
-        $url = $this->add_querystring_var($url, 'cd', time());
-        $path = $this->add_querystring_var($path, 'cd', time());
+        //$url = $this->add_querystring_var($url, 'cd', time());
+        //$path = $this->add_querystring_var($path, 'cd', time());
         $user = db('admin')->where(['id' => $this->auth->id])->find();
         $short = $user['short'];
         $c = array_filter(config('SHORT'));
@@ -488,7 +495,7 @@ class Short extends Backend
     /**
      * 获取推广总链
      */
-    protected function getPushUrls()
+    protected function getPushUrls($id=null)
     {
         $url = "";
         $uid = $this->auth->id;
@@ -509,7 +516,7 @@ class Short extends Backend
 
             if ($domain) {
                 $hezi_url = $domain;
-                $url = $hezi_url;
+                $url = $hezi_url.'/index/index/index';
             } else {
                 $url = '需要添加主域名才能生成盒子链接';
             }

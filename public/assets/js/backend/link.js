@@ -384,7 +384,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','qr','bootstrap-table-
 
 
                         if(is_ret){
-                            Controller.api.createCode(res.data)
+                            Controller.api.createCode(res.data);
                             return ;
                         }
                         if(res.code == 0){

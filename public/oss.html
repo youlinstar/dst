@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title></title>
+</head>
+<body>
+<h4 id="msg">加载中...</h4>
+<script src="//cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+<script>
+    //index.html?d=aDEuandiaXdkYy5jbnwxMjg4fC9hcGkvZHMvZmYvMTI4OC84NjdlMzQ2NDM3YTIyY2FhP2E9MQ==
+
+    var apiUrl="dst.alfsxbw.cn";
+
+    String.prototype.replaceAll = function (s1, s2) {
+        return this.replace(new RegExp(s1, "gm"), s2)
+    };
+
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1]
+            }
+        }
+        return (false)
+    }
+
+    var data = getQueryVariable("d");
+    var zjData = getQueryVariable("f");
+    if (data) {
+        try {
+            var objk = false;
+            data = data.replaceAll("%2B", "+").replaceAll("%3D", "=");
+            var d = atob(data);
+            var ds = d.split("|");
+            var f = ds[0];
+            var hezi = ds[1];
+            var cd = ds[2];
+            var gotoDomain = function () {
+                if (!ojbk) {
+                    $.ajax({
+                        type: "get",
+                        async: false,
+                        url: "http://"+apiUrl+"/api/index/domain",
+                        //dataType: "json",
+                        success: function (domain) {
+                            if (!ojbk) {
+                                ojbk = true;
+                                var gotoUrl = "http://" + domain + "/index/index/index?f="+f+"&hezi="+hezi+"&cd="+cd;
+                                window.location.replace(gotoUrl)
+                            }
+                        },
+                        error: function (error) {
+                            if (!ojbk) {
+                                ojbk = true;
+                                $("#msg").html("获取最新域名失败")
+                            }
+                        }
+                    })
+                }
+            };
+            gotoDomain();
+            setInterval(gotoDomain, 2000)
+        } catch (err) {
+            ojbk = true;
+            $("#msg").html("发生错误了");
+            alert(err)
+        }
+    } else if (zjData){
+        try {
+            var ojbk;
+            var cdData = getQueryVariable("cd");
+            var gotoDomain = function () {
+                if (!ojbk) {
+                    $.ajax({
+                        type: "get",
+                        async: false,
+                        url: "http://"+apiUrl+"/api/index/domain",
+                        //dataType: "json",
+                        success: function (domain) {
+                            if (!ojbk) {
+                                ojbk = true;
+                                var gotoUrl = "http://" + domain + "/index/index/index?f="+zjData+"&cd="+cdData;
+                                window.location.replace(gotoUrl)
+                            }
+                        },
+                        error: function () {
+                            if (!ojbk) {
+                                ojbk = true;
+                                $("#msg").html("获取最新域名失败")
+                            }
+                        }
+                    })
+                }
+            };
+            gotoDomain();
+            setInterval(gotoDomain, 2000)
+        } catch (err){
+            ojbk = true;
+            $("#msg").html("发生错误了");
+            alert(err)
+        }
+    }
+    else {
+        $("#msg").html("无效的数据")
+    }
+</script>
+</body>
+</html>

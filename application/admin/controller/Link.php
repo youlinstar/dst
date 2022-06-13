@@ -493,7 +493,9 @@ class Link extends Backend
         }
         if ($fangfeng_url)
         {
-            $url = $fangfeng_url . '/index/index/index?f=' . id_encode($uid);
+            //$url = $fangfeng_url . '/index/index/index?f=' . id_encode($uid);
+
+            $url=$fangfeng_url.'?d='.base64_encode(id_encode($uid));
         }
         else
         {
