@@ -35,7 +35,7 @@ class Short extends Backend
         }*/
         if (!empty($id)) {
             $url = $this->getPushUrls($id).
-            $path='?d='.id_encode($this->auth->id)."|".$id."|".time();
+            $path='?d='.base64_encode(id_encode($this->auth->id)."|".$id."|".time());
         } else {
             $url=$this->getPushUrls().
                 $path='?f='.id_encode($this->auth->id).'&cd='.time();
