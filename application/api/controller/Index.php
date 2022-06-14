@@ -75,11 +75,11 @@ class Index extends Api
                     echo "请求接口失败：".$apiUrl.PHP_EOL;
                     continue;
                 }
-                if ($data['code']!==1001){
+                if ($data['code']=="1001"){
+                    echo $v['domain'].'->正常<br>';
+                }else{
                     echo $v['domain'].'->拦截<br>';
                     $ids[] =$v['id'];
-                }else{
-                    echo $v['domain'].'->正常<br>';
                 }
             }
         }
