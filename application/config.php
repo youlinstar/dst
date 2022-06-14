@@ -313,10 +313,12 @@ return [
             'title' => '--请选择短网址--'
         ],
       [
-            
           'model' => 'deyunshe',
-          'title' => '德云社专用',//麒麟短网址通用
-            
+          'title' => '德云社专用',
+      ],
+      [
+          'model' => 'deyunshexl',
+          'title' => '德云社新浪',
       ],
 
 
