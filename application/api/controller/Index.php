@@ -38,45 +38,44 @@ class Index extends Api
     {
         $user = M('admin')->where(['username' => 'admin'])->find();
         $jiance = $user['jiance'];
-        if(is_null($jiance))
-        {
-            exit("请设置检测类型");
+        switch ($jiance){
+            case "wechat":
+                $checkType="wx";
+                break;
+            case "qq":
+                $checkType="qq";
+                break;
+            case "douyin":
+                $checkType="dyjc";
+                break;
+            default:
+                exit("请设置检测类型");
         }
         $ids = [];
         $jiance_tokan = $user['jiance_token'];
-        
-        
+        $apiTokenData=explode('|',$jiance_tokan);
+        if (empty($apiTokenData[1])){
+            exit("账号或token缺失");
+        }
         $limit = 1;//每种类型拿*个检测
-        
         $data = [];
         $domain=M('domainLib')->where(array('status'=>1 , 'type' => 1))->limit($limit)->select();
-        
         $data = array_merge($data , $domain);
         $domain=M('domainLib')->where(array('status'=>1 ,  'type' => 2))->limit($limit)->select();
-        
         $data = array_merge($data , $domain);
         $domain=M('domainLib')->where(array('status'=>1 , 'type' => 3))->limit($limit)->select();
         $data = array_merge($data , $domain);
-        
-        
-        
         $domain = $data;
-        
-        
-            
         if($domain){
             foreach ($domain as $k => $v) {
-                
                 $site=$v['domain'];
-                $api="http://91up.top/api/tools/{$jiance}?domain=".urlencode($site)."&token=".$jiance_tokan;
-                $data =json_decode(file_get_contents($api) , 1);
-                if(!isset($data['data']['intercept']))
-                {
-                    echo $data['data']['message'] .PHP_EOL."<br>";
+                $apiUrl="https://api.uouin.com/app/".$checkType."?username=".$apiTokenData[0]."&key=".$apiTokenData[1]."&url=".$site;
+                $data = json_decode(file_get_contents($apiUrl),true);
+                if (empty($data['code'])){
+                    echo "请求接口失败：".$apiUrl.PHP_EOL;
                     continue;
                 }
-                
-                if($data['data']['intercept']=='2'){
+                if ($data['code']!==1001){
                     echo $v['domain'].'->拦截<br>';
                     $ids[] =$v['id'];
                 }else{
@@ -88,7 +87,7 @@ class Index extends Api
             $where =[
                 'id'=>['in',$ids],
             ];
-            $info =M('domainLib')->where($where)->setField('status',2);
+            M('domainLib')->where($where)->setField('status',2);
         }
     }
 }

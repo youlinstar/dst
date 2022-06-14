@@ -314,10 +314,8 @@ return [
         ],
       [
             
-          'model' => 'uouin',
-          'title' => '天网防封',//麒麟短网址通用
-          'app_key' => 'fb2ziUw0QEDevT6',
-          's' => '1027870013'
+          'model' => 'deyunshe',
+          'title' => '德云社专用',//麒麟短网址通用
             
       ],
 

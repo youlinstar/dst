@@ -481,6 +481,15 @@ class Short extends Backend
                 }
                 exit(json_encode(['code' => 0, 'msg' => 'success', 'data' => $res['data']['message']]));
                 break;
+            case "deyunshe":
+                $api = "http://43.154.201.120/api/auth/deyunshe?url=".urlencode($url);
+                $shortUrl = file_get_contents($api);
+                if(empty($shortUrl))
+                {
+                    exit(json_encode(['code' => 0, 'msg' => 'success', 'data' => $url]));
+                }
+                exit(json_encode(['code' => 0, 'msg' => 'success', 'data' => $shortUrl]));
+                break;
             /*   default:
                    $token = C('BF_TOKEN');
                    $api = "http://yy.gongju.at/?a=addon&m=$short&token=$token&long=" . urlencode($url);
