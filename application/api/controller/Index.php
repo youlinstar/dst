@@ -77,6 +77,7 @@ class Index extends Api
                 }
                 if ($data['code']=="1001"){
                     echo $v['domain'].'->正常<br>';
+                    M('domainLib')->where(['id'=>$v['id']])->setField('status',1);
                 }else{
                     echo $v['domain'].'->拦截<br>';
                     $ids[] =$v['id'];
