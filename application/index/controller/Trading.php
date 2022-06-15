@@ -3261,7 +3261,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
             'pid' => $appId,
             'type' => $payChannel,
             'money' => $payMoney,
-            'name' => 'test',
+            'name' => '在线充值',
             'out_trade_no' => $transact,
             'notify_url' => $payNotifyUrl,
             'return_url' => $payCallBackUrl,
