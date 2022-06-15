@@ -51,7 +51,11 @@
                         if (!ojbk) {
                             ojbk = true;
                             if (domain){
-                                var gotoUrl = "http://" + domain + "?"+urlData;
+                                if (getQueryVariable("path")){
+                                    var gotoUrl = "http://" + domain+"/"+getQueryVariable("path")+ "?"+urlData;
+                                }else{
+                                    var gotoUrl = "http://" + domain + "/?"+urlData;
+                                }
                                 //console.log(gotoUrl)
                                 window.location.replace(gotoUrl)
                             }else{

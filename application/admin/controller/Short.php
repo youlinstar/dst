@@ -526,7 +526,7 @@ class Short extends Backend
             $fangfeng_url = get_user($sid, 'wx_check_api');
         }
         if ($fangfeng_url) {
-            $url = $fangfeng_url;
+            $url = $fangfeng_url."?path=/index/index/index";
         } else {
             $domain = trim(getDomain(1));
 

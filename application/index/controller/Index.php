@@ -57,7 +57,7 @@ class Index extends Frontend
             $p = $this->request->param();
             unset($p['qiantao']);
             $d = $this->getDomain(2,"/index/index/lists");
-            $d .= "?" . http_build_query($p);
+            $d .= http_build_query($p);
             $this->view->engine->layout(false);
             $this->assign('url' , $d);
             return $this->fetch("list/qiantao");
@@ -90,7 +90,7 @@ class Index extends Frontend
             $d = $this->getDomain(2,"/index/index/lists");
             $p = $this->request->param();
             unset($p['qiantao']);
-            $d .= "?" . http_build_query($p);
+            $d .= http_build_query($p);
             $this->view->engine->layout(false);
             $this->assign('url' , $d);
             return $this->fetch("list/qiantao");
@@ -230,12 +230,12 @@ class Index extends Frontend
             $item['h'] = rand(90 , 99);
             if(in_array($item['id'], $payedVid['vid'], true) ||  ($payedVid['is_week'] == 2 || $payedVid['is_date'] == 2 || $payedVid['is_month'] == 2) || $item['try_see'] > 0) {
                 $item['pay'] = 1;
-                $item['url'] = $this->getDomain(2,"/index/index/video")."?vid={$item['id']}&f={$f}";
+                $item['url'] = $this->getDomain(2,"/index/index/video")."vid={$item['id']}&f={$f}";
             } else {
                 if(!empty($this->getDomain(3,"/index/trading/index"))) {
-                    $item['url'] = $this->getDomain(3,"/index/trading/index")."?vid={$item['id']}&f={$f}";
+                    $item['url'] = $this->getDomain(3,"/index/trading/index")."vid={$item['id']}&f={$f}";
                 }else{
-                    $item['url'] = $this->getDomain(2,"/index/trading/index")."?vid={$item['id']}&f={$f}";
+                    $item['url'] = $this->getDomain(2,"/index/trading/index")."vid={$item['id']}&f={$f}";
                 }
                 $item['pay'] = 0;
             }
@@ -290,7 +290,7 @@ class Index extends Frontend
         }
         $pay = [[
             'name' => "单片购买 {$m} 元",
-            'url' => $this->getDomain(2,"/index/trading/index")."?f={$f}&vid={$vid}",
+            'url' => $this->getDomain(2,"/index/trading/index")."f={$f}&vid={$vid}",
             'flg' => 'dan',
             'money' => 0,
             'img' => "/assets/list/muban1/vipicon.png"  //图标地址
@@ -298,7 +298,7 @@ class Index extends Frontend
         if($userInfo['date_fee'] > 0) {
             $pay[] = [
                 'name' => "包日观看全部 {$userInfo['date_fee']} 元",
-                'url' => $this->getDomain(2,"/index/trading/index")."?f={$f}&is_date=2&vid=$vid",
+                'url' => $this->getDomain(2,"/index/trading/index")."f={$f}&is_date=2&vid=$vid",
                 'flg' => 'date_fee',
                 'money' => $userInfo['date_fee'],
                 'img' => "/assets/list/muban1/vipicon.png"  //图标地址
@@ -307,7 +307,7 @@ class Index extends Frontend
         if($userInfo['week_fee'] > 0) {
             $pay[] = [
                 'name' => "包周观看全部 {$userInfo['week_fee']} 元",
-                'url' => $this->getDomain(2,"/index/trading/index")."?f={$f}&is_week=2&vid=$vid",
+                'url' => $this->getDomain(2,"/index/trading/index")."f={$f}&is_week=2&vid=$vid",
                 'flg' => 'week_fee',
                 'money' => $userInfo['week_fee'],
                 'img' => "/assets/list/muban1/vipicon.png"  //图标地址
@@ -316,7 +316,7 @@ class Index extends Frontend
         if($userInfo['month_fee'] > 0) {
             $pay[] = [
                 'name' => "包月观看全部 {$userInfo['month_fee']} 元",
-                'url' => $this->getDomain(2,"/index/trading/index")."?f={$f}&is_month=2&vid=$vid",
+                'url' => $this->getDomain(2,"/index/trading/index")."f={$f}&is_month=2&vid=$vid",
                 'flg' => 'month_fee',
                 'money' => $userInfo['month_fee'],
                 'img' => "/assets/list/muban1/vipicon.png"  //图标地址
@@ -387,12 +387,12 @@ class Index extends Frontend
             $fangfeng_url = get_user($sid, 'wx_check_api');
         }
         if ($fangfeng_url) {
-            $url = $fangfeng_url;
+            $url = $fangfeng_url."?path=".$path."&";
         } else {
             $domain = trim(getDomain($type));
             if ($domain) {
                 $hezi_url = $domain;
-                $url = $hezi_url.$path;
+                $url = $hezi_url."?".$path;
             } else {
                 $url = '需要添加主域名才能生成盒子链接';
             }
