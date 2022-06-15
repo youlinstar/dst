@@ -91,4 +91,21 @@ class Index extends Api
             M('domainLib')->where($where)->setField('status',2);
         }
     }
+
+    private function checkDomain($domain){
+        $ids=[];
+        $data = json_decode(file_get_contents($apiUrl),true);
+        if (empty($data['code'])){
+            echo "请求接口失败：".$apiUrl.PHP_EOL;
+            return false;
+        }
+        if ($data['code']=="1001"){
+            echo $domain.'->正常<br>';
+        }else{
+            echo $domain.'->拦截<br>';
+            $ids[] =$domain;
+            return false;
+        }
+        return $ids;
+    }
 }

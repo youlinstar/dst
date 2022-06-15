@@ -25,8 +25,6 @@ class Third extends Frontend
         $this->app = new Application($config);
     }
 
-
-
     /**
      * 准备绑定
      */

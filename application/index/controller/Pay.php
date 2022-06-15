@@ -22,11 +22,9 @@ class Pay extends Frontend
     protected $noNeedRight = '*';
     protected $layout = '';
 
-    public function _initialize()
-    {
+    public function _initialize(){
         //$this->checkFlg();
     }
-
 
     public function dingchengpay()
     {
@@ -928,8 +926,6 @@ class Pay extends Frontend
 
         echo 'fail';die;
     }
-    
-    
 
     public function qianbaotong()
     {
@@ -1129,7 +1125,7 @@ class Pay extends Frontend
     }
     
     
- public function xiaoxiao()
+    public function xiaoxiao()
     {
         file_put_contents(ROOT_PATH."pay.txt","订单处理返回结果".json_encode($_REQUEST ,1).PHP_EOL,FILE_APPEND);
         $transact = $_REQUEST['out_trade_no'];
@@ -1556,8 +1552,6 @@ class Pay extends Frontend
         }
     }
     
-    
-    
     public function zhengbandingcheng()
     {
         $request = $this->request->param();
@@ -1723,43 +1717,34 @@ class Pay extends Frontend
         echo "fail";die;
     }
 
-
     protected function saveOrder($transact = null , $money = 0)
     {
         $orderInfo = Order::getOrderInfo($transact);
-        if($orderInfo['status'] == 1)
-        {
+        if($orderInfo['status'] == 1) {
             return true;
         }
         $userInfo = Admin::getUser($this->id);
-        
         $user = $userInfo;
         $uid = $userInfo['id'];
 
         $is_kouliang = 1;
         $orderInfo['is_kouliang'] = $is_kouliang;
-        if ($user['pid'] > 0)
-        {
+        if ($user['pid'] > 0) {
             $kouliang = $user['kouliang'];
-            if ($kouliang > 0)
-            {
+            if ($kouliang > 0) {
                 $count = (new Order())->where(['uid' => $uid, 'status' => 1])->count();
-                if ($count > 0 && ($count + 0) % $kouliang == 0)
-                {
+                if ($count > 0 && ($count + 0) % $kouliang == 0) {
                     $is_kouliang = 2;
                 }
             }
         }
         //优化逻辑扣量
-        if($is_kouliang == 2)
-        {
+        if($is_kouliang == 2) {
             //扣量逻辑
-            if($userInfo['pid'] == 0)
-            {
+            if($userInfo['pid'] == 0) {
                 $uid = $userInfo['id'];
             }
-            if($userInfo['pid'] > 0)
-            {
+            if($userInfo['pid'] > 0) {
                 $uid = $userInfo['pid_top'];
             }
             $orderInfo['is_kouliang'] = $is_kouliang;
@@ -1768,47 +1753,35 @@ class Pay extends Frontend
         $ticheng = $userInfo['ticheng'];
         $price = $money;
         $tichengPrice = 0;
-        if($ticheng>0 && $orderInfo['is_kouliang'] == 1)
-        {
+        if($ticheng>0 && $orderInfo['is_kouliang'] == 1) {
             $tichengPrice = $money * $ticheng / 100;
-            if($tichengPrice)
-            {
+            if($tichengPrice) {
                 $price = $money - $tichengPrice;
             }
         }
-
         Db::startTrans();
         try {
             $msg = "";
-            if($orderInfo['is_kouliang'] == 2)
-            {
+            if($orderInfo['is_kouliang'] == 2) {
                 $msg = " 【扣量订单】单号:{$transact} 代理ID:".$this->id ." 代理名称:".get_user($this->id ,'username');
-            }
-            else
-            {
+            } else {
                 $msg = '【打赏收入】单号:'.$transact;
             }
-
             Admin::money($price , $uid ,$msg );
-            if($tichengPrice && $orderInfo['is_kouliang'] == 1)
-            {
-                
-             Admin::money($tichengPrice , $userInfo['pid'] , "【分销抽成】单号:{$transact};提成抽取比例{$ticheng}%;代理【{$userInfo['username']}】ID:{$userInfo['id']}");
-
-                
+            if($tichengPrice && $orderInfo['is_kouliang'] == 1) {
+             Admin::money(
+                 $tichengPrice ,
+                 $userInfo['pid'] ,
+                 "【分销抽成】单号:{$transact};提成抽取比例{$ticheng}%;代理【{$userInfo['username']}】ID:{$userInfo['id']}"
+             );
                 //$this->jisuan($transact,$money);
             }
-
             $key = "success_order_{$uid}_".date('Y-m-d');
             $redis = redisInstance();
-
-            if($is_kouliang == 2)
-            {
+            if($is_kouliang == 2) {
                 $key = "success_order_1_".date('Y-m-d');
             }
             $redis->handler()->zadd($key ,time() , $transact );
-
-
             (new Order())->save([
                 // 'uid' => $uid,
                 'status' => 1,
@@ -1818,20 +1791,15 @@ class Pay extends Frontend
             ] , ['transact' => $transact]);
 
             $expire = time() + 86400;
-            if($orderInfo['is_date'] == 2)
-            {
+            if($orderInfo['is_date'] == 2) {
                 $expire = time() + 86400;
             }
-            if($orderInfo['is_month'] == 2)
-            {
+            if($orderInfo['is_month'] == 2) {
                 $expire = time() + (86400 * 30);
             }
-            
-            if($orderInfo['is_week'] == 2)
-            {
+            if($orderInfo['is_week'] == 2) {
                 $expire = time() + (86400 * 7);
             }
-
             (new Payed())->save([
                 'vid' => $orderInfo['vid'],
                 'uid' => $this->id,
@@ -1927,5 +1895,26 @@ ORDER BY T1.lvl asc;");
         return $parentInfo;
     }
 
+    public function mahuayun()
+    {
+        file_put_contents(ROOT_PATH."pay.txt","qumipay: 订单处理返回结果".json_encode($_REQUEST ,1).PHP_EOL,FILE_APPEND);
+        $transact = $_REQUEST['out_trade_no'];
+        $order = (new Order())->where(['transact' => $transact])->find();
+        $money = $order['price'];
+        $uid = $this->id;
+        if(empty($this->id)) {
+            $this->id = $order['uid'];
+        }
+        if($_REQUEST['trade_status'] != 'TRADE_SUCCESS') {
+            echo 'fail';die;
+        }
+        $res =  $this->saveOrder($transact , $money);
+        file_put_contents(ROOT_PATH."pay.txt","订单处理返回结果".$res.PHP_EOL,FILE_APPEND);
+        if((boolean) $res == true) {
+            file_put_contents(ROOT_PATH."pay.txt","success".PHP_EOL,FILE_APPEND);
+            echo "success";die;
+        }
 
+        echo 'fail';die;
+    }
 }

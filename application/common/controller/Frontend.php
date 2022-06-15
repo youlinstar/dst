@@ -96,10 +96,8 @@ class Frontend extends Controller
         $site = Config::get("site");
 
         $upload = \app\common\model\Config::upload();
-
         // 上传信息配置后
         Hook::listen("upload_config_init", $upload);
-
         // 配置信息
         $config = [
             'site'           => array_intersect_key($site, array_flip(['name', 'cdnurl', 'version', 'timezone', 'languages'])),
@@ -112,9 +110,7 @@ class Frontend extends Controller
             'language'       => $lang
         ];
         $config = array_merge($config, Config::get("view_replace_str"));
-
         Config::set('upload', array_merge(Config::get('upload'), $upload));
-
         // 配置信息后
         Hook::listen("config_init", $config);
         // 加载当前控制器语言包
@@ -149,12 +145,10 @@ class Frontend extends Controller
     protected function token()
     {
         $token = $this->request->post('__token__');
-
         //验证Token
         if (!Validate::is($token, "token", ['__token__' => $token])) {
             $this->error(__('Token verification error'), '', ['__token__' => $this->request->token()]);
         }
-
         //刷新Token
         $this->request->token();
     }
@@ -163,99 +157,64 @@ class Frontend extends Controller
     {
         $ok = 0;
         //是否微信中
-        $service = $this->request->server('HTTP_USER_AGENT');
-        
-        if($this->is_wechat() && config('site.isWechat') == 1)
-        {
+        //$service = $this->request->server('HTTP_USER_AGENT');
+        if($this->is_wechat() && config('site.isWechat') == 1) {
             $ok = 1;
             echo "<img style='width: 100%' src='/assets/img/wechat.jpg'>";
             die;
         }
-        
         if($this->is_qq() && config('site.isQQ') == 1 )
         {
             $ok = 1;
-            
             echo "<img style='width: 100%' src='/assets/img/qq.jpg'>";
             die;
         }
-        
         if($this->is_douying() && config('site.isDouyin') == 1 )
         {
             $ok = 1;
             echo "<img style='width: 100%' src='/assets/img/douyin.jpg'>";
             die;
         }
-        
-        
-        if($ok)
+        /*if($ok)
         {
             echo "<img style='width: 100%' src='/assets/img/wechat.jpg'>";
-            
+
             die;
-        }
-        
-        
+        }*/
     }
+
     public function is_douying()
     {
         $service = $this->request->server('HTTP_USER_AGENT');
-        
-        if(strpos($service, 'aweme') !== false)
-    	{
-    		return true;
-    	}
-    	
-    	return false;
+        return strpos($service, 'aweme') !== false;
     }
+
     public function is_qq()
     {
-    	if(strpos($_SERVER['HTTP_USER_AGENT'], 'QQ') !== false)
-    	{  
-    		if(strpos($_SERVER['HTTP_USER_AGENT'], '_SQ_') !== false)
-    		{
-    		    return true;
-    		}
-    		else
-    		{
-    			return false;
-    		}
-    	}
+    	if(strpos($_SERVER['HTTP_USER_AGENT'], 'QQ') !== false) {
+            return strpos($_SERVER['HTTP_USER_AGENT'], '_SQ_') !== false;
+        }
     	return false;
     }
+
     public function is_wechat()
     {
-            
         $ua = $_SERVER['HTTP_USER_AGENT']; 
-        if(strpos($ua, 'MicroMessenger') !== false)
-        { 
+        if(strpos($ua, 'MicroMessenger') !== false) {
             return true;
         }
-        else
-        { 
-            return  false;
-        }
-        
         return false;
     }
-    
-    
 
     public function checkFlg()
     {
-        
-        
-        
         $f = $this->request->param('f');
         $flgArr = id_decode($f);
-        
-        
-        
-        if(empty($f) || $flgArr['id'] == 0)
-        {
-            return $this->error('缺少必要标识参数');
+        if(empty($f) || $flgArr['id'] === 0) {
+            $this->error('缺少必要标识参数');
+        }else{
+            $this->id = $flgArr['id'];
         }
-        $this->id = $flgArr['id'];
     }
 
     public function accessStatistical()
@@ -264,7 +223,6 @@ class Frontend extends Controller
         $action = $this->request->action();
         $allowController = ['Index'];
         //$allowAction = ['video','vlist','lists'];
-        
         $allowAction = ['index'];
         if(in_array($action , $allowAction) && in_array($controller , $allowController))
         {

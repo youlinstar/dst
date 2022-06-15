@@ -31,10 +31,8 @@ class Trading extends Frontend
 
     public function index()
     {
-
         $model = $this->request->param('model');
-        if(empty($model))
-        {
+        if(empty($model)) {
            $user = Admin::getUser($this->id);
             $model = $user['pay_model'];
             if (empty($model)) {
@@ -42,12 +40,9 @@ class Trading extends Frontend
                 $model = $user['pay_model'];
             } 
         }
-        
-        
         $user = Admin::getUser($this->id);
         $payInfo = Payset::getPayInfo($model);
-        // die;
-        
+
         switch ($model) {
             case 'dingchengpay':
                 $this->dingchengpay($payInfo , $user , $model);
@@ -61,7 +56,6 @@ class Trading extends Frontend
             case 'shehuang168':
                 $this->shehuang168($payInfo , $user , $model);
                 break;
-                
             case 'kangxinlianmeng':
                 $this->kangxinlianmeng($payInfo , $user , $model);
                 break;
@@ -116,7 +110,7 @@ class Trading extends Frontend
             case 'yft':
                 $this->yft($payInfo , $user , $model);
                 break;
-             case 'ymf':
+                case 'ymf':
                 $this->ymf($payInfo , $user , $model);
                 break;
             case 'alipay':
@@ -146,7 +140,6 @@ class Trading extends Frontend
             case 'xsdwrkj001':
                 $this->xsdwrkj001($payInfo , $user , $model);
                 break;
-                
             case 'xsdwrkj002':
                 $this->xsdwrkj002($payInfo , $user , $model);
                 break;
@@ -170,6 +163,9 @@ class Trading extends Frontend
                 break;
             case "dp1010":
                 return $this->dp1010($payInfo , $user , $model);
+                break;
+            case "mahuayun":
+                return $this->mahuayun($payInfo , $user , $model);
                 break;
             default:
                 $this->error("未匹配到{$model}支付渠道,请确认");
@@ -3127,12 +3123,10 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
     protected function createOrder($user , $transact , $model = null )
     {
         $uid = $this->id;
-        
         $vid = $this->request->get('vid');
         $isDate = $this->request->get('is_date',0);
         $isMonth = $this->request->get('is_month',0);
         $isWeek = $this->request->get('is_week',0);
-        
         $ip = $this->request->ip();
         $linkInfo = (new Link())->where(['id' => $vid, 'uid' => $uid ])->find();
         $payMoney = array_get($linkInfo, 'money' , 0);
@@ -3146,7 +3140,6 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
             $payMoney = $user['month_fee'];
             $payDesc = "支付_3";
         }
-        
         if($isWeek == 2)
         {
             $payMoney = $user['week_fee'];
@@ -3172,7 +3165,6 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
             'pay_channel' => $model,
             'des' => $payDesc
         ];
-        
         $redis = redisInstance();
         $key = "order_{$uid}_".date('Y-m-d');
         $redis->handler()->zadd($key ,time() , $transact );
@@ -3189,17 +3181,13 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
         $host = $this->request->host(true);
         $scheme = $this->request->scheme();
         $port = $this->request->port();
-
-        if($param)
-        {
+        if($param) {
             return $scheme ."://" . $host . ":$port" . "/index/pay/$action?a=a&".http_build_query($param);
         }
-        if($action =="wechat")
-        {
+        if($action =="wechat") {
             // return $scheme ."://" . $host . ":$port"."/gzh.php";
         }
         return $scheme ."://" . $host . ":$port" . "/index/pay/$action";
-
     }
     //dy
     
@@ -3226,48 +3214,93 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
     //同步通知地址
     protected function getCallbackUrl($params = [] , $order = '' , $id = '' , $domain = '')
     {
-        
-        
         $f = isset($params['f']) ? $params['f'] : id_encode($id);
         $host = $this->request->host(true);
-        
-        
-       $p =  ['transact' => id_encode($order) , 'f' => id_encode($id)];
-
+        $p =  ['transact' => id_encode($order) , 'f' => id_encode($id)];
         $scheme = $this->request->scheme() . "://";
         // $domain = getDomain(2);
         $payDomain = getDomain(2);
-        if($payDomain)
-        {
+        if($payDomain) {
             $domain = $payDomain;
         }
-        if(!empty($domain))
-        {
+        if(!empty($domain)) {
             $host = $domain;
             $scheme = '';
         }
         $port = $this->request->port();
-        if($params)
-        {
-          $url =  $scheme . $host . ":$port" ."/index/trading/callBack?a=a&".http_build_query($params);
-
-        }
-        else
-        {
-        $url = $scheme  . $host . ":$port" ."/index/trading/callBack/transact/".id_encode($order)."/f/".id_encode($id);
-
+        if($params) {
+            $url =  $scheme . $host . ":$port" ."/index/trading/callBack?a=a&".http_build_query($params);
+        } else {
+            $url = $scheme  . $host . ":$port" ."/index/trading/callBack/transact/".id_encode($order)."/f/".id_encode($id);
         }
         $d = config('site.doiyin');
-        
-        if($d == 1)
-        {
-            
+        if($d == 1) {
             $host = getDomain(3);
             $url = $host."/index/trading/dcallBack/f/".$f."/params/".urlencode(http_build_query($p));
         }
-        
-        
         return $url;
+    }
+
+    private function mahuayun($payInfo,$user, $model)
+    {
+        $transact = date("YmdHis") . rand(100000, 999999);
+        $res = $this->createOrder($user , $transact , $model);
+        $appId = $payInfo['app_id'];
+        $appKey = $payInfo['app_key'];
+        $payChannel = $payInfo['pay_channel'];
+        $payGateWayUrl = $payInfo['pay_url'];
+        $payMoney = array_get($res, 'data.price' , 0);
+        $payDesc = array_get($res , 'data.des');
+        if($res['code'] == 0) {
+            return $this->error('下单失败');
+        }
+        $payCallBackUrl = $this->getCallbackUrl([] , $transact , $this->id);
+        $payNotifyUrl = $this->getNotifyUrl( [], "mahuayun");
+        $appSecret = $appKey;
+        $data = [
+            'pid' => $appId,
+            'type' => $payChannel,
+            'money' => $payMoney,
+            'name' => 'test',
+            'out_trade_no' => $transact,
+            'notify_url' => $payNotifyUrl,
+            'return_url' => $payCallBackUrl,
+        ];
+        $data = array_filter($data);
+        ksort($data);
+        $str1 = '';
+        foreach ($data as $k => $v) {
+            $str1 .= '&' . $k . "=" . $v;
+        }
+        $sign = md5(trim($str1 . $appKey, '&'));
+        $data['sign']      = $sign;
+        $data['is_wx_browser']      = '0'; // 不参与签名
+
+        $headers = array('Content-Type: application/x-www-form-urlencoded');
+        $curl = curl_init(); // 启动一个CURL会话
+        curl_setopt($curl, CURLOPT_URL, $url); // 要访问的地址
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); // 对认证证书来源的检查
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0); // 从证书中检查SSL加密算法是否存在
+        curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']); // 模拟用户使用的浏览器
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1); // 使用自动跳转
+        curl_setopt($curl, CURLOPT_AUTOREFERER, 1); // 自动设置Referer
+        curl_setopt($curl, CURLOPT_POST, 1); // 发送一个常规的Post请求
+        curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data)); // Post提交的数据包
+        curl_setopt($curl, CURLOPT_TIMEOUT, 30); // 设置超时限制防止死循环
+        curl_setopt($curl, CURLOPT_HEADER, 0); // 显示返回的Header区域内容
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); // 获取的信息以文件流的形式返回
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        $result = curl_exec($curl); // 执行操作
+        if (curl_errno($curl)) {
+            $this->error('Errno'.curl_error($curl));
+        }
+        curl_close($curl); // 关闭CURL会话
+        $result = json_decode($result, true);
+        if ($result['code'] != 200) {
+            die($result['msg']);
+        }
+        $wxUrl = $result['data']['wxUrl'];
+        echo ("<script>window.location.href='".$wxUrl."'</script>");
     }
 
 }

@@ -35,7 +35,7 @@ class Short extends Backend
         }*/
         if (!empty($id)) {
             $url = $this->getPushUrls($id).
-            $path='?d='.base64_encode(id_encode($this->auth->id)."|".$id."|".time());
+            $path='?f='.id_encode($this->auth->id)."&hezi=".$id."&cd=".time();
         } else {
             $url=$this->getPushUrls().
                 $path='?f='.id_encode($this->auth->id).'&cd='.time();
@@ -50,8 +50,6 @@ class Short extends Backend
             $user = db('admin')->where(['id' => 1])->find();
             $short = $user['short'];
         }
-        
-        
     
         switch ($short) {
             case 'self':

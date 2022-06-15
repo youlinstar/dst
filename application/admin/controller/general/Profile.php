@@ -57,7 +57,8 @@ class Profile extends Backend
             '-' => '--请选择--',
             'wechat' => '微信',
             'qq' => 'QQ',
-            'douyin' => '抖音'
+            'douyin' => '抖音',
+            'all'=>'全部检测',
         ];
         array_unshift($pay,'--请选择--');
         $this->assign('is_admin',$this->auth->isSuperAdmin());

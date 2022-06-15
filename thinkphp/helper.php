@@ -139,7 +139,7 @@ if(!function_exists("getDomain"))
     {
         //获取入口域名
         $domain = Domain::get(['type' => $type, 'status' => 1]);
-        if(empty($domain))
+        if($domain === null)
         {
             exit(json_encode(['code' => 0 , 'msg' => '找不到域名请联系管理员设置']));
         }
@@ -714,7 +714,7 @@ if (!function_exists('collection')) {
  */
 if(!function_exists('id_decode'))
 {
-    function  id_decode($value)
+    function id_decode($value)
     {
         $dkey ="asdhasjkdhasdjh";
         $key = 'dashan'.$dkey;
@@ -725,7 +725,6 @@ if(!function_exists('id_decode'))
                 'id2'=> 0,
             );
         }
-
         list($id, $id2) = explode('|', $value);
         return array(
             'id'    => $id,
@@ -736,7 +735,7 @@ if(!function_exists('id_decode'))
 
 if(!function_exists('id_encode'))
 {
-    function    id_encode($id, $id2 = 0)
+    function id_encode($id, $id2 = 0)
     {
         $dkey ="asdhasjkdhasdjh";
         $key = 'dashan'.$dkey;

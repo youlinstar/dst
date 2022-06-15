@@ -24,10 +24,8 @@ class Ajax extends Frontend
         header('Content-Type: application/javascript');
         header("Cache-Control: public");
         header("Pragma: cache");
-
         $offset = 30 * 60 * 60 * 24; // 缓存一个月
         header("Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT");
-
         $controllername = input("controllername");
         $this->loadlang($controllername);
         //强制输出JSON Object

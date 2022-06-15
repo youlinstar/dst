@@ -31,8 +31,54 @@
         return (false)
     }
 
-    var data = getQueryVariable("d");
-    var zjData = getQueryVariable("f");
+    function getUrlVars(){
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        var str=null;
+        str=hashes.join('&')
+        return str;
+    }
+
+    try {
+        var ojbk;
+        var urlData=getUrlVars();
+        var gotoDomain = function () {
+            if (!ojbk) {
+                $.ajax({
+                    type: "get",
+                    async: false,
+                    url: "http://"+apiUrl+"/api/index/domain",
+                    success: function (domain) {
+                        if (!ojbk) {
+                            ojbk = true;
+                            if (domain){
+                                var gotoUrl = "http://" + domain + "?"+urlData;
+                                //console.log(gotoUrl)
+                                window.location.replace(gotoUrl)
+                            }else{
+                                $("#msg").html("获取最新域名失败")
+                            }
+                        }
+                    },
+                    error: function () {
+                        if (!ojbk) {
+                            ojbk = true;
+                            $("#msg").html("获取最新域名失败")
+                        }
+                    }
+                })
+            }
+        };
+        gotoDomain();
+        setInterval(gotoDomain, 2000)
+    } catch (err){
+        ojbk = true;
+        $("#msg").html("发生错误了");
+        alert(err)
+    }
+
+    /*var data = getQueryVariable("d");
+    var zjData = getQueryVariable("t");
+    var fData = getQueryVariable("f");
     if (data) {
         try {
             var objk = false;
@@ -54,12 +100,10 @@
                                 ojbk = true;
                                 if (domain){
                                     var gotoUrl = "http://" + domain + "/index/index/index?f="+f+"&hezi="+hezi+"&cd="+cd;
-                                    console.log(gotoUrl)
                                     window.location.replace(gotoUrl)
                                 }else{
                                     $("#msg").html("获取最新域名失败")
                                 }
-                                //window.location.replace(gotoUrl)
                             }
                         },
                         error: function (error) {
@@ -116,10 +160,48 @@
             $("#msg").html("发生错误了");
             alert(err)
         }
+    }else if (fData){
+        try {
+            var ojbk;
+            var urlData=getUrlVars();
+            var gotoDomain = function () {
+                if (!ojbk) {
+                    $.ajax({
+                        type: "get",
+                        async: false,
+                        url: "http://"+apiUrl+"/api/index/domain",
+                        success: function (domain) {
+                            if (!ojbk) {
+                                ojbk = true;
+                                if (domain){
+                                    var gotoUrl = "http://" + domain + "?"+urlData;
+                                    console.log(gotoUrl)
+                                    //window.location.replace(gotoUrl)
+                                }else{
+                                    $("#msg").html("获取最新域名失败")
+                                }
+                            }
+                        },
+                        error: function () {
+                            if (!ojbk) {
+                                ojbk = true;
+                                $("#msg").html("获取最新域名失败")
+                            }
+                        }
+                    })
+                }
+            };
+            gotoDomain();
+            setInterval(gotoDomain, 2000)
+        } catch (err){
+            ojbk = true;
+            $("#msg").html("发生错误了");
+            alert(err)
+        }
     }
     else {
         $("#msg").html("无效的数据")
-    }
+    }*/
 </script>
 </body>
 </html>
