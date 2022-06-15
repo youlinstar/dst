@@ -35,10 +35,10 @@ class Short extends Backend
         }*/
         if (!empty($id)) {
             $url = $this->getPushUrls($id).
-            $path='?f='.id_encode($this->auth->id)."&hezi=".$id."&cd=".time();
+            $path='f='.id_encode($this->auth->id)."&hezi=".$id."&cd=".time();
         } else {
             $url=$this->getPushUrls().
-                $path='?f='.id_encode($this->auth->id).'&cd='.time();
+                $path='f='.id_encode($this->auth->id).'&cd='.time();
         }
         //$url = $this->add_querystring_var($url, 'cd', time());
         //$path = $this->add_querystring_var($path, 'cd', time());
@@ -526,13 +526,13 @@ class Short extends Backend
             $fangfeng_url = get_user($sid, 'wx_check_api');
         }
         if ($fangfeng_url) {
-            $url = $fangfeng_url."?path=/index/index/index";
+            $url = $fangfeng_url."?path=/index/index/index&";
         } else {
             $domain = trim(getDomain(1));
 
             if ($domain) {
                 $hezi_url = $domain;
-                $url = $hezi_url.'/index/index/index';
+                $url = $hezi_url.'/index/index/index?';
             } else {
                 $url = '需要添加主域名才能生成盒子链接';
             }

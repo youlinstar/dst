@@ -52,7 +52,7 @@
                             ojbk = true;
                             if (domain){
                                 if (getQueryVariable("path")){
-                                    var gotoUrl = "http://" + domain+"/"+getQueryVariable("path")+ "?"+urlData;
+                                    var gotoUrl = "http://" + domain+getQueryVariable("path")+ "?"+urlData;
                                 }else{
                                     var gotoUrl = "http://" + domain + "/?"+urlData;
                                 }
