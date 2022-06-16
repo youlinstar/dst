@@ -3182,12 +3182,14 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
         $scheme = $this->request->scheme();
         $port = $this->request->port();
         if($param) {
-            return $scheme ."://" . $host . ":$port" . "/index/pay/$action?a=a&".http_build_query($param);
+//            return $scheme ."://" . $host . ":$port" . "/index/pay/$action?a=a&".http_build_query($param);
+            return "http://" . $host . "/index/pay/$action?a=a&".http_build_query($param);
         }
         if($action =="wechat") {
             // return $scheme ."://" . $host . ":$port"."/gzh.php";
         }
-        return $scheme ."://" . $host . ":$port" . "/index/pay/$action";
+        //return $scheme ."://" . $host . ":$port" . "/index/pay/$action";
+        return "http://" . $host . "/index/pay/$action";
     }
     //dy
     
@@ -3229,9 +3231,11 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
         }
         $port = $this->request->port();
         if($params) {
-            $url =  $scheme . $host . ":$port" ."/index/trading/callBack?a=a&".http_build_query($params);
+//            $url =  $scheme . $host . ":$port" ."/index/trading/callBack?a=a&".http_build_query($params);
+            $url =  "http://". $host ."/index/trading/callBack?a=a&".http_build_query($params);
         } else {
-            $url = $scheme  . $host . ":$port" ."/index/trading/callBack/transact/".id_encode($order)."/f/".id_encode($id);
+//            $url = $scheme  . $host . ":$port" ."/index/trading/callBack/transact/".id_encode($order)."/f/".id_encode($id);
+            $url = "http://". $host ."/index/trading/callBack/transact/".id_encode($order)."/f/".id_encode($id);
         }
         $d = config('site.doiyin');
         if($d == 1) {
