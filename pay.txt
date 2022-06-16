@@ -14,3 +14,11 @@ dingchengpay: 订单处理返回结果{"s":"\/index\/pay\/dingchengpay","money":
 订单处理完成
 订单处理返回结果1
 success
+qumipay: 订单处理返回结果{"s":"\/index\/pay\/mahuayun"}
+qumipay: 订单处理返回结果{"s":"\/index\/pay\/mahuayun"}
+qumipay: 订单处理返回结果{"s":"\/index\/pay\/mahuayun"}
+qumipay: 订单处理返回结果{"s":"\/index\/pay\/mahuayun","out_trade_no":"20220616211800183174","money":"1.00","trade_status":"TRADE_SUCCESS","name":"smart","sign":"9f77a61d103680247c61d6c6644aa9d7","trade_no":"cc1537424253246676992","pid":"1036","type":"tiger"}
+订单处理完成
+订单处理返回结果1
+success
+qumipay: 订单处理返回结果{"s":"\/index\/pay\/mahuayun"}
