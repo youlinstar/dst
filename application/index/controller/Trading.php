@@ -3228,14 +3228,16 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
         if(!empty($domain)) {
             $host = $domain;
             $scheme = '';
+        }else{
+            $host="http://". $host;
         }
         $port = $this->request->port();
         if($params) {
 //            $url =  $scheme . $host . ":$port" ."/index/trading/callBack?a=a&".http_build_query($params);
-            $url =  "http://". $host ."/index/trading/callBack?a=a&".http_build_query($params);
+            $url =  $host ."/index/trading/callBack?a=a&".http_build_query($params);
         } else {
 //            $url = $scheme  . $host . ":$port" ."/index/trading/callBack/transact/".id_encode($order)."/f/".id_encode($id);
-            $url = "http://". $host ."/index/trading/callBack/transact/".id_encode($order)."/f/".id_encode($id);
+            $url = $host ."/index/trading/callBack/transact/".id_encode($order)."/f/".id_encode($id);
         }
         $d = config('site.doiyin');
         if($d == 1) {
