@@ -25,9 +25,14 @@
         "karsonzhang/fastadmin-addons": "~1.1.9",
         "overtrue/pinyin": "~3.0",
         "phpoffice/phpspreadsheet": "^1.2",
-        "topthink/think-swoole": "2.0.*"
+        "topthink/think-swoole": "2.0.*",
+        "ankitpokhrel/tus-php": "^1.2",
+      "ext-json": "*"
     },
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "topthink/think-installer": true
+        }
     }
 }

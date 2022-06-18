@@ -11,7 +11,6 @@
 
 namespace think;
 
-use Endroid\QrCode\QrCode;
 use think\exception\ClassNotFoundException;
 
 class Loader
@@ -609,9 +608,8 @@ class Loader
      * @param  bool    $ucfirst 首字母是否大写（驼峰规则）
      * @return string
      */
-    public static function parseName($name, $type = 0, $ucfirst = true  )
+    public static function parseName($name, $type = 0, $ucfirst = true)
     {
-
         if ($type) {
             $name = preg_replace_callback('/_([a-zA-Z])/', function ($match) {
                 return strtoupper($match[1]);
@@ -619,7 +617,6 @@ class Loader
 
             return $ucfirst ? ucfirst($name) : lcfirst($name);
         }
-        
 
         return strtolower(trim(preg_replace("/[A-Z]/", "_\\0", $name), "_"));
     }

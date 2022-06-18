@@ -6,14 +6,13 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: liu21st <表19382406@gmail.com>
+// | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
 //------------------------
 // ThinkPHP 助手函数
 //-------------------------
 
-use app\admin\model\Domain;
 use think\Cache;
 use think\Config;
 use think\Cookie;
@@ -111,82 +110,6 @@ if (!function_exists('config')) {
     }
 }
 
-if(!function_exists("get_user"))
-{
-    function get_user($uid , $field = '')
-    {
-
-        $user =  \app\admin\model\Admin::getUser($uid);
-        if($field)
-        {
-            return \fast\array_get($user , $field);
-        }
-        return $user;
-    }
-}
-
-if(!function_exists("M"))
-{
-    function M($name = '', $config = [], $force = false)
-    {
-        return Db::connect($config, $force)->name($name);
-    }
-}
-
-if(!function_exists("getDomain"))
-{
-    function getDomain($type = 1)
-    {
-        //获取入口域名
-        $domain = Domain::get(['type' => $type, 'status' => 1]);
-        if($domain === null)
-        {
-            exit(json_encode(['code' => 0 , 'msg' => '找不到域名请联系管理员设置']));
-        }
-        //是否启用域名前缀 并且是落地类型
-        $url_pre = '';
-        if(config('site.DOMAIN_PRE') && $type == 2)
-        {
-            $url_pre = str_rand() . '.';
-            return  "http://". $url_pre .trim($domain['domain']);
-        }
-        return "http://" . trim($domain['domain']);
-    }
-}
-if (!function_exists('I')) {
-    /**
-     * 获取输入数据 支持默认值和过滤
-     * @param string    $key 获取的变量名
-     * @param mixed     $default 默认值
-     * @param string    $filter 过滤方法
-     * @return mixed
-     */
-    function I($key = '', $default = null, $filter = '')
-    {
-        if (0 === strpos($key, '?')) {
-            $key = substr($key, 1);
-            $has = true;
-        }
-        if ($pos = strpos($key, '.')) {
-            // 指定参数来源
-            list($method, $key) = explode('.', $key, 2);
-            if (!in_array($method, ['get', 'post', 'put', 'patch', 'delete', 'route', 'param', 'request', 'session', 'cookie', 'server', 'env', 'path', 'file'])) {
-                $key    = $method . '.' . $key;
-                $method = 'param';
-            }
-        } else {
-            // 默认为自动判断
-            $method = 'param';
-        }
-        if (isset($has)) {
-            return request()->has($key, $method, $default);
-        } else {
-            return request()->$method($key, $default, $filter);
-        }
-    }
-}
-
-
 if (!function_exists('input')) {
     /**
      * 获取输入数据 支持默认值和过滤
@@ -219,10 +142,6 @@ if (!function_exists('input')) {
         }
     }
 }
-
-
-
-
 
 if (!function_exists('widget')) {
     /**
@@ -276,24 +195,6 @@ if (!function_exists('db')) {
     function db($name = '', $config = [], $force = false)
     {
         return Db::connect($config, $force)->name($name);
-    }
-}
-
-if(!function_exists('array_group'))
-{
-    function array_group($array = [], $key)
-    {
-        if(empty($array))
-        {
-            return [];
-        }
-        $data = [];
-        dump($array);die;
-        foreach ($array as $item)
-        {
-            $data[$item[$key]][] =  $item->toArray();
-        }
-        return $data;
     }
 }
 
@@ -363,9 +264,7 @@ if (!function_exists('dump')) {
      */
     function dump($var, $echo = true, $label = null)
     {
-        echo "<pre>";
-        print_r($var);
-        //return Debug::dump($var, $echo, $label);
+        return Debug::dump($var, $echo, $label);
     }
 }
 
@@ -655,20 +554,6 @@ if (!function_exists('token')) {
     }
 }
 
-if (!function_exists('getToken')) {
-    /**
-     * 生成表单令牌
-     * @param string $name 令牌名称
-     * @param mixed  $type 令牌生成方法
-     * @return string
-     */
-    function getToken($name = '__token__', $type = 'md5')
-    {
-        return  Request::instance()->token($name, $type);
-
-    }
-}
-
 if (!function_exists('load_relation')) {
     /**
      * 延迟预载入关联查询
@@ -700,165 +585,5 @@ if (!function_exists('collection')) {
         } else {
             return \think\Collection::make($resultSet);
         }
-    }
-}
-
-/**
- * 简单对称加密算法之加密
- * @param String $string 需要加密的字串
- * @param String $skey 加密EKY
- * @author Anyon Zou <zoujingli@qq.com>
- * @date 2013-08-13 19:30
- * @update 2014-10-10 10:10
- * @return String
- */
-if(!function_exists('id_decode'))
-{
-    function id_decode($value)
-    {
-        $dkey ="asdhasjkdhasdjh";
-        $key = 'dashan'.$dkey;
-        $value = think_decrypt2(urlsafe_b64decode2($value), $key);
-        if (empty($value)) {
-            return array(
-                'id' => 0,
-                'id2'=> 0,
-            );
-        }
-        list($id, $id2) = explode('|', $value);
-        return array(
-            'id'    => $id,
-            'id2'   => $id2,
-        );
-    }
-}
-
-if(!function_exists('id_encode'))
-{
-    function id_encode($id, $id2 = 0)
-    {
-        $dkey ="asdhasjkdhasdjh";
-        $key = 'dashan'.$dkey;
-        $value = sprintf('%s|%s', $id, $id2);
-        return urlsafe_b64encode2(think_encrypt2($value, $key));
-    }
-}
-
-if(!function_exists('urlsafe_b64encode2'))
-{
-    function urlsafe_b64encode2($string) {
-        $data = base64_encode($string);
-        $data = str_replace(array('+','/','='),array('-','_',''),$data);
-        return $data;
-    }
-}
-
-if(!function_exists('think_encrypt2'))
-{
-    function think_encrypt2($data, $key = '', $expire = 0) {
-        $key  = md5(empty($key) ? C('DATA_AUTH_KEY') : $key);
-        $data = base64_encode($data);
-        $x    = 0;
-        $len  = strlen($data);
-        $l    = strlen($key);
-        $char = '';
-
-        for ($i = 0; $i < $len; $i++) {
-            if ($x == $l) $x = 0;
-            $char .= substr($key, $x, 1);
-            $x++;
-        }
-
-        $str = sprintf('%010d', $expire ? $expire + time():0);
-
-        for ($i = 0; $i < $len; $i++) {
-            $str .= chr(ord(substr($data, $i, 1)) + (ord(substr($char, $i, 1)))%256);
-        }
-        return str_replace(array('+','/','='),array('-','_',''),base64_encode($str));
-    }
-}
-
-
-
-if(!function_exists('think_decrypt2')) {
-    function think_decrypt2($data, $key = '')
-    {
-        $key = md5(empty($key) ? C('DATA_AUTH_KEY') : $key);
-        $data = str_replace(array('-', '_'), array('+', '/'), $data);
-        $mod4 = strlen($data) % 4;
-        if ($mod4) {
-            $data .= substr('====', $mod4);
-        }
-        $data = base64_decode($data);
-        $expire = substr($data, 0, 10);
-        $data = substr($data, 10);
-
-        if ($expire > 0 && $expire < time()) {
-            return '';
-        }
-        $x = 0;
-        $len = strlen($data);
-        $l = strlen($key);
-        $char = $str = '';
-
-        for ($i = 0; $i < $len; $i++) {
-            if ($x == $l) $x = 0;
-            $char .= substr($key, $x, 1);
-            $x++;
-        }
-
-        for ($i = 0; $i < $len; $i++) {
-            if (ord(substr($data, $i, 1)) < ord(substr($char, $i, 1))) {
-                $str .= chr((ord(substr($data, $i, 1)) + 256) - ord(substr($char, $i, 1)));
-            } else {
-                $str .= chr(ord(substr($data, $i, 1)) - ord(substr($char, $i, 1)));
-            }
-        }
-        return base64_decode($str);
-    }
-}
-
-
-if(!function_exists('urlsafe_b64decode2'))
-{
-    function urlsafe_b64decode2($string) {
-        $data = str_replace(array('-','_'),array('+','/'),$string);
-        $mod4 = strlen($data) % 4;
-        if ($mod4) {
-            $data .= substr('====', $mod4);
-        }
-        return base64_decode($data);
-    }
-}
-
-
-/**
- * 简单对称加密算法之解密
- * @param String $string 需要解密的字串
- * @param String $skey 解密KEY
- * @author Anyon Zou <zoujingli@qq.com>
- * @date 2013-08-13 19:30
- * @update 2014-10-10 10:10
- * @return String
- */
-if(!function_exists("idDecode"))
-{
-    function idDecode($string = '', $skey = 'cxpcxphphp') {
-        $strArr = str_split(str_replace(array('s', 'b', 'a'), array('=', '+', '/'), $string), 2);
-        $strCount = count($strArr);
-        foreach (str_split($skey) as $key => $value)
-            $key <= $strCount  && isset($strArr[$key]) && $strArr[$key][1] === $value && $strArr[$key] = $strArr[$key][0];
-        return base64_decode(join('', $strArr));
-    }
-}
-
-if(!function_exists('str_rand'))
-{
-    function str_rand($num=4){
-        $rand_code="";
-        for ($i = 1; $i <= $num; $i++) {
-            $rand_code .=chr(rand(97, 122));
-        }
-        return $rand_code;
     }
 }

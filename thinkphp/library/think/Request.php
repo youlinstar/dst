@@ -1155,8 +1155,6 @@ class Request
                 break;
             // 字符串
             case 's':
-            case 'array':
-                break;
             default:
                 if (is_scalar($data)) {
                     $data = (string) $data;

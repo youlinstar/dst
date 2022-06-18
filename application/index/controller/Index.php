@@ -392,7 +392,7 @@ class Index extends Frontend
             $domain = trim(getDomain($type));
             if ($domain) {
                 $hezi_url = $domain;
-                $url = $hezi_url."?".$path;
+                $url = $hezi_url.$path.'?';
             } else {
                 $url = '需要添加主域名才能生成盒子链接';
             }
