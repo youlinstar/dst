@@ -10,3 +10,8 @@ gen
 .LSOverride
 
 .env
+
+pay.txt
+fq.txt
+
+MP*.txt
