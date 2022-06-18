@@ -15,3 +15,6 @@ pay.txt
 fq.txt
 
 MP*.txt
+
+/vendor
+/vendor/*
