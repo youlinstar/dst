@@ -243,42 +243,42 @@
 
 
  <!--收藏代码-->
-    <div id="WX-window-TKEy5SPt5wisSxt-Shadee" v-if="dialog.fav.status" class="WX-window-shade">
-        <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
-            <div class="WX-Window-main" style="width:80%"><h2>保存本站</h2>
-                <div class="WX-Window-body">
-                    <p style="color:#f74550;line-height:25px;margin-top:10px;text-align:center;">
-                        为了防止网络IP切换导致会员失效强烈建议您截图或长按保存二维码打开观看
-                    </p>
-                    <img width="100%" :src="dialog.fav.url"
-                         style="display:block;margin:auto;">
+    <!--<div id="WX-window-TKEy5SPt5wisSxt-Shadee" v-if="dialog.fav.status" class="WX-window-shade">-->
+    <!--    <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">-->
+    <!--        <div class="WX-Window-main" style="width:80%"><h2>保存本站</h2>-->
+    <!--            <div class="WX-Window-body">-->
+    <!--                <p style="color:#f74550;line-height:25px;margin-top:10px;text-align:center;">-->
+    <!--                    为了防止网络IP切换导致会员失效强烈建议您截图或长按保存二维码打开观看-->
+    <!--                </p>-->
+    <!--                <img width="100%" :src="dialog.fav.url"-->
+    <!--                     style="display:block;margin:auto;">-->
                          
-                    <div class="CopyUrl">
+    <!--                <div class="CopyUrl">-->
                       
-                        <input type="text" class="copydata"v-model="dialog.fav.u" >
-                        <a href="javascript:void(0);" id="doCopyValue" :data-clipboard-text="dialog.fav.u"
-                           @click="doCopyUrl()" class="CopyUrlBtn">复制连接</a>
-                    </div>
+    <!--                    <input type="text" class="copydata"v-model="dialog.fav.u" >-->
+    <!--                    <a href="javascript:void(0);" id="doCopyValue" :data-clipboard-text="dialog.fav.u"-->
+    <!--                       @click="doCopyUrl()" class="CopyUrlBtn">复制连接</a>-->
+    <!--                </div>-->
                     
                     
                     
-                    <p style="color:#f74550;padding:0%;margin:0;line-height:25px;text-align:center;">
-                        购买类型:{$desc},到期时间:{$expire}
-                    </p>
+    <!--                <p style="color:#f74550;padding:0%;margin:0;line-height:25px;text-align:center;">-->
+    <!--                    购买类型:{$desc},到期时间:{$expire}-->
+    <!--                </p>-->
                     
-                    <p style="color:#f74550;padding:1%;margin:0;line-height:25px;text-align:center;">
-                        <input type="checkbox" v-model="checked" id="in2"><label for="in2">我已保存不再提醒</label>
-                    </p>
+    <!--                <p style="color:#f74550;padding:1%;margin:0;line-height:25px;text-align:center;">-->
+    <!--                    <input type="checkbox" v-model="checked" id="in2"><label for="in2">我已保存不再提醒</label>-->
+    <!--                </p>-->
                     
                 
                     
-                </div>
-                <div class="WX-Window-footer"><a @click="guanbi" href="javascript:void(0);"
-                                                 style="width:calc(95% - 10px);"
-                                                 class="WX-Window-btn cannel">关闭</a></div>
-            </div>
-        </div>
-    </div>
+    <!--            </div>-->
+    <!--            <div class="WX-Window-footer"><a @click="guanbi" href="javascript:void(0);"-->
+    <!--                                             style="width:calc(95% - 10px);"-->
+    <!--                                             class="WX-Window-btn cannel">关闭</a></div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
 
         <!--打赏代码-->
