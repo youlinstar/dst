@@ -690,7 +690,7 @@
                 </div>
                 <div class="list">
                     <div id="list">
-                        <van-list v-model="loading" :finished="finished" :finished-text="msg" @load="doGetList" offset="300"
+                        <van-list v-model="loading" :finished="finished" key="payed" :finished-text="msg" @load="yigou" offset="300"
                             direction="down">
                             <div class="van-clearfix">
                                 <lazy-component>
@@ -1131,7 +1131,7 @@
                 }
             },
             mounted: function () {
-                this.doGetList()
+                this.yigou()
             }
             , methods: {
                 doGetList(index, row) {
