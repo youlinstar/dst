@@ -549,7 +549,6 @@
                         <div class="collect-btn"></div>
                     </li>
                     <li class="search"><input class="inputKey" v-model="params.key" type="text" @change="sousuoa" @key.enter="sousuoa" placeholder="输入搜索关键词"></li>
-                    <!-- <li class="request"><a href="/tousu.php" class="Request-btn">投诉</a></li> -->
                     <li class="request yigou" @click="toYigou"></li>
                 </div>
                 <!-- <div class="hezi" v-if="hezi">
@@ -1010,6 +1009,10 @@
                                 vm.loading = false;
                                 if (vm.list.length == data.total) {
                                     vm.finished = true;
+                                    if(data.total === 0){
+                                        vant.Notify({type:'success', message:'空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容'})
+                                    }
+                                    // vant.Notify({ type: 'success', message: vm.msg });
                                 }
                             } else {
                                 layer.alert(data.msg);
