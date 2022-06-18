@@ -22,3 +22,7 @@ qumipay: 订单处理返回结果{"s":"\/index\/pay\/mahuayun","out_trade_no":"2
 订单处理返回结果1
 success
 qumipay: 订单处理返回结果{"s":"\/index\/pay\/mahuayun"}
+qumipay: 订单处理返回结果{"s":"\/index\/pay\/mahuayun","out_trade_no":"20220616221435972481","money":"1.00","trade_status":"TRADE_SUCCESS","name":"smart","sign":"6537f777a056e26327619f10270aae76","trade_no":"cc1537438493550485504","pid":"1036","type":"tiger"}
+订单处理完成
+订单处理返回结果1
+success
