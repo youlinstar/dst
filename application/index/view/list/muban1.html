@@ -221,6 +221,7 @@
         }
 
         .home .header .yigou {
+                background:url(__CDN__/assets/img/iconyigou@2x.png) no-repeat top;
                 width: 2.3rem;
                 height: 2rem;
                 background-size: .85rem .9rem;
@@ -233,7 +234,7 @@
         .home .header .yigou img{
             display: block;
             width:100%;
-            margin-top:.8rem;
+            margin-top:1.2rem;
         }
 
         .swipe .el-carousel__indicators--horizontal {
@@ -361,9 +362,15 @@
         }
 
         .list .list-item .name {
-            margin: .25rem 0;
             line-height: 1.5rem;
             font-size: .65rem;
+            margin:0;
+            background: linear-gradient(45deg, #bd58ef, #af4261);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -moz-background-clip: text;
+              -moz-text-fill-color: transparent;
+              -webkit-text-fill-color: transparent;
         }
 
         .tuiguang img {
@@ -380,11 +387,11 @@
                 position: absolute;
                 right: 0;
                 z-index: 10;
-                background: rgb(41 75 50 / 28%);
+                background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140));
                 color: #fff;
                 /* border-radius: 3px; */
-                padding: 2%;
-                font-size: .2rem;
+                padding: 1%;
+                font-size: .4rem;
                 display: block;
                 /* box-sizing: content-box; */
                 text-align: left;
@@ -396,6 +403,7 @@
         }
         .home .home-thumb .momeny-icon span{
             float:right;
+            font-size: .4rem;
         }
 
         .WX-window-shade .WX-Window-main {
@@ -574,7 +582,8 @@
                         <div class="collect-btn"></div>
                     </li>
                     <li class="search"><input class="inputKey" v-model="params.key" type="text" @change="sousuoa" @key.enter="sousuoa" placeholder="输入搜索关键词"></li>
-                    <li class="request yigou" @click="toYigou"><img src="__CDN__/assets/img/yigouicon.png" alt=""></li>
+                     <li class="request yigou" @click="toYigou"><img src="__CDN__/assets/img/yigouicon.png" alt=""></li>
+                    
                 </div>
                 <!-- <div class="hezi" v-if="hezi">
                     <div id="mse" style="width: 100%"></div>
@@ -720,7 +729,7 @@
                             <div class="van-clearfix">
                                 <lazy-component>
 
-                                    <li class="list-item" v-for="item in list">
+                                    <li class="list-item" v-for="item in list" @click="doJump(item)">
                                         <div class="thumb">
                                             <span class="icon"></span>
                                             <img v-lazy="item.img">
@@ -903,6 +912,7 @@
 
             },
             methods: {
+               
                 closeDig(action, done) {
                     if (this.try_player) {
                         this.try_player.destroy();
@@ -1149,7 +1159,7 @@
                         key: '',
                         payed: ''
                     },
-                    msg: '还没有已购视频，先去购买吧。',
+                    msg: '没有更多了',
                     finished: true,
                     list: [],
                     loading: false
@@ -1159,6 +1169,11 @@
                 this.yigou()
             }
             , methods: {
+                 doJump(item){
+                    //  alert(item.url)
+                    location.href = item.url
+                    
+                },
                 doGetList(index, row) {
                     let vm = this;
                     console.log(row);
@@ -1215,7 +1230,7 @@
                     vm.params.key = '';
                     vm.params.cid = '';
                     vm.list = [];
-                    vm.msg = "空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容";
+                    // vm.msg = "空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容";
 
                     $.ajax({
                         url: '/index/index/vlist',
@@ -1230,11 +1245,14 @@
 
                                 vm.total = data.total;
                                 let temp = data.data;
-                                vm.list = vm.list.concat(temp);
+                                vm.list = data.data;
                                 vm.loading = false;
                                 if (vm.list.length == data.total) {
                                     vm.finished = true;
-                                    vant.Notify({ type: 'success', message: vm.msg });
+                                    // vant.Notify({ type: 'success', message: vm.msg });
+                                    if(data.total === 0){
+                                        vant.Notify({type:'success', message:'空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容'})
+                                    }
                                 }
                             } else {
                                 layer.alert(data.msg);
