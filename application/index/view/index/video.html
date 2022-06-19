@@ -1,631 +1,798 @@
 <!DOCTYPE html>
 
-<html lang="zh-CN" class="pixel-ratio-1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>视频播放</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="screen-orientation" content="portrait">
-    <meta name="x5-orientation" content="portrait">
-    <meta name="full-screen" content="yes">
-    <meta name="x5-fullscreen" content="true">
-    <style>body{background-color:#FFFFFF;}</style></head>
-<body style="display: block;"><script>
-    document.addEventListener('DOMContentLoaded', function() {
+<html lang="zh-CN">
 
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 30 + 'px'
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>视频播放</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="screen-orientation" content="portrait">
+  <meta name="x5-orientation" content="portrait">
+  <meta name="full-screen" content="yes">
+  <meta name="x5-fullscreen" content="true">
+  <style>
+    html,
+    body {
+      background-color: #FFFFFF;
+      font-size: calc(100vw/18.375) !important;
+    }
+  </style>
+</head>
 
-    })
-</script>
-
-
-<script src="__CDN__/assets/list/muban1/static/lib/vue/vue.js"></script>
-
-
-<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/main.css">
-
-<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/wx.css">
-
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/vant@2.10/lib/index.css"
-/>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<body style="display: block;">
 
 
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vant@2.10/lib/vant.min.js"></script>
 
-<script src="__CDN__/assets/list/muban1/static/lib/layer/layer.js"></script>
-
-<script src="//cdn.jsdelivr.net/npm/xgplayer@2.9.6/browser/index.js" charset="utf-8"></script>
-<script src="__CDN__/assets/list/muban1/static/clipboard/clipboard.min.js" type="text/javascript"></script>
+  <script src="__CDN__/assets/list/muban1/static/lib/vue/vue.js"></script>
 
 
-<script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/main.css">
+
+  <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/wx.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.10/lib/index.css" />
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.7/jquery.min.js"></script>
 
 
-<style>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vant@2.10/lib/vant.min.js"></script>
 
-    .copydata{
-        border: none;
-    display: inline-block;
-    width: 78%;
-    padding-top: 1%;
+  <script src="__CDN__/assets/list/muban1/static/lib/layer/layer.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/xgplayer@2.9.6/browser/index.js" charset="utf-8"></script>
+  <script src="__CDN__/assets/list/muban1/static/clipboard/clipboard.min.js" type="text/javascript"></script>
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+  <style>
+    .copydata {
+      border: none;
+      display: inline-block;
+      width: 78%;
+      padding-top: 1%;
 
     }
+
     .weui-search-bar {
-        position: relative;
-        padding: 8px 10px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: flex;
-        box-sizing: border-box;
-        background-color: #efeff4;
-        -webkit-text-size-adjust: 100%;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        align-items: center;
+      position: relative;
+      padding: 8px 10px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      box-sizing: border-box;
+      background-color: #efeff4;
+      -webkit-text-size-adjust: 100%;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      align-items: center;
     }
 
-    .van-list__finished-text{
-        margin-bottom: 10%;
+    .van-list__finished-text {
+      margin-bottom: 10%;
     }
-    .likelist{
-        margin-top:10px;
+
+    .likelist {
+      margin-top: 10px;
     }
-    .likelist li{
-        margin-bottom:10px;
-        height:60px;
-        overflow:hidden;
-        display:block;
+
+    .likelist li {
+      margin-bottom: 10px;
+      height: 60px;
+      overflow: hidden;
+      display: block;
     }
-    .likelist li img{
-        width:30%;
-        display:block;
-        float:left;
-        height:60px;
+
+    .likelist li img {
+      width: 30%;
+      display: block;
+      float: left;
+      height: 60px;
     }
-    .likelist p{
-        width:70%;
-        float:left;
-        height:60px;
-        line-height:25px;
-        padding:5px 10px;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        overflow: hidden;
-        -webkit-box-orient: vertical;
+
+    .likelist p {
+      width: 70%;
+      float: left;
+      height: 60px;
+      line-height: 25px;
+      padding: 5px 10px;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
 
     }
 
-    .liketitle{
-        margin-top:10px;
-    }
-    #myvideo{
-        margin-top:10px;
-    }
-    .pay-item{
-        width:100%;
-        height:30px;
-        line-height:30px;
-        margin-top:10px;
-        border-radius:5px;
-        border:1px solid #CCCCCC;
-        text-align:center;
-        color:#666;
-    }
-    .pay-item:last-child{
-        margin-bottom:10px;
+    .liketitle {
+      margin-top: 10px;
     }
 
-    .weui-search-bar__cancel-btn1{
-        display: block;
-        margin-left: 10px;
-        line-height: 28px;
-        color: #09bb07;
-        white-space: nowrap;
+    #myvideo {
+      margin-top: 10px;
     }
-    input::-ms-input-placeholder{
-        text-align: center;
+
+    .pay-item {
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #CCCCCC;
+      text-align: center;
+      color: #666;
     }
+
+    .pay-item:last-child {
+      margin-bottom: 10px;
+    }
+
+    .weui-search-bar__cancel-btn1 {
+      display: block;
+      margin-left: 10px;
+      line-height: 28px;
+      color: #09bb07;
+      white-space: nowrap;
+    }
+
+    input::-ms-input-placeholder {
+      text-align: center;
+    }
+
     input::-webkit-input-placeholder {
-        text-align: center;
+      text-align: center;
     }
 
-    #mse{
+    #mse {
       background-color: #0d0d0d;
     }
+
     .player_bot {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-pack: distribute;
-        justify-content: space-around;
-        margin-top: 1%;
-        border-bottom: 1px solid #f2f2f2;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      margin: .5rem .7rem;
+      padding: 1rem;
+      background: #f7f7f7;
+      border-radius: 5px;
     }
 
     .player_bot div {
-        font-size: 12px;
-        text-align: center;
+      font-size: .6rem;
+      text-align: center;
+    }
+
+    .player_bot p {
+      font-size: .6rem;
+      color: #575757;
+      margin: 0;
     }
 
     .player_bot div img {
-        width: 25px;
-        height: 25px;
-        margin-bottom: 5px;
-        margin-top: 5px;
-    }
-    .details p{
-        display: inline-block;
-        padding-top:4px;
-        width: 100%;
-        height: 20px;
-    }
-    .details p img{
-        width: 15px;
-        height: 15px;
+      width: .98rem;
+      height: .9rem;
+      margin-bottom: .15rem;
     }
 
-</style>
+    .details span {
+      font-size: .9rem;
+    }
+
+    .details .coup,
+    .details .liker {
+      display: inline-block;
+      font-size: .6rem;
+      margin: 0;
+      box-sizing: content-box;
+    }
+
+    .details .liker {
+      float: right;
+      margin-right: .7rem;
+      padding: 2px 1%;
+    }
+
+    .details .liker span {
+      display: block;
+      width: 100%;
+      box-sizing: content-box;
+      min-width: 1rem;
+      padding-left: 1rem;
+      font-size: .6rem;
+    }
+
+    .details p img {
+      width: 15px;
+      height: 15px;
+    }
+
+    #mse {
+      height: 12.6rem;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+
+    .title {
+      font-size: .9rem;
+      display: block;
+      color: #333;
+      margin: .7rem;
+    }
+
+    .coup {
+      margin-left: .5rem;
+      min-width: 50%;
+      width: 60%;
+      padding-left: .7rem;
+    }
+
+    .coup span {
+      padding: 1%;
+      display: inline-block;
+      min-width: 2rem;
+      background: url(__CDN__/assets/img/huo@2x.png) no-repeat left center;
+      background-size: .4rem .5rem;
+      padding-left: .5rem;
+      font-size: .6rem;
+    }
+
+    .coup span:last-child {
+      background-image: url(__CDN__/assets/img/dashang@2x.png);
+    }
+
+    .liker {
+      background: #25C84F;
+      color: #fff;
+      border-radius: 3px;
+    }
+
+    .liker span {
+      background: url(__CDN__/assets/img/aixin@2x.png) no-repeat left center;
+      background-size: .55rem .5rem;
+    }
+
+    .list .list-item {
+      height: auto;
+      margin-left: .7rem;
+      width: 8.45rem;
+      overflow: hidden;
+    }
+
+    .list .list-item .thumb {
+      width: 8.45rem;
+      height: 9.8rem;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .list .list-item .thumb img {
+      display: block;
+    }
+
+    .list .list-item:nth-child(2n) {
+      margin-left: .25rem;
+    }
+
+    .list .list-item .name {
+      font-size: .7rem;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      line-height: normal;
+      margin: .5rem 0;
+      width: 100%;
+    }
+
+    .list .list-item .plays {
+      color: #a2a2a2;
+      font-size: .6rem;
+      line-height: normal;
+      margin: 0;
+      width: 100%;
+
+    }
+
+    .back_btn {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      background: url(__CDN__/assets/img/arrowleft@2x.png) no-repeat center;
+      background-size: .45rem .8rem;
+      z-index: 10000;
+    }
+
+    .WX-window-shade .WX-Window-main {
+      background: #08120e;
+      width: 90%;
+      /* height: 80%; */
+      color: #fff;
+      max-width: 90%;
+    }
+
+    .WX-window-box h2 {
+      background: #08120e url(__CDN__/assets/img/goumai@2x.png) no-repeat left center;
+      height: 32px;
+      background-size: 74px 32px;
+      border: none;
+      margin-bottom: 10px;
+    }
+
+    .WX-window-box h2 span {
+      display: block;
+      float: right;
+      height: 22px;
+      width: 22px;
+      background: url(__CDN__/assets/img/guanbi@2x.png) no-repeat center;
+      margin-top: 10px;
+      margin-right: 10px;
+      background-size: 100% 100%;
+    }
+
+    .WX-window-box .WX-Window-body {
+      padding: 0;
+    }
+
+    .niubi {
+      font-size: 1.2em;
+
+    }
+
+    .ds_tankuang {
+      height: 10rem;
+      width: 100%;
+      margin-bottom: 4%;
+    }
+  </style>
 
 
-<div class="box body channelbox" data-href="type" style="display: block;">
+  <div class="box body channelbox" data-href="type" style="display: block;">
 
 
     <div id="app">
+      <div class="back_btn" @click="back"></div>
+      <div id="mse"></div>
+      <p class="title">
+        {$link.title}
+      </p>
+      <div class="details">
+        <p class="coup">
+          <span>
+            <?php echo rand(0,100000)?>
+          </span>/
+          <span> 打赏
+            <?php echo rand(100,5633)?>
+          </span>
+        </p>
+        <!-- <p class="">
+          <?php echo rand(0,100000)?> /
+          <?php echo rand(100,5633)?>(金币)
+          <?php echo rand(400,54321)?>次打赏
+        </p> -->
+        <p class="liker">
+          <span>
+            <?php echo rand(1000,33322)?>喜欢
+          </span>
+        </p>
+      </div>
+      <div class="player_bot">
+        <div class="shoucang">
+          <img src="__CDN__/assets/img/shoucang@2x.png" alt="" @click="doFav">
+          <p @click="doFav">收藏</p>
+        </div>
+        <div id="playId" class="yigou">
+          <img src="__CDN__/assets/img/dingdan-3@2x.png" alt="">
+          <p @click="doGetList('pay')">已购</p>
 
-        <div id="mse" style="height: 200px;width: 100%"></div>
+        </div>
+        <div class="callback"><img src="__CDN__/assets/img/taolunqu@2x.png" alt="" onclick="location.href='/tousu'">
+          <p><a href="/tousu" style="color: #8f8f94">投诉</a></p>
+        </div>
+      </div>
 
+      <div class="weui-panel__hd"
+        style="text-align: left;color:#333;font-size: .8rem;padding-left:.7rem;font-weight:bold;">精彩视频推荐</div>
 
-        <div data-v-04546bc9="" class="player_bot">
-            <div data-v-04546bc9=""><img data-v-04546bc9=""
-                                         src="data:image/png;base64,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"
-                                         alt=""  @click="doFav">
-                <p data-v-04546bc9=""  @click="doFav">收藏本站</p></div>
-            <div data-v-04546bc9="" id="playId"><img data-v-04546bc9=""
-                                                     src="data:image/png;base64,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"
-                                                     alt="">
-                <p data-v-04546bc9="" @click="doGetList('pay')">已购视频</p>
-
+      <div v-if="list.length>0">
+        <div class="list">
+          <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="doGetList" offset="150"
+            direction="down">
+            <div class="van-clearfix">
+              <li class="list-item" v-for="item in list" @click="doPay(item)">
+                <div class="thumb"><img :src="item.img"></div>
+                <p class="name">{{item.title}}</p>
+                <p class="plays">{{doRate()}}人已付费观看</p>
+              </li>
             </div>
-            <div data-v-04546bc9=""><img data-v-04546bc9=""
-                                         src="data:image/png;base64,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"
-                                         alt="" onclick="location.href='/tousu'">
-                <p data-v-04546bc9=""><a href="/tousu" style="color: #8f8f94">投诉视频</a></p></div>
-
-
+          </van-list>
         </div>
-        <div data-v-04546bc9="" class="details" style="width: 100%;height: 85px;border-bottom: 1px solid #f2f2f2;">
-
-
-                <span style="display: inline-block;
-    padding-top: 10px;
-    padding-left: 7px;
-    font-size: 15px;
-    color: #8f8f94;"><?php echo rand(0,100000)?> 播放 <?php echo rand(100,5633)?>(金币) <?php echo rand(400,54321)?>次打赏</span>
-
-            <p data-v-04546bc9="" style="margin: 0px 0px 5px 0.2rem;">
-                <img data-v-04546bc9="" src="data:image/png;base64,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" alt="">
-                <span data-v-04546bc9="" style="color: rgb(68, 86, 125);"></span><span data-v-04546bc9=""> {$link.title}</span></p>
-
-
-            <p data-v-04546bc9="" style="margin: 0px 0px 5px 0.2rem;">
-                <img data-v-04546bc9="" src="data:image/png;base64,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" alt=""><span data-v-04546bc9=""> <?php echo rand(1000,33322)?></span>喜欢</p>
+      </div>
 
 
 
-        </div>
 
-        <div class="weui-panel__hd" style="text-align: center">精彩视频推荐</div>
+      <!--收藏代码-->
+      <!--<div id="WX-window-TKEy5SPt5wisSxt-Shadee" v-if="dialog.fav.status" class="WX-window-shade">-->
+      <!--    <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">-->
+      <!--        <div class="WX-Window-main" style="width:80%"><h2>保存本站</h2>-->
+      <!--            <div class="WX-Window-body">-->
+      <!--                <p style="color:#f74550;line-height:25px;margin-top:10px;text-align:center;">-->
+      <!--                    为了防止网络IP切换导致会员失效强烈建议您截图或长按保存二维码打开观看-->
+      <!--                </p>-->
+      <!--                <img width="100%" :src="dialog.fav.url"-->
+      <!--                     style="display:block;margin:auto;">-->
 
-        <div  v-if="list.length>0" >
-            </h4>
-            <div class="list">
-                <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="doGetList" offset="150"
-                          direction="down">
-                    <div class="van-clearfix">
-                        <li class="list-item" v-for="item in list" @click="doPay(item)">
-                            <div class="thumb"><img :src="item.img"></div>
-                            <p class="name">{{item.title}}</p><br>
-                            <p class="plays">{{doRate()}}人已付费观看</p>
-                        </li>
-                    </div>
-                </van-list>
+      <!--                <div class="CopyUrl">-->
+
+      <!--                    <input type="text" class="copydata"v-model="dialog.fav.u" >-->
+      <!--                    <a href="javascript:void(0);" id="doCopyValue" :data-clipboard-text="dialog.fav.u"-->
+      <!--                       @click="doCopyUrl()" class="CopyUrlBtn">复制连接</a>-->
+      <!--                </div>-->
+
+
+
+      <!--                <p style="color:#f74550;padding:0%;margin:0;line-height:25px;text-align:center;">-->
+      <!--                    购买类型:{$desc},到期时间:{$expire}-->
+      <!--                </p>-->
+
+      <!--                <p style="color:#f74550;padding:1%;margin:0;line-height:25px;text-align:center;">-->
+      <!--                    <input type="checkbox" v-model="checked" id="in2"><label for="in2">我已保存不再提醒</label>-->
+      <!--                </p>-->
+
+
+
+      <!--            </div>-->
+      <!--            <div class="WX-Window-footer"><a @click="guanbi" href="javascript:void(0);"-->
+      <!--                                             style="width:calc(95% - 10px);"-->
+      <!--                                             class="WX-Window-btn cannel">关闭</a></div>-->
+      <!--        </div>-->
+      <!--    </div>-->
+      <!--</div>-->
+
+
+      <!--打赏代码-->
+      <div id="WX-window-TKEy5SPt5wisSxt-Shade" v-if="dialog.pay.status" class="WX-window-shade">
+        <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
+          <div class="WX-Window-main">
+            <!--<h2>购买后观影</h2>-->
+            <h2> <span class="close_btn" @click="dialog.pay.status = false, dialog.pay.pay = []"></span></h2>
+            <div class="ds_tankuang">
+              <img :src="ds_img" style="width:100%;height:100%">
             </div>
-        </div>
-
-
-
-
- <!--收藏代码-->
-    <!--<div id="WX-window-TKEy5SPt5wisSxt-Shadee" v-if="dialog.fav.status" class="WX-window-shade">-->
-    <!--    <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">-->
-    <!--        <div class="WX-Window-main" style="width:80%"><h2>保存本站</h2>-->
-    <!--            <div class="WX-Window-body">-->
-    <!--                <p style="color:#f74550;line-height:25px;margin-top:10px;text-align:center;">-->
-    <!--                    为了防止网络IP切换导致会员失效强烈建议您截图或长按保存二维码打开观看-->
-    <!--                </p>-->
-    <!--                <img width="100%" :src="dialog.fav.url"-->
-    <!--                     style="display:block;margin:auto;">-->
-                         
-    <!--                <div class="CopyUrl">-->
-                      
-    <!--                    <input type="text" class="copydata"v-model="dialog.fav.u" >-->
-    <!--                    <a href="javascript:void(0);" id="doCopyValue" :data-clipboard-text="dialog.fav.u"-->
-    <!--                       @click="doCopyUrl()" class="CopyUrlBtn">复制连接</a>-->
-    <!--                </div>-->
-                    
-                    
-                    
-    <!--                <p style="color:#f74550;padding:0%;margin:0;line-height:25px;text-align:center;">-->
-    <!--                    购买类型:{$desc},到期时间:{$expire}-->
-    <!--                </p>-->
-                    
-    <!--                <p style="color:#f74550;padding:1%;margin:0;line-height:25px;text-align:center;">-->
-    <!--                    <input type="checkbox" v-model="checked" id="in2"><label for="in2">我已保存不再提醒</label>-->
-    <!--                </p>-->
-                    
-                
-                    
-    <!--            </div>-->
-    <!--            <div class="WX-Window-footer"><a @click="guanbi" href="javascript:void(0);"-->
-    <!--                                             style="width:calc(95% - 10px);"-->
-    <!--                                             class="WX-Window-btn cannel">关闭</a></div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-
-        <!--打赏代码-->
-        <div id="WX-window-TKEy5SPt5wisSxt-Shade" v-if="dialog.pay.status" class="WX-window-shade">
-            <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
-                <div class="WX-Window-main" style="width:70%"><h2>打赏后观影</h2>
-                    <div class="WX-Window-body">
-                        <li v-for="(item,index) in dialog.pay.pay" class="pay-item" @click="linkTo(item.url)">
-
-
-
-                            <a style="color: black"  >
-
-                                <img
-                                        height="32px"
-                                        style="display: inline-block; vertical-align: middle;"
-                                        :src="__CDN__item.img"
-                                >
-
-                                {{item.name}}
-                            </a>
-
-                        </li>
-
-                        <p style="color:#f74550;line-height:25px;margin:10px auto;">
-                            温馨提示：推荐用浏览器直接扫码支付方可以保存至《已购》中查，若在微信中跳转支付的，可返回浏览器打开网站中查看。<br>注意：由于观影人数较多，有所异常请多试几次！
-                        </p>
-
-                    </div>
-                    <div class="WX-Window-footer"><a @click="dialog.pay.status=false,dialog.pay.pay=[]"
-                                                     href="javascript:void(0);" style="width:calc(95% - 10px);"
-                                                     class="WX-Window-btn cannel">关闭</a></div>
-                </div>
+            <div style="padding:2%">
+              <span class="niubi">{{ ds_title }}</span>
+              <p style="line-height:25px;margin:10px auto;">
+                若购买后无法观看，请到已购观看。<br>
+              </p>
+              <ul>
+                <li v-for="(item, index) in dialog.pay.pay" class="pay-item" @click="linkTo(item.url)">
+                  <a style="">
+                    <!-- <img height="32px" style="display: inline-block; vertical-align: middle;"
+                        :src="item.img"> -->
+                    {{ item.name }}
+                  </a>
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
 
 
+      </div>
     </div>
-</div>
 
 
 
-<form action="" method="post" name="form" style="display:none">
-  
-</form>
+    <form action="" method="post" name="form" style="display:none">
 
+    </form>
 
-<div class="footer"><ul>
-    <li class="">
+    <!-- 
+  <div class="footer">
+    <ul>
+      <li class="">
         <a href="/index/index/lists/?f=<?php echo $_GET['f'];?>">
-            <img src="__CDN__/assets/list/muban1/tab-home.png"
-            >
-            <span>首页</span>
+          <img src="__CDN__/assets/list/muban1/tab-home.png">
+          <span>首页</span>
         </a>
-    </li>
-    <li class="">
+      </li>
+      <li class="">
         <a href="/index/index/pagecat/?f=<?php echo $_GET['f'];?>">
-            <img src="__CDN__/assets/list/muban1/tab-cate.png">
-            <span>分类</span>
+          <img src="__CDN__/assets/list/muban1/tab-cate.png">
+          <span>分类</span>
         </a>
-    </li>
+      </li>
 
-    <li>
+      <li>
         <a href="/index/index/lists/?f=<?php echo $_GET['f'];?>#/payed">
-            <img src="__CDN__/assets/list/muban1/tab-cart.png" >
-            <span>已购</span>
+          <img src="__CDN__/assets/list/muban1/tab-cart.png">
+          <span>已购</span>
         </a>
-    </li>
-</ul></div>
+      </li>
+    </ul>
+  </div> -->
 
 
-<script>
+    <script>
 
-    
 
-console.log(vant);
-    Vue.config.productionTip = false;
-    Vue.config.lang = 'zh-CN';
-   // Vue.use(vant.Dialog);
-   
-   var dy = "{$dy}";
-   var payed = "{$pay}";
-    vues = new Vue({
+
+      console.log(vant);
+      Vue.config.productionTip = false;
+      Vue.config.lang = 'zh-CN';
+      // Vue.use(vant.Dialog);
+
+      var dy = "{$dy}";
+      var payed = "{$pay}";
+      vues = new Vue({
         el: '#app',
         data: {
-            list: [],
-            cat:[],
-            checked:false,
-            banner: [
-            ],
-            loading: false,
-            finished: false,
-            msg:'没有更多了',
-            params: {
-                action: "list",
-                f: "<?php echo $_GET['f']?>",
-                page: 1,
-                row: 50,
-                encode:1,
-                cid:"<?php echo isset($_GET['cid']) ? $_GET['cid'] : ''; ?>",
-                key:"<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>",
-                payed:''
-            },
-            catParam:{
-                limit:9, f: "<?php echo $_GET['f']?>",
-                encode:1,
-            },
+          list: [],
+          cat: [],
+          checked: false,
+          banner: [
+          ],
+          ds_img: "",
+          ds_title: "",
 
-            dialog: {
-                fav: {
-                    status: false,
-                    url: "",
-                    u:"{$d}"
-                },
-                pay: {
-                    status: false,
-                    data: [],
-                    pay:[]
-                }
+          loading: false,
+          finished: false,
+          msg: '没有更多了',
+          params: {
+            action: "list",
+            f: "<?php echo $_GET['f']?>",
+            page: 1,
+            row: 50,
+            encode: 1,
+            cid: "<?php echo isset($_GET['cid']) ? $_GET['cid'] : ''; ?>",
+            key: "<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>",
+            payed: ''
+          },
+          catParam: {
+            limit: 9, f: "<?php echo $_GET['f']?>",
+            encode: 1,
+          },
+
+          dialog: {
+            fav: {
+              status: false,
+              url: "",
+              u: "{$d}"
+            },
+            pay: {
+              status: true,
+              data: [],
+              pay: []
             }
+          }
         },
         mounted: function () {
-            
-            
-            if (typeof(Storage) !== "undefined") 
-            {
-                     // 存储
-                var close = localStorage.getItem("close");
-                console.log(close);
-                if(close == 'false' || close == null)
-                {
-                   this.doFav();
 
-                }
+
+          if (typeof (Storage) !== "undefined") {
+            // 存储
+            var close = localStorage.getItem("close");
+            console.log(close);
+            if (close == 'false' || close == null) {
+              this.doFav();
+
             }
-            this.doGetList();
-           
+          }
+          this.doGetList();
+
 
         },
         methods: {
-            
-            onChange(event) {
+          back() { history.back() },
+          onChange(event) {
             console.log(event);
-  },
-            try_see(item){
-                
-                vant.Dialog.confirm({
-                  title: '试看',
-                  message: '试看以结束，请点击打赏观看完整视频',
-                  cancelButtonText:"我在选选",
-                   confirmButtonText:"打赏观看"
-                  
-                })
-                  .then(() => {
-                    this.doPay(item)
-                  })
-                  .catch(() => {
-                    // on cancel
-                  });
-            },
-            doRate(){
-                return parseInt(Math.random()*(10000-90) + 90);
-            },
-            linkTo (e) {
-                layer.msg("正在吊起支付...",{
-                    icon:16,
-                    time:-1
-                });
-                if(dy == "1")
-                {
-                    document.form.action = e;
-                    document.form.submit();
-                     return 
+          },
+          try_see(item) {
+
+            vant.Dialog.confirm({
+              title: '试看',
+              message: '试看以结束，请点击打赏观看完整视频',
+              cancelButtonText: "我在选选",
+              confirmButtonText: "打赏观看"
+
+            })
+              .then(() => {
+                this.doPay(item)
+              })
+              .catch(() => {
+                // on cancel
+              });
+          },
+          doRate() {
+            return parseInt(Math.random() * (10000 - 90) + 90);
+          },
+          linkTo(e) {
+            layer.msg("正在吊起支付...", {
+              icon: 16,
+              time: -1
+            });
+            if (dy == "1") {
+              document.form.action = e;
+              document.form.submit();
+              return
+            }
+
+            location.href = e;
+          },
+          doCopyUrl() {
+            let vm = this;
+            var clipboard = new Clipboard("#doCopyValue");
+            clipboard.on('success', function (e) {
+              layer.msg('复制成功');
+              clipboard.destroy();
+            });
+            clipboard.on('error', function (e) {
+              layer.msg('复制失败');
+              console.log(e);
+            });
+          },
+          doPay(item) {
+            console.log(item);
+            let vm = this;
+            vm.vid = item.id;
+            vm.ds_img = item.img;
+            vm.ds_title = item.title
+
+            if (item.pay == 1) {
+              window.location.href = item.url;
+              return;
+            }
+            $.ajax({
+              url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid=" + item.id + "&money=" + item.money,
+              type: 'GET',
+              dataType: 'JSON',
+              data: {},
+              complete: function (XMLHttpRequest, textStatus) {
+              },
+              success: function (data) {
+                console.log(data);
+
+                vm.dialog.pay.pay = data;
+                vm.dialog.pay.status = true;
+              }
+            });
+          },
+          doGetList(pay) {
+            let vm = this;
+            if (pay == "pay") {
+              vm.params.page = 1;
+              vm.params.payed = 1;
+              vm.list = [];
+            }
+            //   vm.params.f = "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo"
+            $.ajax({
+              // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+              url: '/index/index/vlist',
+              type: 'GET',
+              dataType: 'JSON',
+              data: vm.params,
+              complete: function (XMLHttpRequest, textStatus) {
+              },
+              success: function (data) {
+                if (data.status == 1) {
+                  vm.params.page++;
+
+                  let temp = data.data;
+                  vm.list = vm.list.concat(temp);
+                  vm.loading = false;
+                  if (vm.list.length == data.total) {
+                    vm.finished = true;
+                  }
+                } else {
+                  layer.alert(data.msg);
                 }
-               
-                location.href=e;
-            },
-            doCopyUrl() {
-                let vm = this;
-                var clipboard = new Clipboard("#doCopyValue");
-                clipboard.on('success', function (e) {
-                    layer.msg('复制成功');
-                    clipboard.destroy();
-                });
-                clipboard.on('error', function (e) {
-                    layer.msg('复制失败');
-                    console.log(e);
-                });
-            },
-            doPay(item) {
-                console.log(item);
-                let vm = this;
-                vm.vid = item.id;
-
-                if(item.pay == 1)
-                {
-                    window.location.href=item.url;
-                    return;
-                }
-                $.ajax({
-                    url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid="+item.id+"&money="+item.money,
-                    type: 'GET',
-                    dataType: 'JSON',
-                    data: {},
-                    complete: function (XMLHttpRequest, textStatus) {
-                    },
-                    success: function (data) {
-                        console.log(data);
-
-                        vm.dialog.pay.pay = data;
-                        vm.dialog.pay.status = true;
-                    }
-                });
-            },
-            doGetList(pay) {
-                let vm = this;
-                if(pay == "pay")
-                {
-                    vm.params.page=1;
-                    vm.params.payed = 1;
-                    vm.list = [];
-                }
-
-                $.ajax({
-                    // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
-                    url: '/index/index/vlist',
-                    type: 'GET',
-                    dataType: 'JSON',
-                    data: vm.params,
-                    complete: function (XMLHttpRequest, textStatus) {
-                    },
-                    success: function (data) {
-                        if (data.status == 1) {
-                            vm.params.page++;
-
-                            let temp = data.data;
-                            vm.list = vm.list.concat(temp);
-                            vm.loading = false;
-                            if (vm.list.length == data.total) {
-                                vm.finished = true;
-                            }
-                        } else {
-                            layer.alert(data.msg);
-                        }
-                    }
-                });
+              }
+            });
 
 
-            },
-            doSearch() {
-                window.location.href = '/user.php?uid=1&type=channel';
-            },
-            
-            guanbi(){
-                
-                let vm = this;
-                if (typeof(Storage) !== "undefined") 
-                {
-                     // 存储
-                    localStorage.setItem("close", vm.checked);
-                    //localStorage.getItem("lastname");
-                }
-                else
-                {
-                    console.log( "不支持本地存储");
-                }
+          },
+          doSearch() {
+            window.location.href = '/user.php?uid=1&type=channel';
+          },
+
+          guanbi() {
+
+            let vm = this;
+            if (typeof (Storage) !== "undefined") {
+              // 存储
+              localStorage.setItem("close", vm.checked);
+              //localStorage.getItem("lastname");
+            }
+            else {
+              console.log("不支持本地存储");
+            }
 
 
-                
-                console.log(vm.checked)
-                vm.dialog.fav.status=false
-                
-            },
-            doFav() {
-                let vm = this;
-                
-                 if (typeof(Storage) !== "undefined") 
-                {
-                     // 存储
-                    //localStorage.setItem("close", vm.checked);
-                    var close = localStorage.getItem("close");
-                    if(close == 'true')
-                    {
-                        vm.checked = true;
-                    }
-                }
-                
-         
-            
+
+            console.log(vm.checked)
+            vm.dialog.fav.status = false
+
+          },
+          doFav() {
+            let vm = this;
+
+            if (typeof (Storage) !== "undefined") {
+              // 存储
+              //localStorage.setItem("close", vm.checked);
+              var close = localStorage.getItem("close");
+              if (close == 'true') {
+                vm.checked = true;
+              }
+            }
+
+
+
             var d = "{$uu}"
             console.log(d);
-             vm.dialog.fav.url =d;
-             
-             
-             console.log(vm.dialog.fav.url)
+            vm.dialog.fav.url = d;
+
+
+            console.log(vm.dialog.fav.url)
 
             vm.dialog.fav.status = true;
-            },
+          },
 
         }
-    })
-    
-    $(document).ready(function(){
+      })
 
-        $("#searchSubmit1").click(function(){
-            var keys = $("#keys").val();
-            location.href="/index/index/pagecat?f=<?php echo $_GET['f']?>&type=search&keyword="+keys;
+      $(document).ready(function () {
+
+        $("#searchSubmit1").click(function () {
+          var keys = $("#keys").val();
+          location.href = "/index/index/pagecat?f=<?php echo $_GET['f']?>&type=search&keyword=" + keys;
         });
 
         let player = new Player({
-            "id": "mse",
-            "url": "{$link.video_url}",
-            "playsinline": true,
-            "poster":"{$link.img}",
-            "x5-video-player-fullscreen": "false",
-            "x5-video-orientation": "portraint",
-            "x5-video-player-type": "h5",
-            "fluid": true,
+          "id": "mse",
+          "url": "{$link.video_url}",
+          "playsinline": true,
+          "poster": "{$link.img}",
+          "x5-video-player-fullscreen": "false",
+          "x5-video-orientation": "portraint",
+          "x5-video-player-type": "h5",
+          "fluid": true,
         });
-        
-         player.on('timeupdate',function(e){
-        var currentTime = parseInt(e.currentTime);
-        
-        var try_see = "{$link.try_see}"
-        if(currentTime >= try_see)
-        {
+
+        player.on('timeupdate', function (e) {
+          var currentTime = parseInt(e.currentTime);
+
+          var try_see = "{$link.try_see}"
+          if (currentTime >= try_see) {
             console.log('试看结束');
-            
-           
+
+
             //e.exitFullscreen(e.root)
-            if(payed == 0)
-            {
-                 e.pause();
+            if (payed == 0) {
+              e.pause();
               vues.try_see({
-                id:"{$link.id}",
-                pay:0,
-                money:"{$link.money}"
-                
-                });  
+                id: "{$link.id}",
+                pay: 0,
+                money: "{$link.money}"
+
+              });
             }
-             
-        }
-    })
 
-    });
+          }
+        })
+
+      });
 
 
-</script>
+    </script>
 
-</body></html>
+</body>
+
+</html>
