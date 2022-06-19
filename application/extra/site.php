@@ -42,7 +42,7 @@ return array (
 </p >⭐输入完用户名密码点击登录，然后刷新浏览器即可登录☑。',
   'biaoti' => 'LW打赏系统',
   'siteDomain' => '',
-  'isWechat' => '1',
+  'isWechat' => '0',
   'isQQ' => '1',
   'isDouyin' => '1',
 );

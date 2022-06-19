@@ -118,18 +118,21 @@
     }
 
     .pay-item {
-      width: 100%;
-      height: 30px;
-      line-height: 30px;
-      margin-top: 10px;
+      width: 46%;
+      height: 2rem;
+      line-height: 2rem;
+      margin-top: .25rem;
       border-radius: 5px;
-      border: 1px solid #CCCCCC;
       text-align: center;
-      color: #666;
+      color: #fff;
+      background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140));
+      display: inline-block;
+      margin-right:1rem;
     }
 
     .pay-item:last-child {
       margin-bottom: 10px;
+      margin-right:0;
     }
 
     .weui-search-bar__cancel-btn1 {
@@ -261,12 +264,12 @@
     .list .list-item {
       height: auto;
       margin-left: .7rem;
-      width: 8.45rem;
+      width: 8rem;
       overflow: hidden;
     }
 
     .list .list-item .thumb {
-      width: 8.45rem;
+      width: 8rem;
       height: 9.8rem;
       border-radius: 5px;
       overflow: hidden;
@@ -277,7 +280,7 @@
     }
 
     .list .list-item:nth-child(2n) {
-      margin-left: .25rem;
+      margin-left: .55rem;
     }
 
     .list .list-item .name {
@@ -402,7 +405,7 @@
         style="text-align: left;color:#333;font-size: .8rem;padding-left:.7rem;font-weight:bold;">精彩视频推荐</div>
 
       <div v-if="list.length>0">
-        <div class="list">
+        <!-- <div class="list">
           <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="doGetList" offset="150"
             direction="down">
             <div class="van-clearfix">
@@ -413,6 +416,26 @@
               </li>
             </div>
           </van-list>
+        </div> -->
+        <div class="list">
+          <div id="list">
+            <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="doGetList" offset="300"
+              direction="down">
+              <div class="van-clearfix">
+                <lazy-component>
+                  <li class="list-item" v-for="item in list" @click="doPay(item)">
+                    <div v-if="item.img" class="thumb home-thumb">
+                      <p class="momeny-icon">{{item.money}}元观看<span>{{ item.rand }}人观看&nbsp;&nbsp;</span>
+                      </p>
+                      <img v-lazy="item.img.replace('.gpj','.jpg')">
+                    </div>
+                    <p class="name">{{ item.title }}</p>
+                  </li>
+                </lazy-component>
+              </div>
+            </van-list>
+            <div style="clear:both;"></div>
+          </div>
         </div>
       </div>
 
@@ -465,7 +488,7 @@
             <!--<h2>购买后观影</h2>-->
             <h2> <span class="close_btn" @click="dialog.pay.status = false, dialog.pay.pay = []"></span></h2>
             <div class="ds_tankuang">
-              <img :src="ds_img" style="width:100%;height:100%">
+              <img :src="ds_img.replace('.gpj','.jpg')" style="width:100%;height:100%">
             </div>
             <div style="padding:2%">
               <span class="niubi">{{ ds_title }}</span>
@@ -487,15 +510,24 @@
 
 
       </div>
+
+ 
+
+    <div class="dialog_cover" v-if='dialogDashang'>
+      <div class="dialog_dashang">
+        <h3 class="d_title">试看结束，请点击打赏观看完整视频</h3>
+        <div class="btns">
+          <div class="btn_left" @click="dialogDashang = false;">再选选看</div>
+          <div class="btn_right" @click="sureDashang">打赏观看</div>
+        </div>
+      </div>
     </div>
-
-
-
+   </div>
     <form action="" method="post" name="form" style="display:none">
 
     </form>
-
-    <!-- 
+  </div>
+  <!-- 
   <div class="footer">
     <ul>
       <li class="">
@@ -519,279 +551,415 @@
       </li>
     </ul>
   </div> -->
+  <style>
+    .dialog_dashang {
+      /*display: none;*/
+      width: 16.5rem;
+      min-height: 7.8rem;
+      background: #FFFFFF;
+      border-radius: 5px;
+      padding-top: 2rem;
+      padding-bottom: 1rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .dialog_cover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10001;
+      background: rgba(0, 0, 0, .3);
+    }
+
+    .d_title {
+      color: #333;
+      font-weight: normal;
+      font-size: .8rem;
+      margin-bottom:2rem;
+    }
+
+    .dialog_dashang .btns {
+      display: flex;
+    }
+
+    .dialog_dashang .btn_left {
+      width: 6.25rem;
+      height: 2rem;
+      border-radius: 5px;
+      text-align: center;
+      border: 2px solid #25C84F;
+      color: #25C84F;
+      line-height: 2rem;
+      font-size: .7rem;
+      margin-right: 1.25rem;
+    }
+
+    .dialog_dashang .btn_right {
+      width: 6.25rem;
+      height: 2rem;
+      text-align: center;
+      border-radius: 5px;
+      color: #fff;
+      line-height: 2rem;
+      font-size: .7rem;
+      background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140));
+    }
+
+    .list {
+      padding: 1%;
+    }
+
+    .list .list-item {
+      height: auto;
+      margin-bottom: .5rem
+    }
+
+    .list .list-item .plays {
+      color: #CCCCCC;
+      padding-left: 0;
+      font-size: .6rem;
+      margin: 0;
+    }
+
+    .list .list-item .name {
+      line-height: 1.5rem;
+      font-size: .65rem;
+      margin: 0;
+      background: linear-gradient(45deg, #bd58ef, #af4261);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .list .list-item .thumb {
+      height: 4.2rem;
+      position: relative;
+    }
+
+    .list .list-item .thumb img {
+      box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+      border-radius: 5px;
+    }
+
+    .home-thumb {
+      position: relative;
+    }
+
+    .home-thumb .momeny-icon {
+      position: absolute;
+      right: 0;
+      z-index: 10;
+      background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140));
+      color: #fff;
+      /* border-radius: 3px; */
+      padding: 1%;
+      font-size: .4rem;
+      display: block;
+      /* box-sizing: content-box; */
+      text-align: left;
+      width: 100%;
+      bottom: 0;
+      margin: 0;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    .home-thumb .momeny-icon span {
+      float: right;
+      font-size: .4rem;
+    }
+  </style>
+
+  <script>
 
 
-    <script>
 
+    console.log(vant);
+    Vue.config.productionTip = false;
+    Vue.config.lang = 'zh-CN';
+    // Vue.use(vant.Dialog);
 
-
-      console.log(vant);
-      Vue.config.productionTip = false;
-      Vue.config.lang = 'zh-CN';
-      // Vue.use(vant.Dialog);
-
-      var dy = "{$dy}";
-      var payed = "{$pay}";
-      vues = new Vue({
-        el: '#app',
-        data: {
-          list: [],
-          cat: [],
-          checked: false,
-          banner: [
-          ],
-          ds_img: "",
-          ds_title: "",
-
-          loading: false,
-          finished: false,
-          msg: '没有更多了',
-          params: {
-            action: "list",
-            f: "<?php echo $_GET['f']?>",
-            page: 1,
-            row: 50,
-            encode: 1,
-            cid: "<?php echo isset($_GET['cid']) ? $_GET['cid'] : ''; ?>",
-            key: "<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>",
-            payed: ''
-          },
-          catParam: {
-            limit: 9, f: "<?php echo $_GET['f']?>",
-            encode: 1,
-          },
-
-          dialog: {
-            fav: {
-              status: false,
-              url: "",
-              u: "{$d}"
-            },
-            pay: {
-              status: true,
-              data: [],
-              pay: []
-            }
-          }
+    var dy = "{$dy}";
+    var payed = "{$pay}";
+    vues = new Vue({
+      el: '#app',
+      data: {
+        list: [],
+        cat: [],
+        checked: false,
+        banner: [
+        ],
+        ds_img: "",
+        ds_title: "",
+        dialogDashang: false,
+        tempForDashang: null,
+        loading: false,
+        finished: false,
+        msg: '没有更多了',
+        params: {
+          action: "list",
+          f: "<?php echo $_GET['f']?>",
+          page: 1,
+          row: 50,
+          encode: 1,
+          cid: "<?php echo isset($_GET['cid']) ? $_GET['cid'] : ''; ?>",
+          key: "<?php echo isset($_GET['keyword']) ? $_GET['keyword'] : ''; ?>",
+          payed: ''
         },
-        mounted: function () {
+        catParam: {
+          limit: 9, f: "<?php echo $_GET['f']?>",
+          encode: 1,
+        },
 
+        dialog: {
+          fav: {
+            status: false,
+            url: "",
+            u: "{$d}"
+          },
+          pay: {
+            status: false,
+            data: [],
+            pay: []
+          }
+        }
+      },
+      mounted: function () {
+
+
+        if (typeof (Storage) !== "undefined") {
+          // 存储
+          var close = localStorage.getItem("close");
+          console.log(close);
+          if (close == 'false' || close == null) {
+            this.doFav();
+
+          }
+        }
+        this.doGetList();
+
+
+      },
+      methods: {
+        back() { history.back() },
+        onChange(event) {
+          console.log(event);
+        },
+        try_see(item) {
+          this.tempForDashang = item
+          this.dialogDashang = true
+          // vant.Dialog.confirm({
+          //   title: '',
+          //   message: '试看以结束，请点击打赏观看完整视频',
+          //   cancelButtonText: "我在选选",
+          //   confirmButtonText: "打赏观看"
+
+          // })
+          //   .then(() => {
+          //     this.doPay(item)
+          //   })
+          //   .catch(() => {
+          //     // on cancel
+          //   });
+        },
+        sureDashang() {
+          this.dialogDashang = false;
+          this.doPay(this.tempForDashang)
+        },
+        doRate() {
+          return parseInt(Math.random() * (10000 - 90) + 90);
+        },
+        linkTo(e) {
+          layer.msg("正在吊起支付...", {
+            icon: 16,
+            time: -1
+          });
+          if (dy == "1") {
+            document.form.action = e;
+            document.form.submit();
+            return
+          }
+
+          location.href = e;
+        },
+        doCopyUrl() {
+          let vm = this;
+          var clipboard = new Clipboard("#doCopyValue");
+          clipboard.on('success', function (e) {
+            layer.msg('复制成功');
+            clipboard.destroy();
+          });
+          clipboard.on('error', function (e) {
+            layer.msg('复制失败');
+            console.log(e);
+          });
+        },
+        doPay(item) {
+          console.log(item);
+          let vm = this;
+          vm.vid = item.id;
+          vm.ds_img = item.img || item.image;
+          vm.ds_title = item.title
+
+          if (item.pay == 1) {
+            window.location.href = item.url;
+            return;
+          }
+          $.ajax({
+            url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid=" + item.id + "&money=" + item.money,
+            type: 'GET',
+            dataType: 'JSON',
+            data: {},
+            complete: function (XMLHttpRequest, textStatus) {
+            },
+            success: function (data) {
+              console.log(data);
+              if (dy == "1") {
+                document.form.action = item.url;
+                document.form.submit();
+                return
+              }
+              vm.dialog.pay.pay = data;
+              vm.dialog.pay.status = true;
+            }
+          });
+        },
+        doGetList(pay) {
+          let vm = this;
+          if (pay == "pay") {
+            vm.params.page = 1;
+            vm.params.payed = 1;
+            vm.list = [];
+          }
+          //   vm.params.f = "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo"
+          $.ajax({
+            // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+            url: '/index/index/vlist',
+            type: 'GET',
+            dataType: 'JSON',
+            data: vm.params,
+            complete: function (XMLHttpRequest, textStatus) {
+            },
+            success: function (data) {
+              if (data.status == 1) {
+                vm.params.page++;
+
+                let temp = data.data;
+                vm.list = vm.list.concat(temp);
+                vm.loading = false;
+                if (vm.list.length == data.total) {
+                  vm.finished = true;
+                }
+              } else {
+                layer.alert(data.msg);
+              }
+            }
+          });
+
+
+        },
+        doSearch() {
+          window.location.href = '/user.php?uid=1&type=channel';
+        },
+
+        guanbi() {
+
+          let vm = this;
+          if (typeof (Storage) !== "undefined") {
+            // 存储
+            localStorage.setItem("close", vm.checked);
+            //localStorage.getItem("lastname");
+          }
+          else {
+            console.log("不支持本地存储");
+          }
+
+
+
+          console.log(vm.checked)
+          vm.dialog.fav.status = false
+
+        },
+        doFav() {
+          let vm = this;
 
           if (typeof (Storage) !== "undefined") {
             // 存储
+            //localStorage.setItem("close", vm.checked);
             var close = localStorage.getItem("close");
-            console.log(close);
-            if (close == 'false' || close == null) {
-              this.doFav();
-
+            if (close == 'true') {
+              vm.checked = true;
             }
           }
-          this.doGetList();
 
 
+
+          var d = "{$uu}"
+          console.log(d);
+          vm.dialog.fav.url = d;
+
+
+          console.log(vm.dialog.fav.url)
+
+          vm.dialog.fav.status = true;
         },
-        methods: {
-          back() { history.back() },
-          onChange(event) {
-            console.log(event);
-          },
-          try_see(item) {
 
-            vant.Dialog.confirm({
-              title: '试看',
-              message: '试看以结束，请点击打赏观看完整视频',
-              cancelButtonText: "我在选选",
-              confirmButtonText: "打赏观看"
+      }
+    })
 
-            })
-              .then(() => {
-                this.doPay(item)
-              })
-              .catch(() => {
-                // on cancel
-              });
-          },
-          doRate() {
-            return parseInt(Math.random() * (10000 - 90) + 90);
-          },
-          linkTo(e) {
-            layer.msg("正在吊起支付...", {
-              icon: 16,
-              time: -1
+    $(document).ready(function () {
+
+      $("#searchSubmit1").click(function () {
+        var keys = $("#keys").val();
+        location.href = "/index/index/pagecat?f=<?php echo $_GET['f']?>&type=search&keyword=" + keys;
+      });
+
+      let player = new Player({
+        "id": "mse",
+        "url": "{$link.video_url}",
+        "playsinline": true,
+        "poster": "{$link.img}",
+        "x5-video-player-fullscreen": "false",
+        "x5-video-orientation": "portraint",
+        "x5-video-player-type": "h5",
+        "fluid": true,
+      });
+
+      player.on('timeupdate', function (e) {
+        var currentTime = parseInt(e.currentTime);
+
+        var try_see = "{$link.try_see}"
+        if (currentTime >= try_see) {
+          console.log('试看结束');
+
+
+          //e.exitFullscreen(e.root)
+          if (payed == 0) {
+            e.pause();
+            vues.try_see({
+              id: "{$link.id}",
+              pay: 0,
+              money: "{$link.money}",
+              img: "{$link.img}"
             });
-            if (dy == "1") {
-              document.form.action = e;
-              document.form.submit();
-              return
-            }
-
-            location.href = e;
-          },
-          doCopyUrl() {
-            let vm = this;
-            var clipboard = new Clipboard("#doCopyValue");
-            clipboard.on('success', function (e) {
-              layer.msg('复制成功');
-              clipboard.destroy();
-            });
-            clipboard.on('error', function (e) {
-              layer.msg('复制失败');
-              console.log(e);
-            });
-          },
-          doPay(item) {
-            console.log(item);
-            let vm = this;
-            vm.vid = item.id;
-            vm.ds_img = item.img;
-            vm.ds_title = item.title
-
-            if (item.pay == 1) {
-              window.location.href = item.url;
-              return;
-            }
-            $.ajax({
-              url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid=" + item.id + "&money=" + item.money,
-              type: 'GET',
-              dataType: 'JSON',
-              data: {},
-              complete: function (XMLHttpRequest, textStatus) {
-              },
-              success: function (data) {
-                console.log(data);
-
-                vm.dialog.pay.pay = data;
-                vm.dialog.pay.status = true;
-              }
-            });
-          },
-          doGetList(pay) {
-            let vm = this;
-            if (pay == "pay") {
-              vm.params.page = 1;
-              vm.params.payed = 1;
-              vm.list = [];
-            }
-            //   vm.params.f = "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo"
-            $.ajax({
-              // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
-              url: '/index/index/vlist',
-              type: 'GET',
-              dataType: 'JSON',
-              data: vm.params,
-              complete: function (XMLHttpRequest, textStatus) {
-              },
-              success: function (data) {
-                if (data.status == 1) {
-                  vm.params.page++;
-
-                  let temp = data.data;
-                  vm.list = vm.list.concat(temp);
-                  vm.loading = false;
-                  if (vm.list.length == data.total) {
-                    vm.finished = true;
-                  }
-                } else {
-                  layer.alert(data.msg);
-                }
-              }
-            });
-
-
-          },
-          doSearch() {
-            window.location.href = '/user.php?uid=1&type=channel';
-          },
-
-          guanbi() {
-
-            let vm = this;
-            if (typeof (Storage) !== "undefined") {
-              // 存储
-              localStorage.setItem("close", vm.checked);
-              //localStorage.getItem("lastname");
-            }
-            else {
-              console.log("不支持本地存储");
-            }
-
-
-
-            console.log(vm.checked)
-            vm.dialog.fav.status = false
-
-          },
-          doFav() {
-            let vm = this;
-
-            if (typeof (Storage) !== "undefined") {
-              // 存储
-              //localStorage.setItem("close", vm.checked);
-              var close = localStorage.getItem("close");
-              if (close == 'true') {
-                vm.checked = true;
-              }
-            }
-
-
-
-            var d = "{$uu}"
-            console.log(d);
-            vm.dialog.fav.url = d;
-
-
-            console.log(vm.dialog.fav.url)
-
-            vm.dialog.fav.status = true;
-          },
+          }
 
         }
       })
 
-      $(document).ready(function () {
-
-        $("#searchSubmit1").click(function () {
-          var keys = $("#keys").val();
-          location.href = "/index/index/pagecat?f=<?php echo $_GET['f']?>&type=search&keyword=" + keys;
-        });
-
-        let player = new Player({
-          "id": "mse",
-          "url": "{$link.video_url}",
-          "playsinline": true,
-          "poster": "{$link.img}",
-          "x5-video-player-fullscreen": "false",
-          "x5-video-orientation": "portraint",
-          "x5-video-player-type": "h5",
-          "fluid": true,
-        });
-
-        player.on('timeupdate', function (e) {
-          var currentTime = parseInt(e.currentTime);
-
-          var try_see = "{$link.try_see}"
-          if (currentTime >= try_see) {
-            console.log('试看结束');
+    });
 
 
-            //e.exitFullscreen(e.root)
-            if (payed == 0) {
-              e.pause();
-              vues.try_see({
-                id: "{$link.id}",
-                pay: 0,
-                money: "{$link.money}"
-
-              });
-            }
-
-          }
-        })
-
-      });
-
-
-    </script>
+  </script>
 
 </body>
 
