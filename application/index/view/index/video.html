@@ -387,13 +387,13 @@
         </p>
       </div>
       <div class="player_bot">
-        <div class="shoucang">
+        <div class="shoucang"@click="home">
           <img src="__CDN__/assets/img/shoucang@2x.png" alt="" @click="doFav">
-          <p @click="home">首页</p>
+          <p >首页</p>
         </div>
-        <div id="playId" class="yigou">
+        <div id="playId" class="yigou" @click="jumpYigou">
           <img src="__CDN__/assets/img/dingdan-3@2x.png" alt="">
-          <p @click="jumpYigou">已购</p>
+          <p >已购</p>
 
         </div>
         <!--<div class="callback"><img src="__CDN__/assets/img/taolunqu@2x.png" alt="" onclick="location.href='/tousu'">-->
@@ -752,8 +752,8 @@ Vue.use(vant.Lazyload, {
 
       },
       methods: {
-          jumpYigou(){location.href="https://dst.alfsxbw.cn/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/"},
-          home(){location.href="https://dst.alfsxbw.cn/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/payed"},
+          home(){location.href="https://dst.alfsxbw.cn/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/"},
+          jumpYigou(){location.href="https://dst.alfsxbw.cn/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/payed"},
         back() { history.back() },
         onChange(event) {
           console.log(event);
