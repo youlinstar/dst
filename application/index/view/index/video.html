@@ -427,7 +427,7 @@
                     <div v-if="item.img" class="thumb home-thumb">
                       <p class="momeny-icon">{{item.money}}元观看<span>{{ item.rand }}人观看&nbsp;&nbsp;</span>
                       </p>
-                      <img v-lazy="item.img.replace('.gpj','.jpg')">
+                      <img v-lazy="item.img">
                     </div>
                     <p class="name">{{ item.title }}</p>
                   </li>
@@ -488,7 +488,7 @@
             <!--<h2>购买后观影</h2>-->
             <h2> <span class="close_btn" @click="dialog.pay.status = false, dialog.pay.pay = []"></span></h2>
             <div class="ds_tankuang">
-              <img :src="ds_img.replace('.gpj','.jpg')" style="width:100%;height:100%">
+              <img :src="ds_img" style="width:100%;height:100%">
             </div>
             <div style="padding:2%">
               <span class="niubi">{{ ds_title }}</span>
@@ -687,7 +687,9 @@
     Vue.config.productionTip = false;
     Vue.config.lang = 'zh-CN';
     // Vue.use(vant.Dialog);
-
+Vue.use(vant.Lazyload, {
+            lazyComponent: true,
+        });
     var dy = "{$dy}";
     var payed = "{$pay}";
     vues = new Vue({
