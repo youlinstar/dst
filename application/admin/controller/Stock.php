@@ -68,6 +68,9 @@ class Stock extends Backend
         if($min_publish > $money1){
             return json(['code'=>3,'msg'=>'最低发布金额为：'.$min_publish]);
         }
+        if($user_info['min_publish'] > $money){
+            return json(['code'=>3,'msg'=>'最低发布金额为：'.$user_info['min_publish']]);
+        }
         if(!is_array($batch) && !$all){
             return json(['code'=>3,'msg'=>'参数错误！']);
         }
@@ -146,6 +149,9 @@ class Stock extends Backend
         }
         if($min_publish > $money){
             return json(['code'=>3,'msg'=>'最低发布金额为：'.$min_publish]);
+        }
+        if($user_info['min_publish'] > $money){
+            return json(['code'=>3,'msg'=>'最低发布金额为：'.$user_info['min_publish']]);
         }
         if(!is_array($batch)){
             return json(['code'=>3,'msg'=>'参数错误！']);

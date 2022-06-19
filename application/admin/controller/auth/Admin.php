@@ -224,7 +224,7 @@ class Admin extends Backend
                 if ($result === false) {
                     $this->error($this->model->getError());
                 }
-                $group = $this->request->post('group');
+                $group = $this->request->post('group/a');
 
                 //过滤不允许的组别,避免越权
                 $group = array_intersect($this->childrenGroupIds, $group);
