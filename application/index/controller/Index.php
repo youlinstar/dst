@@ -377,7 +377,7 @@ class Index extends Frontend
         $url = "";
         $uid = $this->id;
         $sid = $uid;
-        $pinfo = get_user($uid);
+        /*$pinfo = get_user($uid);
         if ($pinfo['pid'] > 0) {
             $sid = $pinfo['pid_top'];
         }
@@ -388,7 +388,7 @@ class Index extends Frontend
         }
         if ($fangfeng_url) {
             $url = $fangfeng_url."?path=".$path."&";
-        } else {
+        } else {*/
             $domain = trim(getDomain($type));
             if ($domain) {
                 $hezi_url = $domain;
@@ -396,7 +396,7 @@ class Index extends Frontend
             } else {
                 $url = '需要添加主域名才能生成盒子链接';
             }
-        }
+        //}
         return trim($url);
        // return getDomain($type);
     }
