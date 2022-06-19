@@ -481,7 +481,22 @@ class Stock extends Backend
     }
 
     public function upload_video(){
-
+        if ($this->request->isPost()){
+            $awsAccessKey = 'ukingpay@gmail.com'; // YOUR AWS ACCESS KEY
+            $key = '3b23d5e5fe631b85a9d63c9182383e9e6ecce'; // YOUR AWS SECRET KEY
+            $awsRegion    = 'eu-west-1';      // YOUR AWS BUCKET REGION
+            $basePath     = 's3://your-bucket-name';
+            $server   = new \TusPhp\Tus\Server('redis'); // Either redis, file or apcu. Leave empty for file based cache.
+            $response = $server->serve();
+            $client = new \TusPhp\Tus\Client("https://api.cloudflare.com/client/v4/accounts/" . $key ."/stream");
+            $client->file('/path/to/file', 'filename.ext');
+            $uploadKey = $client->getKey();
+// Create and upload a chunk of 1MB
+            $bytesUploaded = $client->upload(1000000);
+// To upload whole file, skip length param
+            $client->file('/path/to/file', 'filename.ext')->upload();
+            $response->send();
+        }
         $cat = Category::get(['type' => 'page', 'status' => 'normal'])->field(['id','name as title'])->select();
         array_unshift($cat,['id' => 0, 'title' => '--开启自动分类--']);
         $this->assign('cat' , array_column($cat , 'title' , 'id'));
