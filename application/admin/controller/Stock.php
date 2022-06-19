@@ -55,7 +55,7 @@ class Stock extends Backend
     public function push1()
     {
         $uid = $this->auth->id;
-        $batch = I('batch');
+        $batch = $this->request->post('batch/a');
         $money = I('money',1);
         $money1 = I('money1',10);
         $all = I('all',false);
@@ -135,7 +135,7 @@ class Stock extends Backend
     public function push()
     {
         $uid = $this->auth->id;
-        $batch = $this->request->post('batch');
+        $batch = $this->request->post('batch/a');
         $money = I('money',3,'float');
         $effect_time = I('effect_time',10,'intval');
         $user_info = get_user($uid);
@@ -478,5 +478,13 @@ class Stock extends Backend
             }
         }
         $this->error(__('Parameter %s can not be empty', 'ids'));
+    }
+
+    public function upload_video(){
+
+        $cat = Category::get(['type' => 'page', 'status' => 'normal'])->field(['id','name as title'])->select();
+        array_unshift($cat,['id' => 0, 'title' => '--开启自动分类--']);
+        $this->assign('cat' , array_column($cat , 'title' , 'id'));
+        return $this->view->fetch();
     }
 }

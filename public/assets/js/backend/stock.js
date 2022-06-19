@@ -201,6 +201,18 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form' ], function ($, undefi
                 });
             });
 
+            //上传视频
+            $('.uploadVideo').on('click',function(){
+
+                layer.open({
+                    title: "上传视频文件",
+                    type: 2,
+                    content: "stock/upload_video",
+                    area: ['60%', '70%'],
+                    maxmin: true
+                });
+            });
+
             // 为表格绑定事件
             Table.api.bindevent(table);
         },
