@@ -241,6 +241,9 @@ class Index extends Frontend
             }
             // $item['pay'] = 1;
               //  $item['url'] = $domain ."/index/index/video?vid={$item['id']}&f={$f}";
+            if (substr($item['img'],-3)=="gpj"){
+                $item['img']=substr($item['img'],0, -3)."jpg";
+            }
         }
         $total = $link->total();
         $list = $link->getCollection()->toArray();
