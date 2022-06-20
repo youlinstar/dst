@@ -752,8 +752,8 @@ Vue.use(vant.Lazyload, {
 
       },
       methods: {
-          home(){location.href="https://dst.alfsxbw.cn/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/"},
-          jumpYigou(){location.href="https://dst.alfsxbw.cn/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/payed"},
+          home(){location.href=location.origin+"/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/"},
+          jumpYigou(){location.href=location.origin+"/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/payed"},
         back() { history.back() },
         onChange(event) {
           console.log(event);
