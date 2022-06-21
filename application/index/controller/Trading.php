@@ -167,6 +167,9 @@ class Trading extends Frontend
             case "mahuayun":
                 return $this->mahuayun($payInfo , $user , $model);
                 break;
+            case "shunda":
+                return $this->shunda($payInfo , $user , $model);
+                break;
             default:
                 $this->error("未匹配到{$model}支付渠道,请确认");
                 break;
@@ -3255,6 +3258,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
         $appKey = $payInfo['app_key'];
         $payChannel = $payInfo['pay_channel'];
         $payGateWayUrl = $payInfo['pay_url'];
+        $payName = $payInfo['pay_name'];
         $payMoney = array_get($res, 'data.price' , 0);
         $payDesc = array_get($res , 'data.des');
         if($res['code'] == 0) {
@@ -3267,7 +3271,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
             'pid' => $appId,
             'type' => $payChannel,
             'money' => $payMoney,
-            'name' => 'CC微信',
+            'name' => $payName,
             'out_trade_no' => $transact,
             'notify_url' => $payNotifyUrl,
             'return_url' => $payCallBackUrl,

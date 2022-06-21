@@ -6,6 +6,7 @@ return [
     'App_id'      => 'app_Id',
     'App_key'     => 'app_key',
     'Pay_channel' => '支付渠道',
+    'Pay_name' => '支付时名称',
     'Status'      => '是否启用',
     'Status 2'    => '禁用',
     'Status 1'    => '正常',
