@@ -33,12 +33,19 @@ class Trading extends Frontend
     {
         $model = $this->request->param('model');
         if(empty($model)) {
-           $user = Admin::getUser($this->id);
+            $user = Admin::getUser($this->id);
             $model = $user['pay_model'];
-            if (empty($model)) {
-               $user = Admin::getUser(1);
+            if (empty($user['pay_model'])&&empty($user['pay_model1'])) {
+                $user = Admin::getUser(1);
                 $model = $user['pay_model'];
-            } 
+                if ($this->request->param('pay',"wx")==="ali"){
+                    $model = $user['pay_model1'];
+                }
+            }else{
+                if ($this->request->param('pay',"wx")==="ali"){
+                    $model = $user['pay_model1'];
+                }
+            }
         }
         $user = Admin::getUser($this->id);
         $payInfo = Payset::getPayInfo($model);

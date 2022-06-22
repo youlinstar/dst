@@ -8,6 +8,7 @@ use app\admin\model\Domain;
 use app\admin\model\Hezi;
 use app\admin\model\Link;
 use app\admin\model\Muban;
+use app\admin\model\Payset;
 use app\admin\model\Stock;
 use app\commom\model\Payed;
 use app\common\controller\Frontend;
@@ -324,6 +325,11 @@ class Index extends Frontend
                 'money' => $userInfo['month_fee'],
                 'img' => "/assets/list/muban1/vipicon.png"  //图标地址
             ];
+        }
+        if (!empty($userInfo['pay_model'])&&!empty($userInfo['pay_model1'])){
+            $pay['payType']="all";
+        }else{
+            $pay['payType']="one";
         }
         return json($pay);
         /*return $pay;
