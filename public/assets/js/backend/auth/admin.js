@@ -228,7 +228,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                         field: 'pay_model1',
                         title:"支付宝支付渠道",
                         formatter:function(val , row){
-                            var options = "<option value=''>请选择</option><option value='0'>默认通道</option>";
+                            var options = "<option value='0'>默认通道</option>";
                             $.each(pay_info,function(index , obj){
                                 console.log(obj);
 

@@ -52,7 +52,6 @@ class Profile extends Backend
 
         $pay = array_column(db('pay_setting')->select() , 'title' , 'model');
         $short = array_column(array_filter(config('short')) , 'title' , 'model');
-
         $jiance = [
             '-' => '--请选择--',
             'wechat' => '微信',
