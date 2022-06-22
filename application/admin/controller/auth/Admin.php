@@ -267,6 +267,8 @@ ORDER BY T1.lvl asc;");
     {
         $pay = array_column(db('pay_setting')->select() , 'title' , 'model');
         $short = array_column(array_filter(config('short')) , 'title' , 'model');
+        $pay[0]="默认通道";
+        $pay[""]="请选择";
         $this->assign('pay' , $pay);
         $this->assign('short' , $short);
         //判断编辑账号是否是自己的下级
