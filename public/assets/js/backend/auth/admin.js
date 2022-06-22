@@ -87,7 +87,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                         }
                     });
                 });
-                $('.pay_set').on('change',function(){
+                $('.pay_set_wx').on('change',function(){
                     var user_id = $(this).attr('user_id');
                     var val = $(this).find("option:selected").val();
                     $.ajax({
@@ -97,6 +97,32 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                         data: {
                             row:{
                                 "pay_model":val,
+                                "update":"1"
+                            },
+                        },
+                        success:function(e)
+                        {
+                            if (e.code == 1) {
+
+                                layer.msg(e.msg,{time:2000},function(){
+                                });
+
+                            } else {
+                                layer.msg(e.msg);
+                            }
+                        }
+                    });
+                });
+                $('.pay_set_ali').on('change',function(){
+                    var user_id = $(this).attr('user_id');
+                    var val = $(this).find("option:selected").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "/admin/auth/admin/edit/ids/"+user_id,
+                        dataType: 'json',
+                        data: {
+                            row:{
+                                "pay_model1":val,
                                 "update":"1"
                             },
                         },
@@ -168,7 +194,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                     },
                     {
                         field: 'pay_model',
-                        title:"支付渠道",
+                        title:"微信支付渠道",
                         formatter:function(val , row){
                             var options = "<option value='0'>默认通道</option>";
                             $.each(pay_info,function(index , obj){
@@ -193,7 +219,39 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                             });
                             
                             console.log(options);
-                            return "<select class='layui-form layui-select form-control pay_set' user_id='"+row.id+"'>\n" +
+                            return "<select class='layui-form layui-select form-control pay_set_wx' user_id='"+row.id+"'>\n" +
+                                options +
+                                "        </select>\n";
+                        }
+                    },
+                    {
+                        field: 'pay_model1',
+                        title:"支付宝支付渠道",
+                        formatter:function(val , row){
+                            var options = "<option value=''>请选择</option><option value='0'>默认通道</option>";
+                            $.each(pay_info,function(index , obj){
+                                console.log(obj);
+
+                                if(index == 0)
+                                {
+                                            options += "<option value='"+obj.model+"'>"+obj.title+"</option>";
+                                }
+                                else
+                                {
+                                    if(val == obj.model)
+                                    {
+                                        options += "<option value='"+obj.model+"' selected>"+obj.title+"</option>";
+
+                                    }
+                                    else
+                                    {
+                                        options += "<option value='"+obj.model+"'>"+obj.title+"</option>";
+                                    }
+                                }
+                            });
+
+                            console.log(options);
+                            return "<select class='layui-form layui-select form-control pay_set_ali' user_id='"+row.id+"'>\n" +
                                 options +
                                 "        </select>\n";
                         }

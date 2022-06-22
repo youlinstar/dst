@@ -139,13 +139,13 @@
 
                         <div class="form-group">
                             <label for="password" class="control-label">(1) 微信支付:</label>
-                            {:build_select('row[pay_model]', $pay, $admin['pay_model'], ['class'=>'form-control', 'required'=>'required'])}
+                            {:build_select('row[pay_model]', $pay, $admin['pay_model'], ['class'=>'form-control'])}
                         </div>
 
-                       <!-- <div class="form-group">
+                        <div class="form-group">
                             <label for="password" class="control-label">(2) 支付宝支付:</label>
-                            {:build_select('row[pay_model1]', $pay, $admin['pay_model1'], ['class'=>'form-control', 'required'=>'required'])}
-                        </div>-->
+                            {:build_select('row[pay_model1]', $pay, $admin['pay_model1'], ['class'=>'form-control'])}
+                        </div>
                     {/if}
 
                         <div class="form-group">

@@ -265,29 +265,22 @@ ORDER BY T1.lvl asc;");
      */
     public function edit($ids = null)
     {
-
         $pay = array_column(db('pay_setting')->select() , 'title' , 'model');
         $short = array_column(array_filter(config('short')) , 'title' , 'model');
         $this->assign('pay' , $pay);
         $this->assign('short' , $short);
-        
-        
         //判断编辑账号是否是自己的下级
-        
         $daili = get_user($ids ,'pid');
-        
         if($this->auth->id != 1)
         {
-                if($daili != $this->auth->id)
-                {
-                 return $this->error('error 禁止越权操作!');
-                }
+            if($daili != $this->auth->id)
+            {
+                return $this->error('error 禁止越权操作!');
+            }
         }
-        
-
         if($this->request->isAjax() && $this->request->param('row.update'))
         {
-            $row = $this->request->param('row');
+            $row = $this->request->param('row/a');
             unset($row['update']);
             \app\admin\model\Admin::update($row , ['id' => $ids]);
             return $this->success('修改成功!');
@@ -303,7 +296,6 @@ ORDER BY T1.lvl asc;");
         if (!$row) {
             $this->error(__('No Results were found'));
         }
-
         $childrenGroupIds = $this->childrenGroupIds;
         $authGroupList = AuthGroupAccess::where('group_id', 'in', $childrenGroupIds)
             ->field('uid,group_id')
@@ -325,7 +317,7 @@ ORDER BY T1.lvl asc;");
                 }
                 if($params['ticheng'] < $user['ticheng'])
                 {
-                   // return $this->error("抽成比例必须大于上级比例！（要返佣给上级）");
+                    // return $this->error("抽成比例必须大于上级比例！（要返佣给上级）");
                 }
                 if ($params['password'])
                 {
