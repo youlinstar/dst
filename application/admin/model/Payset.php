@@ -31,7 +31,7 @@ class Payset extends Model
 
     public static function getPayInfo($flg = null)
     {
-        return self::where(['model' => $flg])->find();
+        return self::where(['id' => $flg])->find();
     }
     public function getStatusList()
     {

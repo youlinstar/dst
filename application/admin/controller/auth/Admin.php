@@ -191,7 +191,7 @@ class Admin extends Backend
     {
         $user = get_user($this->auth->id);
 
-        $pay = array_column(db('pay_setting')->select() , 'title' , 'model');
+        $pay = array_column(db('pay_setting')->select() , 'title' , 'id');
         $short = array_column(array_filter(config('short')) , 'title' , 'model');
         $this->assign('pay' , $pay);
         $this->assign('short' , $short);
@@ -265,7 +265,7 @@ ORDER BY T1.lvl asc;");
      */
     public function edit($ids = null)
     {
-        $pay = array_column(db('pay_setting')->select() , 'title' , 'model');
+        $pay = array_column(db('pay_setting')->select() , 'title' , 'id');
         $short = array_column(array_filter(config('short')) , 'title' , 'model');
         $pay[0]="默认通道";
         $pay[""]="请选择";

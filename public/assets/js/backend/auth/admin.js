@@ -202,18 +202,18 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
 
                                 if(index == 0)
                                 {
-                                        options += "<option value='"+obj.model+"'>"+obj.title+"</option>";
+                                        options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
                                 }
                                 else
                                 {
-                                    if(val == obj.model)
+                                    if(val == obj.id)
                                     {
-                                        options += "<option value='"+obj.model+"' selected>"+obj.title+"</option>";
+                                        options += "<option value='"+obj.id+"' selected>"+obj.title+"</option>";
 
                                     }
                                     else
                                     {
-                                        options += "<option value='"+obj.model+"'>"+obj.title+"</option>";
+                                        options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
                                     }
                                 }
                             });
@@ -234,18 +234,18 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
 
                                 if(index == 0)
                                 {
-                                            options += "<option value='"+obj.model+"'>"+obj.title+"</option>";
+                                    options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
                                 }
                                 else
                                 {
-                                    if(val == obj.model)
+                                    if(val == obj.id)
                                     {
-                                        options += "<option value='"+obj.model+"' selected>"+obj.title+"</option>";
+                                        options += "<option value='"+obj.id+"' selected>"+obj.title+"</option>";
 
                                     }
                                     else
                                     {
-                                        options += "<option value='"+obj.model+"'>"+obj.title+"</option>";
+                                        options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
                                     }
                                 }
                             });

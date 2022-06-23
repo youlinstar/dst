@@ -50,7 +50,7 @@ class Profile extends Backend
         //设置过滤方法
         $this->request->filter(['strip_tags']);
 
-        $pay = array_column(db('pay_setting')->select() , 'title' , 'model');
+        $pay = array_column(db('pay_setting')->select() , 'title' , 'id');
         $short = array_column(array_filter(config('short')) , 'title' , 'model');
         $jiance = [
             '-' => '--请选择--',
