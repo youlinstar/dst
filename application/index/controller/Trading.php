@@ -53,6 +53,7 @@ class Trading extends Frontend
         }
         $user = Admin::getUser($this->id);
         $payInfo = Payset::getPayInfo($model);
+        $model=$payInfo['model'];
 
         switch ($model) {
             case 'dingchengpay':
