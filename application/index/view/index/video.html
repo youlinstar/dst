@@ -5,6 +5,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>视频播放</title>
+  <!-- <base href="https://dst.alfsxbw.cn" /> -->
+
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -127,12 +129,12 @@
       color: #fff;
       background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140));
       display: inline-block;
-      margin-right:1rem;
+      margin-right: 1rem;
     }
 
     .pay-item:last-child {
       margin-bottom: 10px;
-      margin-right:0;
+      margin-right: 0;
     }
 
     .weui-search-bar__cancel-btn1 {
@@ -354,6 +356,53 @@
       width: 100%;
       margin-bottom: 4%;
     }
+
+    .payMethod_cover {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .2);
+      z-index: 1000;
+    }
+
+    .payMethod {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      background: #fff;
+      padding: 1rem .5rem;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+
+    .pay_title {
+      font-size: .7rem;
+      color: #575757;
+      text-align: center;
+      margin: 0;
+    }
+
+    .pay_btns {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding-bottom: 1rem;
+      margin-top: 2rem;
+    }
+
+    .pbtn {
+      width: 8rem;
+      height: 3rem;
+      background: url(__CDN__/assets/img/wechatpay.png) no-repeat center;
+      background-size: 100% 100%;
+    }
+
+    .alipay {
+      background-image: url(__CDN__/assets/img/alipay.png);
+    }
   </style>
 
 
@@ -387,13 +436,13 @@
         </p>
       </div>
       <div class="player_bot">
-        <div class="shoucang"@click="home">
+        <div class="shoucang" @click="home">
           <img src="__CDN__/assets/img/shoucang@2x.png" alt="" @click="doFav">
-          <p >首页</p>
+          <p>首页</p>
         </div>
         <div id="playId" class="yigou" @click="jumpYigou">
           <img src="__CDN__/assets/img/dingdan-3@2x.png" alt="">
-          <p >已购</p>
+          <p>已购</p>
 
         </div>
         <!--<div class="callback"><img src="__CDN__/assets/img/taolunqu@2x.png" alt="" onclick="location.href='/tousu'">-->
@@ -496,13 +545,11 @@
                 若购买后无法观看，请到已购观看。<br>
               </p>
               <ul>
-                <li v-for="(item, index) in dialog.pay.pay" class="pay-item" @click="linkTo(item.url)">
-                  <a style="">
-                    <!-- <img height="32px" style="display: inline-block; vertical-align: middle;"
-                        :src="item.img"> -->
-                    {{ item.name }}
-                  </a>
-                </li>
+                <li v-for="(item, index) in dialog.pay.pay" v-if="item.url" :data-type="dialog.pay.pay.payType" class="pay-item" @click="choosePayMehod(item, dialog.pay.pay.payType)">
+                                        <a >
+                                            {{ item.name }}
+                                        </a>
+                                    </li>
               </ul>
             </div>
           </div>
@@ -511,18 +558,28 @@
 
       </div>
 
- 
+      <div class="payMethod_cover" v-if="choosePay" @click.self="choosePay=!choosePay">
+        <div class="payMethod">
+          <h3 class="pay_title">请选择支付方式</h3>
+          <div class="pay_btns">
+            <div class="pbtn wechatPay" @click="checkPayMethod('wx')"></div>
+            <div class="pbtn alipay" @click="checkPayMethod('ali')"></div>
+          </div>
+        </div>
+      </div>
 
-    <div class="dialog_cover" v-if='dialogDashang'>
-      <div class="dialog_dashang">
-        <h3 class="d_title">试看结束，请点击打赏观看完整视频</h3>
-        <div class="btns">
-          <div class="btn_left" @click="dialogDashang = false;">再选选看</div>
-          <div class="btn_right" @click="sureDashang">打赏观看</div>
+
+
+      <div class="dialog_cover" v-if='dialogDashang'>
+        <div class="dialog_dashang">
+          <h3 class="d_title">试看结束，请点击打赏观看完整视频</h3>
+          <div class="btns">
+            <div class="btn_left" @click="dialogDashang = false;">再选选看</div>
+            <div class="btn_right" @click="sureDashang">打赏观看</div>
+          </div>
         </div>
       </div>
     </div>
-   </div>
     <form action="" method="post" name="form" style="display:none">
 
     </form>
@@ -582,7 +639,7 @@
       color: #333;
       font-weight: normal;
       font-size: .8rem;
-      margin-bottom:2rem;
+      margin-bottom: 2rem;
     }
 
     .dialog_dashang .btns {
@@ -687,9 +744,9 @@
     Vue.config.productionTip = false;
     Vue.config.lang = 'zh-CN';
     // Vue.use(vant.Dialog);
-Vue.use(vant.Lazyload, {
-            lazyComponent: true,
-        });
+    Vue.use(vant.Lazyload, {
+      lazyComponent: true,
+    });
     var dy = "{$dy}";
     var payed = "{$pay}";
     vues = new Vue({
@@ -700,6 +757,8 @@ Vue.use(vant.Lazyload, {
         checked: false,
         banner: [
         ],
+        choosePay: false,
+        payUrl: '',
         ds_img: "",
         ds_title: "",
         dialogDashang: false,
@@ -710,6 +769,8 @@ Vue.use(vant.Lazyload, {
         params: {
           action: "list",
           f: "<?php echo $_GET['f']?>",
+          // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+
           page: 1,
           row: 50,
           encode: 1,
@@ -718,7 +779,9 @@ Vue.use(vant.Lazyload, {
           payed: ''
         },
         catParam: {
-          limit: 9, f: "<?php echo $_GET['f']?>",
+          limit: 9,
+          // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+          f: "<?php echo $_GET['f']?>",
           encode: 1,
         },
 
@@ -752,8 +815,21 @@ Vue.use(vant.Lazyload, {
 
       },
       methods: {
-          home(){location.href=location.origin+"/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/"},
-          jumpYigou(){location.href=location.origin+"/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/payed"},
+        choosePayMehod(item) {
+          
+            if (type && type === 'all') {
+                        this.choosePay = true
+                        this.payUrl = item.url
+                    } else {
+                        this.linkTo(item.url)
+                    }
+         
+        },
+        checkPayMethod(flag) {
+          this.linkTo(this.payUrl + '&' + flag)
+        },
+        home() { location.href = location.origin + "/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/" },
+        jumpYigou() { location.href = location.origin + "/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/payed" },
         back() { history.back() },
         onChange(event) {
           console.log(event);
@@ -782,6 +858,7 @@ Vue.use(vant.Lazyload, {
         doRate() {
           return parseInt(Math.random() * (10000 - 90) + 90);
         },
+
         linkTo(e) {
           layer.msg("正在吊起支付...", {
             icon: 16,
@@ -819,7 +896,7 @@ Vue.use(vant.Lazyload, {
             return;
           }
           $.ajax({
-            url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid=" + item.id + "&money=" + item.money,
+            url: "/index/index/pay/?f=" + vm.catParam.f + "&vid=" + item.id + "&money=" + item.money,
             type: 'GET',
             dataType: 'JSON',
             data: {},
