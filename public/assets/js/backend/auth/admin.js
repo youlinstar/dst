@@ -196,6 +196,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                         field: 'pay_model',
                         title:"微信支付渠道",
                         formatter:function(val , row){
+                            console.log(val);
                             var options = "<option value='0'>默认通道</option>";
                             $.each(pay_info,function(index , obj){
                                 console.log(obj);
