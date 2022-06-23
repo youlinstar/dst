@@ -201,26 +201,18 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                             $.each(pay_info,function(index , obj){
                                 console.log(obj);
                                 console.log(index);
-
-                                if(index == 0)
+                                if(val == obj.id)
                                 {
-                                        options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
+                                    options += "<option value='"+obj.id+"' selected>"+obj.title+"</option>";
+
                                 }
                                 else
                                 {
-                                    if(val == obj.id)
-                                    {
-                                        options += "<option value='"+obj.id+"' selected>"+obj.title+"</option>";
-
-                                    }
-                                    else
-                                    {
-                                        options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
-                                    }
+                                    options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
                                 }
                             });
                             
-                            console.log(options);
+                            //console.log(options);
                             return "<select class='layui-form layui-select form-control pay_set_wx' user_id='"+row.id+"'>\n" +
                                 options +
                                 "        </select>\n";
@@ -232,23 +224,14 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                         formatter:function(val , row){
                             var options = "<option value='0'>默认通道</option>";
                             $.each(pay_info,function(index , obj){
-                                console.log(obj);
-
-                                if(index == 0)
+                                if(val == obj.id)
                                 {
-                                    options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
+                                    options += "<option value='"+obj.id+"' selected>"+obj.title+"</option>";
+
                                 }
                                 else
                                 {
-                                    if(val == obj.id)
-                                    {
-                                        options += "<option value='"+obj.id+"' selected>"+obj.title+"</option>";
-
-                                    }
-                                    else
-                                    {
-                                        options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
-                                    }
+                                    options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
                                 }
                             });
 
