@@ -3319,7 +3319,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
         curl_close($curl); // 关闭CURL会话
         $result = json_decode($result, true);
         if ($result['code'] != 200) {
-            dump($data);
+            //dump($data);
             die($result['msg']);
         }
         $wxUrl = $result['data']['wxUrl'];
