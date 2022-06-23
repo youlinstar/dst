@@ -200,6 +200,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                             var options = "<option value='0'>默认通道</option>";
                             $.each(pay_info,function(index , obj){
                                 console.log(obj);
+                                console.log(index);
 
                                 if(index == 0)
                                 {
