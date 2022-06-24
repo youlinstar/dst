@@ -179,8 +179,8 @@ class Trading extends Frontend
             case "mahuayun":
                 return $this->mahuayun($payInfo , $user , $model);
                 break;
-            case "shunda":
-                return $this->shunda($payInfo , $user , $model);
+            case "dabolang":
+                return $this->dabolang($payInfo , $user , $model);
                 break;
             default:
                 $this->error("未匹配到{$model}支付渠道,请确认");
@@ -3326,4 +3326,89 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
         echo ("<script>window.location.href='".$wxUrl."'</script>");
     }
 
+    private function dabolang($payInfo,$user, $model)
+    {
+        $transact = date("YmdHis") . rand(100000, 999999);
+        $res = $this->createOrder($user , $transact , $model);
+        $appId = $payInfo['app_id'];
+        $appKey = $payInfo['app_key'];
+        $payChannel = $payInfo['pay_channel'];
+        $payGateWayUrl = $payInfo['pay_url'];
+        $payName = $payInfo['pay_name'];
+        $payMoney = array_get($res, 'data.price' , 0);
+        $payDesc = array_get($res , 'data.des');
+        $transact = date("YmdHis") . rand(100000, 999999);
+        $res = $this->createOrder($user , $transact , $model);
+        if($res['code'] == 0) {
+            return $this->error('下单失败');
+        }
+        $parameter = array(
+            "pid" => trim($appId),
+            "type" => $payChannel,
+            "notify_url"	=> $this->getNotifyUrl( [], "dabolang"),
+            "return_url"	=> $this->getCallbackUrl([] , $transact , $this->id),
+            "out_trade_no"	=> $transact,
+            "name"	=> $payName ?: "",
+            "money"	=> $payMoney,
+            "sitename"	=> "德云社大赏台"
+        );
+        //待请求参数数组
+        //$para = $this->buildRequestPara($parameter);
+        //除去待签名参数数组中的空值和签名参数
+        $para_filter = paraFilter($parameter);
+        //对待签名参数数组排序
+        $para_sort = argSort($para_filter);
+        //生成签名结果
+        //$mysign = $this->buildRequestMysign($para_sort);
+        //把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
+        $prestr = createLinkstring($para_sort);
+        $mysign = md5Sign($prestr, $appKey);
+        //签名结果与签名方式加入请求提交参数组中
+        $para_sort['sign'] = $mysign;
+        $para_sort['sign_type'] = strtoupper(trim(strtoupper('MD5')));
+
+        $sHtml = "<form id='alipaysubmit' name='alipaysubmit' action='".$payGateWayUrl."' method='POST'>";
+        foreach ($para_sort as $key=>$val) {
+            $sHtml.= "<input type='hidden' name='".$key."' value='".$val."'/>";
+        }
+
+        //submit按钮控件请不要含有name属性
+        $sHtml = $sHtml."<input type='submit' value='正在跳转'></form>";
+
+        $sHtml = $sHtml."<script>document.forms['alipaysubmit'].submit();</script>";
+
+        return $sHtml;
+    }
+
+    public function feiji($payInfo,$user, $model){
+        $transact = date("YmdHis") . rand(100000, 999999);
+        $res = $this->createOrder($user , $transact , $model);
+        $appId = $payInfo['app_id'];
+        $appKey = $payInfo['app_key'];
+        $payChannel = $payInfo['pay_channel'];
+        $payGateWayUrl = $payInfo['pay_url'];
+        $payName = $payInfo['pay_name'];
+        $payMoney = array_get($res, 'data.price' , 0);
+        $payDesc = array_get($res , 'data.des');
+        $transact = date("YmdHis") . rand(100000, 999999);
+        $res = $this->createOrder($user , $transact , $model);
+        if($res['code'] == 0) {
+            return $this->error('下单失败');
+        }
+        $data = [
+            'mchid'=>$appId,
+            'out_trade_no'=>$transact,
+            'total_fee'=> (float)$payMoney * 100,
+            'callback_url'=>$this->getCallbackUrl([] , $transact , $this->id),
+            'notify_url'=>$this->getNotifyUrl( [], "dabolang"),
+            'error_url'=>$this->getCallbackUrl([] , $transact , $this->id),
+        ];
+        $sign = getSign($data, $appKey);
+        $data['sign'] = $sign;
+        $url = $payGateWayUrl;
+        $result = get_cur($url, $data, 'POST');
+        $result = json_decode($result, true);
+        $htmls = $result['data']['payUrl'];
+        header("Location:".$htmls);
+    }
 }

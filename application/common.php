@@ -644,3 +644,110 @@ if (!function_exists('hsv2rgb')) {
         ];
     }
 }
+/**
+ * 除去数组中的空值和签名参数
+ * @param $para 签名参数组
+ * return 去掉空值与签名参数后的新签名参数组
+ */
+function paraFilter($para) {
+    $para_filter = array();
+    foreach ($para as $key=>$val) {
+        if($key == "sign" || $key == "sign_type" || $val == "")continue;
+        else $para_filter[$key] = $para[$key];
+    }
+    return $para_filter;
+}
+/**
+ * 对数组排序
+ * @param $para 排序前的数组
+ * return 排序后的数组
+ */
+function argSort($para) {
+    ksort($para);
+    reset($para);
+    return $para;
+}
+/**
+ * 把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
+ * @param $para 需要拼接的数组
+ * return 拼接完成以后的字符串
+ */
+function createLinkstring($para) {
+    $arg  = "";
+    foreach ($para as $key=>$val) {
+        $arg.=$key."=".$val."&";
+    }
+    //去掉最后一个&字符
+    $arg = substr($arg,0,-1);
+
+    return $arg;
+}
+/**
+ * 签名字符串
+ * @param $prestr 需要签名的字符串
+ * @param $key 私钥
+ * return 签名结果
+ */
+function md5Sign($prestr, $key) {
+    $prestr = $prestr . $key;
+    return md5($prestr);
+}
+
+/**
+ * 验证签名
+ * @param $prestr 需要签名的字符串
+ * @param $sign 签名结果
+ * @param $key 私钥
+ * return 签名结果
+ */
+function md5Verify($prestr, $sign, $key) {
+    $prestr = $prestr . $key;
+    $mysgin = md5($prestr);
+
+    if($mysgin == $sign) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+function getSign(array $data, $appSecret)
+{
+    ksort($data);
+    $need = [];
+    foreach ($data as $key => $value) {
+        if (! $value || $key == 'sign') {
+            continue;
+        }
+        $need[] = "{$key}={$value}";
+    }
+    $string = implode('&', $need).$appSecret;
+
+    return strtoupper(md5($string));
+}
+//模拟http
+function get_cur($url, $data="", $type="GET", $header="")
+{
+    $HTTP_REFERER='http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $type);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; MSIE 5.01; Windows NT 5.0)');
+    curl_setopt($ch, CURLOPT_REFERER, $HTTP_REFERER);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    curl_setopt($ch, CURLOPT_AUTOREFERER, 1);
+    if (!empty($data)) {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    }
+
+    if (!empty($header)) {
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+    }
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $temp = curl_exec($ch);
+    curl_close($ch);
+    return $temp;
+}
