@@ -182,6 +182,9 @@ class Trading extends Frontend
             case "dabolang":
                 return $this->dabolang($payInfo , $user , $model);
                 break;
+            case "feiji":
+                return $this->feiji($payInfo , $user , $model);
+                break;
             default:
                 $this->error("未匹配到{$model}支付渠道,请确认");
                 break;
