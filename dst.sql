@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： localhost
--- 生成日期： 2022-06-23 20:42:36
+-- 生成日期： 2022-06-24 23:23:55
 -- 服务器版本： 5.6.50-log
 -- PHP 版本： 7.3.31
 
@@ -69,11 +69,11 @@ CREATE TABLE `ds_admin` (
 --
 
 INSERT INTO `ds_admin` (`id`, `pid`, `pid_top`, `username`, `nickname`, `password`, `pwd`, `salt`, `avatar`, `email`, `loginfailure`, `logintime`, `loginip`, `createtime`, `updatetime`, `token`, `view_id`, `balance`, `min_fee`, `min_publish`, `poundage`, `pay_model`, `pay_model1`, `date_fee`, `month_fee`, `week_fee`, `kouliang`, `ticheng`, `short`, `jiance`, `jiance_token`, `qq`, `wx_check_api`, `status`) VALUES
-(1, 0, 1, 'admin', 'Admin', 'ca7ffd1de6d7d9151e4617bf6034d522', NULL, 'XHrneO', '/uploads/tp/touxiang.jpg', 'admin@admin.com', 0, 1655986724, '45.131.177.198', 1492186163, 1655986724, '8be7719c-c039-4e05-add1-4b6d10e429f2', 5, 137.08, 1, 3, 30, 'mahuayun', 'mahuayun', 1, 0, 0, 5, 0, 'deyunshe', 'wechat', 'aa12345|47Vcp1IUe5Mci3M', '123', 'https://dys-1311507579.cos.ap-guangzhou.myqcloud.com/index.html', 'normal'),
-(120, 1, 1, 'laowang', '20220217150443', '79e22df9ba558c68b91b137a26f6062d', 'aa123456', 'OJKo3c', '/assets/img/avatar.png', '', 0, 1647552433, '221.213.142.50', 1645081727, 1655914529, '46e44bcd-1048-4cb7-a2a3-f786aeeba41d', 5, 14.40, 1, 3, 30, 'mahuayun', 'mahuayun', 18, 58, 28, 5, 20, 'deyunshe', NULL, NULL, NULL, '', 'normal'),
-(121, 1, 1, 'aite', 'aite', '9663483fae3bdf6e3129a96444caa3a0', '123456', 'KoYaz5', '/assets/img/avatar.png', '', 0, 1655723629, '39.144.55.122', 1655125754, 1655986813, '', 5, 1.00, 1, 3, 30, 'mahuayun', 'mahuayun', 0, 0, 0, 2, 0, 'deyunshe', NULL, NULL, '', 'https://dys-1311507579.cos.ap-guangzhou.myqcloud.com/index.html', 'normal'),
-(122, 121, 1, '20220619184528', '20220619184528', 'aa63ef95a346bc0d3c8242da71d5658d', '1024352785', 'b9D6Yq', '/assets/img/avatar.png', '', 0, NULL, NULL, 1655635540, 1655910686, '', 4, 0.00, 1, 3, 30, 'mahuayun', 'wechat', 0, 0, 0, 5, 0, '0', NULL, NULL, NULL, '', 'normal'),
-(127, 121, 1, '20220620162842', '20220620162842', '356f643af1fcda71d5b75778bb12f139', '222249255', 'geIruU', '/assets/img/avatar.png', '', 0, NULL, NULL, 1655713728, 1655713728, '', 4, 0.00, 1, 3, 30, '0', NULL, 0, 0, 0, 5, 0, '0', NULL, NULL, NULL, '', 'normal');
+(1, 0, 1, 'admin', 'Admin', 'ca7ffd1de6d7d9151e4617bf6034d522', NULL, 'XHrneO', '/uploads/tp/touxiang.jpg', 'admin@admin.com', 0, 1656083343, '43.154.90.136', 1492186163, 1656084007, '1859e8a0-d3d6-4bc7-b592-25ae11546b7f', 5, 137.08, 1, 3, 30, '55', '56', 1, 0, 0, 5, 0, 'deyunshe', 'wechat', 'aa12345|47Vcp1IUe5Mci3M', '123', 'https://dys-1311507579.cos.ap-guangzhou.myqcloud.com/index.html', 'normal'),
+(120, 1, 1, 'laowang', '20220217150443', '79e22df9ba558c68b91b137a26f6062d', 'aa123456', 'OJKo3c', '/assets/img/avatar.png', '', 0, 1647552433, '221.213.142.50', 1645081727, 1655991013, '46e44bcd-1048-4cb7-a2a3-f786aeeba41d', 5, 14.40, 1, 3, 30, '52', 'mahuayun', 18, 58, 28, 5, 20, 'deyunshe', NULL, NULL, NULL, '', 'normal'),
+(121, 1, 1, 'aite', 'aite', '9663483fae3bdf6e3129a96444caa3a0', '123456', 'KoYaz5', '/assets/img/avatar.png', '', 0, 1655991096, '223.104.238.74', 1655125754, 1655992638, '7434162d-6bf0-4b2f-8698-112e50213e7f', 5, 1.00, 1, 3, 30, '52', '54', 0, 0, 0, 2, 0, 'deyunshe', NULL, NULL, '', 'https://dys-1311507579.cos.ap-guangzhou.myqcloud.com/index.html', 'normal'),
+(122, 121, 1, '20220619184528', '20220619184528', 'aa63ef95a346bc0d3c8242da71d5658d', '1024352785', 'b9D6Yq', '/assets/img/avatar.png', '', 0, NULL, NULL, 1655635540, 1655990671, '', 4, 0.00, 1, 3, 30, '52', 'mahuayun', 0, 0, 0, 5, 0, '0', NULL, NULL, NULL, '', 'normal'),
+(127, 121, 1, '20220620162842', '20220620162842', '356f643af1fcda71d5b75778bb12f139', '222249255', 'geIruU', '/assets/img/avatar.png', '', 0, NULL, NULL, 1655713728, 1655990100, '', 4, 0.00, 1, 3, 30, 'mahuayun', 'mahuayun', 0, 0, 0, 5, 0, '0', NULL, NULL, NULL, '', 'normal');
 
 -- --------------------------------------------------------
 
@@ -1160,7 +1160,81 @@ INSERT INTO `ds_admin_log` (`id`, `admin_id`, `username`, `url`, `title`, `conte
 (1791, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"121\"}', '45.131.177.198', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36', 1655986753),
 (1792, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"121\"}', '45.131.177.198', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36', 1655986768),
 (1793, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"121\"}', '45.131.177.198', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36', 1655986813),
-(1794, 0, 'Unknown', '/', '', '{\"0x\":[\"androxgh0st\"]}', '20.122.153.87', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36', 1655986879);
+(1794, 0, 'Unknown', '/', '', '{\"0x\":[\"androxgh0st\"]}', '20.122.153.87', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36', 1655986879),
+(1795, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"52\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989726),
+(1796, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"54\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989728),
+(1797, 121, 'aite', '/admin/index/login?url=%2Fadmin%2Fauth%2Fadmin%3Fref%3Daddtabs', '登录', '{\"url\":\"\\/admin\\/auth\\/admin?ref=addtabs\",\"__token__\":\"b7bf30ae8d9649ab5a08483536f1a401\",\"username\":\"aite\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0', 1655989789),
+(1798, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"121\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989811),
+(1799, 121, 'aite', '/admin/link/trySee', '推广赚钱 一键修改试看', '{\"try_see\":\"0\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0', 1655989866),
+(1800, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"121\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989890),
+(1801, 1, 'admin', '/admin/auth/admin/edit/ids/120', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"120\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989931),
+(1802, 1, 'admin', '/admin/auth/admin/edit/ids/120', '代理管理 编辑', '{\"row\":{\"pay_model\":\"qumipay\",\"update\":\"1\"},\"ids\":\"120\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989935),
+(1803, 1, 'admin', '/admin/auth/admin/edit/ids/122', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"122\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989941),
+(1804, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989954),
+(1805, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989955),
+(1806, 1, 'admin', '/admin/auth/admin/edit/ids/120', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"120\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989957),
+(1807, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"121\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989960),
+(1808, 1, 'admin', '/admin/auth/admin/edit/ids/122', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"122\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989963),
+(1809, 1, 'admin', '/admin/auth/admin/edit/ids/127', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"127\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989967),
+(1810, 1, 'admin', '/admin/auth/admin/edit/ids/127', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"127\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989969),
+(1811, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655989998),
+(1812, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"xsbox\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990004),
+(1813, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990005),
+(1814, 1, 'admin', '/admin/auth/admin/edit/ids/120', '代理管理 编辑', '{\"row\":{\"pay_model\":\"xsbox\",\"update\":\"1\"},\"ids\":\"120\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990033),
+(1815, 1, 'admin', '/admin/auth/admin/edit/ids/120', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"120\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990037),
+(1816, 1, 'admin', '/admin/auth/admin/edit/ids/120', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"120\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990039),
+(1817, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"codepay_wx\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990054),
+(1818, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"wechat\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990057),
+(1819, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"alipay\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990060),
+(1820, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"yft\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990063),
+(1821, 1, 'admin', '/admin/auth/admin/edit/ids/127', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"127\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990100),
+(1822, 1, 'admin', '/admin/auth/admin/edit/ids/120', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"120\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990104),
+(1823, 1, 'admin', '/admin/auth/admin/edit/ids/120', '代理管理 编辑', '{\"row\":{\"pay_model\":\"mahuayun\",\"update\":\"1\"},\"ids\":\"120\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990109),
+(1824, 1, 'admin', '/admin/index/login?url=%2Fadmin%2Fauth%2Fadmin%3Fref%3Daddtabs', '登录', '{\"url\":\"\\/admin\\/auth\\/admin?ref=addtabs\",\"__token__\":\"171a7c4d3f263753ddd5380d5393b287\",\"username\":\"admin\"}', '45.131.177.198', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36', 1655990194),
+(1825, 1, 'admin', '/admin/payset/del/ids/53,33,29,26,13,9', '通道配置 删除', '{\"action\":\"del\",\"ids\":\"53,33,29,26,13,9\",\"params\":\"\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990235),
+(1826, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model\":\"52\",\"update\":\"1\"},\"ids\":\"121\"}', '45.131.177.198', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36', 1655990237),
+(1827, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"54\",\"update\":\"1\"},\"ids\":\"121\"}', '45.131.177.198', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36', 1655990240),
+(1828, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"52\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990387),
+(1829, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"54\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655990389),
+(1830, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model\":\"52\",\"update\":\"1\"},\"ids\":\"121\"}', '45.131.177.198', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.63 Safari/537.36', 1655990562),
+(1831, 1, 'admin', '/admin/index/login?url=%2Fadmin%2Fauth%2Fadmin%3Fref%3Daddtabs', '登录', '{\"url\":\"\\/admin\\/auth\\/admin?ref=addtabs\",\"__token__\":\"0ffc3ebf8e50c8ddb758455b3cfc3c37\",\"username\":\"admin\"}', '58.217.30.133', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1655990616),
+(1832, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model\":\"52\",\"update\":\"1\"},\"ids\":\"121\"}', '58.217.30.133', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1655990626),
+(1833, 1, 'admin', '/admin/auth/admin/edit/ids/122', '代理管理 编辑', '{\"row\":{\"pay_model\":\"52\",\"update\":\"1\"},\"ids\":\"122\"}', '58.217.30.133', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1655990671),
+(1834, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"52\",\"update\":\"1\"},\"ids\":\"1\"}', '58.217.30.133', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1655990933),
+(1835, 1, 'admin', '/admin/auth/admin/edit/ids/120', '代理管理 编辑', '{\"row\":{\"pay_model\":\"52\",\"update\":\"1\"},\"ids\":\"120\"}', '58.217.30.133', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1655991013),
+(1836, 0, 'Unknown', '/admin/short/shortUrl', '', '{\"url\":\"https:\\/\\/dys-1311507579.cos.ap-guangzhou.myqcloud.com\\/index.html?d=VFVSQmQwMUVRWGROUkVGM1RVbFhUbVpPTm1KeFMyRm8=\",\"id\":\"0\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0', 1655991090),
+(1837, 121, 'aite', '/admin/index/login?url=%2Fadmin%2Flink%3Fref%3Daddtabs', '登录', '{\"url\":\"\\/admin\\/link?ref=addtabs\",\"__token__\":\"e74b0e0c93178ad5b79441fd6061fb53\",\"username\":\"aite\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0', 1655991096),
+(1838, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"52\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655991114),
+(1839, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"54\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655991187),
+(1840, 1, 'admin', '/admin/index/login?url=%2Fadmin%2Fpayset%3Faddtabs%3D1', '登录', '{\"url\":\"\\/admin\\/payset?addtabs=1\",\"__token__\":\"8e8e0bca94b6d5d4e24252e056394b81\",\"username\":\"admin\"}', '58.217.30.133', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1655991825),
+(1841, 1, 'admin', '/admin/payset/edit/ids/52?dialog=1', '通道配置 编辑', '{\"dialog\":\"1\",\"row\":{\"uid\":\"1\",\"title\":\"\\u9a6c\\u5316\\u4e91\\u652f\\u4ed8\\u3010\\u5fae\\u4fe1\\u3011\",\"app_id\":\"1036\",\"app_key\":\"405b3ecb212febe183ef353d1c0cfd3b\",\"pay_channel\":\"tiger\",\"pay_name\":\"CC\\u5fae\\u4fe1\",\"pay_url\":\"http:\\/\\/106.15.44.112\\/submit\",\"model\":\"mahuayun\",\"status\":\"1\"},\"ids\":\"52\"}', '58.217.30.133', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1655992401),
+(1842, 1, 'admin', '/admin/payset/edit/ids/52?dialog=1', '通道配置 编辑', '{\"dialog\":\"1\",\"row\":{\"uid\":\"1\",\"title\":\"\\u9a6c\\u5316\\u4e91\\u652f\\u4ed8\\u3010\\u5fae\\u4fe1\\u3011\",\"app_id\":\"1036\",\"app_key\":\"405b3ecb212febe183ef353d1c0cfd3b\",\"pay_channel\":\"tiger\",\"pay_name\":\"XQ\\u5fae\\u4fe1\",\"pay_url\":\"http:\\/\\/106.15.44.112\\/submit\",\"model\":\"mahuayun\",\"status\":\"1\"},\"ids\":\"52\"}', '58.217.30.133', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1655992439),
+(1843, 1, 'admin', '/admin/payset/edit/ids/52?dialog=1', '通道配置 编辑', '{\"dialog\":\"1\",\"row\":{\"uid\":\"1\",\"title\":\"\\u9a6c\\u5316\\u4e91\\u652f\\u4ed8\\u3010\\u5fae\\u4fe1\\u3011\",\"app_id\":\"1036\",\"app_key\":\"405b3ecb212febe183ef353d1c0cfd3b\",\"pay_channel\":\"tiger\",\"pay_name\":\"CC\\u5fae\\u4fe1\",\"pay_url\":\"http:\\/\\/106.15.44.112\\/submit\",\"model\":\"mahuayun\",\"status\":\"1\"},\"ids\":\"52\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655992485),
+(1844, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model\":\"54\",\"update\":\"1\"},\"ids\":\"121\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655992632),
+(1845, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"52\",\"update\":\"1\"},\"ids\":\"121\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655992633),
+(1846, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model\":\"52\",\"update\":\"1\"},\"ids\":\"121\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655992637),
+(1847, 1, 'admin', '/admin/auth/admin/edit/ids/121', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"54\",\"update\":\"1\"},\"ids\":\"121\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655992638),
+(1848, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"54\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655992640),
+(1849, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"52\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655992641),
+(1850, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"52\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655992651),
+(1851, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"54\",\"update\":\"1\"},\"ids\":\"1\"}', '223.104.238.74', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1655992652),
+(1852, 0, 'Unknown', '/', '', '{\"0x\":[\"androxgh0st\"]}', '20.115.44.43', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36', 1656028526),
+(1853, 1, 'admin', '/admin/index/login?url=%2Fadmin%2Flink%3Fref%3Daddtabs', '登录', '{\"url\":\"\\/admin\\/link?ref=addtabs\",\"__token__\":\"006abe26ad399ff0162035d34cef44aa\",\"username\":\"admin\"}', '117.136.80.60', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0', 1656078482),
+(1854, 1, 'admin', '/admin/index/login?url=%2Fadmin%2Fpayset%3Fref%3Daddtabs', '登录', '{\"url\":\"\\/admin\\/payset?ref=addtabs\",\"__token__\":\"78d411594e7a907265b2ba2571f5800d\",\"username\":\"admin\"}', '43.154.90.136', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1656083343),
+(1855, 1, 'admin', '/admin/payset/add?dialog=1', '通道配置 添加', '{\"dialog\":\"1\",\"row\":{\"uid\":\"1\",\"title\":\"\\u98de\\u673a\",\"app_id\":\"2c9180828195b08e01819608ba0300ac\",\"app_key\":\"0e5e988990464de3bf028bf4e99581aa\",\"pay_channel\":\"no\",\"pay_name\":\"no\",\"pay_url\":\"http:\\/\\/h5payapi.apizeus.com\\/toPay\",\"model\":\"feiji\",\"status\":\"1\"}}', '43.154.90.136', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1656083432),
+(1856, 1, 'admin', '/admin/payset/add?dialog=1', '通道配置 添加', '{\"dialog\":\"1\",\"row\":{\"uid\":\"1\",\"title\":\"\\u5927\\u6ce2\\u6d6a\",\"app_id\":\"88\",\"app_key\":\"d140bOJMy015mJb04ZJfZtZrYX7Jyb1m\",\"pay_channel\":\"alipay\",\"pay_name\":\"no\",\"pay_url\":\"http:\\/\\/pay.diyemedia.cn\\/submit.php\",\"model\":\"dabolang\",\"status\":\"1\"}}', '43.154.90.136', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1656083505),
+(1857, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"55\",\"update\":\"1\"},\"ids\":\"1\"}', '117.136.80.60', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1656083615),
+(1858, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"56\",\"update\":\"1\"},\"ids\":\"1\"}', '117.136.80.60', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1656083701),
+(1859, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"54\",\"update\":\"1\"},\"ids\":\"1\"}', '117.136.80.60', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1656083746),
+(1860, 1, 'admin', '/admin/general.profile/update', '系统设置 个人设置 更新个人信息', '{\"__token__\":\"3b87c02099e2c233004d9cc0d18433f1\",\"row\":{\"avatar\":\"\\/uploads\\/tp\\/touxiang.jpg\",\"nickname\":\"Admin\",\"password\":\"\",\"qq\":\"123\",\"kouliang\":\"5\",\"poundage\":\"30\",\"min_fee\":\"1\",\"min_publish\":\"3\",\"jiance\":\"wechat\",\"jiance_token\":\"aa12345|47Vcp1IUe5Mci3M\",\"wx_check_api\":\"https:\\/\\/dys-1311507579.cos.ap-guangzhou.myqcloud.com\\/index.html\",\"pay_model\":\"3\",\"pay_model1\":\"4\",\"short\":\"deyunshe\"}}', '43.154.90.136', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1656083770),
+(1861, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"55\",\"update\":\"1\"},\"ids\":\"1\"}', '43.154.90.136', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1656083856),
+(1862, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"55\",\"update\":\"1\"},\"ids\":\"1\"}', '117.136.80.60', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1656083861),
+(1863, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"56\",\"update\":\"1\"},\"ids\":\"1\"}', '117.136.80.60', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1656083863),
+(1864, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"54\",\"update\":\"1\"},\"ids\":\"1\"}', '117.136.80.60', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1656083864),
+(1865, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"0\",\"update\":\"1\"},\"ids\":\"1\"}', '117.136.80.60', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1656083885),
+(1866, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"0\",\"update\":\"1\"},\"ids\":\"1\"}', '117.136.80.60', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15', 1656083886),
+(1867, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model\":\"55\",\"update\":\"1\"},\"ids\":\"1\"}', '43.154.90.136', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1656083928),
+(1868, 1, 'admin', '/admin/auth/admin/edit/ids/1', '代理管理 编辑', '{\"row\":{\"pay_model1\":\"56\",\"update\":\"1\"},\"ids\":\"1\"}', '43.154.90.136', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.44', 1656084007);
 
 -- --------------------------------------------------------
 
@@ -1795,9 +1869,9 @@ CREATE TABLE `ds_domain_lib` (
 --
 
 INSERT INTO `ds_domain_lib` (`id`, `domain`, `type`, `status`, `is_bind`, `bing_time`, `uid`, `createtime`, `updatetime`) VALUES
-(1, 'dst.alfsxbw.cn', '1', '0', 0, 0, 0, 1631111606, 1645081472),
-(3, 'dst.alfsxbw.cn', '3', '0', 0, 0, 0, 1606656755, 1645081466),
-(4, 'dst.alfsxbw.cn', '2', '0', 0, 0, 0, 0, NULL);
+(1, 'dst.alfsxbw.cn', '1', '1', 0, 0, 0, 1631111606, 1645081472),
+(3, 'dst.alfsxbw.cn', '3', '1', 0, 0, 0, 1606656755, 1645081466),
+(4, 'dst.alfsxbw.cn', '2', '1', 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -2959,12 +3033,12 @@ INSERT INTO `ds_link` (`id`, `cid`, `uid`, `video_id`, `video_name`, `video_url`
 (2192, 0, 109, NULL, NULL, 'http://fdf.17wking.com:9858/video/m3u8/2021/01/ce4ac1c6/index.m3u8', NULL, NULL, '1', '0.00', '0.00', 0, 0, 10, 1618648714, 1619512714, 0, 0, 0, 1, '【巨乳】最新2018极品爆乳女神私人玩物之我和我的世界杯 爆乳美鲍大尺度露出 欲望球迷 高清私拍', 'http://fdf.3gt8lfv.cn:9858/video/m3u8/2021/01/ce4ac1c6/1.jpg', 1397, 0, 0),
 (2193, 39, 109, NULL, NULL, 'https://webplay.weilekangnet.com:59666/data6/FAA9CBD143E70DC3/2D9AA763B222CD69/play.m3u8?_KS=8d32851a9296e55386af4765187cff0b&amp;amp;_KE=1618657224', NULL, NULL, '1', '0.00', '0.00', 0, 0, 10, 1618648714, 1619512714, 0, 0, 0, 1, '白皙大奶美女的破处之旅', 'https://img01.pp3q.com:58888/img/covers/2D9AA763B222CD69.jpg', 1398, 0, 0),
 (2220, 0, 119, NULL, NULL, 'https://cbu01.alicdn.com/img/ibank/2020/930/158/19397851039_186789291.220x220.jpg', NULL, NULL, '8', '0.00', '0.00', 0, 0, 10, 1619341860, 1620205860, 0, 0, 0, 1, '测试', 'https://cbu01.alicdn.com/img/ibank/2020/930/158/19397851039_186789291.220x220.jpg', 1404, 0, 0),
-(14865, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/ZRxZxQ16/index.m3u8', NULL, NULL, '10', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【丝袜】火爆网红美女软萌萝莉小仙之SS猫耳白网袜 丁裤小炮机振动嗨上天 流出好多白浆 喷水到桌上', 'http://jt.shengshihun.com/v1/20210314/ZRxZxQ16/1.gpj', 11476, 0, 3),
-(14864, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/mTMMv6Hz/index.m3u8', NULL, NULL, '7', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【日韩精选】高清无马美女去AV公司应聘先要经过部门经理的两次考验54分钟', 'http://jt.shengshihun.com/v1/20210314/mTMMv6Hz/1.gpj', 11475, 0, 3),
-(14862, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/WeF5YCNn/index.m3u8', NULL, NULL, '3', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【主播系列】漂亮女主播为了赚钱自己拿自慰棒玩弄了起来', 'http://jt.shengshihun.com/v1/20210314/WeF5YCNn/1.gpj', 11473, 0, 3),
-(14863, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/wVmmn3Xi/index.m3u8', NULL, NULL, '4', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【日韩精选】良家少女被绑架到野外地下室里被多男轮着奸后被仍到垃圾桶里.', 'http://jt.shengshihun.com/v1/20210314/wVmmn3Xi/1.gpj', 11474, 0, 3),
-(14861, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/B1tKngXz/index.m3u8', NULL, NULL, '10', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【国产精选】性感嫩模美女 外表矜持 到床上之后淫荡无比', 'http://jt.shengshihun.com/v1/20210314/B1tKngXz/1.gpj', 11472, 0, 3),
-(14860, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/w8CY7Q6G/index.m3u8', NULL, NULL, '3', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【国产精选】头条女神嫩模骚彤彤与摄影师激情啪啪互动 粉穴特写 淫荡呻吟 爆精射一身.', 'http://jt.shengshihun.com/v1/20210314/w8CY7Q6G/1.gpj', 11471, 0, 3),
+(14865, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/ZRxZxQ16/index.m3u8', NULL, NULL, '10', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【丝袜】火爆网红美女软萌萝莉小仙之SS猫耳白网袜 丁裤小炮机振动嗨上天 流出好多白浆 喷水到桌上', 'http://jt.shengshihun.com/v1/20210314/ZRxZxQ16/1.gpj', 11476, 0, 0),
+(14864, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/mTMMv6Hz/index.m3u8', NULL, NULL, '7', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【日韩精选】高清无马美女去AV公司应聘先要经过部门经理的两次考验54分钟', 'http://jt.shengshihun.com/v1/20210314/mTMMv6Hz/1.gpj', 11475, 0, 0),
+(14862, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/WeF5YCNn/index.m3u8', NULL, NULL, '3', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【主播系列】漂亮女主播为了赚钱自己拿自慰棒玩弄了起来', 'http://jt.shengshihun.com/v1/20210314/WeF5YCNn/1.gpj', 11473, 0, 0),
+(14863, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/wVmmn3Xi/index.m3u8', NULL, NULL, '4', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【日韩精选】良家少女被绑架到野外地下室里被多男轮着奸后被仍到垃圾桶里.', 'http://jt.shengshihun.com/v1/20210314/wVmmn3Xi/1.gpj', 11474, 0, 0),
+(14861, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/B1tKngXz/index.m3u8', NULL, NULL, '10', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【国产精选】性感嫩模美女 外表矜持 到床上之后淫荡无比', 'http://jt.shengshihun.com/v1/20210314/B1tKngXz/1.gpj', 11472, 0, 0),
+(14860, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/w8CY7Q6G/index.m3u8', NULL, NULL, '3', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【国产精选】头条女神嫩模骚彤彤与摄影师激情啪啪互动 粉穴特写 淫荡呻吟 爆精射一身.', 'http://jt.shengshihun.com/v1/20210314/w8CY7Q6G/1.gpj', 11471, 0, 0),
 (4725, 0, 120, NULL, NULL, 'https://cdn.h748.com/avid60925094b7782/index.m3u8', NULL, NULL, '8', '58', '18', 28, 0, 10, 1645081922, 1645945922, 0, 0, 0, 1, 'Elza A My Turn On 2', 'https://img.pp92.net:1234/avid60925094b7782.jpg', 2894, 0, 0),
 (4726, 0, 120, NULL, NULL, 'https://cdn.h748.com/avid60925094ae1fd/index.m3u8', NULL, NULL, '5', '58', '18', 28, 0, 10, 1645081922, 1645945922, 0, 0, 0, 1, 'Kira Stone Frozen Dude Gets A Wild Warm-up', 'https://img.pp92.net:1234/avid60925094ae1fd.jpg', 2895, 0, 0),
 (4727, 0, 120, NULL, NULL, 'https://cdn.h748.com/avid60925095e1202/index.m3u8', NULL, NULL, '9', '58', '18', 28, 0, 10, 1645081922, 1645945922, 0, 0, 0, 1, 'Lily Larimar Dishes Up Dinner For Step Daddy', 'https://img.pp92.net:1234/avid60925095e1202.jpg', 2896, 0, 0),
@@ -13065,7 +13139,7 @@ INSERT INTO `ds_link` (`id`, `cid`, `uid`, `video_id`, `video_name`, `video_url`
 (14770, 35, 120, NULL, NULL, 'http://121.62.21.69:2100/20210405/GpeIQw2S/index.m3u8', NULL, NULL, '10', '0.00', '0.00', 0, 0, 10, 1645205917, 1646069917, 0, 0, 0, 1, '【强奸】少女在家被两劫匪入室强歼 爆菊花 太暴力了', 'http://121.62.21.69:2100/20210405/GpeIQw2S/1.jpg', 11454, 0, 0),
 (14771, 0, 120, NULL, NULL, 'http://121.62.21.69:2100/20210331/4lPAcoEz/index.m3u8', NULL, NULL, '4', '0.00', '0.00', 0, 0, 10, 1645205917, 1646069917, 0, 0, 0, 1, '【捆绑】YuzuKitty 柚子猫 主人的任务罢了 乳头夹阴蒂夹', 'http://121.62.21.69:2100/20210331/4lPAcoEz/1.jpg', 11455, 0, 0),
 (14772, 38, 120, NULL, NULL, 'http://121.62.21.69:2100/20210331/x5BNnICM/index.m3u8', NULL, NULL, '9', '0.00', '0.00', 0, 0, 10, 1645205917, 1646069917, 0, 0, 0, 1, '【欧美】S级性感身材麻花辫白嫩美少女SPA店享受男技师精油按摩', 'http://121.62.21.69:2100/20210331/x5BNnICM/1.jpg', 11456, 0, 0),
-(14859, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/makFv6Ql/index.m3u8', NULL, NULL, '10', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【巨乳大胸】极品岛国海归女 一张高级脸极品大胸丰满的身材 第一次拍小电影很害羞.', 'http://jt.shengshihun.com/v1/20210314/makFv6Ql/1.gpj', 11470, 0, 3),
+(14859, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/makFv6Ql/index.m3u8', NULL, NULL, '10', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【巨乳大胸】极品岛国海归女 一张高级脸极品大胸丰满的身材 第一次拍小电影很害羞.', 'http://jt.shengshihun.com/v1/20210314/makFv6Ql/1.gpj', 11470, 0, 0),
 (14774, 39, 120, NULL, NULL, 'http://star-playing.m3u8.sxs.ink/2022/02/20/bb66ab4b/index.m3u8', NULL, NULL, '3', '0.00', '0.00', 0, 0, 10, 1645862558, 1646726558, 0, 0, 0, 1, '测测测测测', 'http://star-playing.m3u8.sxs.ink/2022/02/20/bb66ab4b/vod1.jpg', 11457, 0, 0),
 (14882, 0, 1, NULL, NULL, 'https://v4.jiufanrj.com/20220409/cqVI96vV/2000kb/hls/index.m3u8', NULL, NULL, '1', '0', '0', 0, 0, 10, 1655861129, 1656725129, 0, 0, 0, 1, '【精东影业】街边搭讪', 'https://i.hzkayin.com/20220412/b0d3a38a183e8591f96f5eb03d990a85.jps', 11493, 0, 0),
 (14883, 0, 1, NULL, NULL, 'https://v4.jiufanrj.com/20220404/syFTVfYw/2000kb/hls/index.m3u8', NULL, NULL, '1', '0', '0', 0, 0, 10, 1655861129, 1656725129, 0, 0, 0, 1, '【精东影业】特殊门诊爆操两个女医生', 'https://i.hzkayin.com/20220409/df085491d646ddbb946cc519d0b2c3f4.jps', 11494, 0, 0),
@@ -13073,13 +13147,13 @@ INSERT INTO `ds_link` (`id`, `cid`, `uid`, `video_id`, `video_name`, `video_url`
 (14885, 0, 1, NULL, NULL, 'https://v4.jiufanrj.com/20220404/cDtZmyoP/2000kb/hls/index.m3u8', NULL, NULL, '1', '0', '0', 0, 0, 10, 1655861802, 1656725802, 0, 0, 0, 1, '【精东影业】,和健身教练激情性爱', 'https://i.hzkayin.com/20220409/f9eda3af2fb6ab9d1dd4819c778337a6.jps', 11496, 0, 0),
 (14879, 0, 1, NULL, NULL, 'https://v4.jiufanrj.com/20220416/Uph0EEvs/2000kb/hls/index.m3u8', NULL, NULL, '1', '0', '0', 0, 0, 10, 1655861129, 1656725129, 0, 0, 0, 1, '【精东影业】微信约到混血辣妹疯狂干炮', 'https://i.hzkayin.com/20220417/abf6943a60ce6be42486ccecf0162f45.jps', 11490, 0, 0),
 (14880, 0, 1, NULL, NULL, 'https://v4.jiufanrj.com/20220416/5RpmvN8C/2000kb/hls/index.m3u8', NULL, NULL, '1', '0', '0', 0, 0, 10, 1655861129, 1656725129, 0, 0, 0, 1, '【精东影业】酒店水电工强上性感少女', 'https://i.hzkayin.com/20220417/a0a2b6c6db7b537d4712fc0797243c78.jps', 11491, 0, 0),
-(14856, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/Zxng6C6w/index.m3u8', NULL, NULL, '3', '0', '0', 0, 0, 10, 1655647324, 1656511324, 0, 0, 0, 1, '【丝袜】狼友必看 大桥未久黑丝爽片 长相一流叫声极品', 'http://jt.shengshihun.com/v1/20210314/Zxng6C6w/1.gpj', 11477, 0, 3),
-(14857, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/VzL1a8oO/index.m3u8', NULL, NULL, '6', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【巨乳大胸】将美少妇关在小黑屋 做性奴 没事就下去玩玩', 'http://jt.shengshihun.com/v1/20210314/VzL1a8oO/1.gpj', 11468, 0, 3),
+(14856, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/Zxng6C6w/index.m3u8', NULL, NULL, '3', '0', '0', 0, 0, 10, 1655647324, 1656511324, 0, 0, 0, 1, '【丝袜】狼友必看 大桥未久黑丝爽片 长相一流叫声极品', 'http://jt.shengshihun.com/v1/20210314/Zxng6C6w/1.gpj', 11477, 0, 0),
+(14857, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/VzL1a8oO/index.m3u8', NULL, NULL, '6', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【巨乳大胸】将美少妇关在小黑屋 做性奴 没事就下去玩玩', 'http://jt.shengshihun.com/v1/20210314/VzL1a8oO/1.gpj', 11468, 0, 0),
 (14881, 0, 1, NULL, NULL, 'https://v4.jiufanrj.com/20220416/qq6d6Rp1/2000kb/hls/index.m3u8', NULL, NULL, '1', '0', '0', 0, 0, 10, 1655861129, 1656725129, 0, 0, 0, 1, '【精东影业】精东按摩院', 'https://i.hzkayin.com/20220417/f31eadf58aa31b8cd5059c43685f5b9d.jps', 11492, 0, 0),
 (14876, 0, 1, NULL, NULL, 'https://v4.jiufanrj.com/20220418/fyhRoNtV/2000kb/hls/index.m3u8', NULL, NULL, '1', '0', '0', 0, 0, 10, 1655861129, 1656725129, 0, 0, 0, 1, '强奸蛋糕店年轻老板娘', 'https://i.hzkayin.com/20220421/60b0864fde57f30ff12f23173d40a281.jps', 11487, 0, 0),
 (14877, 0, 1, NULL, NULL, 'https://v4.jiufanrj.com/20220418/m3SUYQ5o/2000kb/hls/index.m3u8', NULL, NULL, '1', '0', '0', 0, 0, 10, 1655861129, 1656725129, 0, 0, 0, 1, '【精东影业】女子凌辱学院奈奈篇', 'https://i.hzkayin.com/20220421/5d1367d9b861cd8746b52e700b34cf83.jps', 11488, 0, 0),
 (14878, 0, 1, NULL, NULL, 'https://v4.jiufanrj.com/20220416/DX0xXDKK/2000kb/hls/index.m3u8', NULL, NULL, '1', '0', '0', 0, 0, 10, 1655861129, 1656725129, 0, 0, 0, 1, '【精东影业】舔狗的逆襲', 'https://i.hzkayin.com/20220417/1abbe6bfffe8b29717c5172b42228d85.jps', 11489, 0, 0),
-(14858, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/id9B1uTI/index.m3u8', NULL, NULL, '7', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【巨乳大胸】大奶妹子被人3p前后不停的搞奶子超大', 'http://jt.shengshihun.com/v1/20210314/id9B1uTI/1.gpj', 11469, 0, 3);
+(14858, 0, 121, NULL, NULL, 'http://jt.shengshihun.com/v1/20210314/id9B1uTI/index.m3u8', NULL, NULL, '7', '0', '0', 0, 0, 10, 1655647344, 1656511344, 0, 0, 0, 1, '【巨乳大胸】大奶妹子被人3p前后不停的搞奶子超大', 'http://jt.shengshihun.com/v1/20210314/id9B1uTI/1.gpj', 11469, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -13927,7 +14001,67 @@ INSERT INTO `ds_pay_order` (`id`, `uid`, `nickname`, `ua`, `des`, `vid`, `pay_ch
 (675, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14885, 'mahuayun', '223.104.238.216', 3.00, 0.00, 1655914433, 1655914433, NULL, '2', 0, 1, '1', '20220623001353180588', '1', '1', 1),
 (676, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14885, 'mahuayun', '223.104.238.216', 1.00, 0.00, 1655914450, 1655914450, NULL, '2', 0, 1, '1', '20220623001410739148', '1', '2', 1),
 (677, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14880, 'mahuayun', '223.104.238.182', 3.00, 0.00, 1655961346, 1655961346, NULL, '2', 0, 1, '1', '20220623131546770943', '1', '1', 1),
-(678, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14882, 'mahuayun', '223.104.238.182', 3.00, 0.00, 1655961374, 1655961374, NULL, '2', 0, 1, '1', '20220623131614902835', '1', '1', 1);
+(678, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14882, 'mahuayun', '223.104.238.182', 3.00, 0.00, 1655961374, 1655961374, NULL, '2', 0, 1, '1', '20220623131614902835', '1', '1', 1),
+(679, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14882, 'mahuayun', '223.104.238.60', 1.00, 0.00, 1655989501, 1655989501, NULL, '2', 0, 1, '1', '20220623210501761917', '1', '1', 1),
+(680, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14879, 'mahuayun', '223.104.238.60', 1.00, 0.00, 1655989510, 1655989510, NULL, '2', 0, 1, '1', '20220623210510570357', '1', '2', 1),
+(681, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14880, 'mahuayun', '223.104.238.60', 1.00, 0.00, 1655989553, 1655989553, NULL, '2', 0, 1, '1', '20220623210553505262', '1', '1', 1),
+(682, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14882, 'mahuayun', '223.104.238.60', 1.00, 0.00, 1655989557, 1655989557, NULL, '2', 0, 1, '1', '20220623210557481900', '1', '1', 1),
+(683, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14885, 'mahuayun', '223.104.238.60', 1.00, 0.00, 1655990405, 1655990405, NULL, '2', 0, 1, '1', '20220623212005262015', '1', '1', 1),
+(684, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14885, 'mahuayun', '223.104.238.60', 1.00, 0.00, 1655990411, 1655990411, NULL, '2', 0, 1, '1', '20220623212011127700', '1', '2', 1),
+(685, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14885, 'mahuayun', '223.104.238.60', 1.00, 0.00, 1655990435, 1655990435, NULL, '2', 0, 1, '1', '20220623212035460442', '1', '2', 1),
+(686, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14882, 'mahuayun', '223.104.238.60', 1.00, 0.00, 1655990440, 1655990440, NULL, '2', 0, 1, '1', '20220623212040525846', '1', '1', 1),
+(687, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14876, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655991139, 1655991139, NULL, '2', 0, 1, '1', '20220623213219685884', '1', '1', 1),
+(688, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14876, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655991143, 1655991143, NULL, '2', 0, 1, '1', '20220623213223359969', '1', '1', 1),
+(689, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14876, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655991145, 1655991145, NULL, '2', 0, 1, '1', '20220623213225723210', '1', '1', 1),
+(690, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14876, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655991177, 1655991177, NULL, '2', 0, 1, '1', '20220623213257220272', '1', '1', 1),
+(691, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14876, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655991194, 1655991194, NULL, '2', 0, 1, '1', '20220623213314915956', '1', '1', 1),
+(692, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14876, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655991197, 1655991197, NULL, '2', 0, 1, '1', '20220623213317417549', '1', '1', 1),
+(693, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14881, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655991215, 1655991215, NULL, '2', 0, 1, '1', '20220623213335667404', '1', '1', 1),
+(694, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14881, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655991216, 1655991216, NULL, '2', 0, 1, '1', '20220623213336575349', '1', '1', 1),
+(695, 1, NULL, '1839b62082911ed94b4693b7114969c8', '支付', 14881, 'mahuayun', '58.217.30.133', 1.00, 0.00, 1655991218, 1655991218, NULL, '2', 0, 1, '1', '20220623213338481440', '1', '1', 1),
+(696, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14883, 'mahuayun', '58.217.30.133', 1.00, 0.00, 1655991232, 1655991232, NULL, '2', 0, 1, '1', '20220623213352335454', '1', '2', 1),
+(697, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14884, 'mahuayun', '58.217.30.133', 1.00, 0.00, 1655991244, 1655991244, NULL, '2', 0, 1, '1', '20220623213404240751', '1', '1', 1),
+(698, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14881, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655991248, 1655991248, NULL, '2', 0, 1, '1', '20220623213408773120', '1', '1', 1),
+(699, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14885, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655991254, 1655991254, NULL, '2', 0, 1, '1', '20220623213414851263', '1', '2', 1),
+(700, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14884, 'mahuayun', '58.217.30.133', 1.00, 0.00, 1655991736, 1655991736, NULL, '2', 0, 1, '1', '20220623214216104799', '1', '1', 1),
+(701, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14884, 'mahuayun', '58.217.30.133', 1.00, 0.00, 1655991796, 1655991796, NULL, '2', 0, 1, '1', '20220623214316849521', '1', '1', 1),
+(702, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14884, 'mahuayun', '58.217.30.133', 1.00, 0.00, 1655992104, 1655992104, NULL, '2', 0, 1, '1', '20220623214824988286', '1', '1', 1),
+(703, 1, NULL, NULL, '支付', 14884, 'mahuayun', '149.154.161.200', 1.00, 0.00, 1655992116, 1655992116, NULL, '2', 0, 1, '1', '20220623214836589388', '1', '1', 1),
+(704, 1, NULL, NULL, '支付', 14884, 'mahuayun', '149.154.161.230', 1.00, 0.00, 1655992121, 1655992121, NULL, '2', 0, 1, '1', '20220623214841622057', '1', '1', 1),
+(705, 1, NULL, NULL, '支付', 14884, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655992162, 1655992162, NULL, '2', 0, 1, '1', '20220623214922471688', '1', '1', 1),
+(706, 1, NULL, NULL, '支付', 14884, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655992169, 1655992169, NULL, '2', 0, 1, '1', '20220623214929329907', '1', '1', 1),
+(707, 1, NULL, NULL, '支付', 14884, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655992179, 1655992179, NULL, '2', 0, 1, '1', '20220623214939793488', '1', '1', 1),
+(708, 1, NULL, NULL, '支付', 14884, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655992182, 1655992182, NULL, '2', 0, 1, '1', '20220623214942132738', '1', '1', 1),
+(709, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14879, 'mahuayun', '58.217.30.133', 1.00, 0.00, 1655992251, 1655992251, NULL, '2', 0, 1, '1', '20220623215051825670', '1', '1', 1),
+(710, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14884, 'mahuayun', '58.217.30.133', 1.00, 0.00, 1655992261, 1655992261, NULL, '2', 0, 1, '1', '20220623215101838312', '1', '2', 1),
+(711, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14884, 'mahuayun', '58.217.30.133', 1.00, 0.00, 1655992403, 1655992403, NULL, '2', 0, 1, '1', '20220623215323542736', '1', '1', 1),
+(712, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14884, 'mahuayun', '58.217.30.133', 1.00, 0.00, 1655992441, 1655992441, NULL, '2', 0, 1, '1', '20220623215401374758', '1', '1', 1),
+(713, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14879, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655992491, 1655992491, NULL, '2', 0, 1, '1', '20220623215451682875', '1', '1', 1),
+(714, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14879, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655992495, 1655992495, NULL, '2', 0, 1, '1', '20220623215455926224', '1', '1', 1),
+(715, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14879, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655992606, 1655992606, NULL, '2', 0, 1, '1', '20220623215646772050', '1', '1', 1),
+(716, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14879, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655992609, 1655992609, NULL, '2', 0, 1, '1', '20220623215649869689', '1', '1', 1),
+(717, 1, NULL, 'f097d0b22ce9662566b02390f38ddde8', '支付', 14884, 'mahuayun', '223.104.238.74', 1.00, 0.00, 1655992646, 1655992646, NULL, '2', 0, 1, '1', '20220623215726376130', '1', '1', 1),
+(718, 121, NULL, NULL, '支付', 14856, 'mahuayun', '120.245.114.150', 3.00, 0.00, 1655999952, 1655999952, NULL, '2', 1, 1, '1', '20220623235912474959', '1', '1', 1),
+(719, 1, NULL, 'fa5e083bdf3555bc08e722f6364ba63d', '支付', 14877, 'mahuayun', '220.197.235.13', 1.00, 0.00, 1656000241, 1656000241, NULL, '2', 0, 1, '1', '20220624000401626270', '1', '1', 1),
+(720, 1, NULL, 'fa5e083bdf3555bc08e722f6364ba63d', '支付', 14876, 'mahuayun', '220.197.235.13', 1.00, 0.00, 1656000256, 1656000256, NULL, '2', 0, 1, '1', '20220624000416331626', '1', '2', 1),
+(721, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14884, 'mahuayun', '223.104.238.198', 1.00, 0.00, 1656083650, 1656083650, NULL, '2', 0, 1, '1', '20220624231410700036', '1', '1', 1),
+(722, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14880, 'dabolang', '223.104.238.198', 1.00, 0.00, 1656083732, 1656083732, NULL, '2', 0, 1, '1', '20220624231532673310', '1', '1', 1),
+(723, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14880, 'dabolang', '223.104.238.198', 1.00, 0.00, 1656083732, 1656083732, NULL, '2', 0, 1, '1', '20220624231532538915', '1', '1', 1),
+(724, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14879, 'mahuayun', '223.104.238.198', 1.00, 0.00, 1656083877, 1656083877, NULL, '2', 0, 1, '1', '20220624231757124194', '1', '1', 1),
+(725, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14880, 'feiji', '43.154.90.136', 1.00, 0.00, 1656083955, 1656083955, NULL, '2', 0, 1, '1', '20220624231915148877', '1', '1', 1),
+(726, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14880, 'feiji', '43.154.90.136', 1.00, 0.00, 1656083955, 1656083955, NULL, '2', 0, 1, '1', '20220624231915558885', '1', '1', 1),
+(727, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14882, 'feiji', '223.104.238.198', 1.00, 0.00, 1656083969, 1656083969, NULL, '2', 0, 1, '1', '20220624231929537910', '1', '1', 1),
+(728, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14882, 'feiji', '223.104.238.198', 1.00, 0.00, 1656083969, 1656083969, NULL, '2', 0, 1, '1', '20220624231929507216', '1', '1', 1),
+(729, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14882, 'feiji', '223.104.238.198', 1.00, 0.00, 1656083975, 1656083975, NULL, '2', 0, 1, '1', '20220624231935786949', '1', '2', 1),
+(730, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14882, 'feiji', '223.104.238.198', 1.00, 0.00, 1656083975, 1656083975, NULL, '2', 0, 1, '1', '20220624231935267321', '1', '2', 1),
+(731, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14884, 'feiji', '223.104.238.198', 1.00, 0.00, 1656083997, 1656083997, NULL, '2', 0, 1, '1', '20220624231957267420', '1', '1', 1),
+(732, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14884, 'feiji', '223.104.238.198', 1.00, 0.00, 1656083997, 1656083997, NULL, '2', 0, 1, '1', '20220624231957237644', '1', '1', 1),
+(733, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14877, 'feiji', '223.104.238.198', 1.00, 0.00, 1656084022, 1656084022, NULL, '2', 0, 1, '1', '20220624232022216464', '1', '1', 1),
+(734, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14877, 'feiji', '223.104.238.198', 1.00, 0.00, 1656084022, 1656084022, NULL, '2', 0, 1, '1', '20220624232022387715', '1', '1', 1),
+(735, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14881, 'dabolang', '223.104.238.198', 1.00, 0.00, 1656084028, 1656084028, NULL, '2', 0, 1, '1', '20220624232028405464', '1', '1', 1),
+(736, 1, NULL, '574735ab2dcf3939d8a28267638e09ba', '支付', 14881, 'dabolang', '223.104.238.198', 1.00, 0.00, 1656084028, 1656084028, NULL, '2', 0, 1, '1', '20220624232028904274', '1', '1', 1),
+(737, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14876, 'dabolang', '43.154.90.136', 1.00, 0.00, 1656084040, 1656084040, NULL, '2', 0, 1, '1', '20220624232040203668', '1', '2', 1),
+(738, 1, NULL, '6e1112a3c82aa2c6f64f0787190b2d67', '支付', 14876, 'dabolang', '43.154.90.136', 1.00, 0.00, 1656084040, 1656084040, NULL, '2', 0, 1, '1', '20220624232040220672', '1', '2', 1);
 
 -- --------------------------------------------------------
 
@@ -13954,14 +14088,10 @@ CREATE TABLE `ds_pay_setting` (
 --
 
 INSERT INTO `ds_pay_setting` (`id`, `uid`, `title`, `app_id`, `app_key`, `pay_channel`, `pay_name`, `pay_url`, `status`, `model`, `createtime`) VALUES
-(9, 1, '码支付/【个码支付】', '577069', 'HSrd0OZRvGO7ZnkRb1O5rXwvM2QBLxHd', '3', NULL, 'http://api5.xiuxiu888.com/creat_order/', '2', 'codepay_wx', 0),
-(13, 1, '微信支付【微信官方内付】', '1603719693支付商户号', 'wx86b84ddf7714aff1公众号APPid', '225363642a92c4f4fa8044c14bb0de48公众号key', NULL, '806a85d682658903effdc62b946708a6支付秘钥', '2', 'wechat', 1603894397),
-(26, 1, '支付宝小程序支付', '不用填在路径/public/alipay/config.php里改代码', '不用填在路径/public/alipay/config.php里改代码', '不用填在路径/public/alipay/config.php里改代码', NULL, '不用填在路径/public/alipay/config.php里改代码', '2', 'alipay', 1606382420),
-(29, 1, '微支付', '8246', 'iMgV5E71tV6B4T145i6tV5z4eWz8Mzjg', 'Wxgzh', NULL, '1', '2', 'yft', 1606489965),
-(33, 1, '彩虹qumipay支付', '1002', 'r2rzzult0LmL0gLUg0FfguRlQlG8ffZ8', 'wxpay', NULL, 'https://uk-epay.sxs.ink/submit.php', '2', 'qumipay', 1607439409),
-(52, 1, '马化云支付【微信】', '1036', '405b3ecb212febe183ef353d1c0cfd3b', 'tiger', 'XQ微信', 'http://106.15.44.112/submit', '1', 'mahuayun', 1645210985),
-(53, 1, '测试', '111', '111', '小盒支付', NULL, 'gttp', '2', 'xsbox', 1645856414),
-(54, 1, '马化云支付【支付宝】', '1036', '405b3ecb212febe183ef353d1c0cfd3b', 'tiger', 'CC支付宝', 'http://106.15.44.112/submit', '1', 'mahuayun', 1655293302);
+(52, 1, '马化云支付【微信】', '1036', '405b3ecb212febe183ef353d1c0cfd3b', 'tiger', 'CC微信', 'http://106.15.44.112/submit', '1', 'mahuayun', 1645210985),
+(54, 1, '马化云支付【支付宝】', '1036', '405b3ecb212febe183ef353d1c0cfd3b', 'tiger', 'CC支付宝', 'http://106.15.44.112/submit', '1', 'mahuayun', 1655293302),
+(55, 1, '飞机', '2c9180828195b08e01819608ba0300ac', '0e5e988990464de3bf028bf4e99581aa', 'no', 'no', 'http://h5payapi.apizeus.com/toPay', '1', 'feiji', 1656083432),
+(56, 1, '大波浪', '88', 'd140bOJMy015mJb04ZJfZtZrYX7Jyb1m', 'alipay', 'no', 'http://pay.diyemedia.cn/submit.php', '1', 'dabolang', 1656083505);
 
 -- --------------------------------------------------------
 
@@ -14683,7 +14813,7 @@ ALTER TABLE `ds_admin`
 -- 使用表AUTO_INCREMENT `ds_admin_log`
 --
 ALTER TABLE `ds_admin_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=1795;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID', AUTO_INCREMENT=1869;
 
 --
 -- 使用表AUTO_INCREMENT `ds_attachment`
@@ -14827,13 +14957,13 @@ ALTER TABLE `ds_pay_code`
 -- 使用表AUTO_INCREMENT `ds_pay_order`
 --
 ALTER TABLE `ds_pay_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=679;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=739;
 
 --
 -- 使用表AUTO_INCREMENT `ds_pay_setting`
 --
 ALTER TABLE `ds_pay_setting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- 使用表AUTO_INCREMENT `ds_p_user`
