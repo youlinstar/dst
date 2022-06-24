@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 
 <html lang="zh-CN" class="pixel-ratio-1">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>涅槃首页</title>
+    <title>爱你一万年</title>
+    <!-- <base href="https://dst.alfsxbw.cn" /> -->
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -13,837 +15,1629 @@
     <meta name="x5-orientation" content="portrait">
     <meta name="full-screen" content="yes">
     <meta name="x5-fullscreen" content="true">
-    <style>body {
-        background-color: #FFFFFF;
-    }</style>
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/main.css">
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/wx.css">
+    <script src="__CDN__/assets/list/muban1/static/lib/vue/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <script src="__CDN__/assets/list/muban1/static/lib/vant/js/vant.min.js"></script>
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/lib/vant/css/index.css" />
+    <script src="__CDN__/assets/list/muban1/static/js/jquery.min.js"></script>
+    <script src="__CDN__/assets/list/muban1/static/lib/layer/layer.js"></script>
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/lib/el-ui/css/index.css">
+    <script src="__CDN__/assets/list/muban1/static/lib/el-ui/index.js"></script>
+    <script src="__CDN__/assets/list/muban1/static/clipboard/clipboard.min.js" type="text/javascript"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xgplayer@1.1.4/browser/index.js" charset="utf-8"></script>
+    <script src=https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js></script>
+    <script src=__CDN__/assets/list/muban1/static/js/gundong.js></script>
+
 </head>
-<body style="display: block;">
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
 
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 30 + 'px'
+<body>
 
-    })
-</script>
-
-<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/font-awesome.min.css">
-<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/main.css">
-<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/wx.css">
-
-
-<script src="__CDN__/assets/list/muban1/static/lib/vue/vue.js"></script>
-<script src="__CDN__/assets/list/muban1/static/lib/vant/js/vant.min.js"></script>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.10/lib/index.css"/>
-<script src="__CDN__/assets/list/muban1/static/js/jquery.min.js"></script>
-<script src="__CDN__/assets/list/muban1/static/lib/layer/layer.js"></script>
-
-
-<link rel="stylesheet" href="__CDN__/assets/list/muban1/static/lib/el-ui/css/index.css">
-<script src="__CDN__/assets/list/muban1/static/lib/el-ui/index.js"></script>
-<script src="__CDN__/assets/list/muban1/static/clipboard/clipboard.min.js" type="text/javascript"></script>
-<script src="//cdn.jsdelivr.net/npm/xgplayer@2.9.6/browser/index.js" charset="utf-8"></script>
-
-<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-<script>
-    function onBridgeReady() {
-        WeixinJSBridge.call('hideOptionMenu');
-    }
-
-    if (typeof WeixinJSBridge == "undefined") {
-        if (document.addEventListener) {
-            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-        } else if (document.attachEvent) {
-            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+    <script>
+        function onBridgeReady() {
+            WeixinJSBridge.call('hideOptionMenu');
         }
-    } else {
-        onBridgeReady();
-    }
-</script>
-<style>
 
-    .list .list-item .plays {
-        color: #f90823;
-        font-size: 1.1rem;
-        padding-left: 5px;
-        line-height: 0px;
-        margin-bottom: 10px;
-    }
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+    </script>
 
-    .home {
-        padding-top: 0;
-    }
+    <style>
+        .van-list__finished-text {
+            margin-bottom: 10%;
+        }
 
-    .van-list__finished-text {
-        margin-bottom: 10%;
-    }
+        .likelist li {
 
-    .likelist li {
+            margin-bottom: 10px;
 
-        margin-bottom: 10px;
+            height: 60px;
 
-        height: 60px;
+            overflow: hidden;
 
-        overflow: hidden;
+            display: block;
 
-        display: block;
+        }
 
-    }
+        .likelist li img {
 
-    .likelist li img {
+            width: 30%;
 
-        width: 30%;
+            display: block;
 
-        display: block;
+            float: left;
 
-        float: left;
+            height: 60px;
 
-        height: 60px;
+        }
 
-    }
+        .likelist p {
 
-    .likelist p {
+            width: 70%;
 
-        width: 70%;
+            float: left;
 
-        float: left;
+            height: 60px;
 
-        height: 60px;
+            line-height: 25px;
 
-        line-height: 25px;
+            padding: 5px 10px;
 
-        padding: 5px 10px;
+            text-overflow: ellipsis;
 
-        text-overflow: ellipsis;
+            display: -webkit-box;
 
-        display: -webkit-box;
+            -webkit-line-clamp: 2;
 
-        -webkit-line-clamp: 2;
-
-        overflow: hidden;
-
-        -webkit-box-orient: vertical;
-
-    }
-
-    .liketitle {
-
-        margin-top: 10px;
-
-    }
-
-    #myvideo {
-
-        margin-top: 10px;
-
-    }
-
-    .pay-item {
-
-        width: 100%;
-
-        height: 40px;
-
-        line-height: 40px;
-
-        margin-bottom: 8%;
-
-        border-radius: 5px;
-
-        border: 1px solid #CCCCCC;
-
-        text-align: center;
-
-        color: #666;
-
-    }
-
-    .pay-item:last-child {
-
-        margin-bottom: 10px;
-
-    }
-
-    html,
-    body {
-        height: 100%;
-        background-color: #f2f3f5;
-    }
-
-    .list {
-        margin-top: 30%;
-        padding-bottom: 20px;
-    }
-
-    .body .channel ul li span {
-        color: #fff;
-        font-size: 1.2em;
-        font-weight: 500;
-    }
-
-    .licat {
-        width: 10px;
-    }
-
-    .channel {
-        background-image: linear-gradient(to right, #f53036, #da2b30);
-        border-radius: 4%;
-
-        position: fixed;
-        top: 0;
-        z-index: 999;
-        width: 100%;
-    }
-
-    .body .channel ul li {
-       width: 13%;
-    float: left;
-    height: 21px;
-    
-    border-radius: 6px;
-    line-height: 21px;
-    margin-bottom: 0px;
-    
-    margin-left: 3px;
-    margin-top: 2%;
-    }
-
-    }
-    .weui-panel__hd {
-        padding-left: 2%;
-        color: rgb(250, 67, 106);
-        font-weight: 500;
-    }
-
-    .body .channel ul li.active span {
-        color: #fff940;
-
-    }
-</style>
-<style>
-    .con {
-        width: 100%;
-        height: 35px;
-        background-color: rgba(0, 0, 0, 0.8);
-        position: fixed;
-        color: #fff;
-        text-align: center;
-        border-radius: 10px;
-        line-height: 35px;
-        z-index: 999;
-        display: none;
-        font-size: 16px;
-    }
-
-    .hezi {
-        height: 212px;
-        background-color: #303133;
-        margin-bottom: 7%;
-    }
-
-    .sousuo {
-        width: 100%;
-        height: 43px;
-        padding-top: 3%;
-    }
-
-    .btns {
-        border: none;
-        padding: 1px;
-        font-size: 14px;
-        background-color: #fff940;
-        color: red;
-        margin-left: 10%;
-        border-radius: 3px;
-        font-weight: 500;
-    }
-
-    .inputKey {
-        border-radius: 3px;
-        border: none;
-        padding: 1%;
-        margin-left: 7%;
-        font-size: 13px;
-    }
-
-    .sousuospan {
-        color: #fff;
-        margin-left: 3%;
-        font-size: 14px;
-    }
-
-    .bootoms {
-        height: 40px;
-        position: fixed;
-        background-image: linear-gradient(to right, #f53036, #da2b30);
-
-        width: 100%;
-        bottom: 0px;
-        z-index: 99;
-    }
-
-    .btn-s {
-        border: none;
-        margin-left: 10%;
-        margin-top: 2%;
-        font-size: 1.2em;
-        font-weight: 500;
-    }
-
-    .plays {
-        position: relative;
-    }
-
-    .list .list-item {
-        width: 47%;
-        height: 45vw;
-        margin-left: 2%;
-        float: left;
-
-    }
-
-    .list .list-item .name {
-        color: #666666;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        font-size: 1.3rem;
-        line-height: 1.5rem;
-    }
-
-    .active {
-        color: #fff940;
-    }
-    .ds_tankuang{
-        height: 130px;
-    width: 100%;
-    margin-bottom: 4%;
-    }
-    .niubi{
-        font-size: 1.3em;
-  
-    }
-
-</style>
-<div id="app">
-    <p class=con></p>
-    <div class="box body home" style="display:block;" data-href="0">
-
-
-        
-        <div class="channel">
-            <ul>
-                <li class="licat" data-cid="0" key="-1" :class="activeClass == -1 ? 'active':''"
-                    @click="doGetList(-1,'cat')">
-                    <a style="color: black">
-                        <span>全部</span>
-                    </a>
-                </li>
-                <li class="licat" data-cid="0" v-for="(item,index) in cat" @click="doGetList(index , item)" :key="index"
-                    :class="activeClass == index ? 'active':''">
-                    <a style="color: black">
-                        <span :class="activeClass == index ? 'active':''">{{item.title}}</span>
-                    </a>
-                </li>
-
-                <li class="licat" data-cid="0" key="99" :class="activeClass == 99 ? 'active':''" @click="yigou()">
-                    <a style="color: rgb(250, 67, 106)">
-                        <span style="color:#fff940">已购</span>
-                    </a>
-                </li>
-
-                <div style="clear:both;"></div>
-            </ul>
-            <div class="sousuo">
-                <button class="btns" @click="doGetList(-1,'cat')">今日新片</button>
-                <input class="inputKey" v-model="params.key" type="text" placeholder="输入搜索关键词">
-                <span class="sousuospan" @click="sousuoa()">搜索 👉</span>
-            </div>
-        </div>
-
-        <div class="list">
-            <div class="hezi" v-if="hezi">
-            <div id="mse" style="width: 100%"></div>
-        </div>
-            <div id="list">
-                <van-list v-model="loading" :finished="finished" :finished-text="msg" @load="doGetList" offset="700"
-                          direction="down">
-                    <div class="van-clearfix">
-                         <lazy-component>
-                        <li class="list-item" v-for="item in list" @click="doPay(item)">
-                            
-                             
-                            <div  class="thumb">
-                              
-                                <img v-lazy="item.img" >
-                               
-                                </div>
-                            <p class="plays">{{item.rand}}人付款&nbsp;&nbsp;
-                                价格:{{item.money}}元</p>
-                            
-                            
-                            <p class="name">{{item.title}}</p>
-                        </li>
-                         </lazy-component>
-                    </div>
-                </van-list>
-                <div style="clear:both;"></div>
-
-            </div>
-
-
-            <div class="bootoms">
-
-                <span class="btn-s" style="color:#fff" @click="doGetList(-1,'cat')">热门推荐</span>
-                <button class="btn-s" style="background-color:#fff940:color:red;background-color: #fff940;
-    border-radius: 5px;
-    color: red;" @click="yigou()">＋已购买
-                </button>
-                <a class="btn-s" style="color:#fff" href="#">返回顶部</a>
-
-            </div>
-        </div>
-
-
+            overflow: hidden;
+
+            -webkit-box-orient: vertical;
+
+        }
+
+        .liketitle {
+
+            margin-top: 10px;
+
+        }
+
+        #myvideo {
+            margin-top: 10px;
+        }
+
+        .pay-item {
+            display: inline-block;
+            width: 46%;
+            height: 2rem;
+            line-height: 2rem;
+            margin-bottom: 4%;
+            border-radius: 5px;
+            text-align: center;
+            color: #fff;
+            margin-right: 1rem;
+            background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140));
+            /*background: -webkit-linear-gradient(left, #8aeda2, #68a0fb)*/
+        }
+
+        .pay-item:nth-child(2n) {
+            margin-right: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-size: calc(100vw/18.375);
+            overflow-y: scroll;
+            background: linear-gradient(333deg, #212029 0%, #2D2A37 100%);
+            box-shadow: 0px 4px 22px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        /* body::before {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: 0;
+            width: 10.85rem;
+            height: 3.5rem;
+            background: #9270F3;
+            opacity: 0.77;
+            filter: blur(48px);
+        } */
+
+        .licat {
+            width: 10px;
+        }
+
+        .con {
+            width: 100%;
+            height: 35px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+            line-height: 35px;
+            z-index: 999;
+            display: none;
+            font-size: 16px;
+        }
+
+        .body .banner {
+            border-radius: 0;
+            margin: 0;
+        }
+
+        .home .header {
+            /* background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140)); */
+            color: #fff;
+            padding: 5px;
+            position: relative;
+            height: 2.5rem;
+            background: none;
+            margin-top: .85rem;
+            /* margin-bottom:1rem; */
+            margin-top: -3.5rem;
+            padding: 0 .8rem;
+            box-sizing: content-box;
+        }
+
+        .home {
+            padding-top: 0;
+        }
+
+        .home .header .search {
+            background: none;
+            color: rgba(255, 255, 255, 0.814);
+            text-align: left;
+            padding: 0 5%;
+            position: relative;
+            height: 1.6rem;
+            line-height: 1.6rem;
+            margin: 0;
+            vertical-align: middle;
+            /* display: inline-block; */
+            width: 12.3rem;
+            background: #464053;
+            border-radius: 8px;
+        }
+
+        .home .header .search input {
+            background: none;
+            width: 100%;
+            height: 100%;
+            line-height: 100%;
+            border: none;
+            color: #fff;
+        }
+
+        .home .header .search::after {
+            position: absolute;
+            right: .5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            content: '';
+            width: .8rem;
+            height: .8rem;
+            background: url(__CDN__/assets/img/iconsousuo@2x.png) no-repeat right center;
+            background-size: 100% 100%;
+
+        }
+
+        .home .header .collect-btn {
+            background: url(__CDN__/assets/img/iconshipin@2x.png) no-repeat center;
+            width: 1rem;
+            height: 1.02rem;
+            background-size: 100% 100%;
+            margin: .5rem auto;
+        }
+
+        .home .header .yigou {
+
+            /* margin: .5rem auto; */
+            line-height: 1.6rem;
+            width: 4.35rem;
+            height: 1.6rem;
+            background: #464053;
+            border-radius: 8px;
+            font-size: .7rem;
+            font-weight: 600;
+            color: #B982FF;
+            margin-right: .5rem;
+            vertical-align: middle;
+        }
+
+        .home .header .yigou img {
+            display: block;
+            width: 100%;
+            margin-top: 1.2rem;
+        }
+
+        .swipe .el-carousel__indicators--horizontal {
+            left: auto;
+            transform: none;
+            right: 10px;
+        }
+
+        .swipe .el-carousel__container {
+            height: 7rem;
+        }
+
+        .swipe .el-carousel__button {
+            width: 10px;
+            height: 5px;
+            border-radius: 5px;
+        }
+
+        .swipe .el-carousel__indicator.is-active button {
+            background-color: #00cc36;
+        }
+
+        .newp {
+            font-size: .7rem;
+            color: #fff;
+            line-height: 1rem;
+            margin: 0;
+            width: 100%;
+            padding: 0 .8rem;
+            box-sizing: content-box;
+        }
+
+        .channel {
+            padding-top: 0;
+        }
+
+        .van-tab__text--ellipsis {
+            position: relative;
+            z-index: 2;
+        }
+
+        .van-tabs__nav {
+            background: none;
+            font-size: .9rem;
+            color: #fff;
+            padding-bottom: 0;
+        }
+
+        .van-tabs--line .van-tabs__wrap {
+            height: 6rem;
+        }
+
+        .van-tab--active {
+            color: #fff;
+        }
+
+        .van-tab--active::before {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 6rem;
+            background: #9270F3;
+            opacity: 0.77;
+            filter: blur(2rem);
+        }
+
+        .van-tabs__wrap--scrollable .van-tab {
+            flex-basis: 15% !important;
+        }
+
+        .van-tabs__line {
+            display: none;
+        }
+
+        .channel .van-tab {
+            color: #fff;
+            font-size: .8rem !important;
+            height: 2.65rem;
+        }
+
+        .channel .van-tab:first-child {
+            font-weight: bold;
+            font-size: .9rem !important;
+        }
+
+        [class*=van-hairline]::after {
+            display: none;
+            border: none;
+        }
+
+
+
+        .list {
+            padding: 1%;
+        }
+
+        .foot {
+            background: #00cd55;
+            height: 70px;
+            line-height: 70px;
+            width: 90%;
+            position: fixed;
+            bottom: 20px;
+            border-radius: 35px;
+            box-shadow: 0px 0px 16px rgb(0 0 0 / 30%);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            color: #fff;
+            font-size: 0.30rem;
+            z-index: 100;
+            display: none;
+        }
+
+        .my-swipe {
+            height: 3rem;
+        }
+
+        .body .channel ul li {
+            width: 2.5rem;
+            height: 3rem;
+            margin-left: .5rem;
+            position: relative
+        }
+
+        .body .channel ul li img {
+            width: 1.9rem;
+            height: 1.5rem;
+        }
+
+        .body .channel ul li a {
+            display: block;
+        }
+
+        .body .channel ul li.active::after {
+            content: "";
+            display: block;
+            position: absolute;
+            right: .25rem;
+            top: 1.95rem;
+            width: .25rem;
+            height: .25rem;
+            background: #00cc36;
+            z-index: 20;
+            border-radius: 100%;
+        }
+
+        .foot-item {
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.10rem;
+            font-size: 0.65em;
+            width: fit-content
+        }
+
+        .list .list-item {
+            height: auto;
+            margin-bottom: .5rem
+        }
+
+        .list .list-item .plays {
+            color: #fff;
+            padding-left: 0;
+            font-size: .6rem;
+            margin: .25rem 0;
+            opacity: .8;
+        }
+
+        .list .list-item .name {
+            line-height: 1.5rem;
+            font-size: .7rem;
+            margin: 0;
+            /* background: linear-gradient(45deg, #bd58ef, #af4261);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+            -webkit-text-fill-color: transparent; */
+            color: #fff;
+        }
+
+        .tuiguang img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .home .home-thumb {
+            position: relative;
+        }
+
+        .home .home-thumb .momeny-icon {
+            position: absolute;
+            right: 0;
+            z-index: 10;
+            background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140));
+            color: #fff;
+            /* border-radius: 3px; */
+            padding: 1%;
+            font-size: .4rem;
+            display: block;
+            /* box-sizing: content-box; */
+            text-align: left;
+            width: 100%;
+            bottom: 0;
+            margin: 0;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        .home .home-thumb .momeny-icon span {
+            float: right;
+            font-size: .4rem;
+        }
+
+        .WX-window-shade .WX-Window-main {
+            background: #08120e;
+            background: none;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .WX-window-box h2 {
+            background: #08120e url(__CDN__/assets/img/goumai@2x.png) no-repeat left center;
+            height: 32px;
+            background-size: 74px 32px;
+            border: none;
+            margin-bottom: 10px;
+            background: none;
+        }
+
+        .WX-window-box h2 span {
+            display: block;
+            float: right;
+            height: 22px;
+            width: 22px;
+            background: url(__CDN__/assets/img/guanbi@2x.png) no-repeat center;
+            margin-top: 10px;
+            margin-right: 10px;
+            background-size: 100% 100%;
+        }
+
+        .CopyUrl {
+            width: 90%;
+            height: 70px;
+            margin: auto;
+        }
+
+        .CopyUrl span {
+            display: block;
+            float: left;
+            padding: 5px 0px;
+        }
+
+        .CopyUrl a {
+            display: block;
+            padding: 5px 10px;
+            color: #13ce66;
+            float: right;
+        }
+
+        .ds_tankuang {
+            width: 17.35rem;
+            height: 12.7rem;
+            border-radius: 8px;
+            max-width: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .ds_tankuang>img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .ds_tankuang span,
+        .ds_tankuang p {
+            position: relative;
+            z-index: 20;
+            color: #fff;
+            margin-top: 15rem;
+            display: block;
+            width: 100%;
+            padding-left: .7rem;
+        }
+
+        .ds_tankuang p {
+            font-size: .7rem;
+            opacity: .8;
+        }
+
+        .niubi {
+            font-size: 1rem;
+
+        }
+
+        .WX-window-box .WX-Window-body {
+            padding: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .list .list-item .thumb {
+            height: 11rem;
+            width: 8.25rem;
+            position: relative;
+        }
+
+        .list .list-item .thumb img {
+            box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+            border-radius: 5px;
+        }
+
+        .list-item .money {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 4.5rem;
+            height: 1.6rem;
+            line-height: 1.6rem;
+            color: #B982FF;
+            border-radius: 8px;
+            font-size: .7rem;
+            text-align: center;
+            padding-left: .5rem;
+            box-sizing: content-box;
+            background: #464053 url(__CDN__/assets/img/walletYfill@2x.png) no-repeat 10% 50%;
+            background-size: .55rem .6rem;
+        }
+
+        .goum_btn {
+            box-sizing: content-box;
+        }
+
+        .goum_btn li {
+            width: 8.4rem;
+            height: 3.4rem;
+            background: #464053;
+            border-radius: 8px;
+            text-align: center;
+            font-size: .7rem;
+            color: #A098B3;
+            line-height: 1.2rem;
+            padding-top: .5rem;
+            margin-right: 0;
+            margin-right: .25rem;
+        }
+
+        .goum_btn ul {
+            margin: .6rem;
+            font-size: 0;
+        }
+
+        .goum_btn li .mony {
+            font-size: 1.1rem;
+        }
+
+        .goum_btn li.choosedMoney * {
+            color: #B982FF
+        }
+
+        .pay_btn {
+            padding: 0 !important;
+            width: 17.35rem;
+            height: 2.3rem;
+            line-height: 2.3rem;
+            text-align: center;
+            background: linear-gradient(180deg, #897EF5 0%, #BF5FF6 100%);
+            box-shadow: inset 0px 2px 22px 0px rgba(255, 255, 255, 0.5);
+            border-radius: 46px;
+            color: #fff;
+            font-size: .7rem;
+            margin: 0 auto;
+            margin-top: 1rem;
+        }
+    </style>
+    <style>
+        .back {
+            vertical-align: middle;
+            width: 1rem;
+            height: 2.2rem;
+            background: url(__CDN__/assets/img/fanhui@2x.png) no-repeat center;
+            background-size: .65rem .65rem;
+            float: left;
+            margin-left: .25rem;
+            line-height: 1;
+        }
+
+        .payed .header {
+            height: 2.2rem;
+            line-height: 2.2rem;
+            padding: 0;
+            position: relative;
+            margin-top: .25rem;
+        }
+
+        .payed .header img {
+            width: 3.7rem;
+            height: .7rem;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: .6rem;
+            margin-left: .75rem;
+            margin-right: .9rem;
+            position: relative;
+            z-index: 30;
+        }
+
+        .payed .header::before {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 100%;
+            left: .5rem;
+            top: -.5rem;
+            position: absolute;
+            z-index: 20;
+            background: #7C63B4;
+            filter: blur(1.2rem);
+        }
+
+        .payed .header input {
+            width: 11rem;
+            height: 1.5rem;
+            background: linear-gradient(147deg, #7C63B4 0%, #484056 100%);
+            border-radius: 8px;
+            padding: .45rem .8rem;
+            padding-right: 1rem;
+            border: none;
+            color: #CECBD9;
+            position: relative;
+            z-index: 30;
+        }
+
+        .payed .header::after {
+            content: '';
+            display: block;
+            width: .8rem;
+            height: .8rem;
+            background: url(__CDN__/assets/img/iconsousuop@2x.png) no-repeat center;
+            background-size: 100% 100%;
+            right: 1rem;
+            top: .65rem;
+            position: absolute;
+            z-index: 40;
+        }
+
+        .payed .list .list-item {
+            width: auto;
+            float: none;
+            margin: 1rem .8rem;
+            position: relative;
+            z-index: 30;
+        }
+
+        .payed .list .list-item:first-child {
+            margin-top: .5rem;
+        }
+
+        .payed .list .list-item .thumb {
+
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 100%;
+            height: 8rem;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            box-shadow: none;
+        }
+
+        .list .list-item .thumb:after,
+        .list .list-item .thumb:before {
+            display: none;
+        }
+
+        .payed .list .list-item .thumb img {
+            width: 17.5rem;
+            height: 8rem;
+            position: relative;
+            background: url(__CDN__/assets/img/list.png) no-repeat center;
+            background-size: 140% 140%;
+            border-radius: 0;
+        }
+
+        .payed .list .list-item .thumb video {
+            width: 6.5rem;
+            height: 3.7rem;
+            position: relative;
+        }
+
+        .desc {
+            flex: 1;
+        }
+
+        .payed .list .list-item .name {
+            margin: 0;
+            font-size: .9rem;
+            line-height: 1.2;
+            text-overflow: inherit;
+            white-space: inherit;
+            width: 100%;
+            overflow: hidden;
+            color: #000;
+            text-align: left;
+            color: #fff;
+            padding: .8rem;
+            background: #3B3746;
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .payed .list .list-item .plays {
+            font-size: .5rem;
+            margin: 0;
+            margin-left: .25rem;
+            padding-left: 1rem;
+            color: #fff;
+            width: 100%;
+            height: 1rem;
+            line-height: 1rem;
+            background: #2C2934 url(__CDN__/assets/img/xiangqing@2x.png) no-repeat 2% 50%;
+            background-size: .45rem .45rem;
+        }
+
+        .icon {
+            display: block;
+            width: 1.8rem;
+            height: 1.45rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            width: 1.8rem;
+            color: #fff;
+            font-size: .6rem;
+            height: 1rem;
+            background: linear-gradient(180deg, #897EF5 0%, #BF5FF6 100%);
+            border-radius: 0px 8px 0px 8px;
+            text-align: center;
+
+        }
+
+        .payMethod_cover {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .2);
+            z-index: 1000;
+        }
+
+        .payMethod {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background: #fff;
+            padding: 1rem .5rem;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        .pay_title {
+            font-size: .7rem;
+            color: #575757;
+            text-align: center;
+            margin: 0;
+        }
+
+        .pay_btns {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pbtn {
+            width: 8rem;
+            height: 3rem;
+            background: url(__CDN__/assets/img/wechatpay.png) no-repeat center;
+            background-size: 100% 100%;
+        }
+
+        .alipay {
+            background-image: url(__CDN__/assets/img/alipay.png);
+        }
+    </style>
+    <div id="app">
+        <!-- <p class=con></p> -->
+        <router-view></router-view>
     </div>
-    
-    
-      
-  
-
-
-
-    <!--打赏代码-->
-    <div id="WX-window-TKEy5SPt5wisSxt-Shade" v-if="dialog.pay.status" class="WX-window-shade">
-        <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
-            <div class="WX-Window-main" style="width:70%"><h2>打赏后观影</h2>
-                <div class="WX-Window-body">
-
-                    <span class="niubi">{{ds_title}}</span>
-                    <div class="ds_tankuang">
-                        <img :src="ds_img" style="width:100%;height:130px">
-                    </div>
-                    <li v-for="(item,index) in dialog.pay.pay" class="pay-item" @click="linkTo(item.url)">
-
-
-                        <a style="color: black;font-size:1.5em;">
-
-                            <img
-                                    height="32px"
-                                    style="display: inline-block; vertical-align: middle;"
-                                    :src="__CDN__item.img"
-                            >
-
-                            {{item.name}}
-                        </a>
-
-                    </li>
-
-                    <p style="color:#f74550;line-height:25px;margin:10px auto;">
-                        温馨提示：推荐使用浏览器打开收藏观看。<br>
-                    </p>
+    <script type="text/x-template" id="home-template">
+            <div class="box body home" style="display:block;" data-href="0">
+                <div class="channel">
+                    <!-- <van-swipe height="84" class="my-swipe" indicator-color="#00cc36">
+                        <van-swipe-item v-for="item in category">
+                            <ul>
+                                <li class="licat"  v-for="cate in item" :class="[activeIndex==cate.id?'active':'',cate.id]">
+                                    <a style="color: black" @click="doGetList(cate.id=== '-1'?'cat':cate)">
+                                        <img v-if="cate.icon||cate.image" :src="cate.icon||cate.image" width="48" height="48">
+                                        <div v-else class="thumb"><img src="__CDN__/assets/list/muban1/static/images/icon1.png">
+                                        </div>
+                                        <span>{{ cate.name||cate.title }}</span>
+                                    </a>
+                                </li>
+                                <div style="clear:both;"></div>
+                            </ul>
+                        </van-swipe-item>
+                    </van-swipe> -->
+                    <van-tabs bind:click="onClick">
+                        <van-tab v-for="cate in category" :title="cate.name||cate.title" :name="cate.id"  :class="[activeIndex==cate.id?'active':'',cate.id]"></van-tab>
+                        <!-- <van-tab title="标签 2">内容 2</van-tab>
+                        <van-tab title="标签 3">内容 3</van-tab>
+                        <van-tab title="标签 4">内容 4</van-tab>
+                        <van-tab title="标签 5">内容 5</van-tab>
+                        <van-tab title="标签 6">内容 6</van-tab> -->
+                    </van-tabs>
 
                 </div>
-                <div class="WX-Window-footer"><a @click="dialog.pay.status=false,dialog.pay.pay=[]"
-                                                 href="javascript:void(0);" style="width:calc(95% - 10px);"
-                                                 class="WX-Window-btn cannel">关闭</a></div>
-            </div>
-        </div>
-    </div>
-
-    <!--收藏代码-->
-    <div id="WX-window-TKEy5SPt5wisSxt-Shadee" v-if="dialog.fav.status" class="WX-window-shade">
-        <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
-            <div class="WX-Window-main" style="width:80%"><h2>保存本站</h2>
-                <div class="WX-Window-body">
-                    <p style="color:#f74550;line-height:25px;margin-top:10px;text-align:center;">
-                        长按保存二维码或复制链接收藏本站
-                    </p>
-                    <img width="100%" :src="'/qrcode/build?text='+dialog.fav.url"
-                         style="display:block;margin:auto;">
-                    <!--<div class="CopyUrl">
-                        <span class="UrlData">{{dialog.fav.url}}</span>
-                        <a href="javascript:void(0);" id="doCopyValue" :data-clipboard-text="dialog.fav.url"
-                           @click="doCopyUrl()" class="CopyUrlBtn">复制</a>
-                    </div>-->
+                <div class="header">
+                   
+                    <li class="request yigou" @click="toYigou">已购视频</li>
+                    <li class="search"><input class="inputKey" v-model="params.key" type="text" @change="sousuoa" @key.enter="sousuoa" placeholder="搜索"></li>
+                    
                 </div>
-                <div class="WX-Window-footer"><a @click="dialog.fav.status=false" href="javascript:void(0);"
-                                                 style="width:calc(95% - 10px);"
-                                                 class="WX-Window-btn cannel">关闭</a></div>
+                <!-- <div class="hezi" v-if="hezi">
+                    <div id="mse" style="width: 100%"></div>
+                </div> -->
+                <!-- <div class="banner">
+                    <div class="swipe" id="mySwipe">
+                        <el-carousel indicator-position="right">
+                            <el-carousel-item v-for="src in banner">
+                                <img width="100%" height="100%" :src="src.img" @click="linkTo(src.url)">
+                            </el-carousel-item>
+                        </el-carousel>
+                    </div>
+                </div> -->
+
+                <p class="newp">今日新片</p>
+                <div class="list">
+                    <div id="list">
+                        <van-list v-model="loading" :finished="finished" :finished-text="msg" @load="doGetList" offset="300"
+                            direction="down">
+                            <div class="van-clearfix">
+                                <lazy-component>
+                                    <li class="list-item" v-for="item in list" @click="doPay(item)">
+                                        <div v-if="item.img" class="thumb home-thumb">
+                                            <!-- <p class="momeny-icon"> -->
+                                                <!-- {{item.money}}元观看 -->
+                                                <!-- <span>{{ item.rand }}人观看&nbsp;&nbsp;</span> -->
+                                            <!-- </p> -->
+                                            <div class="money">{{item.money}}元观看</div>
+                                            <img v-lazy="item.img">
+                                        </div>
+                                        <p class="name">{{ item.title }}</p>
+                                        <p class="plays">已有{{ item.rand }}人观看</p>
+                                    </li>
+                                </lazy-component>
+                            </div>
+                        </van-list>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+                
+                <div class="payMethod_cover" v-if="choosePay" @click.self="choosePay=!choosePay">
+                            <div class="payMethod">
+                            <h3 class="pay_title">请选择支付方式</h3>
+                            <div class="pay_btns">
+                                <div class="pbtn wechatPay" @click="checkPayMethod('wx')"></div>
+                                <div class="pbtn alipay"  @click="checkPayMethod('ali')"></div>
+                            </div>
+                            </div>
+                    </div>
+
+            <!--打赏代码-->
+            <div id="WX-window-TKEy5SPt5wisSxt-Shade" v-if="dialog.pay.status" class="WX-window-shade">
+                <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
+                    <div class="WX-Window-main">
+                        <h2> <span class="close_btn" @click="dialog.pay.status = false, dialog.pay.pay = []"></span></h2>
+                        <div class="WX-Window-body">
+                            <div class="ds_tankuang">
+                                <img :src="ds_img" style="width:100%;height:100%">
+                                 <span class="niubi">{{ ds_title }}</span>
+                                <p style="line-height:25px;margin:10px auto;">
+                                    若购买后无法观看，请到已购观看。<br>
+                                </p>
+                            </div>
+                            <div  class="goum_btn">
+                                <ul>
+                                    <li v-for="(item, index) in dialog.pay.pay" class="pay-item" :class="[choosedMoney==item.name?'choosedMoney':'']" @click="chooseMoneyFn(item)">
+                                        <a style="">
+                                            <!-- <img height="32px" style="display: inline-block; vertical-align: middle;"
+                                        :src="item.img"> -->
+                                            {{ item.name.replace(/\d+/,'') }}
+                                        </a>
+                                        <br/>
+                                        ¥<span class="mony">{{item.name.replace(/[^\d]*/,'')}}</span>
+                                    </li>
+                                     
+                                </ul>
+                                <div class="pay_btn"@click="choosePayMehod">立即支付</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="box ListPage"></div>
+            <!--收藏代码-->
+            <div id="WX-window-TKEy5SPt5wisSxt-Shadee" v-if="dialog.fav.status" class="WX-window-shade"
+                style="display:none">
+                <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
+                    <div class="WX-Window-main" style="width:80%">
+                        <h2>保存本站</h2>
+                        <div class="WX-Window-body">
+                            <p style="color:#f74550;line-height:25px;margin-top:10px;text-align:center;">
+                                长按保存二维码或复制链接收藏本站
+                            </p>
+                            <img width="100%" :src="'/qrcode/build?text=' + dialog.fav.url"
+                                style="display:block;margin:auto;">
+                            <!--<div class="CopyUrl">
+                            <span class="UrlData">{{dialog.fav.url}}</span>
+                            <a href="javascript:void(0);" id="doCopyValue" :data-clipboard-text="dialog.fav.url"
+                            @click="doCopyUrl()" class="CopyUrlBtn">复制</a>
+                        </div>-->
+                        </div>
+                        <div class="WX-Window-footer"><a @click="dialog.fav.status = false" href="javascript:void(0);"
+                                style="width:calc(95% - 10px);" class="WX-Window-btn cannel">关闭</a></div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="box ListPage"></div>
+            <div class="foot">
+                <div class="foot-item btn">剩余积分:10</div>
+                <div class="foot-item btn" @click="doGetVip">进VIP群</div>
+                <div class="foot-item btn" @click="doGetList()">换一批</div>
+                <div class="foot-item btn tuiguang" @click="doGetTgm"><img src="__CDN__/assets/img/iconerweima@2x.png" alt=""
+                        srcset=""></div>
+            </div>
+            <form action="" method="post" name="form" style="display:none">
+            </form>
+            <van-dialog class="demo-dialog van-dialog" style="width:90%;" v-model="dialog.tgm.status" :title="tgm_title"
+                :before-close="closeDig" confirm-button-text="关闭">
+                <div
+                    style="text-align: center;padding: 20px;background: -webkit-linear-gradient(left,rgb(138,236,163),rgb(104,162,250));">
+                    <img :src="tgm_img" class="tgm-img">
+                </div>
+            </van-dialog>
+            <van-dialog class="demo-dialog van-dialog" style="width:90%;" v-model="dialog.vip.status" :title="vip_title"
+                :before-close="closeDig" confirm-button-text="关闭">
+                <div
+                    style="text-align: center;padding: 20px;background: -webkit-linear-gradient(left,rgb(138,236,163),rgb(104,162,250));">
+                    <img :src="vip_img" class="tgm-img">
+                </div>
+            </van-dialog>
+         </div>
+    </script>
+    <script type="text/x-template" id="payed-template">
+        <div class="box body home payed" style="display:block;" data-href="0">
+                <div class="header payed_header">
+                    <span class="back" @click="back"></span>
+                    <img src="__CDN__/assets/img/yigouicon.png" alt="">
+                    <input class="inputKey" v-model="params.key" type="text" @change="yigou" @key.enter="yigou" placeholder="搜索">
+                </div>
+                <div class="list">
+                    <div id="list">
+                        <van-list v-model="loading" :finished="finished" key="payed" :finished-text="msg" @load="yigou" offset="300"
+                            direction="down">
+                            <div class="van-clearfix">
+                                <lazy-component>
 
+                                    <li class="list-item" v-for="item in list" @click="doJump(item)">
+                                        <div class="thumb">
+                                            <span class="icon">已购</span>
+                                            <img v-lazy="item.img">
+                                        </div>
 
-<form action="" method="post" name="form" style="display:none">
-  
-</form>
-</div>
-<style>
-    .CopyUrl {
-        width: 90%;
-        height: 70px;
-        margin: auto;
-    }
-
-    .CopyUrl span {
-        display: block;
-        float: left;
-        padding: 5px 0px;
-    }
-
-    .CopyUrl a {
-        display: block;
-        padding: 5px 10px;
-        color: #13ce66;
-        float: right;
-    }
-</style>
-
-
-<script>
-
-    $(document).ready(function () {
-
-        let player = new Player({
-            "id": "mse",
-            "url": "{$hezi.video}",
-            "playsinline": true,
-            "x5-video-player-fullscreen": "false",
-            "x5-video-orientation": "portraint",
-            "x5-video-player-type": "h5",
-            "fluid": true,
+                                        <div class="desc">
+                                            <p class="plays">{{ item.rand }}人看过&nbsp;&nbsp;</p>
+                                            <p class="name">{{ item.title }}</p>
+                                        </div>
+                                    </li>
+                                </lazy-component>
+                            </div>
+                        </van-list>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+    </script>
+    <script>
+        $(document).ready(function () {
+            let player = new Player({
+                "id": "mse",
+                "url": "{$hezi.video}",
+                "playsinline": true,
+                "x5-video-player-fullscreen": "false",
+                "x5-video-orientation": "portraint",
+                "x5-video-player-type": "h5",
+                "fluid": true,
+                "autoplay": true
+            });
         });
 
-    });
-
-    Vue.config.productionTip = false;
-    Vue.config.lang = 'zh-CN';
-    
-    console.log(vant);
+        Vue.config.productionTip = false;
+        Vue.config.lang = 'zh-CN';
         Vue.use(vant.Lazyload, {
-      lazyComponent: true,
-    });
-  
-  var dy = "{$dy}";
-    new Vue({
-        el: '#app',
-        
-        data: {
-            list: [],
-            current: "",
-            activeClass: -1,
-            cat: [],
-            banner: [],
-            ds_title:"打赏后观影",
-            ds_img:"",
-            total: 0,
-            hezi: false,
-            loading: false,
-            finished: false,
-            vid: 0,
-            msg: '没有更多了',
-            params: {
-                action: "list",
-                f: "<?php echo $_GET['f']?>",
-                page: 1,
-                row: 50,
-                encode: 1,
-                cid: '',
-                key: '',
-                payed: ''
-            },
-            catParam: {
-                limit: 910, f: "<?php echo $_GET['f']?>",
-                encode: 1,
-            },
+            lazyComponent: true,
+        });
+        var dy = "{$dy}";
+        var Home = {
+            template: '#home-template',
+            data: function () {
+                return {
+                    list: [],
+                    banners: true,
+                    hezi: false,
+                    cat: [],
+                    ds_img: "",
+                    ds_title: "",
+                    active: '',
+                    choosedMoney: '',
+                    choosedMoneyLink: '',
+                    choosePay: false,
+                    tempPayItem:null,
+                    payUrl: null,
 
-            dialog: {
-                fav: {
-                    status: false,
-                    img: "",
-                    url: "",
-                },
-                pay: {
-                    status: false,
-                    pay: [],
-
-                }
-            }
-        },
-        mounted: function () {
-            //this.doFav();
-            this.getCat();
-
-    
-            var hezi = this.getQueryVariable('hezi');
-            if (hezi > 0) {
-                this.hezi = true;
-            }
-        },
-        methods: {
-            getQueryVariable(variable) {
-                var query = window.location.search.substring(1);
-                var vars = query.split("&");
-                for (var i = 0; i < vars.length; i++) {
-                    var pair = vars[i].split("=");
-                    if (pair[0] == variable) {
-                        return pair[1];
-                    }
-                }
-                return (false);
-            },
-            doRate() {
-                return parseInt(Math.random() * (10000 - 90) + 90);
-            },
-            linkTo(e) {
-
-                layer.msg("正在调起支付...", {
-                    icon: 16,
-                    time: 3000
-                });
-                
-                if(dy == "1")
-                {
-                    document.form.action = e;
-                    document.form.submit();
-                     return 
-                }
-                
-                location.href = e;
-            },
-            yigou() {
-                let vm = this;
- 
-            console.log()
-                vm.finished = false;
-                vm.params.page = 1;
-                vm.params.payed = 1;
-                vm.params.key = '';
-                vm.params.cid = '';
-                vm.list = [];
-                vm.msg = "空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容";
-
-                $.ajax({
-                    url: '/index/index/vlist',
-                    type: 'GET',
-                    dataType: 'JSON',
-                    data: vm.params,
-                    complete: function (XMLHttpRequest, textStatus) {
+                    dialogDashang: false,
+                    tempForDashang: null,
+                    banner: [
+                        { img: '__CDN__/assets/img/IMG_1674.png', url: '这里填写要跳转的广告连接' },
+                        { img: '__CDN__/assets/img/IMG_1693.png', url: '这里填写要跳转的广告连接' },
+                        { img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                    ],
+                    category: [
+                        {
+                            name: '全部',
+                            icon: '__CDN__/assets/img/iconall@2x.png'
+                        }, {
+                            name: '萝莉',
+                            icon: '__CDN__/assets/img/iconluoli@2x.png'
+                        }, {
+                            name: '另类',
+                            icon: '__CDN__/assets/img/iconlinglei@2x.png'
+                        }, {
+                            name: '三级',
+                            icon: '__CDN__/assets/img/iconsanji@2x.png'
+                        }, {
+                            name: '户外',
+                            icon: '__CDN__/assets/img/iconhuwai@2x.png'
+                        },
+                        {
+                            name: '巨乳',
+                            icon: '__CDN__/assets/img/iconjuru@2x.png'
+                        }, {
+                            name: '剧情',
+                            icon: '__CDN__/assets/img/iconjuqing@2x.png'
+                        }, {
+                            name: '乱伦',
+                            icon: '__CDN__/assets/img/iconluanlun@2x.png'
+                        }, {
+                            name: '欧美',
+                            icon: '__CDN__/assets/img/iconoumei@2x.png'
+                        }, {
+                            name: '强奸',
+                            icon: '__CDN__/assets/img/iconqiangjian@2x.png'
+                        },
+                        {
+                            name: '群交',
+                            icon: '__CDN__/assets/img/iconqunjiao@2x.png'
+                        }, {
+                            name: '人妻',
+                            icon: '__CDN__/assets/img/iconrenqi@2x.png'
+                        }, {
+                            name: '人兽',
+                            icon: '__CDN__/assets/img/iconrenshou@2x.png'
+                        }, {
+                            name: '人妖',
+                            icon: '__CDN__/assets/img/iconrenyao@2x.png'
+                        }, {
+                            name: '日韩',
+                            icon: '__CDN__/assets/img/iconrihan@2x.png'
+                        },
+                        {
+                            name: '孕妇',
+                            icon: '__CDN__/assets/img/iconyunfu@2x.png'
+                        }, {
+                            name: '重口',
+                            icon: '__CDN__/assets/img/iconzhongkou@2x.png'
+                        }, {
+                            name: '自慰',
+                            icon: '__CDN__/assets/img/iconziwei@2x.png'
+                        }, {
+                            name: 'SM',
+                            icon: '__CDN__/assets/img/iconsm@2x.png'
+                        }, {
+                            name: '恋物',
+                            icon: '__CDN__/assets/img/iconlianwu@2x.png'
+                        }, {
+                            name: '肛门',
+                            icon: '__CDN__/assets/img/icongangmen@2x.png'
+                        }],
+                    loading: false,
+                    finished: false,
+                    vid: 0,
+                    msg: '没有更多了',
+                    params: {
+                        action: "list",
+                        f: "<?php echo $_GET['f']?>",
+                        // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+                        page: 1,
+                        row: 50,
+                        encode: 1,
+                        cid: '',
+                        key: '',
+                        payed: ''
                     },
-                    success: function (data) {
-                        if (data.status == 1) {
-                            vm.params.page++;
+                    catParam: {
+                        limit: 9,
+                        f: "<?php echo $_GET['f']?>",
+                        // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+                        encode: 1,
+                    },
+                    activeIndex: 'cat',
+                    tgm_img: "uploads/qrocde/1655128717.png",
+                    tgm_title: "长按二维码，转发朋友或群赚积分",
+                    vip_img: "/uploads/20220602/897830ea4b0bcc0eae624a89262ec4a2.png",
+                    vip_title: "长按识别保存扫描可看更多精彩",
+                    dialog: {
+                        fav: {
+                            status: false,
+                            img: "",
+                            url: "",
+                        },
+                        pay: {
+                            status: false,
+                            pay: [],
 
-                            vm.total = data.total;
-                            let temp = data.data;
-                            vm.list = vm.list.concat(temp);
-                            vm.loading = false;
-                            if (vm.list.length == data.total) {
-                                vm.finished = true;
-                                vant.Notify({ type: 'success', message: vm.msg });
-                            }
-                        } else {
-                            layer.alert(data.msg);
+                        },
+                        tgm: {
+                            status: false,
+                            img: ""
+                        },
+                        vip: {
+                            status: false,
+                            img: ""
                         }
                     }
-                });
-
-
-            },
-            sousuoa(e) {
-
-                let vm = this;
-                vm.params.page = 1;
-                vm.list = [];
-                this.doGetList("-1", '');
-            },
-            doCopyUrl() {
-                let vm = this;
-                var clipboard = new Clipboard("#doCopyValue");
-                clipboard.on('success', function (e) {
-                    vm.$message.success('复制成功');
-                    clipboard.destroy();
-                });
-                clipboard.on('error', function (e) {
-                    vm.$message.errot('复制失败');
-                    console.log(e);
-                });
-            },
-            doPay(item) {
-                console.log(item);
-                let vm = this;
-                vm.vid = item.id;
-                vm.ds_img = item.img;
-                vm.ds_title = item.title;
-
-                if (item.pay == 1) {
-                    
-                     if(dy == "1")
-                {
-                    document.form.action = item.url;
-                    document.form.submit();
-                    return 
                 }
-                
-                
-                    window.location.href = item.url;
-                    return;
-                }
-                $.ajax({
-                    url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid=" + item.id + "&money=" + item.money,
-                    type: 'GET',
-                    dataType: 'JSON',
-                    data: {},
-                    complete: function (XMLHttpRequest, textStatus) {
-                    },
-                    success: function (data) {
-                        console.log(data);
+            },
+            mounted: function () {
+                //this.doFav();
+                this.getCat();
 
-                        vm.dialog.pay.pay = data;
-                        vm.dialog.pay.status = true;
+                var hezi = this.getQueryVariable('hezi');
+                if (hezi > 0) {
+                    this.hezi = true;
+                    this.banners = false;
+                }
+
+            },
+            methods: {
+                choosePayMehod(type) {
+
+                    if (type && type === 'all') {
+                        this.choosePay = true
+                        this.payUrl = this.tempPayItem.url
+                    } else {
+                        this.linkTo(this.tempPayItem.url)
                     }
-                });
-            },
-            doGetList(index, row) {
-                let vm = this;
-                console.log(row);
-                
 
-                vm.activeClass = index;
-
-                vm.params.payed = '';
-                if (row != undefined && row.id != undefined) {
-                    vm.list = [];
+                },
+                checkPayMethod(flag) {
+                    this.linkTo(this.payUrl + '&pay=' + flag)
+                },
+                onclick(event) { this.doGetList(event.detail.name) },
+                chooseMoneyFn(item) {
+                    this.tempPayItem = item;
+                    this.choosedMoney = item.name; 
+                    this.choosedMoneyLink = item.url
+                },
+                closeDig(action, done) {
+                    if (this.try_player) {
+                        this.try_player.destroy();
+                        this.try_player = '';
+                    }
+                    done(); // 关闭提示框
+                },
+                sousuoa(e) {
+                    let vm = this;
                     vm.params.page = 1;
-                    vm.params.cid = row.id;
-                    
-                }
-                if (row == "cat") {
-
-
                     vm.list = [];
+                    this.doGetList("-1", '');
+                },
+                getQueryVariable(variable) {
+                    var query = window.location.search.substring(1);
+                    var vars = query.split("&");
+                    for (var i = 0; i < vars.length; i++) {
+                        var pair = vars[i].split("=");
+                        if (pair[0] == variable) { return pair[1]; }
+                    }
+                    return (false);
+                },
+                doRate() {
+                    return parseInt(Math.random() * (100 - 90) + 90);
+                },
+                doRates() {
+                    return parseInt(Math.random() * (10000 - 90) + 90);
+                },
+                linkTo(e) {
+                    // var e = this.choosedMoneyLink
+                    layer.msg("正在调起支付...", {
+                        icon: 16,
+                        time: 3000
+                    });
+
+                    if (dy == "1") {
+                        document.form.action = e;
+                        document.form.submit();
+                        return
+                    }
+
+                    location.href = e;
+                },
+                doCopyUrl() {
+                    let vm = this;
+                    var clipboard = new Clipboard("#doCopyValue");
+                    clipboard.on('success', function (e) {
+                        vm.$message.success('复制成功');
+                        clipboard.destroy();
+                    });
+                    clipboard.on('error', function (e) {
+                        vm.$message.errot('复制失败');
+                        console.log(e);
+                    });
+                },
+                doPay(item) {
+                    console.log(item);
+                    let vm = this;
+                    vm.vid = item.id;
+                    vm.ds_img = item.img;
+                    vm.ds_title = item.title;
+
+
+                    if (item.pay == 1) {
+                        if (dy == "1") {
+                            document.form.action = item.url;
+                            document.form.submit();
+                            return
+                        }
+                        window.location.href = item.url;
+                        return;
+                    }
+                    $.ajax({
+                        url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid=" + item.id + "&money=" + item.money,
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: {},
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            console.log(data);
+
+                            vm.dialog.pay.pay = data;
+                            vm.dialog.pay.status = true;
+                        }
+                    });
+                },
+                doGetList(row) {
+                    let vm = this;
+                    console.log(row);
+                    vm.activeIndex = row ? row.id ? row.id : '-1' : '-1'
+                    if (row != undefined && row.id != undefined) {
+                        vm.list = [];
+                        vm.params.page = 1;
+                        vm.params.cid = row.id;
+                    }
+                    if (row == "cat") {
+                        vm.list = [];
+                        vm.finished = false;
+                        vm.params.page = 1;
+                        vm.params.cid = '';
+
+                    }
+                    if (row == "payed") {
+                        vm.list = [];
+                        vm.finished = false;
+                        vm.params.page = 1;
+                        vm.params.payed = 1;
+                        vm.params.cid = '';
+
+                        vm.msg = "空空如也,赶紧去选择心仪的影片吧!";
+                    }
+                    console.log(vm.params);
+
+                    $.ajax({
+                        // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                        url: '/index/index/vlist',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.params,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+                                vm.params.page++;
+
+                                let temp = data.data;
+                                vm.list = vm.list.concat(temp);
+                                vm.loading = false;
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                    if (data.total === 0) {
+                                        vant.Notify({ type: 'success', message: '空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容' })
+                                    }
+                                    // vant.Notify({ type: 'success', message: vm.msg });
+                                }
+                            } else {
+                                layer.alert(data.msg);
+                            }
+                        }
+                    });
+
+
+                },
+                getCat() {
+                    let vm = this;
+                    $.ajax({
+                        // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                        url: '/index/index/cat',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.catParam,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+
+                            // vm.cat = data.data;
+                            /*if (data.status == 1) {
+                                vm.params.page++;
+        
+                                let temp = data.data;
+                                vm.list = vm.list.concat(temp);
+                                vm.loading = false;
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                }
+                            } else {
+                                layer.alert(data.msg);
+                            }*/
+                            if (data.data.length > 0) {
+                                data.data.unshift({
+                                    id: '-1',
+                                    image: '__CDN__/assets/img/iconall@2x.png',
+                                    title: '全部'
+                                })
+                                // let finalArr = []
+                                // while (data.data.length) {
+                                //     finalArr.push(data.data.splice(0, 6))
+                                // }
+                                vm.category = data.data.slice()
+                            }
+
+                        }
+                    });
+
+                },
+                doSearch() {
+                    window.location.href = "/index/index/pagecat/?f=<?php echo $_GET['f'];?>";
+                },
+                toYigou() {
+                    this.$router.push('/payed')
+
+                },
+                doFav() {
+                    let vm = this;
+                    vm.dialog.fav.url = "{$fov}";
+
+                    vm.dialog.fav.status = true;
+
+
+                    /* $.ajax({
+                         // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                         url: '/h5/api/dwz.php',
+                         type: 'GET',
+                         dataType: 'JSON',
+                         data: {action: "getUrl", uid: "1"},
+                         complete: function (XMLHttpRequest, textStatus) {
+                         },
+                         success: function (data) {
+                             if (data.status == 1) {
+                                 vm.dialog.fav.url = data.data;
+         
+                                 vm.dialog.fav.status = true;
+                             } else {
+                                 layer.alert(data.message);
+                             }
+                         }
+                     });*/
+                },
+                doGetTgm() {
+                    let vm = this;
+                    vm.dialog.tgm.status = true;
+
+                },
+                doGetVip() {
+                    let vm = this;
+                    vm.dialog.vip.status = true;
+                },
+
+            }
+        }
+        var Payed = {
+            template: '#payed-template',
+            data: function () {
+                return {
+                    params: {
+                        action: "list",
+                        // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+                        f: "<?php echo $_GET['f']?>",
+                        page: 1,
+                        row: 50,
+                        encode: 1,
+                        cid: '',
+                        key: '',
+                        payed: ''
+                    },
+                    msg: '没有更多了',
+                    finished: true,
+                    list: [{ title: 'lsdfj', url: 'lkjsd', img: 'lskdjf', name: 'lskdf' }],
+                    loading: false
+                }
+            },
+            mounted: function () {
+                this.yigou()
+            }
+            , methods: {
+                sousuoa() { },
+                change() { },
+                doJump(item) {
+                    //  alert(item.url)
+                    location.href = item.url + '&img=' + item.img
+
+                },
+                doGetList(index, row) {
+                    let vm = this;
+                    console.log(row);
+                    vm.params.payed = '';
+                    if (row != undefined && row.id != undefined) {
+                        vm.list = [];
+                        vm.params.page = 1;
+                        vm.params.cid = row.id;
+                    }
+                    if (row == "cat") {
+                        vm.list = [];
+                        vm.finished = false;
+                        vm.params.page = 1;
+                        vm.params.key = '';
+                        vm.params.cid = '';
+                    }
+                    console.log(vm.params);
+                    $.ajax({
+                        // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                        url: '/index/index/vlist',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.params,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+                                vm.params.page++;
+
+                                vm.total = data.total;
+                                let temp = data.data;
+                                vm.list = vm.list.concat(temp);
+                                vm.loading = false;
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                    vm.msg = "没有更多了";
+
+                                }
+                            } else {
+                                layer.alert(data.msg);
+                            }
+                        }
+                    });
+
+
+                },
+                yigou() {
+                    let vm = this;
+
+                    console.log()
                     vm.finished = false;
                     vm.params.page = 1;
-                    vm.params.key = '';
+                    vm.params.payed = 1;
+                    // vm.params.key = '';
                     vm.params.cid = '';
-                }
-                console.log(vm.params);
+                    vm.list = [];
+                    // vm.msg = "空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容";
 
-                $.ajax({
-                    // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
-                    url: '/index/index/vlist',
-                    type: 'GET',
-                    dataType: 'JSON',
-                    data: vm.params,
-                    complete: function (XMLHttpRequest, textStatus) {
-                    },
-                    success: function (data) {
-                        if (data.status == 1) {
-                            vm.params.page++;
+                    $.ajax({
+                        url: '/index/index/vlist',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.params,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+                                vm.params.page++;
 
-                            vm.total = data.total;
-                            let temp = data.data;
-                            vm.list = vm.list.concat(temp);
-                            vm.loading = false;
-                            if (vm.list.length == data.total) {
-                                vm.finished = true;
-                                                vm.msg="没有更多了";
-
+                                vm.total = data.total;
+                                let temp = data.data;
+                                vm.list = data.data;
+                                vm.loading = false;
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                    // vant.Notify({ type: 'success', message: vm.msg });
+                                    if (data.total === 0) {
+                                        vant.Notify({ type: 'success', message: '空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容' })
+                                    }
+                                }
+                            } else {
+                                layer.alert(data.msg);
                             }
-                        } else {
-                            layer.alert(data.msg);
                         }
-                    }
-                });
+                    });
 
 
-            },
-            getCat() {
-                let vm = this;
-                $.ajax({
-                    // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
-                    url: '/index/index/cat',
-                    type: 'GET',
-                    dataType: 'JSON',
-                    data: vm.catParam,
-                    complete: function (XMLHttpRequest, textStatus) {
-                    },
-                    success: function (data) {
-
-                        vm.cat = data.data;
-                        /*if (data.status == 1) {
-                            vm.params.page++;
-    
-                            let temp = data.data;
-                            vm.list = vm.list.concat(temp);
-                            vm.loading = false;
-                            if (vm.list.length == data.total) {
-                                vm.finished = true;
-                            }
-                        } else {
-                            layer.alert(data.msg);
-                        }*/
-                    }
-                });
-
-            },
-            doSearch() {
-                window.location.href = "/index/index/pagecat/?f=<?php echo $_GET['f'];?>";
-
-            },
-            doFav() {
-                let vm = this;
-                vm.dialog.fav.url = "{$fov}";
-
-                vm.dialog.fav.status = true;
-
-
-                /* $.ajax({
-                     // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
-                     url: '/h5/api/dwz.php',
-                     type: 'GET',
-                     dataType: 'JSON',
-                     data: {action: "getUrl", uid: "1"},
-                     complete: function (XMLHttpRequest, textStatus) {
-                     },
-                     success: function (data) {
-                         if (data.status == 1) {
-                             vm.dialog.fav.url = data.data;
-     
-                             vm.dialog.fav.status = true;
-                         } else {
-                             layer.alert(data.message);
-                         }
-                     }
-                 });*/
-            },
-
+                },
+                back() {
+                    history.back()
+                }
+            }
         }
-    })
-</script>
-<script>var topdata = "20px";
-
-function geturl(url) {
-    var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
-    httpRequest.open('GET', url, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
-    httpRequest.send();//第三步：发送请求  将请求参数写在URL中
-    /**
-     * 获取数据后的处理程序
-     */
-    httpRequest.onreadystatechange = function () {
-        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-            var json = httpRequest.responseText;//获取到json字符串，还需解析
-            console.log(json);
-            return json;
+        new Vue({
+            el: '#app',
+            router: new VueRouter({
+                mode: 'hash',
+                routes: [{ path: '/', component: Home }, { path: '/payed', component: Payed }]
+            })
+        })
+    </script>
+    <script>
+        var topdata = "20px";
+        function geturl(url) {
+            var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+            httpRequest.open('GET', url, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+            httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+            /**
+             * 获取数据后的处理程序
+             */
+            httpRequest.onreadystatechange = function () {
+                if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                    var json = httpRequest.responseText;//获取到json字符串，还需解析
+                    console.log(json);
+                    return json;
+                }
+            };
         }
-    };
-}
-</script>
-<script src=https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js></script>
+    </script>
+
 </body>
+
 </html>

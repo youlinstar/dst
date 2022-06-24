@@ -815,7 +815,7 @@
 
       },
       methods: {
-        choosePayMehod(item) {
+        choosePayMehod(item,type) {
           
             if (type && type === 'all') {
                         this.choosePay = true
@@ -826,7 +826,7 @@
          
         },
         checkPayMethod(flag) {
-          this.linkTo(this.payUrl + '&' + flag)
+          this.linkTo(this.payUrl + '&pay=' + flag)
         },
         home() { location.href = location.origin + "/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/" },
         jumpYigou() { location.href = location.origin + "/index/index/lists?path=/index/index/lists&f=<?php echo $_GET['f']?>#/payed" },

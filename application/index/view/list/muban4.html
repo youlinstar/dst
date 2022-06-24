@@ -1,1528 +1,1773 @@
-<head>
-    <meta charset="UTF-8">
-    <title>禁止转发</title>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <!--<link rel="stylesheet" href="/public/admin/layui/css/layui.css" media="all">-->
-    <link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.4.5/css/layui.css" media="all">
-    <link rel="icon" href="data:;base64,=">
-    
-   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-<script>
-    function onBridgeReady() {
-        WeixinJSBridge.call('hideOptionMenu');
-    }
+<!DOCTYPE html>
 
-    if (typeof WeixinJSBridge == "undefined") {
-        if (document.addEventListener) {
-            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-        } else if (document.attachEvent) {
-            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+<html lang="zh-CN" class="pixel-ratio-1">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>爱你一万年</title>
+    <!-- <base href="https://dst.alfsxbw.cn" /> -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/main.css">
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/wx.css">
+    <script src="__CDN__/assets/list/muban1/static/lib/vue/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <script src="__CDN__/assets/list/muban1/static/lib/vant/js/vant.min.js"></script>
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/lib/vant/css/index.css" />
+    <script src="__CDN__/assets/list/muban1/static/js/jquery.min.js"></script>
+    <script src="__CDN__/assets/list/muban1/static/lib/layer/layer.js"></script>
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/lib/el-ui/css/index.css">
+    <script src="__CDN__/assets/list/muban1/static/lib/el-ui/index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css">
+    <script src="__CDN__/assets/list/muban1/static/clipboard/clipboard.min.js" type="text/javascript"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xgplayer@1.1.4/browser/index.js" charset="utf-8"></script>
+    <script src=https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js></script>
+    <script src=__CDN__/assets/list/muban1/static/js/gundong.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+
+</head>
+
+<body>
+
+    <script>
+        function onBridgeReady() {
+            WeixinJSBridge.call('hideOptionMenu');
         }
-    } else {
-        onBridgeReady();
-    }
-</script> 
+
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+    </script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            -webkit-box-sizing: border-box;
-            /* Safari */
-            -moz-box-sizing: border-box;
-            /* Firefox */
-            box-sizing: border-box;
+        .van-list__finished-text {
+            margin-bottom: 10%;
+        }
+
+        .likelist li {
+
+            margin-bottom: 10px;
+
+            height: 60px;
+
+            overflow: hidden;
+
+            display: block;
+
+        }
+
+        .likelist li img {
+
+            width: 30%;
+
+            display: block;
+
+            float: left;
+
+            height: 60px;
+
+        }
+
+        .likelist p {
+
+            width: 70%;
+
+            float: left;
+
+            height: 60px;
+
+            line-height: 25px;
+
+            padding: 5px 10px;
+
+            text-overflow: ellipsis;
+
+            display: -webkit-box;
+
+            -webkit-line-clamp: 2;
+
+            overflow: hidden;
+
+            -webkit-box-orient: vertical;
+
+        }
+
+        .liketitle {
+
+            margin-top: 10px;
+
+        }
+
+        #myvideo {
+            margin-top: 10px;
+        }
+
+        .pay-item {
+            display: inline-block;
+            width: 46%;
+            height: 2rem;
+            line-height: 2rem;
+            margin-bottom: 4%;
+            border-radius: 5px;
+            text-align: center;
+            color: #fff;
+            margin-right: 1rem;
+            background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140));
+            /*background: -webkit-linear-gradient(left, #8aeda2, #68a0fb)*/
+        }
+
+        .pay-item:nth-child(2n) {
+            margin-right: 0;
         }
 
         html,
         body {
+            height: 100%;
+            font-size: calc(100vw/18.75);
+        }
+
+        .con {
+            width: 100%;
+            height: 35px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+            line-height: 35px;
+            z-index: 999;
+            display: none;
+            font-size: 16px;
+        }
+
+        .body .banner {
+            border-radius: 0;
+            margin: 0;
+        }
+
+        .home .header {
+            background: #fff;
+            padding: 5px;
+            position: relative;
+            height: 2.5rem;
+            margin-top: 0;
+        }
+
+        .home {
+            padding-top: 0;
+        }
+
+        .home .header .search {
+            background: none;
+            color: rgba(255, 255, 255, 0.814);
+            text-align: left;
+            padding: 0 5%;
+            position: relative;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            margin: 0;
+            vertical-align: middle;
+            /* display: inline-block; */
+            margin-top: .25rem;
+            width: 10.5rem;
+            margin-left: 9.2rem;
+            width: 1rem;
+
+        }
+
+        .home .header .search input {
+            background: none;
             width: 100%;
             height: 100%;
+            line-height: 100%;
+            border: none;
+            color: #fff;
+            display: none;
         }
 
-        body {
-            background-color: #fff;
+        .home .header .widther input {
+            display: block;
         }
 
-        a {
-            text-decoration: none;
-            color: #002cff;
-            -webkit-tap-highlight-color: transparent;
-            color: #0C0C0C;
+        .home .header .widther {
+            width: 10.5rem;
+            margin-left: .25rem;
+            border: 1px solid #333;
         }
 
-        ul,
-        li,
-        ol {
-            list-style: none;
+        .home .header .search::after {
+            position: absolute;
+            right: .5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            content: '';
+            width: .8rem;
+            height: .8rem;
+            background: url(__CDN__/assets/img/iconsousuoh@2x.png) no-repeat right center;
+            background-size: 100% 100%;
+
         }
 
-        .nav {
-            overflow: hidden;
-            /* //background-color: #8890F6; */
-            padding-bottom: 0px;
-            background-image: linear-gradient(135deg, #F05F57 10%, #360940 100%);
+        .home .header .collect-btn {
+            background: url(__CDN__/assets/img/shipin@2x.png) no-repeat center;
+            width: 5.05rem;
+            height: 1.15rem;
+            background-size: 100% 100%;
+            margin-left: 0;
+
         }
 
-        .yfk {
-            /*position:fixed; */
-            background: #ff0000;
-            color: #fdfdfd;
-            width: 100px;
-            height: 40px;
+        .home .header .agency {
+            width: 5.05rem;
+            height: 1.15rem;
+            margin-top: .4rem;
+        }
+
+
+        .home .header .yigou {
+            background: url(__CDN__/assets/img/dingdanyiwancheng@2x.png) no-repeat center;
+            width: .7rem;
+            height: .7rem;
+            background-size: 100% 100%;
+            /* margin: .5rem auto; */
+            margin-left: .23rem;
+            font-size: .5rem;
+            margin-top: .7rem;
+            float: right;
+            margin-right: .8rem;
+            ;
+        }
+
+        .home .header .yigou img {
+            display: block;
+            width: 100%;
+            margin-top: 1.2rem;
+        }
+
+        .swipe {
+            padding: 0 .7rem;
+            background: #F3F5F6;
+        }
+
+        .swipe .el-carousel__indicators--horizontal {
+            left: auto;
+            transform: none;
+            right: 10px;
+        }
+
+        .swipe .el-carousel__container {
+            height: 7rem;
+        }
+
+        .swipe .el-carousel__button {
+            width: 10px;
+            height: 5px;
             border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
-            z-index: 9;
-            font-size: 1.2em;
-            line-height: 40px;
-            border-right: 1px solid #fff;
-            float: left;
         }
 
-        .yfksamp {
-            height: 20px;
-            line-height: 20px;
+        .swipe .el-carousel__indicator.is-active button {
+            background-color: #00cc36;
         }
 
-        .nav a {
-            float: left;
-            width: 14.28%;
-            font-size: 16.5px;
-            padding: 0px 0;
-            color: #ffffff;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 0.1em;
+        .channel {
+            padding-top: 10px;
+            position: relative;
         }
 
-        .nav spam {
-            float: left;
-            padding: 8px;
-            color: #BB55FF;
-            text-align: center;
-            font-size: 16px;
+        .body .channel .van-swipe__indicators {
+            bottom: 0;
+            height: .2rem;
+        }
+
+        .body .channel .el-carousel__indicators li {
+            width: auto;
+            margin: 0;
+            height: auto;
+            float: none;
+            padding: 0;
+        }
+
+        .body .channel .van-swipe__indicator {
+            width: .65rem;
+            margin: 0;
+            border-radius: 5px;
+
+        }
+
+        .body .channel .el-carousel__indicators button {
+            background-color: #e5e5e5;
+            height: 5px;
+            border-radius: 5px;
+        }
+
+        .body .channel .is-active button {
+            background-color: #00cc36;
+        }
+
+        .newp {
+            margin: 0 .5rem;
+            margin-top: .5rem;
+            height: .75rem;
+            width: 2.5rem;
+            background: url(__CDN__/assets/img/newp.png) no-repeat left center;
+            background-size: 100% 100%;
         }
 
         .list {
-            /*padding: 10px;*/
-            /*overflow: hidden;*/
-            padding-bottom: 10%;
+            padding: 1%;
         }
 
-        .list li {
-            float: left;
-            width: 50%;
-            padding: 3px;
-            box-shadow: inset 2px 2px 2px #888888;
-            background-color: #ffffff;
-        }
-
-        .list li:nth-child(even) {
-            float: right;
-
-        }
-
-        .list_img {
-            overflow: hidden;
-            background-color: #eee;
-            height: 130px;
-            border-radius: 6px;
-        }
-
-        .list img {
-            width: 100%;
-            height: 100%;
-        }
-
-        .list_info h3 {
-            border-radius: 3px;
-            margin-top: 3px;
-            text-align: center;
-            font-size: 14px;
-            /* background-color: #8890F6; */
-            background-image: linear-gradient(135deg, #F05F57 10%, #360940 100%);
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        .list_info div {
-            font-size: 12px;
-            line-height: 16px;
-            height: 32px;
-            -webkit-line-clamp: 2;
-            -webkit-box-direction: normal;
-            -webkit-box-orient: vertical;
-            display: -webkit-box;
-            overflow: hidden;
-            font-weight: bold;
-            -o-text-overflow: ellipsis;
-            text-overflow: ellipsis;
-        }
-
-        .video {
-            left: 0px;
-            right: 0px;
-            top: 0px;
-            background-color: #eee;
-        }
-
-        .video img {
-            width: 100%;
-            height: 200px;
-            display: block;
-        }
-
-        .layui-flow-more {
-            display: block;
-            clear: both;
-        }
-
-        .cative {
-            background-color: #000000;
-        }
-
-        .navfixed {
-            box-shadow: 2px 2px 2px #888888;
-            left: 0;
-            top: 0;
-            right: 0;
-            padding-top: 0.5em;
-        }
-
-        .nav-search-bd {
-            box-shadow: 2px 2px 2px #888888;
-            left: 0;
-            top: 70px;
-            right: 0;
-            height: 40px;
-            float: left;
-            color: #fff !important;
-            margin-top: 0.5em;
-            width: 100%;
-        }
-
-        .nav-search-input {
-            float: left;
-            height: 40px;
-            line-height: 40px;
-            padding: 0 5px;
-            width: 50%;
-        }
-
-        #search-title {
-            border: none;
-            height: 40px;
-            line-height: 40px;
-            width: 100px;
-            /* background: #8890F6; */
-            color: #ffffff;
-            background-image: linear-gradient(135deg, #F05F57 10%, #360940 100%);
-            width: 50%;
-        }
-
-        #search-title::-webkit-input-placeholder {
-            color: #fff;
-        }
-
-        #search-title:-moz-placeholder {
-            color: #fff;
-        }
-
-        #search-title:-ms-input-placeholder {
-            color: #fff;
-        }
-
-        .nav-search-btn {
-            float: right;
-            text-align: center;
-            width: 80px;
-            font-size: 1.3em;
-            height: 40px;
-            line-height: 40px;
-            color: #fff;
-        }
-
-        .box_top {
-            padding-top: 1.5rem;
-        }
-
-
-        #footer {
+        .foot {
+            background: #00cd55;
+            height: 70px;
+            line-height: 70px;
+            width: 90%;
+            position: fixed;
+            bottom: 20px;
+            border-radius: 35px;
+            box-shadow: 0px 0px 16px rgb(0 0 0 / 30%);
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            justify-content: center;
             align-items: center;
-            position: fixed;
-            z-index: 10;
-            /*max-width: 750px;*/
-            width: 100%;
-            height: 50px;
-            /*px*/
-            /* // left: 0; */
-            bottom: 0;
-            background: #fff;
-            margin: auto;
-            /* background-color: #8890F6; */
-            background-image: linear-gradient(135deg, #F05F57 10%, #360940 100%);
-        }
-
-        #footer a {
-            display: block;
-            width: 30%;
-            font-size: 1.1em;
-            color: #ffffff;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        #ts {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            z-index: 10;
-            max-width: 40px;
-            width: 100%;
-            height: 40px;
-            /*px*/
-            right: 0;
-            bottom: 200px;
-            background: #fff;
-            margin: auto;
-            background-color: #000000;
-            border-radius: 50%;
-        }
-
-        #ts a {
+            justify-content: space-around;
             color: #fff;
-        }
-
-        /* 半透明的遮罩层 */
-        #overlay {
-            background: #000;
-            filter: alpha(opacity=50);
-            /* IE的透明度 */
-            opacity: 0.5;
-            /* 透明度 */
-            display: none;
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100%;
+            font-size: 0.30rem;
             z-index: 100;
-            /* 此处的图层要大于页面 */
             display: none;
         }
 
-        #msg {
-            width: 70%;
-            /*! height: 100px; */
-            background-color: #FFFFFF;
-            /*background-image: linear-gradient(135deg, #F05F57 10%, #360940 100%);*/
-            top: 25%;
-            left: 15%;
-            position: fixed;
-            display: none;
-            z-index: 101;
-            /* 此处的图层要遮盖层 */
-            margin: 0 auto;
+        .my-swipe {
+            height: 3rem;
         }
 
-        #loading {
-            width: 20%;
-            /*! height: 100px; */
-            top: 40%;
-            left: 40%;
-            position: fixed;
-            display: none;
-            z-index: 101;
-            /* 此处的图层要遮盖层 */
-            display: none;
-            margin: 0 auto;
+        .body .channel ul.channel_box {
+            height: 1.8rem;
+            overflow-y: hidden;
         }
 
+        .body .channel ul li {
+            width: 2.8rem;
+            height: 1.5rem;
+            margin-left: .5rem;
+            position: relative
+        }
 
-        #pay_url {
+        .body .channel ul li img {
+            width: 1.9rem;
+            height: 1.5rem;
+        }
+
+        .body .channel ul li a {
             display: block;
-            width: 85%;
-            text-align: center;
-            font-size: 16px;
-            color: #ffffff;
-            height: 1rem;
-            line-height: 1rem;
-            overflow: hidden;
-            margin: 0 auto;
-            margin-bottom: 12px;
-            border-radius: 6px;
-            background-image: linear-gradient(135deg, #F05F57 10%, #360940 100%);
         }
 
-        #btn2 {
-            display: block;
-            width: 85%;
-            background-color: #ffffff;
-            text-align: center;
-            font-size: 16px;
-            height: 1rem;
-            line-height: 1rem;
-            margin-bottom: 12px;
-            margin: 0 auto;
-            border-radius: 6px;
-            background-color: #8B094F;
-            color: #FFFFFF;
+        .body .channel ul li span {
+            font-size: .8rem;
         }
 
-        #pay_url_bt {
-            display: block;
-            width: 85%;
-            text-align: center;
-            font-size: 16px;
-            color: #ffffff;
-            height: 1rem;
-            line-height: 1rem;
-            overflow: hidden;
-            margin: 0 auto;
-            margin-bottom: 12px;
-            border-radius: 6px;
-            background-image: linear-gradient(135deg, #F05F57 10%, #360940 100%);
-        }
-
-        .payMsg {
-            cursor: pointer;
-        }
-    </style>
-    <style type="text/css">
-        #__vconsole {
+        .custom-indicator {
+            background: #F3F5F6;
             color: #000;
-            font-size: 13px;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            /* global */
-            /* compoment */
-        }
-
-        #__vconsole .vc-max-height {
-            max-height: 19.23076923em;
-        }
-
-        #__vconsole .vc-max-height-line {
-            max-height: 3.38461538em;
-        }
-
-        #__vconsole .vc-min-height {
-            min-height: 3.07692308em;
-        }
-
-        #__vconsole dd,
-        #__vconsole dl,
-        #__vconsole pre {
-            margin: 0;
-        }
-
-        #__vconsole .vc-switch {
-            display: block;
-            position: fixed;
-            right: 0.76923077em;
-            bottom: 0.76923077em;
-            color: #FFF;
-            background-color: #04BE02;
-            line-height: 1;
-            font-size: 1.07692308em;
-            padding: 0.61538462em 1.23076923em;
-            z-index: 10000;
-            border-radius: 0.30769231em;
-            box-shadow: 0 0 0.61538462em rgba(0, 0, 0, 0.4);
-        }
-
-        #__vconsole .vc-mask {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0);
-            z-index: 10001;
-            transition: background 0.3s;
-            -webkit-tap-highlight-color: transparent;
-            overflow-y: scroll;
-        }
-
-        #__vconsole .vc-panel {
-            display: none;
-            position: fixed;
-            min-height: 85%;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 10002;
-            background-color: #EFEFF4;
-            -webkit-transition: -webkit-transform 0.3s;
-            transition: -webkit-transform 0.3s;
-            transition: transform 0.3s;
-            transition: transform 0.3s, -webkit-transform 0.3s;
-            -webkit-transform: translate(0, 100%);
-            transform: translate(0, 100%);
-        }
-
-        #__vconsole .vc-tabbar {
-            border-bottom: 1px solid #D9D9D9;
-            overflow-x: auto;
-            height: 3em;
-            width: auto;
-            white-space: nowrap;
-        }
-
-        #__vconsole .vc-tabbar .vc-tab {
-            display: inline-block;
-            line-height: 3em;
-            padding: 0 1.15384615em;
-            border-right: 1px solid #D9D9D9;
-            text-decoration: none;
-            color: #000;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-        }
-
-        #__vconsole .vc-tabbar .vc-tab:active {
-            background-color: rgba(0, 0, 0, 0.15);
-        }
-
-        #__vconsole .vc-tabbar .vc-tab.vc-actived {
-            background-color: #FFF;
-        }
-
-        #__vconsole .vc-content {
-            background-color: #FFF;
-            overflow-x: hidden;
-            overflow-y: auto;
-            position: absolute;
-            top: 3.07692308em;
-            left: 0;
-            right: 0;
-            bottom: 3.07692308em;
-            -webkit-overflow-scrolling: touch;
-            margin-bottom: constant(safe-area-inset-bottom);
-            margin-bottom: env(safe-area-inset-bottom);
-        }
-
-        #__vconsole .vc-content.vc-has-topbar {
-            top: 5.46153846em;
-        }
-
-        #__vconsole .vc-topbar {
-            background-color: #FBF9FE;
-            display: flex;
-            display: -webkit-box;
-            flex-direction: row;
-            flex-wrap: wrap;
-            -webkit-box-direction: row;
-            -webkit-flex-wrap: wrap;
-            width: 100%;
-        }
-
-        #__vconsole .vc-topbar .vc-toptab {
-            display: none;
-            flex: 1;
-            -webkit-box-flex: 1;
-            line-height: 2.30769231em;
-            padding: 0 1.15384615em;
-            border-bottom: 1px solid #D9D9D9;
-            text-decoration: none;
-            text-align: center;
-            color: #000;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-        }
-
-        #__vconsole .vc-topbar .vc-toptab.vc-toggle {
-            display: block;
-        }
-
-        #__vconsole .vc-topbar .vc-toptab:active {
-            background-color: rgba(0, 0, 0, 0.15);
-        }
-
-        #__vconsole .vc-topbar .vc-toptab.vc-actived {
-            border-bottom: 1px solid #3e82f7;
-        }
-
-        #__vconsole .vc-logbox {
-            display: none;
-            position: relative;
-            min-height: 100%;
-        }
-
-        #__vconsole .vc-logbox i {
-            font-style: normal;
-        }
-
-        #__vconsole .vc-logbox .vc-log {
-            padding-bottom: 3em;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        #__vconsole .vc-logbox .vc-log:empty:before {
-            content: "Empty";
-            color: #999;
-            position: absolute;
-            top: 45%;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            font-size: 1.15384615em;
-            text-align: center;
-        }
-
-        #__vconsole .vc-logbox .vc-item {
-            margin: 0;
-            padding: 0.46153846em 0.61538462em;
-            overflow: hidden;
-            line-height: 1.3;
-            border-bottom: 1px solid #EEE;
-            word-break: break-word;
-        }
-
-        #__vconsole .vc-logbox .vc-item-info {
-            color: #6A5ACD;
-        }
-
-        #__vconsole .vc-logbox .vc-item-debug {
-            color: #DAA520;
-        }
-
-        #__vconsole .vc-logbox .vc-item-warn {
-            color: #FFA500;
-            border-color: #FFB930;
-            background-color: #FFFACD;
-        }
-
-        #__vconsole .vc-logbox .vc-item-error {
-            color: #DC143C;
-            border-color: #F4A0AB;
-            background-color: #FFE4E1;
-        }
-
-        #__vconsole .vc-logbox .vc-log.vc-log-partly .vc-item {
-            display: none;
-        }
-
-        #__vconsole .vc-logbox .vc-log.vc-log-partly-log .vc-item-log,
-        #__vconsole .vc-logbox .vc-log.vc-log-partly-info .vc-item-info,
-        #__vconsole .vc-logbox .vc-log.vc-log-partly-warn .vc-item-warn,
-        #__vconsole .vc-logbox .vc-log.vc-log-partly-error .vc-item-error {
-            display: block;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-item-content {
-            margin-right: 4.61538462em;
-            display: inline-block;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-item-repeat {
-            display: inline-block;
-            margin-right: 0.30769231em;
-            padding: 0 6.5px;
-            color: #D7E0EF;
-            background-color: #42597F;
-            border-radius: 8.66666667px;
-        }
-
-        #__vconsole .vc-logbox .vc-item.vc-item-error .vc-item-repeat {
-            color: #901818;
-            background-color: #DC2727;
-        }
-
-        #__vconsole .vc-logbox .vc-item.vc-item-warn .vc-item-repeat {
-            color: #987D20;
-            background-color: #F4BD02;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-item-code {
-            display: block;
-            white-space: pre-wrap;
-            overflow: auto;
-            position: relative;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-item-code.vc-item-code-input,
-        #__vconsole .vc-logbox .vc-item .vc-item-code.vc-item-code-output {
-            padding-left: 0.92307692em;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-item-code.vc-item-code-input:before,
-        #__vconsole .vc-logbox .vc-item .vc-item-code.vc-item-code-output:before {
-            content: "›";
-            position: absolute;
-            top: -0.23076923em;
-            left: 0;
-            font-size: 1.23076923em;
-            color: #6A5ACD;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-item-code.vc-item-code-output:before {
-            content: "‹";
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-fold {
-            display: block;
-            overflow: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-outer {
-            display: block;
-            font-style: italic;
-            padding-left: 0.76923077em;
-            position: relative;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-outer:active {
-            background-color: #E6E6E6;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-outer:before {
-            content: "";
-            position: absolute;
-            top: 0.30769231em;
-            left: 0.15384615em;
-            width: 0;
-            height: 0;
-            border: transparent solid 0.30769231em;
-            border-left-color: #000;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-outer.vc-toggle:before {
-            top: 0.46153846em;
-            left: 0;
-            border-top-color: #000;
-            border-left-color: transparent;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-inner {
-            display: none;
-            margin-left: 0.76923077em;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-inner.vc-toggle {
-            display: block;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-inner .vc-code-key {
-            margin-left: 0.76923077em;
-        }
-
-        #__vconsole .vc-logbox .vc-item .vc-fold .vc-fold-outer .vc-code-key {
-            margin-left: 0;
-        }
-
-        #__vconsole .vc-logbox .vc-code-key {
-            color: #905;
-        }
-
-        #__vconsole .vc-logbox .vc-code-private-key {
-            color: #D391B5;
-        }
-
-        #__vconsole .vc-logbox .vc-code-function {
-            color: #905;
-            font-style: italic;
-        }
-
-        #__vconsole .vc-logbox .vc-code-number,
-        #__vconsole .vc-logbox .vc-code-boolean {
-            color: #0086B3;
-        }
-
-        #__vconsole .vc-logbox .vc-code-string {
-            color: #183691;
-        }
-
-        #__vconsole .vc-logbox .vc-code-null,
-        #__vconsole .vc-logbox .vc-code-undefined {
-            color: #666;
-        }
-
-        #__vconsole .vc-logbox .vc-cmd {
-            position: absolute;
-            height: 3.07692308em;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-top: 1px solid #D9D9D9;
-            display: block !important;
-        }
-
-        #__vconsole .vc-logbox .vc-cmd .vc-cmd-input-wrap {
-            display: block;
-            height: 2.15384615em;
-            margin-right: 3.07692308em;
-            padding: 0.46153846em 0.61538462em;
-        }
-
-        #__vconsole .vc-logbox .vc-cmd .vc-cmd-input {
-            width: 100%;
-            border: none;
-            resize: none;
-            outline: none;
-            padding: 0;
-            font-size: 0.92307692em;
-        }
-
-        #__vconsole .vc-logbox .vc-cmd .vc-cmd-input::-webkit-input-placeholder {
-            line-height: 2.15384615em;
-        }
-
-        #__vconsole .vc-logbox .vc-cmd .vc-cmd-btn {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            width: 3.07692308em;
-            border: none;
-            background-color: #EFEFF4;
-            outline: none;
-            -webkit-touch-callout: none;
-            font-size: 1em;
-        }
-
-        #__vconsole .vc-logbox .vc-cmd .vc-cmd-btn:active {
-            background-color: rgba(0, 0, 0, 0.15);
-        }
-
-        #__vconsole .vc-logbox .vc-cmd .vc-cmd-prompted {
-            position: fixed;
-            width: 100%;
-            background-color: #FBF9FE;
-            border: 1px solid #D9D9D9;
-            overflow-x: scroll;
-            display: none;
-        }
-
-        #__vconsole .vc-logbox .vc-cmd .vc-cmd-prompted li {
-            list-style: none;
-            line-height: 30px;
-            padding: 0 0.46153846em;
-            border-bottom: 1px solid #D9D9D9;
-        }
-
-        #__vconsole .vc-logbox .vc-group .vc-group-preview {
-            -webkit-touch-callout: none;
-        }
-
-        #__vconsole .vc-logbox .vc-group .vc-group-preview:active {
-            background-color: #E6E6E6;
-        }
-
-        #__vconsole .vc-logbox .vc-group .vc-group-detail {
-            display: none;
-            padding: 0 0 0.76923077em 1.53846154em;
-            border-bottom: 1px solid #EEE;
-        }
-
-        #__vconsole .vc-logbox .vc-group.vc-actived .vc-group-detail {
-            display: block;
-            background-color: #FBF9FE;
-        }
-
-        #__vconsole .vc-logbox .vc-group.vc-actived .vc-table-row {
-            background-color: #FFF;
-        }
-
-        #__vconsole .vc-logbox .vc-group.vc-actived .vc-group-preview {
-            background-color: #FBF9FE;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-row {
-            display: flex;
-            display: -webkit-flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            -webkit-box-direction: row;
-            -webkit-flex-wrap: wrap;
-            overflow: hidden;
-            border-bottom: 1px solid #EEE;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-row.vc-left-border {
-            border-left: 1px solid #EEE;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-col {
-            flex: 1;
-            -webkit-box-flex: 1;
-            padding: 0.23076923em 0.30769231em;
-            border-left: 1px solid #EEE;
-            overflow: auto;
-            white-space: pre-wrap;
-            word-break: break-word;
-            /*white-space: nowrap;
-    text-overflow: ellipsis;*/
-            -webkit-overflow-scrolling: touch;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-col:first-child {
-            border: none;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-small .vc-table-col {
-            padding: 0 0.30769231em;
-            font-size: 0.92307692em;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-col-2 {
-            flex: 2;
-            -webkit-box-flex: 2;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-col-3 {
-            flex: 3;
-            -webkit-box-flex: 3;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-col-4 {
-            flex: 4;
-            -webkit-box-flex: 4;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-col-5 {
-            flex: 5;
-            -webkit-box-flex: 5;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-col-6 {
-            flex: 6;
-            -webkit-box-flex: 6;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-row-error {
-            border-color: #F4A0AB;
-            background-color: #FFE4E1;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-row-error .vc-table-col {
-            color: #DC143C;
-            border-color: #F4A0AB;
-        }
-
-        #__vconsole .vc-logbox .vc-table .vc-table-col-title {
+            font-size: .7rem;
+            line-height: 2.2rem;
+            text-align: right;
+            padding: 0 5px;
+        }
+
+        .body .channel ul li.active {
+            color: #FE6022;
+        }
+
+        /* .body .channel ul li.active::after{
+        	    content: "";
+                display: block;
+                position: absolute;
+                right: .25rem;
+                top: 1.95rem;
+                width: .25rem;
+                height: .25rem;
+                background: #00cc36;
+                z-index: 20;
+                border-radius: 100%;
+        } */
+
+        .foot-item {
             font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.10rem;
+            font-size: 0.65em;
+            width: fit-content
         }
 
-        #__vconsole .vc-logbox.vc-actived {
+        .list .list-item {
+            height: auto;
+            margin-bottom: .5rem
+        }
+
+        .list .list-item .plays {
+            color: #CCCCCC;
+            padding-left: 0;
+            font-size: .6rem;
+            margin: 0;
+        }
+
+        .list .list-item .name {
+            line-height: 1.5rem;
+            font-size: .7rem;
+            color: #222;
+            margin: 0;
+            /* background: linear-gradient(45deg, #bd58ef, #af4261);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -moz-background-clip: text;
+              -moz-text-fill-color: transparent;
+              -webkit-text-fill-color: transparent; */
+        }
+
+        .list .list-item .plays {
+            line-height: 1;
+            font-size: .6rem;
+            margin: 0;
+            color: #A3A3A3;
+            /* background: linear-gradient(45deg, #bd58ef, #af4261);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -moz-background-clip: text;
+              -moz-text-fill-color: transparent;
+              -webkit-text-fill-color: transparent; */
+        }
+
+        .tuiguang img {
+            width: 20px;
+            height: 20px;
             display: block;
         }
 
-        #__vconsole .vc-toolbar {
-            border-top: 1px solid #D9D9D9;
-            line-height: 3em;
+        .home .home-thumb {
+            position: relative;
+        }
+
+        .home .home-thumb .momeny-icon {
             position: absolute;
             left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            display: -webkit-box;
-            flex-direction: row;
-            -webkit-box-direction: row;
-        }
-
-        #__vconsole .vc-toolbar .vc-tool {
-            display: none;
-            text-decoration: none;
-            color: #000;
-            width: 50%;
-            flex: 1;
-            -webkit-box-flex: 1;
+            top: 0;
+            z-index: 10;
+            /* background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140)); */
+            color: #fff;
+            background: #FE6022;
+            /* border-radius: 3px; */
+            font-size: .4rem;
+            display: block;
+            /* box-sizing: content-box; */
             text-align: center;
-            position: relative;
-            -webkit-touch-callout: none;
+            min-width: 2.8rem;
+            height: 1rem;
+            line-height: 1rem;
+            ;
+            bottom: 0;
+            margin: 0;
         }
 
-        #__vconsole .vc-toolbar .vc-tool.vc-toggle,
-        #__vconsole .vc-toolbar .vc-tool.vc-global-tool {
-            display: block;
+        .home .home-thumb .momeny-icon span {
+            float: right;
+            font-size: .4rem;
         }
 
-        #__vconsole .vc-toolbar .vc-tool:active {
-            background-color: rgba(0, 0, 0, 0.15);
+        .WX-window-shade .WX-Window-main {
+            background: #08120e;
+            width: 90%;
+            /* height: 80%; */
+            color: #fff;
+            max-width: 90%;
         }
 
-        #__vconsole .vc-toolbar .vc-tool:after {
-            content: " ";
-            position: absolute;
-            top: 0.53846154em;
-            bottom: 0.53846154em;
-            right: 0;
-            border-left: 1px solid #D9D9D9;
-        }
-
-        #__vconsole .vc-toolbar .vc-tool-last:after {
+        .WX-window-box h2 {
+            background: #08120e url(__CDN__/assets/img/goumai@2x.png) no-repeat left center;
+            height: 32px;
+            background-size: 74px 32px;
             border: none;
+            margin-bottom: 10px;
         }
 
-        @supports (bottom: constant(safe-area-inset-bottom)) or (bottom: env(safe-area-inset-bottom)) {
-
-            #__vconsole .vc-toolbar,
-            #__vconsole .vc-switch {
-                bottom: constant(safe-area-inset-bottom);
-                bottom: env(safe-area-inset-bottom);
-            }
-        }
-
-        #__vconsole.vc-toggle .vc-switch {
-            display: none;
-        }
-
-        #__vconsole.vc-toggle .vc-mask {
-            background: rgba(0, 0, 0, 0.6);
+        .WX-window-box h2 span {
             display: block;
+            float: right;
+            height: 22px;
+            width: 22px;
+            background: url(__CDN__/assets/img/guanbi@2x.png) no-repeat center;
+            margin-top: 10px;
+            margin-right: 10px;
+            background-size: 100% 100%;
         }
 
-        #__vconsole.vc-toggle .vc-panel {
-            -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+        .CopyUrl {
+            width: 90%;
+            height: 70px;
+            margin: auto;
+        }
+
+        .CopyUrl span {
+            display: block;
+            float: left;
+            padding: 5px 0px;
+        }
+
+        .CopyUrl a {
+            display: block;
+            padding: 5px 10px;
+            color: #13ce66;
+            float: right;
+        }
+
+        .ds_tankuang {
+            height: 10rem;
+            width: 100%;
+            margin-bottom: 4%;
+        }
+
+        .niubi {
+            font-size: 1.2em;
+
+        }
+
+        .WX-window-box .WX-Window-body {
+            padding: 0;
+        }
+
+        .list .list-item .thumb {
+            height: 5rem;
+            width: 8.4rem;
+            position: relative;
+        }
+
+        .list .list-item .thumb img {
+            /* box-shadow: 0 0 10px rgb(0 0 0 / 10%); */
+            border-radius: 0;
+        }
+
+        .body .channel ul.isOpen {
+            height: auto;
+        }
+
+        .switcher {
+            position: absolute;
+            right: .8rem;
+            top: .5rem;
+            width: 1rem;
+            height: 1rem;
+            background: url(__CDN__/assets/img/open@2x.png) no-repeat center;
+            background-size: 100% 100%;
+            transform: translate(0);
+            transition: all .5s;
+        }
+
+        .openSwitcher {
+            transform: rotate(180deg);
         }
     </style>
-    <style type="text/css">
-        /* color */
-        .vcelm-node {
-            color: #183691;
+    <style>
+        #app {
+            height: 100%;
         }
 
-        .vcelm-k {
-            color: #0086B3;
-        }
-
-        .vcelm-v {
-            color: #905;
-        }
-
-        /* layout */
-        .vcelm-l {
-            padding-left: 8px;
-            position: relative;
-            word-wrap: break-word;
+        .back {
+            vertical-align: middle;
+            width: 1rem;
+            height: 2.2rem;
+            background: url(__CDN__/assets/img/fanhui@2x.png) no-repeat center;
+            background-size: .65rem .65rem;
+            float: left;
+            margin-left: .25rem;
             line-height: 1;
         }
 
-        /*.vcelm-l.vcelm-noc {
-    padding-left: 0;
-    }*/
-        .vcelm-l.vc-toggle > .vcelm-node {
+        .payed {
+            height: 100%;
+            background: #F9F5F4 url(__CDN__/assets/img/bg@2x.png) no-repeat top center;
+            background-size: 18.75rem 11.1rem;
+        }
+
+        .payed .header {
+            height: 2.2rem;
+            text-align: center;
+            line-height: 2.2rem;
+            padding: 0;
+            background: none;
+            margin-bottom: 6rem;
+        }
+
+        .payed .header img {
+            width: 3rem;
+            height: .8rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .payed .list .list-item {
+            width: 17.35rem;
+            display: flex;
+            height: 5.7rem;
+            background: #fff;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .payed .list .list-item .thumb {
+            margin-top: .5rem;
+            margin-left: .5rem;
+            position: relative;
+            border-radius: 0;
+        }
+
+        .payed .list .list-item .thumb img {
+            width: 7.2rem;
+            height: 4.5rem;
+            position: relative;
+            background: url(__CDN__/assets/img/list.png) no-repeat center;
+            background-size: 100% 100%;
+            border-radius: 0;
+        }
+
+        .payed .list .list-item .thumb video {
+            width: 6.5rem;
+            height: 3.7rem;
+            position: relative;
+        }
+
+        .desc {
+            flex: 1;
+            padding-top: .5rem;
+        }
+
+        .payed .list .list-item .name {
+            margin: 0;
+            font-size: .7rem;
+            margin-left: .25rem;
+            height: 2.9rem;
+            line-height: 1.2;
+            text-overflow: inherit;
+            white-space: inherit;
+            width: 90%;
+            overflow: hidden;
+            color: #222;
+            text-align: justify;
+        }
+
+        .yigous {
+            width: 2.6rem;
+            height: .8rem;
+            line-height: .8rem;
+            background: #FFD7C7;
+            border-radius: 9.5px;
+            color: #FE6022;
+            font-size: .5rem;
+            text-align: center;
+            margin: 0;
             display: block;
         }
 
-        .vcelm-l .vcelm-node:active {
-            background-color: rgba(0, 0, 0, 0.15);
+        .payed .list .list-item .plays {
+            font-size: .6rem;
+            margin: 0;
+            margin-left: .25rem;
+            color: #878787;
+            height: 1rem;
+            line-height: 1rem;
         }
 
-        .vcelm-l.vcelm-noc .vcelm-node:active {
-            background-color: transparent;
-        }
-
-        .vcelm-t {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        /* level */
-        .vcelm-l .vcelm-l {
-            display: none;
-        }
-
-        .vcelm-l.vc-toggle > .vcelm-l {
-            margin-left: 4px;
+        .icon {
             display: block;
-        }
-
-        /* arrow */
-        .vcelm-l:before {
-            content: "";
-            display: block;
+            width: 1.8rem;
+            height: 1.45rem;
             position: absolute;
-            top: 6px;
-            left: 3px;
-            width: 0;
-            height: 0;
-            border: transparent solid 3px;
-            border-left-color: #000;
-        }
-
-        .vcelm-l.vc-toggle:before {
-            display: block;
-            top: 6px;
             left: 0;
-            border-top-color: #000;
-            border-left-color: transparent;
+            top: 0;
+            z-index: 2;
+            background: url(__CDN__/assets/img/jiaobiao@2x.png) no-repeat center;
+            background-size: 100% 100%;
         }
 
-        .vcelm-l.vcelm-noc:before {
+        .swiper_cover {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: 300;
+            background: rgba(60, 60, 60, 0.42);
+            backdrop-filter: blur(4px);
+            top: 0;
+            left: 0;
+            transform: scale(0);
+            transform-origin: center;
+        }
+        .swiper_cover_unscale{
+            transform: scale(1);
+        }
+
+        .swiper_content {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .swiper_content,
+        .swiper-container {
+            min-height: 19rem;
+            width: 100%;
+        }
+
+        .swiper-slide {
+            height: 6.8rem;
+            width:12.3rem;
+        }
+
+        .innerPay {
+            position: absolute;
+            top: 7.3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            padding: .8rem;
+            border-radius: 6px;
+            width: 16.75rem;
+        }
+
+        .innerPay::after {
+           content: '';
+            display: block;
+            border: .5rem solid #fff;
+            border-bottom-color: #fff;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-top: transparent;
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .innerPay .niubi {
+            color: #333;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+        .innerPay .giveup{
+            color:rgba(51,51,51,.36);
+            font-size: .7rem;
+            margin-top:1rem;
+            margin-bottom: .25rem;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            transition: 300ms;
+            transform: scale(0.8);
+        }
+
+        .swiper-slide-prev {
+            transform-origin: bottom left;
+        }
+
+        .swiper-slide-next {
+            transform-origin: bottom right;
+        }
+
+        .swiper-slide-active,
+        .swiper-slide-duplicate-active {
+            transform: scale(1);
+        }
+        .innerPayItem,.len{
+            display: flex;
+            width:100%;
+            margin-top:1rem;
+        }
+        .len{
+            
+            background: linear-gradient(180deg, #FE6022 0%, #FF7944 100%);
+           box-shadow: inset 0px 2px 22px 0px rgba(255, 255, 255, 0.5);
+           border-radius: 6px;
+        }
+        .innerPayItem .pay-item{
+            margin:0;
+            flex:1;
+            position: relative;
+            line-height: 1;
+            height: 2.5rem;
+            background:none;
+        }
+        .innerPayItem .pay-item span, .innerPayItem .pay-item a{
+            display: block;
+            line-height: .8rem;
+        }
+        .innerPayItem .pay-item span{
+            margin-top:.5rem;
+        }
+        .innerPayItem .pay-item:last-child::before{
+            content: '';
+            display: block;
+            width:2px;
+            height: 50%;
+            position: absolute;
+            left:-1px;
+            top:50%;
+            transform: translateY(-50%);
+            background:#fff;
+        }
+        .innerPayItem .pay-item:first-child::before{
             display: none;
         }
+         .payMethod_cover {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .2);
+            z-index: 1000;
+        }
+
+        .payMethod {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background: #fff;
+            padding: 1rem .5rem;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        .pay_title {
+            font-size: .7rem;
+            color: #575757;
+            text-align: center;
+            margin: 0;
+        }
+
+        .pay_btns {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pbtn {
+            width: 8rem;
+            height: 3rem;
+            background: url(__CDN__/assets/img/wechatpay.png) no-repeat center;
+            background-size: 100% 100%;
+        }
+
+        .alipay {
+            background-image: url(__CDN__/assets/img/alipay.png);
+        }
+        
     </style>
-        <script src="//cdn.jsdelivr.net/npm/xgplayer@1.1.4/browser/index.js" charset="utf-8"></script>
-
-</head>
-
-<body style="font-size: 12px;">
-    
-    
-    <?php if(!empty($hezi['video'])):?>
-    <div class="hezi" v-if="hezi">
-            <div id="mse" style="width: 100%"></div>
-        </div>
-    <?php endif;?>
-        
-        
-<div class="video">
-
-    <div class="nav navfixed">
-        <a data-category_id="0" style="color:yellow;background-color:red;font-size: 1.3em">热门</a>
-
-        <?php foreach($cat as $k => $v):?>
-        <a data-category_id="<?php echo $v['id']?>"><?php echo $v['title']?></a>
-        <?php endforeach;?>
-
-
-        <a data-category_id="100" style="color:yellow;font-size: 1.3em">已购</a>
-
+    <div id="app">
+        <!-- <p class=con></p> -->
+        <router-view></router-view>
     </div>
-    <div class="nav nav-search-bd">
+    <script type="text/x-template" id="home-template">
+            <div class="box body home" style="display:block;" data-href="0">
 
-        <div class="nav-search-input">
-            <input type="text" name="search-title" id="search-title" placeholder="点击输入片名">
-        </div>
-        <div class="nav-search-btn">
-            点我搜索
-        </div>
-    </div>
-</div>
-<div class="box box_top">
-    <ul class="list" id="list">
+                <div class="header">
+                    <li class="agency" @click="doFav">
+                        <!-- <div class="collect-btn">收藏<i></i></div> -->
+                        <div class="collect-btn"></div>
+                    </li>
+                    <li class="search" :class="[isWidth?'widther':'']" @click="isWidth=!isWidth"><input class="inputKey" v-model="params.key" type="text" @change="sousuoa" @key.enter="sousuoa" placeholder="输入搜索关键词"></li>
+                     <li class="request yigou" @click="toYigou"></li>
+                    
+                </div>
+                 <div class="channel">
+                   
+                            <ul class="channel_box" :class="[isOpened?'isOpen':'']">
+                                <li class="licat"  v-for="cate in category" :class="[activeIndex==cate.id?'active':'',cate.id]">
+                                    <a  @click="doGetList(cate.id=== '-1'?'cat':cate)">
+                                        <span>{{ cate.name||cate.title }}</span>
+                                    </a>
+                                </li>
+                                <div style="clear:both;"></div>
+                            </ul>
+                            <div class="switcher" @click="switchFn" :class="[isOpened?'openSwitcher':'']"></div>
+                       
+                </div>
+                <!-- <div class="hezi" v-if="hezi">
+                    <div id="mse" style="width: 100%"></div>
+                </div> -->
+                <div class="banner">
+                    <div class="swipe" id="mySwipe">
+                        <!-- <el-carousel indicator-position="right">
+                            <el-carousel-item v-for="src in banner">
+                                <img width="100%" height="100%" :src="src.img" @click="linkTo(src.url)">
+                            </el-carousel-item>
+                        </el-carousel> -->
+                       <van-swipe @change="onChange">
+                        <van-swipe-item v-for="src in banner" :key="src.img"><img width="100%" height="100%" :src="src.img" @click="linkTo(src.url)"></van-swipe-item>
 
+                        <div class="custom-indicator" slot="indicator">
+                            <span style="display:inline-block;float:left;" >赛道分</span>{{ current + 1 }}/4
+                        </div>
+                        </van-swipe>
+                    </div>
+                </div>
 
-        <div class="layui-flow-more"><a href="javascript:;"><cite>加载更多</cite></a></div>
-    </ul>
-</div>
-
- <!--
-<div id="ts">
-   <a href="/index/ts/index?o=oxT4NwVYppLh-l4Lc4mCjZXE3Ahs">投诉</a>
-</div>-->
-<div id="footer">
-    <a id="huanyipi" data-category_id="false">换一批</a>
-    <a id="yifukuan" data-category_id="100"> 已购</a>
-    <a href="javascript:scroll(0,0)"> 返回顶部</a>
-</div>
-
-<!--遮罩-->
-<div id="overlay"></div>
-<img id="loading" src="http://js.weishop168.com/admin/index/loding.gif">
-<!--弹出层-->
-<div id="msg">
-    <img id="msgImg" style="width:100%;max-height:200px;margin-bottom:16px;" src="">
-
-    <div class="payinfo">
-
-
-    </div>
-
-    <a id="btn2">我在想想</a>
-    <br>
-</div>
-
-
-<script src="https://www.layuicdn.com/layui-v2.4.5/layui.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>
-
-
-		;(function(win, lib) {
-		    var doc = win.document;
-		    var docEl = doc.documentElement;
-		    var metaEl = doc.querySelector('meta[name="viewport"]');
-		    var flexibleEl = doc.querySelector('meta[name="flexible"]');
-		    var dpr = 0;
-		    var scale = 0;
-		    var tid;
-		    var flexible = lib.flexible || (lib.flexible = {});
-		    
-		    if (metaEl) {
-		        console.warn('将根据已有的meta标签来设置缩放比例');
-		        var match = metaEl.getAttribute('content').match(/initial\-scale=([\d\.]+)/);
-		        if (match) {
-		            scale = parseFloat(match[1]);
-		            dpr = parseInt(1 / scale);
-		        }
-		    } else if (flexibleEl) {
-		        var content = flexibleEl.getAttribute('content');
-		        if (content) {
-		            var initialDpr = content.match(/initial\-dpr=([\d\.]+)/);
-		            var maximumDpr = content.match(/maximum\-dpr=([\d\.]+)/);
-		            if (initialDpr) {
-		                dpr = parseFloat(initialDpr[1]);
-		                scale = parseFloat((1 / dpr).toFixed(2));    
-		            }
-		            if (maximumDpr) {
-		                dpr = parseFloat(maximumDpr[1]);
-		                scale = parseFloat((1 / dpr).toFixed(2));    
-		            }
-		        }
-		    }
-
-		    if (!dpr && !scale) {
-		        var isAndroid = win.navigator.appVersion.match(/android/gi);
-		        var isIPhone = win.navigator.appVersion.match(/iphone/gi);
-		        var devicePixelRatio = win.devicePixelRatio;
-		        if (isIPhone) {
-		            // iOS下，对于2和3的屏，用2倍的方案，其余的用1倍方案
-		            if (devicePixelRatio >= 3 && (!dpr || dpr >= 3)) {                
-		                dpr = 3;
-		            } else if (devicePixelRatio >= 2 && (!dpr || dpr >= 2)){
-		                dpr = 2;
-		            } else {
-		                dpr = 1;
-		            }
-		        } else {
-		            // 其他设备下，仍旧使用1倍的方案
-		            dpr = 1;
-		        }
-		        scale = 1 / dpr;
-		    }
-
-		    docEl.setAttribute('data-dpr', dpr);
-		    if (!metaEl) {
-		        metaEl = doc.createElement('meta');
-		        metaEl.setAttribute('name', 'viewport');
-		        metaEl.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
-		        if (docEl.firstElementChild) {
-		            docEl.firstElementChild.appendChild(metaEl);
-		        } else {
-		            var wrap = doc.createElement('div');
-		            wrap.appendChild(metaEl);
-		            doc.write(wrap.innerHTML);
-		        }
-		    }
-
-		    function refreshRem(){
-		        var width = docEl.getBoundingClientRect().width;
-		        if (width / dpr > 540) {
-		            width = 540 * dpr;
-		        }
-		        var rem = width / 10;
-		        docEl.style.fontSize = rem + 'px';
-		        flexible.rem = win.rem = rem;
-		    }
-
-		    win.addEventListener('resize', function() {
-		        clearTimeout(tid);
-		        tid = setTimeout(refreshRem, 300);
-		    }, false);
-		    win.addEventListener('pageshow', function(e) {
-		        if (e.persisted) {
-		            clearTimeout(tid);
-		            tid = setTimeout(refreshRem, 300);
-		        }
-		    }, false);
-
-		    if (doc.readyState === 'complete') {
-		        doc.body.style.fontSize = 12 * dpr + 'px';
-		    } else {
-		        doc.addEventListener('DOMContentLoaded', function(e) {
-		            doc.body.style.fontSize = 12 * dpr + 'px';
-		        }, false);
-		    }
-		    
-
-		    refreshRem();
-
-		    flexible.dpr = win.dpr = dpr;
-		    flexible.refreshRem = refreshRem;
-		    flexible.rem2px = function(d) {
-		        var val = parseFloat(d) * this.rem;
-		        if (typeof d === 'string' && d.match(/rem$/)) {
-		            val += 'px';
-		        }
-		        return val;
-		    }
-		    flexible.px2rem = function(d) {
-		        var val = parseFloat(d) / this.rem;
-		        if (typeof d === 'string' && d.match(/px$/)) {
-		            val += 'rem';
-		        }
-		        return val;
-		    }
-
-		})(window, window['lib'] || (window['lib'] = {}));
-		
-		
-
-    $(document).ready(function () {
+                <p class="newp"></p>
+                <div class="list">
+                    <div id="list">
+                        <van-list v-model="loading" :finished="finished" :finished-text="msg" @load="doGetList" offset="300"
+                            direction="down">
+                            <div class="van-clearfix">
+                                <lazy-component>
+                                    <li class="list-item" v-for="(item,index) in list" :data-id="index" @click="swiper.slideTo(index);doPay(item,index)">
+                                        <div v-if="item.img" class="thumb home-thumb">
+                                            <p class="momeny-icon">{{item.money}}元观看
+                                            </p>
+                                            <img v-lazy="item.img">
+                                        </div>
+                                        <p class="name">{{ item.title }}</p>
+                                        <p class="plays">已有{{ item.rand }}人观看</p>
+                                    </li>
+                                </lazy-component>
+                            </div>
+                        </van-list>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
 
 
+            <!--打赏代码-->
+            <div id="WX-window-TKEy5SPt5wisSxt-Shade" v-if="dialog.pay.status" class="WX-window-shade">
+                <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
+                    <div class="WX-Window-main">
+                        <h2> <span class="close_btn" @click="dialog.pay.status = false, dialog.pay.pay = []"></span></h2>
+                        <div class="WX-Window-body">
+                            <div class="ds_tankuang">
+                                <img :src="ds_img" style="width:100%;height:100%">
+                            </div>
+                            <div style="padding:2%">
+                                <span class="niubi">{{ ds_title }}</span>
+                                <p style="line-height:25px;margin:10px auto;">
+                                    若购买后无法观看，请到已购观看。<br>
+                                </p>
+                                <ul>
+                                    <li v-for="(item, index) in dialog.pay.pay" class="pay-item" @click="linkTo(item.url)">
+                                        <a style="">
+                                            <!-- <img height="32px" style="display: inline-block; vertical-align: middle;"
+                                        :src="item.img"> -->
+                                            {{ item.name }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        let player = new Player({
-            "id": "mse",
-            "url": "{$hezi.video}",
-            "playsinline": true,
-            "x5-video-player-fullscreen": "false",
-            "x5-video-orientation": "portraint",
-            "x5-video-player-type": "h5",
-            "fluid": true,
-            "autoplay": true
-        });
-        
-        category_id = $(this).data("category_id");
-        $("#list").html("");
-        //loding();
+            <!--收藏代码-->
+            <div id="WX-window-TKEy5SPt5wisSxt-Shadee" v-if="dialog.fav.status" class="WX-window-shade"
+                style="display:none">
+                <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
+                    <div class="WX-Window-main" style="width:80%">
+                        <h2>保存本站</h2>
+                        <div class="WX-Window-body">
+                            <p style="color:#f74550;line-height:25px;margin-top:10px;text-align:center;">
+                                长按保存二维码或复制链接收藏本站
+                            </p>
+                            <img width="100%" :src="'/qrcode/build?text=' + dialog.fav.url"
+                                style="display:block;margin:auto;">
+                            <!--<div class="CopyUrl">
+                            <span class="UrlData">{{dialog.fav.url}}</span>
+                            <a href="javascript:void(0);" id="doCopyValue" :data-clipboard-text="dialog.fav.url"
+                            @click="doCopyUrl()" class="CopyUrlBtn">复制</a>
+                        </div>-->
+                        </div>
+                        <div class="WX-Window-footer"><a @click="dialog.fav.status = false" href="javascript:void(0);"
+                                style="width:calc(95% - 10px);" class="WX-Window-btn cannel">关闭</a></div>
+                    </div>
+                </div>
+            </div>
 
-    });
+            <div class="box ListPage"></div>
+            <div class="foot">
+                <div class="foot-item btn">剩余积分:10</div>
+                <div class="foot-item btn" @click="doGetVip">进VIP群</div>
+                <div class="foot-item btn" @click="doGetList()">换一批</div>
+                <div class="foot-item btn tuiguang" @click="doGetTgm"><img src="__CDN__/assets/img/iconerweima@2x.png" alt=""
+                        srcset=""></div>
+            </div>
+            <form action="" method="post" name="form" style="display:none">
+            </form>
 
-    $("body").delegate(".payMsg", "click", function () {
-        var s_id = $(this).attr('data-sid');
-        var userid = $(this).attr('data-ouser');
-        var imgsrc = $(this).attr('data-image');
-        var price = $(this).attr('data-price');
-        var url = $(this).attr('data-url');
-        var pay = $(this).attr('data-pay');
-        
-        if(pay == 1)
-        {
-            
-           
-            location.href=url;
-            
-            return;
-        }
-        $.ajax({
-            //请求方式
-            type: "GET",
-            //请求的媒体类型
-            contentType: "application/json;charset=UTF-8",
-            //请求地址
-            url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid=" + s_id + "&money=" + price,
-            //数据，json字符串
-            data: {s_id: s_id, userid: userid},
-            //请求成功
+            <div class="swiper_cover" :class="[showBuyLayer?'swiper_cover_unscale':'']">
+                <div class="swiper_content">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" v-for="(item,index) in list" :key="index+'_'+item.id">
+                                 <img :src="item.img" style="width:100%;height:100%;display:block;"/>
+                                <div  class="innerPay" v-show="currentIndexForBuy == index">
+                                    <span class="niubi">{{ item.title }}</span>
+                                    <p style="color:rgba(51, 51, 51, .8);font-size:.7rem;margin:0;width:100%;line-height:1rem;">
+                                        若购买后无法观看，请到已购观看。</p>
+                                    <div class='innerPayItem'>
+                                       <div class="len" v-for="(payItem, index) in currentPayItem" :key="payItem.name">
+                                         <div v-for="(inner, indx) in payItem" :key="indx+inner.name" class="pay-item" @click="choosePayMehod(inner)">
+                                            <span class="mony"> ¥{{inner.name.replace(/[^\d]*/,'')}}</span>
+                                            <a style="">
+                                                    {{ inner.name.replace(/\d+/,'').replace('元','') }}
+                                            </a>    
+                                    </div>
+                                       </div>
+                                    </div>
+                                    <div class="giveup" @click="showBuyLayer=false">放弃本次购买</div>
 
-            beforeSend: function () {
-                //显示loading
-                //alert('请求中');
-                // 这里的this指向触发点击事件的p元素(Element)
-                var pageHeight = window.screen.availHeight;
-                var pageWidth = window.screen.availWidth;
-                $("#overlay").height(pageHeight);
-                $("#overlay").width(pageWidth);
-                // fadeTo第一个参数为速度，第二个为透明度
-                // 多重方式控制透明度，保证兼容性，但也带来修改麻烦的问题
-                $("#overlay").fadeTo(200, 0.5);
-                $("#loading").show();
-            },
-            success: function (result) {
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                console.log(result);
-                //var gif = imgsrc.replace(/jpg/, "gif");
-                $("#msgImg").attr('src', imgsrc);
-                $("#msgImg").attr('onerror', "javascript:this.src='/public/admin/timg.jpg'");
+            <div class="payMethod_cover" v-show="choosePay" @click.self="choosePay=!choosePay">
+                    <div class="payMethod">
+                    <h3 class="pay_title">请选择支付方式</h3>
+                    <div class="pay_btns">
+                        <div class="pbtn wechatPay" @click="checkPayMethod('wx')"></div>
+                        <div class="pbtn alipay"  @click="checkPayMethod('ali')"></div>
+                    </div>
+                    </div>
+            </div>
 
-                var html = '';
-                for (var i = 0; i < result.length; i++) {
+            <van-dialog class="demo-dialog van-dialog" style="width:90%;" v-model="dialog.tgm.status" :title="tgm_title"
+                :before-close="closeDig" confirm-button-text="关闭">
+                <div
+                    style="text-align: center;padding: 20px;background: -webkit-linear-gradient(left,rgb(138,236,163),rgb(104,162,250));">
+                    <img :src="tgm_img" class="tgm-img">
+                </div>
+            </van-dialog>
+            <van-dialog class="demo-dialog van-dialog" style="width:90%;" v-model="dialog.vip.status" :title="vip_title"
+                :before-close="closeDig" confirm-button-text="关闭">
+                <div
+                    style="text-align: center;padding: 20px;background: -webkit-linear-gradient(left,rgb(138,236,163),rgb(104,162,250));">
+                    <img :src="vip_img" class="tgm-img">
+                </div>
+            </van-dialog>
+         </div>
+    </script>
+    <script type="text/x-template" id="payed-template">
+            <div class="box body home payed" style="display:block;" data-href="0">
+                <div class="header">
+                    <span class="back" @click="back"></span>
+                    <img src="__CDN__/assets/img/yigouicon.png" alt="">
+                </div>
+                <div class="list">
+                    <div id="list">
+                        <van-list v-model="loading" :finished="finished" key="payed" :finished-text="msg" @load="yigou" offset="300"
+                            direction="down">
+                            <div class="van-clearfix">
+                                <lazy-component>
 
-                    html += " <a id='pay_url_bt' class='ppp' url='"+result[i].url+"'>" + result[i].name + "</a>";
+                                    <li class="list-item" v-for="item in list" @click="doJump(item)">
+                                        <div class="thumb">
+                                            <!-- <span class="icon"></span> -->
+                                            <img v-lazy="item.img">
+                                        </div>
 
-                }
-                console.log(html);
-
-                $(".payinfo").html(html);
-                //$("#priceMsg").html(price);
-                //$("#pay_url").attr('href', url);
-                //$("#pay_url_bt").attr('href', url.replace('.html', '') + "/bt/1.html");
-                $("#msg").show();
-
-            },
-            complete: function () {
-                $("#loading").hide();
-            }
-        });
-    });
-
-    //点击按钮弹出遮罩
-    $("#btn2").click(function () {
-        $("#overlay").fadeOut(200);
-        $("#msg").hide();
-    });
-    
-    
-    $(document).on('click','.ppp',function(){
-        
-        
-         var url = $(this).attr('url');
-       location.href=url;
-    })
-    $(".ppp").click(function(){
-       
-      
-    });
-
-
-    var category_id = false;
-    layui.use('flow', function () {
-        var flow = layui.flow;
-        loding();
-
-        function loding() {
-            flow.load({
-                elem: '#list' //流加载容器
-                , done: function (page, next) { //执行下一页的回调
-
-                    var payed = 0;
-                    if (category_id == false) {
-                        category_id = 0;
-                    }
-                    if (category_id == 100) {
-                        category_id = 0
-                        payed = 1;
-                    }
-                    $.ajax({
-                        url: "/index/index/vlist",
-                        data: {
-                            f: "<?php echo $_GET['f']?>",
-                            cid: category_id,
-                            encode: "1",
-                            page: page,
-                            payed: payed,
-                            limit: 10,
-                        },
-                        type: "get",
-                        success: function (res) {
-                            console.log(res);
-                            var url = "/index/ff/foot_siyou/s_hash/__HASH__/userid/oxT4NwVYppLh-l4Lc4mCjZXE3Ahs.html";
-                            var lis = [];
-
-                            for (var i = 0; i < res.data.length; i++) {
-                                var item = res.data[i];
-                                var url2 = item.url;
-                                var hp = parseInt(Math.random() * (100 - 90) + 90);
-                                var fk = parseInt(Math.random() * (6000 - 3000) + 3000);
-                                var jg = item.money;
-                                var data = `<li>
-    <a  data-pay="${item.pay}" class="payMsg" data-url="${url2}" data-sid="${item.id}" data-ouser="oxT4NwVYppLh-l4Lc4mCjZXE3Ahs" data-image="${item.img}" data-price="${jg}">
-    <div class="list_img">
-    <img src="${item.img}"  alt="">
-    </div>
-    <div class="list_info">
-    <h3>${fk}人付款，价格￥${jg}元</h3>
-    <div>${item.title}</div>
-    </div>
-    </a>
-    </li>`;
-
-                                lis.push(data)
-                            }
-                            console.log(lis);
-                            console.log(page < (res.total / 10))
-                            next(lis.join(''), page < (res.total / 10));
-                        }
-                    })
-
-                }
+                                        <div class="desc">
+                                            <p class="name">{{ item.title }}</p>
+                                            <p class="yigous">已购视频</p>
+                                            <p class="plays">{{ item.rand }}人观看</p>
+                                        </div>
+                                    </li>
+                                </lazy-component>
+                            </div>
+                        </van-list>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+    </script>
+    <script>
+        $(document).ready(function () {
+            let player = new Player({
+                "id": "mse",
+                "url": "{$hezi.video}",
+                "playsinline": true,
+                "x5-video-player-fullscreen": "false",
+                "x5-video-orientation": "portraint",
+                "x5-video-player-type": "h5",
+                "fluid": true,
+                "autoplay": true
             });
-        }
-
-        $(".nav a").click(function () {
-            category_id = $(this).data("category_id");
-            $(this).addClass("cative").siblings().removeClass("cative");
-            console.log(category_id);
-            $("#list").html("");
-            loding();
-        });
-        $(".yfk").click(function () {
-            category_id = $(this).data("category_id");
-            $("a").removeClass("cative");
-            $("#list").html("");
-            loding();
         });
 
-        $("#yifukuan").click(function () {
-            category_id = $(this).data("category_id");
-            $("a").removeClass("cative");
-            $("#list").html("");
-            loding();
+        Vue.config.productionTip = false;
+        Vue.config.lang = 'zh-CN';
+        Vue.use(vant.Lazyload, {
+            lazyComponent: true,
         });
 
 
-        //换一批
-        $("#huanyipi").click(function () {
-            category_id = $(this).data("category_id");
-            $("#list").html("");
-            loding();
-        });
 
-        $(".nav-search-btn").click(function () {
-            let content = $("#search-title").val();
-            if (content == null || content == '') {
-                alert("请输入要搜索内容");
-                return false;
-            }
-            $("#list").html("");
-            flow.load({
-                elem: '#list' //流加载容器
-                , done: function (page, next) { //执行下一页的回调
-                    $.ajax({
-                        url: "/index/index/vlist",
-                        data: {
-                            f: "<?php echo $_GET['f']?>",
-                            page: page,
-                            encode: "1",
-                            key: content
+        var dy = "{$dy}";
+        var Home = {
+            template: '#home-template',
+            data: function () {
+                return {
+                    choosePay: false,
+                    payUrl: '',
+                    list: [],
+                    banners: true,
+                    hezi: false,
+                    cat: [],
+                    ds_img: "",
+                    ds_title: "",
+                    isOpened: false,
+                    isWidth: false,
+                    currentIndexForBuy: 1,
+                    currentPayItem: null,
+                    showBuyLayer: false,
+                    swiper: null,
+                    banner: [
+                        { img: '__CDN__/assets/img/IMG_1674.png', url: '这里填写要跳转的广告连接' },
+                        { img: '__CDN__/assets/img/IMG_1693.png', url: '这里填写要跳转的广告连接' },
+                        { img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                    ],
+                    category: [
+                        {
+                            name: '全部',
+                            icon: '__CDN__/assets/img/iconall@2x.png'
+                        }, {
+                            name: '萝莉',
+                            icon: '__CDN__/assets/img/iconluoli@2x.png'
+                        }, {
+                            name: '另类',
+                            icon: '__CDN__/assets/img/iconlinglei@2x.png'
+                        }, {
+                            name: '三级',
+                            icon: '__CDN__/assets/img/iconsanji@2x.png'
+                        }, {
+                            name: '户外',
+                            icon: '__CDN__/assets/img/iconhuwai@2x.png'
                         },
-                        type: "get",
-                        success: function (res) {
-                            if (res.status == '0') {
+                        {
+                            name: '巨乳',
+                            icon: '__CDN__/assets/img/iconjuru@2x.png'
+                        }, {
+                            name: '剧情',
+                            icon: '__CDN__/assets/img/iconjuqing@2x.png'
+                        }, {
+                            name: '乱伦',
+                            icon: '__CDN__/assets/img/iconluanlun@2x.png'
+                        }, {
+                            name: '欧美',
+                            icon: '__CDN__/assets/img/iconoumei@2x.png'
+                        }, {
+                            name: '强奸',
+                            icon: '__CDN__/assets/img/iconqiangjian@2x.png'
+                        },
+                        {
+                            name: '群交',
+                            icon: '__CDN__/assets/img/iconqunjiao@2x.png'
+                        }, {
+                            name: '人妻',
+                            icon: '__CDN__/assets/img/iconrenqi@2x.png'
+                        }, {
+                            name: '人兽',
+                            icon: '__CDN__/assets/img/iconrenshou@2x.png'
+                        }, {
+                            name: '人妖',
+                            icon: '__CDN__/assets/img/iconrenyao@2x.png'
+                        }, {
+                            name: '日韩',
+                            icon: '__CDN__/assets/img/iconrihan@2x.png'
+                        },
+                        {
+                            name: '孕妇',
+                            icon: '__CDN__/assets/img/iconyunfu@2x.png'
+                        }, {
+                            name: '重口',
+                            icon: '__CDN__/assets/img/iconzhongkou@2x.png'
+                        }, {
+                            name: '自慰',
+                            icon: '__CDN__/assets/img/iconziwei@2x.png'
+                        }, {
+                            name: 'SM',
+                            icon: '__CDN__/assets/img/iconsm@2x.png'
+                        }, {
+                            name: '恋物',
+                            icon: '__CDN__/assets/img/iconlianwu@2x.png'
+                        }, {
+                            name: '肛门',
+                            icon: '__CDN__/assets/img/icongangmen@2x.png'
+                        }],
+                    loading: false,
+                    finished: false,
+                    vid: 0,
+                    msg: '没有更多了',
+                    params: {
+                        action: "list",
+                        // f: "<?php echo $_GET['f']?>",
+                        f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+                        page: 1,
+                        row: 50,
+                        encode: 1,
+                        cid: '',
+                        key: '',
+                        payed: ''
+                    },
+                    catParam: {
+                        limit: 9,
+                        // f: "<?php echo $_GET['f']?>",
+                        f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+                        encode: 1,
+                    },
+                    activeIndex: 'cat',
+                    tgm_img: "uploads/qrocde/1655128717.png",
+                    tgm_title: "长按二维码，转发朋友或群赚积分",
+                    vip_img: "/uploads/20220602/897830ea4b0bcc0eae624a89262ec4a2.png",
+                    vip_title: "长按识别保存扫描可看更多精彩",
+                    current: 0,
+                    dialog: {
+                        fav: {
+                            status: false,
+                            img: "",
+                            url: "",
+                        },
+                        pay: {
+                            status: false,
+                            pay: [],
 
-                                next('', false);
-                            } else {
-                                var url = "/index/ff/foot_siyou/s_hash/__HASH__/userid/oxT4NwVYppLh-l4Lc4mCjZXE3Ahs.html";
-                                var lis = [];
+                        },
+                        tgm: {
+                            status: false,
+                            img: ""
+                        },
+                        vip: {
+                            status: false,
+                            img: ""
+                        }
+                    }
+                }
+            },
+            mounted: function () {
+                //this.doFav();
+                this.getCat();
+               
+                var vm = this
 
-                                for (var i = 0; i < res.data.length; i++) {
-                                    var item = res.data[i];
-                                     var url2 = item.url;
-                                    var hp = parseInt(Math.random() * (100 - 90) + 90);
-                                    var fk = parseInt(Math.random() * (6000 - 3000) + 3000);
-                                    var jg = item.money;
-                                    var data = `<li>
-    <a data-pay="${item.pay}" class="payMsg" data-url="${url2}" data-sid="${item.id}" data-ouser="oxT4NwVYppLh-l4Lc4mCjZXE3Ahs" data-image="${item.img}" data-price="${jg}">
-    <div class="list_img">
-    <img src="${item.img}"  alt="">
-    </div>
-    <div class="list_info">
-    <h3>${fk}人付款，价格￥${jg}元</h3>
-    <div>${item.title}</div>
-    </div>
-    </a>
-    </li>`;
-                                    lis.push(data)
+                var hezi = this.getQueryVariable('hezi');
+                if (hezi > 0) {
+                    this.hezi = true;
+                    this.banners = false;
+                }
+              
+                // setTimeout(() => {
+                //     this.list = [{ title: '扫单i人仍旧', img: '__CDN__/assets/img/IMG_1674.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '龙夸反思扽看东方', img: '__CDN__/assets/img/IMG_1693.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },]
+
+                // }, 500);
+                // setTimeout(() => {
+                //     vm.swiper.update()
+                //     console.log(vm.list,vm.swiper)
+                // }, 1000);
+
+            },
+            methods: {
+               choosePayMehod(item,type) {
+                    if (type && type === 'all') {
+                        this.choosePay = true
+                        this.payUrl = item.url
+                    } else {
+                        this.linkTo(item.url)
+                    }
+                },
+                checkPayMethod(flag) {
+                    this.linkTo(this.payUrl+'&pay='+flag)
+                },
+                switchFn() {
+                    this.isOpened = !this.isOpened
+                },
+                onChange(index) {
+                    this.current = index;
+                },
+                closeDig(action, done) {
+                    if (this.try_player) {
+                        this.try_player.destroy();
+                        this.try_player = '';
+                    }
+                    done(); // 关闭提示框
+                },
+                sousuoa(e) {
+                    let vm = this;
+                    vm.params.page = 1;
+                    vm.list = [];
+                    this.doGetList("-1", '');
+                },
+                getQueryVariable(variable) {
+                    var query = window.location.search.substring(1);
+                    var vars = query.split("&");
+                    for (var i = 0; i < vars.length; i++) {
+                        var pair = vars[i].split("=");
+                        if (pair[0] == variable) { return pair[1]; }
+                    }
+                    return (false);
+                },
+                doRate() {
+                    return parseInt(Math.random() * (100 - 90) + 90);
+                },
+                doRates() {
+                    return parseInt(Math.random() * (10000 - 90) + 90);
+                },
+                linkTo(e) {
+
+                    layer.msg("正在调起支付...", {
+                        icon: 16,
+                        time: 3000
+                    });
+
+                    if (dy == "1") {
+                        document.form.action = e;
+                        document.form.submit();
+                        return
+                    }
+
+                    location.href = e;
+                },
+                doCopyUrl() {
+                    let vm = this;
+                    var clipboard = new Clipboard("#doCopyValue");
+                    clipboard.on('success', function (e) {
+                        vm.$message.success('复制成功');
+                        clipboard.destroy();
+                    });
+                    clipboard.on('error', function (e) {
+                        vm.$message.errot('复制失败');
+                        console.log(e);
+                    });
+                },
+                doPay(item, index) {
+                    console.log(item);
+                    var vm = this;
+                    vm.vid = item.id;
+                    vm.ds_img = item.img;
+                    vm.ds_title = item.title;
+
+
+                    if (item.pay == 1) {
+                        if (dy == "1") {
+                            document.form.action = item.url;
+                            document.form.submit();
+                            return
+                        }
+                        window.location.href = item.url;
+                        return;
+                    }
+                    $.ajax({
+                        url: "/index/index/pay/?f=" + vm.catParam.f + "&vid=" + item.id + "&money=" + item.money,
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: {},
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            var temparr = []
+                            var final = []
+                            for (var key in data) {
+                                if (Object.hasOwnProperty.call(data, key)) {
+                                    var element = data[key];
+                                    if(typeof element == 'object'){
+                                        element.data = data
+                                        temparr.push(element)
+                                    }
+                                }
+                            }
+                            while(temparr.length){
+                                final.push(temparr.splice(0,2))
+                            }
+
+                            vm.currentPayItem = final.slice();
+                                // vm.swiper.update()
+                            // vm.swiper.slideTo(index)
+                            vm.currentIndexForBuy = index
+                            !vm.showBuyLayer && (vm.showBuyLayer = true)
+
+                        }
+                    });
+                },
+                doGetList(row) {
+                    var vm = this;
+                    console.log(row);
+                    vm.activeIndex = row ? row.id ? row.id : '-1' : '-1'
+                    if (row != undefined && row.id != undefined) {
+                        vm.list = [];
+                        vm.params.page = 1;
+                        vm.params.cid = row.id;
+                    }
+                    if (row == "cat") {
+                        vm.list = [];
+                        vm.finished = false;
+                        vm.params.page = 1;
+                        vm.params.cid = '';
+
+                    }
+                    if (row == "payed") {
+                        vm.list = [];
+                        vm.finished = false;
+                        vm.params.page = 1;
+                        vm.params.payed = 1;
+                        vm.params.cid = '';
+
+                        vm.msg = "空空如也,赶紧去选择心仪的影片吧!";
+                    }
+                    console.log(vm.params);
+
+                    $.ajax({
+                        // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                        url: '/index/index/vlist',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.params,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+                                vm.params.page++;
+
+                                let temp = data.data;
+                                vm.list = vm.list.concat(temp);
+                                vm.loading = false;
+                                // for (let index = 0; index < vm.list.length; index++) {
+                                //     const element = vm.list[index];
+                                //     element.isCurrent = false
+                                // }
+                                setTimeout(() => {
+                                    if (!vm.swiper && vm.list.length>0) {vm.swiper = new Swiper('.swiper-container', {
+                                    slidesPerView: 2,
+                                    centeredSlides: true,
+                                    spaceBetween: 0,
+                                    initialSlide: 1,
+                                    updateOnImagesReady : true,
+                                    loop: false,
+                                    pagination: '',
+                                    on: {
+                                        slideChangeTransitionEnd: function () {
+                                            console.log('end',this.activeIndex, vm.currentIndexForBuy)
+                                            vm.currentIndexForBuy = this.activeIndex
+                                        //    if(vm.showBuyLayer) vm.doPay(vm.list[this.activeIndex], this.activeIndex)
+                                        },
+                                        init(){
+                                            console.log(this.activeIndex,'init')
+                                            this.slideTo(this.activeIndex)
+                                        }
+                                    }
+                                });}else if(vm.swiper){
+                                    vm.swiper.update()
+                                }
+                                });
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                    if (data.total === 0) {
+                                        vant.Notify({ type: 'success', message: '空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容' })
+                                    }
+                                    // vant.Notify({ type: 'success', message: vm.msg });
                                 }
 
-                                next(lis.join(''), page < (res.total / 10));
+                            } else {
+                                layer.alert(data.msg);
+                            }
+                        }
+                    });
+
+
+                },
+                getCat() {
+                    let vm = this;
+                    $.ajax({
+                        // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                        url: '/index/index/cat',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.catParam,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+
+                            // vm.cat = data.data;
+                            /*if (data.status == 1) {
+                                vm.params.page++;
+        
+                                let temp = data.data;
+                                vm.list = vm.list.concat(temp);
+                                vm.loading = false;
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                }
+                            } else {
+                                layer.alert(data.msg);
+                            }*/
+                            if (data.data.length > 0) {
+                                data.data.unshift({
+                                    id: '-1',
+                                    image: '__CDN__/assets/img/iconall@2x.png',
+                                    title: '全部'
+                                })
+
+                                vm.category = data.data.slice()
                             }
 
                         }
-                    })
+                    });
 
+                },
+                doSearch() {
+                    window.location.href = "/index/index/pagecat/?f=<?php echo $_GET['f'];?>";
+                },
+                toYigou() {
+                    this.$router.push('/payed')
+
+                },
+                doFav() {
+                    let vm = this;
+                    vm.dialog.fav.url = "{$fov}";
+
+                    vm.dialog.fav.status = true;
+
+
+                    /* $.ajax({
+                         // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                         url: '/h5/api/dwz.php',
+                         type: 'GET',
+                         dataType: 'JSON',
+                         data: {action: "getUrl", uid: "1"},
+                         complete: function (XMLHttpRequest, textStatus) {
+                         },
+                         success: function (data) {
+                             if (data.status == 1) {
+                                 vm.dialog.fav.url = data.data;
+         
+                                 vm.dialog.fav.status = true;
+                             } else {
+                                 layer.alert(data.message);
+                             }
+                         }
+                     });*/
+                },
+                doGetTgm() {
+                    let vm = this;
+                    vm.dialog.tgm.status = true;
+
+                },
+                doGetVip() {
+                    let vm = this;
+                    vm.dialog.vip.status = true;
+                },
+
+            }
+        }
+        var Payed = {
+            template: '#payed-template',
+            data: function () {
+                return {
+                    params: {
+                        action: "list",
+                        // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+                        f: "<?php echo $_GET['f']?>",
+                        page: 1,
+                        row: 50,
+                        encode: 1,
+                        cid: '',
+                        key: '',
+                        payed: ''
+                    },
+                    msg: '没有更多了',
+                    finished: true,
+                    list: [{ img: 'sldfj', title: 'lskdfjsldf' }],
+                    loading: false
                 }
-            });
+            },
+            mounted: function () {
+                this.yigou()
+                // setTimeout(() => {
+                //     this.list = [{ img: 'sldfj', title: 'lskdfjsldf' }]
+                // }, 500);
+            }
+            , methods: {
+                doJump(item) {
+                    //  alert(item.url)
+                    location.href = item.url + '&img=' + item.img
 
-        });
+                },
+                doGetList(index, row) {
+                    let vm = this;
+                    console.log(row);
+                    vm.activeIndex = index
+                    vm.params.payed = '';
+                    if (row != undefined && row.id != undefined) {
+                        vm.list = [];
+                        vm.params.page = 1;
+                        vm.params.cid = row.id;
+                    }
+                    if (row == "cat") {
+                        vm.list = [];
+                        vm.finished = false;
+                        vm.params.page = 1;
+                        vm.params.key = '';
+                        vm.params.cid = '';
+                    }
+                    console.log(vm.params);
+                    $.ajax({
+                        // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                        url: '/index/index/vlist',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.params,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+                                vm.params.page++;
+
+                                vm.total = data.total;
+                                let temp = data.data;
+                                vm.list = vm.list.concat(temp);
+                                vm.loading = false;
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                    vm.msg = "没有更多了";
+
+                                }
+                            } else {
+                                layer.alert(data.msg);
+                            }
+                        }
+                    });
 
 
-    });
+                },
+                yigou() {
+                    let vm = this;
+
+                    console.log()
+                    vm.finished = false;
+                    vm.params.page = 1;
+                    vm.params.payed = 1;
+                    vm.params.key = '';
+                    vm.params.cid = '';
+                    vm.list = [];
+                    // vm.msg = "空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容";
+
+                    $.ajax({
+                        url: '/index/index/vlist',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.params,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+                                vm.params.page++;
+
+                                vm.total = data.total;
+                                let temp = data.data;
+                                vm.list = data.data;
+                                vm.loading = false;
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                    // vant.Notify({ type: 'success', message: vm.msg });
+                                    if (data.total === 0) {
+                                        vant.Notify({ type: 'success', message: '空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容' })
+                                    }
+                                }
+                            } else {
+                                layer.alert(data.msg);
+                            }
+                        }
+                    });
 
 
-</script>
-
+                },
+                back() {
+                    history.back()
+                }
+            }
+        }
+        new Vue({
+            el: '#app',
+            router: new VueRouter({
+                mode: 'hash',
+                routes: [{ path: '/', component: Home }, { path: '/payed', component: Payed }]
+            })
+        })
+    </script>
+    <script>
+        var topdata = "20px";
+        function geturl(url) {
+            var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+            httpRequest.open('GET', url, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+            httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+            /**
+             * 获取数据后的处理程序
+             */
+            httpRequest.onreadystatechange = function () {
+                if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                    var json = httpRequest.responseText;//获取到json字符串，还需解析
+                    console.log(json);
+                    return json;
+                }
+            };
+        }
+    </script>
 
 </body>
+
+</html>
