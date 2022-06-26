@@ -5,7 +5,30 @@
     <!-- 普通模式下Logo -->
     <span class="logo-lg"><b>{$site.name|mb_substr=0,6,'utf-8'|htmlentities}</b></span>
 </a>
-
+ <style type="text/css" media="all">
+                    .header-arrow-new > li > a > img{display:none}
+                    
+                    .skin-white-light .main-header .navbar .header-arrow-new >li > a{
+                        padding: 0;
+                        border:none;
+                        
+                    }
+                    .skin-white-light .main-header .navbar .header-arrow-new > .active > a{color:#2C3268}
+                    .skin-white-light .main-header .navbar .header-arrow-new >li{
+                        border:none;
+                        color:#999;
+                    }
+                    /*.header-tab-new .fa{*/
+                    /*    display:none;*/
+                    /*}*/
+                    /*.header-tab-new > li.active{*/
+                        
+                        
+                    /*}*/
+                    /*.header-tab-new > li.active > a, .header-tab-new > li.active > a:hover, .header-tab-new > li.active > a:focus{*/
+                        
+                    /*}*/
+        </style>
 <!-- 顶部通栏样式 -->
 <nav class="navbar navbar-static-top">
 
@@ -20,7 +43,7 @@
         <ul class="nav nav-tabs nav-addtabs disable-top-badge hidden-xs" role="tablist">
             {$navlist}
         </ul>
-
+       
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
