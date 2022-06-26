@@ -1,9 +1,12 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" class="pixel-ratio-1">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="#">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="Cache-Control" content="public">
-     <meta name="keywords" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>5</title>
+    <!-- <base href="https://dst.alfsxbw.cn" /> -->
+    <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,213 +15,459 @@
     <meta name="x5-orientation" content="portrait">
     <meta name="full-screen" content="yes">
     <meta name="x5-fullscreen" content="true">
-    
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/main.css">
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/css/wx.css">
+    <script src="__CDN__/assets/list/muban1/static/lib/vue/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <script src="__CDN__/assets/list/muban1/static/lib/vant/js/vant.min.js"></script>
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/lib/vant/css/index.css" />
+    <script src="__CDN__/assets/list/muban1/static/js/jquery.min.js"></script>
+    <script src="__CDN__/assets/list/muban1/static/lib/layer/layer.js"></script>
+    <link rel="stylesheet" href="__CDN__/assets/list/muban1/static/lib/el-ui/css/index.css">
+    <script src="__CDN__/assets/list/muban1/static/lib/el-ui/index.js"></script>
+    <script src="__CDN__/assets/list/muban1/static/clipboard/clipboard.min.js" type="text/javascript"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xgplayer@1.1.4/browser/index.js" charset="utf-8"></script>
+    <script src=https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js></script>
+    <script src=__CDN__/assets/list/muban1/static/js/gundong.js></script>
 
-<!-- 引入 Vue 和 Vant 的 JS 文件 -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vant@2.10/lib/vant.min.js"></script>
-<script src="__CDN__/assets/list/muban1/static/js/jquery.min.js"></script>
-<script src="__CDN__/assets/list/muban1/static/lib/layer/layer.js"></script>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-<script>
-    function onBridgeReady() {
-        WeixinJSBridge.call('hideOptionMenu');
-    }
+</head>
 
-    if (typeof WeixinJSBridge == "undefined") {
-        if (document.addEventListener) {
-            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-        } else if (document.attachEvent) {
-            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+<body>
+
+    <script>
+        function onBridgeReady() {
+            WeixinJSBridge.call('hideOptionMenu');
         }
-    } else {
-        onBridgeReady();
-    }
-</script>
 
-    <title>🈲·止·转·发</title>
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+    </script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-            font-size: 13.33333333333vw;
-            border-radius: 0.0rem;
+        .van-list__finished-text {
+            margin-bottom: 10%;
         }
 
-        #__vconsole * {
-            font-size: 0.28rem !important;
+        .likelist li {
+
+            margin-bottom: 10px;
+
+            height: 60px;
+
+            overflow: hidden;
+
+            display: block;
+
         }
 
-        #dplayer * {
-            font-size: 12px !important;
+        .likelist li img {
+
+            width: 30%;
+
+            display: block;
+
+            float: left;
+
+            height: 60px;
+
         }
 
-        .dplayer-video-wrap {
-            -webkit-transform: translateZ(0px);
+        .likelist p {
+
+            width: 70%;
+
+            float: left;
+
+            height: 60px;
+
+            line-height: 25px;
+
+            padding: 5px 10px;
+
+            text-overflow: ellipsis;
+
+            display: -webkit-box;
+
+            -webkit-line-clamp: 2;
+
+            overflow: hidden;
+
+            -webkit-box-orient: vertical;
+
+        }
+
+        .liketitle {
+
+            margin-top: 10px;
+
+        }
+
+        #myvideo {
+            margin-top: 10px;
+        }
+
+        .pay-item {
+            display: inline-block;
+            width: 8.1rem;
+            height: 2.2rem;
+            line-height: 2.2rem;
+            margin-bottom: .5rem;
+            margin-top:.5rem;
+            border-radius: 5px;
+            text-align: center;
+            color: #FA7299;
+            margin-right: .5rem;
+            /*background: -webkit-linear-gradient(left, #8aeda2, #68a0fb)*/
+            border-radius: 46px;
+            border: 2px solid #FA7299;
+        }
+        .activeBuyBtn{
+            background-color: #FA7299;
+            color:#fff;
+        }
+
+        .pay-item:nth-child(2n) {
+            margin-right: 0;
         }
 
         html,
         body {
             height: 100%;
+            font-size: calc(100vw/18.75);
         }
 
-        image {
-            height: auto;
-        }
-
-        [v-cloak] {
-            display: none;
-        }
-
-        uni-page-body {
-            height: 100%;
-        }
-
-        .ml20 {
-            margin-left: 0.20rem;
-        }
-
-        .ml40 {
-            margin-left: 0.40rem;
-        }
-
-        .mt20 {
-            margin-top: 0.1rem;
-        }
-
-        .mt10 {
-            margin-top: 0.10rem;
-        }
-
-        .color-ff {
-            color: #2e2e2e !important;
-        }
-
-        .f24 {
-            font-size: 0.24rem !important;
-        }
-
-        .flex-1 {
-            flex: 1;
+        .con {
             width: 100%;
-        }
-
-        .wrap {
-            height: 100%;
-        }
-
-        .index,
-        .play {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .video {
-            background: #000;
-            width: 100%;
-        }
-
-        .video-type {
-            background-image: linear-gradient(to right, #555eee, #774488);
-            background-image: linear-gradient(to right, #ff0030, #c000ff);
-            font-size: 0.24rem;
+            height: 35px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
             color: #fff;
-            padding: 0.12rem 5px;
-            margin-top: 0.02rem;
-            border-radius: 0.15rem;
-            position: sticky;
-            top: 0;
-            z-index: 99;
-        }
-
-        .type-row {
-            font-size: 0;
-        }
-
-        .type-item {
-            font-weight: bold;
-            display: inline-block;
-            font-size: 0.32rem;
-            color: #fff;
-            padding: 0.02rem 0;
             text-align: center;
-            width: 14.2855555%;
+            border-radius: 10px;
+            line-height: 35px;
+            z-index: 999;
+            display: none;
+            font-size: 16px;
         }
 
-        .type-active {
-            background-image: linear-gradient(#fffaaa, #fff000);
-             !important;
-            border-radius: 0.10rem;
-            color: #da2b30;
+        .body .banner {
+            border-radius: 0;
+            margin: 0;
         }
 
-        .type-search {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .home .header {
+            background: #fff;
+            padding: 5px;
+            position: relative;
+            height: 2.5rem;
+            margin-top: 0;
         }
 
-        .type-search * {
-            font-size: 15px !important;
+        .home {
+            padding-top: 0;
         }
 
-        .type-have {
-            background-image: linear-gradient(#fffaaa, #fff000);
-            color: #f53036;
-            font-weight: bold;
-            border-radius: 0.10rem;
-            padding: 0.05rem;
+        .home .header .search {
+            background: none;
+            color: #FA7299;
+            text-align: left;
+            padding: 0 5%;
+            position: relative;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            margin: 0;
+            vertical-align: middle;
+            /* display: inline-block; */
+            margin-top: .25rem;
+            width: 10.5rem;
+            margin-left: 7.2rem;
+            width: 1rem;
+
         }
 
-        .yigou {
-            background-image: linear-gradient(#fffaaa, #fff000);
-            color: #f53036;
-            font-weight: bold;
-            font-size: 0.30rem;
-            border-radius: 0.10rem;
+        .home .header .search input {
+               background: none;
+                width: 100%;
+                height: 100%;
+                line-height: 100%;
+                border: none;
+                color: #FA7299;
+                display: none;
         }
 
-        .line {
-            border-top: 1px solid #333;
-            width: 94%;
-            margin: 0.10rem auto;
+        .home .header .widther input {
+            display: block;
         }
 
-        .input-text {
-            background: #FFFFFF;
-            border: 1px solid #FFFFFF;
-            height: 0.67rem;
-            border-radius: 0.16rem;
-            padding: 0 0.20rem;
-            margin-left: 0.30rem;
-            width: 3.5rem;
+        .home .header .widther {
+            width: 8.8rem;
+            margin-left: .25rem;
+            border: 1px solid #FA7299;
         }
 
-        .input-text::placeholder {
-            font-size: 0.28rem;
-            color: #707070
+        .home .header .search::after {
+            position: absolute;
+            right: .5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            content: '';
+            width: .8rem;
+            height: .8rem;
+            background: url(__CDN__/assets/img/iconsousuow@2x.png) no-repeat right center;
+            background-size: 100% 100%;
+
         }
 
-        .btn-search {
-            font-weight: bold;
+        .home .header .collect-btn {
+            background: url(__CDN__/assets/img/jingcai@2x.png) no-repeat center;
+            width:3.95rem;
+            height: .9rem;
+            background-size: 100% 100%;
+            margin-left: 0;
+
+        }
+
+        .home .header .agency {
+            width: 3.95rem;
+            height: .9rem;
+            margin-top: .55rem;
+            margin-left: .7rem;
+        }
+
+
+        .home .header .yigou {
+            width: 3.6rem;
+            height: 1.2rem;
+            line-height: 1.2rem;
+            font-size: .6rem;
+            margin-top: .4rem;
+            float: right;
+            margin-right: .7rem;
             color: #fff;
-            font-size: 0.34rem;
-            margin-left: 0.30rem;
+            background: #FA7299;
+            border-radius: 4px;
+            
+        }
+
+        .home .header .yigou img {
+            display: block;
+            width: 100%;
+            margin-top: 1.2rem;
+        }
+
+        .swipe {
+            padding: .5rem;
+            background: #F3F5F6;
+        }
+        .swipe .van-swipe{
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .swipe .van-swipe img{
+            height: 10rem;
+            display: block;
+        }
+
+        .swipe .el-carousel__indicators--horizontal {
+            left: auto;
+            transform: none;
+            right: 10px;
+        }
+
+        .swipe .el-carousel__container {
+            height: 7rem;
+        }
+
+        .swipe .el-carousel__button {
+            width: 10px;
+            height: 5px;
+            border-radius: 5px;
+        }
+
+        .swipe .el-carousel__indicator.is-active button {
+            background-color: #00cc36;
+        }
+
+        .channel {
+            padding-top: 10px;
+            position: relative;
+        }
+
+        .body .channel .van-swipe__indicators {
+            bottom: 0;
+            height: .2rem;
+        }
+
+        .body .channel .el-carousel__indicators li {
+            width: auto;
+            margin: 0;
+            height: auto;
+            float: none;
+            padding: 0;
+        }
+
+        .body .channel .van-swipe__indicator {
+            width: .65rem;
+            margin: 0;
+            border-radius: 5px;
+
+        }
+
+        .body .channel .el-carousel__indicators button {
+            background-color: #e5e5e5;
+            height: 5px;
+            border-radius: 5px;
+        }
+
+        .body .channel .is-active button {
+            background-color: #00cc36;
+        }
+
+        .newp {
+            margin: 0 .5rem;
+            margin-top: .5rem;
+            height: .75rem;
+            width: 2.5rem;
+            background: url(__CDN__/assets/img/newp.png) no-repeat left center;
+            background-size: 100% 100%;
+        }
+
+        .list {
+            padding: 1%;
         }
 
         .foot {
-            background-image: linear-gradient(to right, #ff0030, #c000ff);
-            height: 0.90rem;
+            background: #00cd55;
+            height: 70px;
+            line-height: 70px;
+            width: 90%;
+            position: fixed;
+            bottom: 20px;
+            border-radius: 35px;
+            box-shadow: 0px 0px 16px rgb(0 0 0 / 30%);
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             align-items: center;
             justify-content: space-around;
             color: #fff;
             font-size: 0.30rem;
+            z-index: 100;
+            display: none;
+        }
+
+        .my-swipe {
+            height: 3rem;
+        }
+
+        .body .channel ul.channel_box {
+            height: 1.8rem;
+            overflow-y: hidden;
+        }
+
+        .body .channel ul li {
+            width: 2.5rem;
+            height: 1.2rem;
+            margin-left: .3rem;
+            position: relative;
+        }
+
+        .body .channel ul li img {
+            width: 1.9rem;
+            height: 1.5rem;
+        }
+
+        .body .channel ul li a {
+            display: block;
+            font-size: .7rem;
+        }
+
+        .body .channel ul li span {
+            /* font-size: .8rem; */
+        }
+
+        .custom-indicator {
+            background: #fff;
+            color: #000;
+            font-size: .7rem;
+            line-height: 2.2rem;
+            text-align: left;
+            padding: 0 .6rem;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+        .custom-indicator .name{
+            color: #18191c;
+            font-size: .7rem;
+            text-align: left;
+            display: inline-block;
+            width: 70%;
+            margin: 0;
+            padding: 0;
+            line-height: 1.2;
+            margin-top: .5rem;
+        }
+        .custom-indicator .name>span{
+            display: inline-block;
+            background: #FFF1ED;
+            color: #FF6C3B;
+            padding: 1%;
+            font-size: .5rem;
+            line-height: 1;
+            border-radius: 2px;
+        }
+        .custom-indicator .love{
+            float: right;
+            margin-top:.5rem;
+            background: url(__CDN__/assets/img/xihuan-3@2x.png) no-repeat left center;
+            background-size: .75rem .8rem;
+            font-size: .5rem;
+            color:#9BA0A6;
+            line-height: 1.2;
+            padding-left:1rem;
+        }
+        .hasplay{
+           position: absolute;
+           top:8rem;
+           left:.5rem;
+           color:#fff;
+           font-size: .5rem;
+           text-align: left;
+           padding:0 2%;
+           border-radius: 9px;
+           padding-left:1rem;
+           background: rgba(51, 51, 51, 0.5) url(__CDN__/assets/img/shipinbofang@2x.png) no-repeat 10% center;
+           background-size: .55rem .45rem; 
+           margin-bottom: .25rem;
+        }
+
+        .body .channel ul li.active {
+            color: #FA7299;
+            font-weight: bold;
+        }
+
+        .body .channel ul li.active::after{
+        	    content: "";
+                display: block;
+                position: absolute;
+                bottom:-3px;
+                width: .5rem;
+                height: 2px;
+                background: #FA7299;
+                z-index: 20;
+                border-radius: 2px;
+                left:50%;
+                transform: translateX(-50%);
         }
 
         .foot-item {
@@ -227,683 +476,1414 @@
             justify-content: center;
             align-items: center;
             padding: 0.10rem;
-            font-size: 0.3rem;
+            font-size: 0.65em;
             width: fit-content
         }
 
-        .foot-active {
-            background-image: linear-gradient(#fffaaa, #fff000);
-             !important;
-            border-radius: 0.10rem;
-            color: #da2b30;
+        .list .list-item {
+            height: auto;
+            margin-bottom: .5rem
         }
 
-        .list {
-            font-size: 0;
+        .list .list-item .plays {
+            color: #CCCCCC;
+            padding-left: 0;
+            font-size: .6rem;
+            margin: 0;
         }
 
-        .list-item {
-            margin-top: 0.11rem;
-            vertical-align: -8px;
-            width: 49%;
-            height: 3.2rem;
+        .list .list-item .name {
+            line-height: 1.5rem;
+            font-size: .7rem;
+            color: #222;
+            margin: 0;
+            /* background: linear-gradient(45deg, #bd58ef, #af4261);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -moz-background-clip: text;
+              -moz-text-fill-color: transparent;
+              -webkit-text-fill-color: transparent; */
+        }
+
+        .list .list-item .plays {
+            line-height: 1;
+            font-size: .6rem;
+            margin: 0;
+            color: #A3A3A3;
+            /* background: linear-gradient(45deg, #bd58ef, #af4261);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -moz-background-clip: text;
+              -moz-text-fill-color: transparent;
+              -webkit-text-fill-color: transparent; */
+        }
+
+        .tuiguang img {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .home .home-thumb {
+            position: relative;
+        }
+
+        .home .home-thumb .momeny-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            /* background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140)); */
+            color: #fff;
+            background: #FE6022;
+            /* border-radius: 3px; */
+            font-size: .4rem;
+            display: block;
+            /* box-sizing: content-box; */
+            text-align: center;
+            min-width: 2.8rem;
+            height: 1rem;
+            line-height: 1rem;
+            border-bottom-right-radius: 6px;
+            bottom: 0;
+            margin: 0;
+        }
+
+        .home .home-thumb .momeny-icon span {
+            float: right;
+            font-size: .4rem;
+        }
+
+        .WX-window-shade .WX-Window-main {
+            background: #fff;
+            color: #fff;
+            position: absolute;
+            bottom:0;
+            width:100%;
+            left:0;
+            max-width: 100%;
+            padding:.8rem;
+        }
+        .WX-window-box{
+            display: block;
+            vertical-align: inherit;
+        }
+        .WX-window-box h2 {
+            /* background: #08120e url(__CDN__/assets/img/goumai@2x.png) no-repeat left center; */
+            height: 32px;
+            background-size: 74px 32px;
+            border: none;
+            margin-bottom: 10px;
+            background: #fff;
+            font-size: .7rem;
+            color:#18191c;
+            text-align: left;
+        }
+
+        .WX-window-box h2 span {
+            display: block;
+            float: right;
+            height: 22px;
+            width: 22px;
+            background: url(__CDN__/assets/img/guanbi1@2x.png) no-repeat center;
+            margin-top: 10px;
+            margin-right: 10px;
+            background-size: .5rem .5rem;
+        }
+
+        .CopyUrl {
+            width: 90%;
+            height: 70px;
+            margin: auto;
+        }
+
+        .CopyUrl span {
+            display: block;
+            float: left;
+            padding: 5px 0px;
+        }
+
+        .CopyUrl a {
+            display: block;
+            padding: 5px 10px;
+            color: #13ce66;
+            float: right;
+        }
+
+        .ds_tankuang {
+            height: 3.5rem;
+            width: 6.3rem;
             display: inline-block;
             vertical-align: top;
-            margin-left: 0.05rem;
+        }
+        .ds_right{
+            display: inline-block;
+            vertical-align: top;
+            padding-left:.5rem;
+            width:60%;
         }
 
-        .list-item:nth-of-type(2n) {}
-
-        .img-wrap {
-            height: 2.5rem;
-            border-radius: 0.15rem;
-            
-            position: relative;
-            overflow: hidden;
-            -webkit-transform: translateZ(0px);
-        }
-
-        .img-tips-left {
-            background: #000;
-            color: #fff;
-            font-size: 0.18rem;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            z-index: 9;
-            padding: 0.05rem 0.10rem;
-            filter: alpha(Opacity=80);
-            -moz-opacity: 0.5;
-            opacity: 0.65;
-            border-radius: 0.1rem;
-        }
-
-        .thumb {
+        .niubi {
+            font-size: .7rem;
+            color:#18191c;
             display: block;
-            width: 100%;
+            width:100%;
+            margin-top: .5rem;
+            margin-bottom: .8rem;
+            height: 1rem;
+            line-height: 1.2;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            text-align: justify;
+
+        }
+
+        .WX-window-box .WX-Window-body {
+            padding: 0;
+        }
+
+        .list .list-item .thumb {
+            height: 5rem;
+            width: 8.6rem;
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+
+        }
+
+        .list .list-item .thumb img {
+            /* box-shadow: 0 0 10px rgb(0 0 0 / 10%); */
+            border-radius: 0;
+        }
+
+        .body .channel ul.isOpen {
+            height: auto;
+        }
+
+        .switcher {
+            position: absolute;
+            right: .8rem;
+            top: .5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #fff url(__CDN__/assets/img/xiala@2x.png) no-repeat center;
+            background-size: .5rem .3rem;
+            transform: translate(0);
+            transition: all .5s;
+        }
+
+        .openSwitcher {
+            transform: rotate(180deg);
+        }
+    </style>
+    <style>
+        #app {
             height: 100%;
         }
 
-        .video-title {
-            font-size: 0.25rem;
-            line-height: 16px;
-            font-weight: bold;
-            border: thin solid #b9b9b9;
-            margin-top: 1px;
-            border-radius: 5px;
-            height: 33px;
-            overflow: hidden;
-            padding-left: 4px;
+        .back {
+            vertical-align: middle;
+            width: 1rem;
+            height: 2.2rem;
+            background: url(__CDN__/assets/img/fanhui@2x.png) no-repeat center;
+            background-size: .65rem .65rem;
+            float: left;
+            margin-left: .25rem;
+            line-height: 1;
         }
 
-        .view {
-            flex: 1;
-            overflow: auto;
-            -webkit-overflow-scrolling: touch;
+        .payed {
+            height: 100%;
+            /* background: #F9F5F4 url(__CDN__/assets/img/bg@2x.png) no-repeat top center; */
+            /* background-size: 18.75rem 11.1rem; */
+            backgroud:#fff;
         }
 
-        .v-body {
-            min-height: 101%;
-            padding-bottom: 0.20rem;
+        .payed .header {
+            height: 2.2rem;
+            text-align: center;
+            line-height: 2.2rem;
+            text-align: center;
+            color:#fff;
+            font-size: .8rem;
+            padding: 0;
+            background: none;
+            background: url(__CDN__/assets/img/shipin-2@2x.png)no-repeat center;background-size: 100% 100%;
         }
 
-        .uni-video {
-            width: 100%;
-            height: 215px;
+        .payed .header img {
+            width: 3rem;
+            height: .8rem;
             display: inline-block;
-            line-height: 0;
+            vertical-align: middle;
+        }
+
+        .payed .list .list-item {
+            width: 17.35rem;
+            display: flex;
+            height: 5.7rem;
+            background: #fff;
             overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .payed .list .list-item .thumb {
+            margin-left: .5rem;
+            position: relative;
+            border-radius: 6px;
+             width: 8.1rem;
+            height: 4.5rem;
+        }
+
+        .payed .list .list-item .thumb img {
+            width: 8.1rem;
+            height: 4.5rem;
+            position: relative;
+            background: url(__CDN__/assets/img/list.png) no-repeat center;
+            background-size: 100% 100%;
+            border-radius: 0;
+        }
+
+        .payed .list .list-item .thumb video {
+            width: 6.5rem;
+            height: 3.7rem;
             position: relative;
         }
-
-        .uni-video-container {
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            display: inline-block;
+        .playsin{
+            width:6.2rem;
+            height: .9rem;
+            line-height: .9rem;
+            background: rgba(51, 51, 51, 0.5);
+            border-radius: 9px;
+            color:#fff;
+            font-size: .5rem;;
             position: absolute;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            object-position: inherit;
-        }
+            bottom:0;
+            left:.25rem;
+            padding-left:.25rem;
+            margin-bottom:.25rem;
 
-        .uni-video-video {
-            width: 100%;
-            height: 100%;
-            object-position: inherit;
-        }
-
-        .mod {
-            box-shadow: 0 0 0 999px rgba(0, 0, 0, .85);
-            width: 7rem;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 999;
-            background: #3a3a3a;
-            color: #fff;
-            font-size: 0.24rem;
-            margin-top: -10%;
-            border-radius: 1.5rem;
-        }
-
-        .mod-img-wrap {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .mod-img {
-            width: 7rem;
-            height: 6rem;
-            border-radius: 0.15rem;
-            border: 1px solid #ddd;
-            background: #000000;
-        }
-
-        .mod-title {
-            font-weight: bold;
-            padding: 0.1rem;
-            font-size: 0.24rem;
-            height: 40px;
-            margin-top: -16px;
-        }
-
-        .mod-foot {
-            height: 1.1rem;
-            align-items: center;
-        }
-
-        .mod-foot-item {
-            margin-top: 6px;
-            font-weight: bold;
-            height: 100%;
-            padding: 0 0.55rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 0.43rem;
-            border-radius: 0.20rem;
-        }
-
-        .mod-active {
-            color: #FFFFFF;
-            background-image: linear-gradient(to right, #ff0030, #c000ff);
-        }
-
-        .none {
-            display: none !important;
         }
 
         .desc {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #000;
-            font-size: 0.34rem;
-            margin-top: 0.10rem;
-            font-weight: bold;
+            flex: 1;
+            padding-top: .5rem;
+            padding-left:.5rem;
         }
 
-        .play-foot {
-            height: 0.90rem;
-            background-image: linear-gradient(to right, #ff0030, #c000ff);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.35rem;
-            color: #fff;
+        .payed .list .list-item .name {
+            margin: 0;
+            font-size: .7rem;
+            margin-left: .25rem;
+            line-height: 1.2;
+            text-overflow: inherit;
+            white-space: inherit;
+            width: 90%;
+            overflow: hidden;
+            color: #222;
+            text-align: justify;
         }
 
-        .mask {
-            height: 100%;
-            width: 100%;
-            position: fixed;
-            _position: absolute;
+        .yigous {
+            width: 3rem;
+            height: .8rem;
+            line-height: .8rem;
+            background: #FFD7C7;
+            border-radius: 9.5px;
+            color: #FE6022;
+            font-size: .5rem;
+            text-align: center;
+            margin: 0;
+            display: block;
+            margin:.25rem 0;
+        }
+
+        .payed .list .list-item .plays {
+            font-size: .6rem;
+            margin: 0;
+            margin-left: .25rem;
+            color: #878787;
+            height: 1rem;
+            line-height: 1rem;
+        }
+
+        .icon {
+            display: block;
+            width: 1.8rem;
+            height: 1.45rem;
+            position: absolute;
+            left: 0;
             top: 0;
+            z-index: 2;
+            background: url(__CDN__/assets/img/jiaobiao@2x.png) no-repeat center;
+            background-size: 100% 100%;
+        }
+
+        .swiper_cover {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            z-index: 300;
+            background: rgba(60, 60, 60, 0.42);
+            backdrop-filter: blur(4px);
+            top: 0;
+            left: 0;
+            transform: scale(0);
+            transform-origin: center;
+        }
+        .swiper_cover_unscale{
+            transform: scale(1);
+        }
+
+        .swiper_content {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .swiper_content,
+        .swiper-container {
+            min-height: 19rem;
+            width: 100%;
+        }
+
+        .swiper-slide {
+            height: 6.8rem;
+            width:12.3rem;
+        }
+
+        .innerPay {
+            position: absolute;
+            top: 7.3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            padding: .8rem;
+            border-radius: 6px;
+            width: 16.75rem;
+        }
+
+        .innerPay::after {
+           content: '';
+            display: block;
+            border: .5rem solid #fff;
+            border-bottom-color: #fff;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-top: transparent;
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .innerPay .niubi {
+            color: #333;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+        .innerPay .giveup{
+            color:rgba(51,51,51,.36);
+            font-size: .7rem;
+            margin-top:1rem;
+            margin-bottom: .25rem;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            transition: 300ms;
+            transform: scale(0.8);
+        }
+
+        .swiper-slide-prev {
+            transform-origin: bottom left;
+        }
+
+        .swiper-slide-next {
+            transform-origin: bottom right;
+        }
+
+        .swiper-slide-active,
+        .swiper-slide-duplicate-active {
+            transform: scale(1);
+        }
+        .innerPayItem,.len{
+            display: flex;
+            width:100%;
+            margin-top:1rem;
+        }
+        .len{
+            
+            background: linear-gradient(180deg, #FE6022 0%, #FF7944 100%);
+           box-shadow: inset 0px 2px 22px 0px rgba(255, 255, 255, 0.5);
+           border-radius: 6px;
+        }
+        .innerPayItem .pay-item{
+            margin:0;
+            flex:1;
+            position: relative;
+            line-height: 1;
+            height: 2.5rem;
+            background:none;
+        }
+        .innerPayItem .pay-item span, .innerPayItem .pay-item a{
+            display: block;
+            line-height: .8rem;
+        }
+        .innerPayItem .pay-item span{
+            margin-top:.5rem;
+        }
+        .innerPayItem .pay-item:last-child::before{
+            content: '';
+            display: block;
+            width:2px;
+            height: 50%;
+            position: absolute;
+            left:-1px;
+            top:50%;
+            transform: translateY(-50%);
+            background:#fff;
+        }
+        .innerPayItem .pay-item:first-child::before{
+            display: none;
+        }
+         .payMethod_cover {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .2);
             z-index: 1000;
         }
 
-        .opacity {
-            opacity: 0.3;
-            filter: alpha(opacity=30);
-            background-color: #000;
+        .payMethod {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background: #fff;
+            padding: 1rem .5rem;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
         }
+
+        .pay_title {
+            font-size: .7rem;
+            color: #575757;
+            text-align: center;
+            margin: 0;
+        }
+
+        .pay_btns {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pbtn {
+            width: 8rem;
+            height: 3rem;
+            background: url(__CDN__/assets/img/wechatpay.png) no-repeat center;
+            background-size: 100% 100%;
+        }
+
+        .alipay {
+            background-image: url(__CDN__/assets/img/alipay.png);
+        }
+        
     </style>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.10/lib/index.css"/>
-
-<style>
-    .demo-dialog img {
-    box-sizing: border-box;
-    width: 100%;
-    height: 250;
-    padding: 25px 20px 0;
-}
-
-.van-dialog__header {
-    padding-top: 26px;
-    font-weight: 500;
-    line-height: 24px;
-    text-align: center;
-    font-size: 16px;
-}
-.van-button__text{
-      background-image: linear-gradient(to right, #555eee, #774488);
-    background-image: linear-gradient(to right, #ff0030, #c000ff);
-    border-top-right-radius: 999px;
-    border-bottom-right-radius: 999px;
-    border-top-left-radius: 999px;
-    border-bottom-left-radius: 999px;
-    font-weight: 500;
-    font-size: 14px;
-    width: 100%;
-    color: #fff;
-    line-height: 2.2;
-    text-align: center;
-    transition: opacity 0.2s;
-    cursor: pointer;
-    width: 90%;
-}
-
-.van-button--primary {
-    color: #fff;
-    /* background-color: #07c160; */
-    /* border: 1px solid #07c160; */
-    border: none;
-}
-.type-row .active{
-    background-image: linear-gradient(#fffaaa, #fff000);
-    color: #f53036;
-    font-weight: bold;
-    font-size: 0.30rem;
-    border-radius: 0.10rem;
-}
-
-.xgplayer-skin-default .xgplayer-start {
-    margin: 0;
-    width: 100px;
-    height: 100px;
-    left: -31%;
-    left: right;
-    
-    top: -7px;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    z-index: 99999;
-}
-
-.xgplayer-skin-default .xgplayer-icon-play {
-    margin: 0;
-    width: 100px;
-    height: 100px;
-    left: -31%;
-    left: right;
-    
-    top: -7px;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    z-index: 99999;
-}
-
-.xgplayer-skin-default .xgplayer-start div svg {
-    fill: hsla(0,0%,100%,.7);
-    width: 100%;
-    height: 100%;
-    position: relative;
-    bottom: 9%;
-    left: 7%;
-}
-
-</style>
-<script src="//cdn.jsdelivr.net/npm/xgplayer@2.9.6/browser/index.js" charset="utf-8"></script>
-
-</head>
-
-<body>
-    <div id="app" class="wrap root">
-        
-        <form action="" method="post" name="form" style="display:none">
-  
-</form>
-
-        <div id="content" style="display:none;"></div>
-        <div class="index">
-            <div class="view" id="index_view">
-                <div class="v-body">
-                    
-                    <div class="hezi" v-if="hezi">
-            <div id="mse" style="width: 100%"></div>
-        </div>
-        
-        
-                    <div class="video-type">
-                        <div class="type-row">
-                            
-                            <div class="type-item " key="-1" :class="activeClass == -1 ? 'active':''"
-                    @click="doGetList(-1,'cat')">全部</div>
-                            <div class="type-item" data-cid="0" v-for="(item,index) in cat" @click="doGetList(index , item)" :key="index"
-                    :class="activeClass == index ? 'active':''">{{item.title}}</div>
-
-                            <div class="type-item " key="99" :class="activeClass == 99 ? 'active':''" @click="yigou()">已购</div>
-                        </div>
-                        <div class="type-search mt20"><span class="type-have" @click="dingbu()">今日新片</span>
-                            <div>
-                                <input type="text"  v-model="params.key" class="input-text color-ff" placeholder="输入搜索关键词"></div>
-                            <div class="btn-search"  @click="sousuoa()">搜 索 ▹</div>
-                        </div>
-                    </div>
-                    <div class="list">
-
-                        <van-list v-model="loading" :finished="finished" :finished-text="msg" @load="doGetList" offset="700"
-                          direction="down">
-                    
-                            <div class="van-clearfix">
-                        
-                         <lazy-component>
-
-                        <div class="list-item mt20" v-for="item in list">
-                            <div class="img-wrap"  @click="doPay(item)">
-                                <img alt="" class="thumb"
-                                    v-lazy="item.img"><span
-                                    class="img-tips-left">已有{{item.rand}}人付款<font
-                                        style="color:#FF0000;font-size:0.23rem;font-weight:bold">{{item.money}}</font>元观看</span>
-                            </div>
-                            <div class="video-title">{{item.title}}</div>
-                        </div>
-                         </lazy-component>
-                        
-                        </div>
-                        
-                        </van-list>
-                        
-                        
-
-                    </div>
-                </div><br>
-            </div>
-            <div class="foot" style="margin-left:-5px">
-                <div class="type-item foot-item" @click="doGetList(-1,'cat')">•热门推荐</div>
-                <div>
-                    <div class="foot-item foot-active" @click="yigou()">✚已购买</div>
-                </div>
-                <div class="foot-item" @click="dingbu()">返回顶部</div> 
-            </div>
-        </div>
-         <van-dialog class="demo-dialog van-dialog" v-model="dialog.pay.status" :title="ds_title" confirm-button-text="关闭" show-confirm-button>
-    <img :src="ds_img"  />
-    
-    <van-button square  style="    width: 100%;border:none;" v-for="(item,index) in dialog.pay.pay" :class="setClass(item)" class="index-pay-item" @click="linkTo(item.url)"> {{item.name}}</van-button>
-  
-
-    </van-dialog>
+    <div id="app">
+        <!-- <p class=con></p> -->
+        <router-view></router-view>
     </div>
-    
-   
+    <script type="text/x-template" id="home-template">
+            <div class="box body home" style="display:block;" data-href="0">
+
+                <div class="header">
+                    <li class="agency" >
+                        <!-- <div class="collect-btn">收藏<i></i></div> -->
+                        <div class="collect-btn"></div>
+                    </li>
+                    <li class="search" :class="[isWidth?'widther':'']" @click="isWidth=!isWidth"><input class="inputKey" v-model="params.key" type="text" @change="sousuoa" @key.enter="sousuoa" placeholder="输入搜索关键词"></li>
+                     <li class="request yigou" @click="toYigou">已购视频</li>
+                    
+                </div>
+                 <div class="channel">
+                   
+                            <ul class="channel_box" :class="[isOpened?'isOpen':'']">
+                                <li class="licat"  v-for="cate in category" :class="[activeIndex==cate.id?'active':'',cate.id]">
+                                    <a  @click="doGetList(cate.id=== '-1'?'cat':cate)">
+                                        <span>{{ cate.name||cate.title }}</span>
+                                    </a>
+                                </li>
+                                <div style="clear:both;"></div>
+                            </ul>
+                            <div class="switcher" @click="switchFn" :class="[isOpened?'openSwitcher':'']"></div>
+                       
+                </div>
+                <!-- <div class="hezi" v-if="hezi">
+                    <div id="mse" style="width: 100%"></div>
+                </div> -->
+                <div class="banner">
+                    <div class="swipe" id="mySwipe">
+                        <!-- <el-carousel indicator-position="right">
+                            <el-carousel-item v-for="src in banner">
+                                <img width="100%" height="100%" :src="src.img" @click="linkTo(src.url)">
+                            </el-carousel-item>
+                        </el-carousel> -->
+                       <van-swipe @change="onChange">
+                        <van-swipe-item v-for="src in banner" :key="src.img">
+                            <img width="100%" height="100%" :src="src.img" @click="linkTo(src.url)">
+                            <p class="hasplay">{{src.rand}}人看过</p>
+                             <div class="custom-indicator" >
+                              <p class="name"><span>{{src.money}}元观看</span>{{ src.title }}</p><div class="love"><sup>{{src.rand}}</sup></div>
+                             </div>
+                        </van-swipe-item>
+
+                        <!-- <div class="custom-indicator" slot="indicator">
+                            <span style="display:inline-block;float:left;" >赛道分</span>{{ current + 1 }}/4
+                        </div> -->
+                        </van-swipe>
+                    </div>
+                </div>
+
+                <p class="newp"></p>
+                <div class="list">
+                    <div id="list">
+                        <van-list v-model="loading" :finished="finished" :finished-text="msg" @load="doGetList" offset="300"
+                            direction="down">
+                            <div class="van-clearfix">
+                                <lazy-component>
+                                    <li class="list-item" v-for="(item,index) in list" :data-id="index" @click="doPay(item,index)">
+                                        <div v-if="item.img" class="thumb home-thumb">
+                                            <p class="momeny-icon">{{item.money}}元观看
+                                            </p>
+                                            <img v-lazy="item.img">
+                                            <p class="playsin">播放量{{item.rand}}&nbsp;&nbsp;&nbsp;赞{{item.rand}}</p>
+                                        </div>
+                                        <p class="name">{{ item.title }}</p>
+                                        <!-- <p class="plays">已有{{ item.rand }}人观看</p> -->
+                                    </li>
+                                </lazy-component>
+                            </div>
+                        </van-list>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+
+
+            <!--打赏代码-->
+            <div id="WX-window-TKEy5SPt5wisSxt-Shade" v-if="dialog.pay.status" class="WX-window-shade">
+                <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
+                    <div class="WX-Window-main">
+                        <h2> 购买视频<span class="close_btn" @click="dialog.pay.status = false, dialog.pay.pay = []"></span></h2>
+                        <div class="WX-Window-body">
+                            <div class="ds_tankuang">
+                                <img :src="ds_img" style="width:100%;height:100%">
+                            </div>
+                            <div class="ds_right">
+                                <span class="niubi">{{ ds_title }}</span>
+                                <p style="font-size:.6rem;color:#A8A8A8;">
+                                    若购买后无法观看，请到已购观看。<br>
+                                </p>
+                                
+                            </div>
+                            <ul class="buy_btns">
+                                    <li v-for="(item, index) in dialog.pay.pay" v-if="item.url" class="pay-item" :class="[activeBuyBtn== index?'activeBuyBtn':'']" @click="activeBuyBtn=index;choosePayMehod(item, dialog.pay.pay.payType)">
+                                        <a style="">
+                                            <!-- <img height="32px" style="display: inline-block; vertical-align: middle;"
+                                        :src="item.img"> -->
+                                            {{ item.name }}
+                                        </a>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--收藏代码-->
+            <div id="WX-window-TKEy5SPt5wisSxt-Shadee" v-if="dialog.fav.status" class="WX-window-shade"
+                style="display:none">
+                <div id="WX-window-TKEy5SPt5wisSxt-box" class="WX-window-box animated fadeInUp">
+                    <div class="WX-Window-main" style="width:80%">
+                        <h2>保存本站</h2>
+                        <div class="WX-Window-body">
+                            <p style="color:#f74550;line-height:25px;margin-top:10px;text-align:center;">
+                                长按保存二维码或复制链接收藏本站
+                            </p>
+                            <img width="100%" :src="'/qrcode/build?text=' + dialog.fav.url"
+                                style="display:block;margin:auto;">
+                            <!--<div class="CopyUrl">
+                            <span class="UrlData">{{dialog.fav.url}}</span>
+                            <a href="javascript:void(0);" id="doCopyValue" :data-clipboard-text="dialog.fav.url"
+                            @click="doCopyUrl()" class="CopyUrlBtn">复制</a>
+                        </div>-->
+                        </div>
+                        <div class="WX-Window-footer"><a @click="dialog.fav.status = false" href="javascript:void(0);"
+                                style="width:calc(95% - 10px);" class="WX-Window-btn cannel">关闭</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box ListPage"></div>
+            <div class="foot">
+                <div class="foot-item btn">剩余积分:10</div>
+                <div class="foot-item btn" @click="doGetVip">进VIP群</div>
+                <div class="foot-item btn" @click="doGetList()">换一批</div>
+                <div class="foot-item btn tuiguang" @click="doGetTgm"><img src="__CDN__/assets/img/iconerweima@2x.png" alt=""
+                        srcset=""></div>
+            </div>
+            <form action="" method="post" name="form" style="display:none">
+            </form>
+
+            <!-- <div class="swiper_cover" :class="[showBuyLayer?'swiper_cover_unscale':'']">
+                <div class="swiper_content">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" v-for="(item,index) in list" :key="index+'_'+item.id">
+                                 <img :src="item.img" style="width:100%;height:100%;display:block;"/>
+                                <div  class="innerPay" v-show="currentIndexForBuy == index">
+                                    <span class="niubi">{{ item.title }}</span>
+                                    <p style="color:rgba(51, 51, 51, .8);font-size:.7rem;margin:0;width:100%;line-height:1rem;">
+                                        若购买后无法观看，请到已购观看。</p>
+                                    <div class='innerPayItem'>
+                                       <div class="len" v-for="(payItem, index) in currentPayItem" :key="payItem.name">
+                                         <div v-for="(inner, indx) in payItem" :key="indx+inner.name" class="pay-item" @click="choosePayMehod(inner)">
+                                            <span class="mony"> ¥{{inner.name.replace(/[^\d]*/,'')}}</span>
+                                            <a style="">
+                                                    {{ inner.name.replace(/\d+/,'').replace('元','') }}
+                                            </a>    
+                                    </div>
+                                       </div>
+                                    </div>
+                                    <div class="giveup" @click="showBuyLayer=false">放弃本次购买</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="payMethod_cover" v-show="choosePay" @click.self="choosePay=!choosePay">
+                    <div class="payMethod">
+                    <h3 class="pay_title">请选择支付方式</h3>
+                    <div class="pay_btns">
+                        <div class="pbtn wechatPay" @click="checkPayMethod('wx')"></div>
+                        <div class="pbtn alipay"  @click="checkPayMethod('ali')"></div>
+                    </div>
+                    </div>
+            </div>
+
+            <van-dialog class="demo-dialog van-dialog" style="width:90%;" v-model="dialog.tgm.status" :title="tgm_title"
+                :before-close="closeDig" confirm-button-text="关闭">
+                <div
+                    style="text-align: center;padding: 20px;background: -webkit-linear-gradient(left,rgb(138,236,163),rgb(104,162,250));">
+                    <img :src="tgm_img" class="tgm-img">
+                </div>
+            </van-dialog>
+            <van-dialog class="demo-dialog van-dialog" style="width:90%;" v-model="dialog.vip.status" :title="vip_title"
+                :before-close="closeDig" confirm-button-text="关闭">
+                <div
+                    style="text-align: center;padding: 20px;background: -webkit-linear-gradient(left,rgb(138,236,163),rgb(104,162,250));">
+                    <img :src="vip_img" class="tgm-img">
+                </div>
+            </van-dialog>
+         </div>
+    </script>
+    <script type="text/x-template" id="payed-template">
+            <div class="box body home payed" style="display:block;" data-href="0">
+                <div class="header">
+                    <span class="back" @click="back"></span>
+                    已购视频
+                </div>
+                <div class="list">
+                    <div id="list">
+                        <van-list v-model="loading" :finished="finished" key="payed" :finished-text="msg" @load="yigou" offset="300"
+                            direction="down">
+                            <div class="van-clearfix">
+                                <lazy-component>
+
+                                    <li class="list-item" v-for="item in list" @click="doJump(item)">
+                                        <div class="thumb">
+                                            <!-- <span class="icon"></span> -->
+                                            <img v-lazy="item.img">
+                                        </div>
+
+                                        <div class="desc">
+                                            <p class="name">{{ item.title }}</p>
+                                            <p class="yigous">已购视频</p>
+                                            <p class="plays">{{ item.rand }}人观看</p>
+                                        </div>
+                                    </li>
+                                </lazy-component>
+                            </div>
+                        </van-list>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+    </script>
+    <script>
+        $(document).ready(function () {
+            let player = new Player({
+                "id": "mse",
+                "url": "{$hezi.video}",
+                "playsinline": true,
+                "x5-video-player-fullscreen": "false",
+                "x5-video-orientation": "portraint",
+                "x5-video-player-type": "h5",
+                "fluid": true,
+                "autoplay": true
+            });
+        });
+
+        Vue.config.productionTip = false;
+        Vue.config.lang = 'zh-CN';
+        Vue.use(vant.Lazyload, {
+            lazyComponent: true,
+        });
+
+
+
+        var dy = "{$dy}";
+        var Home = {
+            template: '#home-template',
+            data: function () {
+                return {
+                    choosePay: false,
+                    payUrl: '',
+                    list: [],
+                    banners: true,
+                    hezi: false,
+                    cat: [],
+                    ds_img: "",
+                    ds_title: "",
+                    isOpened: false,
+                    isWidth: false,
+                    currentIndexForBuy: 1,
+                    currentPayItem: null,
+                    showBuyLayer: false,
+                    swiper: null,
+                    activeBuyBtn:null,
+                    banner: [
+                        { img: '__CDN__/assets/img/IMG_1674.png', url: '这里填写要跳转的广告连接' },
+                        // { img: '__CDN__/assets/img/IMG_1693.png', url: '这里填写要跳转的广告连接' },
+                        // { img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                    ],
+                    category: [
+                        {
+                            name: '全部',
+                            icon: '__CDN__/assets/img/iconall@2x.png'
+                        }, {
+                            name: '萝莉',
+                            icon: '__CDN__/assets/img/iconluoli@2x.png'
+                        }, {
+                            name: '另类',
+                            icon: '__CDN__/assets/img/iconlinglei@2x.png'
+                        }, {
+                            name: '三级',
+                            icon: '__CDN__/assets/img/iconsanji@2x.png'
+                        }, {
+                            name: '户外',
+                            icon: '__CDN__/assets/img/iconhuwai@2x.png'
+                        },
+                        {
+                            name: '巨乳',
+                            icon: '__CDN__/assets/img/iconjuru@2x.png'
+                        }, {
+                            name: '剧情',
+                            icon: '__CDN__/assets/img/iconjuqing@2x.png'
+                        }, {
+                            name: '乱伦',
+                            icon: '__CDN__/assets/img/iconluanlun@2x.png'
+                        }, {
+                            name: '欧美',
+                            icon: '__CDN__/assets/img/iconoumei@2x.png'
+                        }, {
+                            name: '强奸',
+                            icon: '__CDN__/assets/img/iconqiangjian@2x.png'
+                        },
+                        {
+                            name: '群交',
+                            icon: '__CDN__/assets/img/iconqunjiao@2x.png'
+                        }, {
+                            name: '人妻',
+                            icon: '__CDN__/assets/img/iconrenqi@2x.png'
+                        }, {
+                            name: '人兽',
+                            icon: '__CDN__/assets/img/iconrenshou@2x.png'
+                        }, {
+                            name: '人妖',
+                            icon: '__CDN__/assets/img/iconrenyao@2x.png'
+                        }, {
+                            name: '日韩',
+                            icon: '__CDN__/assets/img/iconrihan@2x.png'
+                        },
+                        {
+                            name: '孕妇',
+                            icon: '__CDN__/assets/img/iconyunfu@2x.png'
+                        }, {
+                            name: '重口',
+                            icon: '__CDN__/assets/img/iconzhongkou@2x.png'
+                        }, {
+                            name: '自慰',
+                            icon: '__CDN__/assets/img/iconziwei@2x.png'
+                        }, {
+                            name: 'SM',
+                            icon: '__CDN__/assets/img/iconsm@2x.png'
+                        }, {
+                            name: '恋物',
+                            icon: '__CDN__/assets/img/iconlianwu@2x.png'
+                        }, {
+                            name: '肛门',
+                            icon: '__CDN__/assets/img/icongangmen@2x.png'
+                        }],
+                    loading: false,
+                    finished: false,
+                    vid: 0,
+                    msg: '没有更多了',
+                    params: {
+                        action: "list",
+                        f: "<?php echo $_GET['f']?>",
+                        // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+                        page: 1,
+                        row: 50,
+                        encode: 1,
+                        cid: '',
+                        key: '',
+                        payed: ''
+                    },
+                    catParam: {
+                        limit: 9,
+                        f: "<?php echo $_GET['f']?>",
+                        // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+                        encode: 1,
+                    },
+                    activeIndex: 'cat',
+                    tgm_img: "uploads/qrocde/1655128717.png",
+                    tgm_title: "长按二维码，转发朋友或群赚积分",
+                    vip_img: "/uploads/20220602/897830ea4b0bcc0eae624a89262ec4a2.png",
+                    vip_title: "长按识别保存扫描可看更多精彩",
+                    current: 0,
+                    dialog: {
+                        fav: {
+                            status: false,
+                            img: "",
+                            url: "",
+                        },
+                        pay: {
+                            status: false,
+                            pay: [],
+
+                        },
+                        tgm: {
+                            status: false,
+                            img: ""
+                        },
+                        vip: {
+                            status: false,
+                            img: ""
+                        }
+                    }
+                }
+            },
+            mounted: function () {
+                //this.doFav();
+                this.getCat();
+               
+                var vm = this
+
+                var hezi = this.getQueryVariable('hezi');
+                if (hezi > 0) {
+                    this.hezi = true;
+                    this.banners = false;
+                }
+              
+                // setTimeout(() => {
+                //     this.list = [{ title: '扫单i人仍旧', img: '__CDN__/assets/img/IMG_1674.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '龙夸反思扽看东方', img: '__CDN__/assets/img/IMG_1693.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },]
+
+                // }, 500);
+                // setTimeout(() => {
+                //     vm.swiper.update()
+                //     console.log(vm.list,vm.swiper)
+                // }, 1000);
+
+            },
+            methods: {
+               choosePayMehod(item,type) {
+                    if (type && type === 'all') {
+                        this.choosePay = true
+                        this.payUrl = item.url
+                    } else {
+                        this.linkTo(item.url)
+                    }
+                },
+                checkPayMethod(flag) {
+                    this.linkTo(this.payUrl+'&pay='+flag)
+                },
+                switchFn() {
+                    this.isOpened = !this.isOpened
+                },
+                onChange(index) {
+                    this.current = index;
+                },
+                closeDig(action, done) {
+                    if (this.try_player) {
+                        this.try_player.destroy();
+                        this.try_player = '';
+                    }
+                    done(); // 关闭提示框
+                },
+                sousuoa(e) {
+                    let vm = this;
+                    vm.params.page = 1;
+                    vm.list = [];
+                    this.doGetList("-1", '');
+                },
+                getQueryVariable(variable) {
+                    var query = window.location.search.substring(1);
+                    var vars = query.split("&");
+                    for (var i = 0; i < vars.length; i++) {
+                        var pair = vars[i].split("=");
+                        if (pair[0] == variable) { return pair[1]; }
+                    }
+                    return (false);
+                },
+                doRate() {
+                    return parseInt(Math.random() * (100 - 90) + 90);
+                },
+                doRates() {
+                    return parseInt(Math.random() * (10000 - 90) + 90);
+                },
+                linkTo(e) {
+
+                    layer.msg("正在调起支付...", {
+                        icon: 16,
+                        time: 3000
+                    });
+
+                    if (dy == "1") {
+                        document.form.action = e;
+                        document.form.submit();
+                        return
+                    }
+
+                    location.href = e;
+                },
+                doCopyUrl() {
+                    let vm = this;
+                    var clipboard = new Clipboard("#doCopyValue");
+                    clipboard.on('success', function (e) {
+                        vm.$message.success('复制成功');
+                        clipboard.destroy();
+                    });
+                    clipboard.on('error', function (e) {
+                        vm.$message.errot('复制失败');
+                        console.log(e);
+                    });
+                },
+                doPay(item, index) {
+                    console.log(item);
+                    var vm = this;
+                    vm.vid = item.id;
+                    vm.ds_img = item.img;
+                    vm.ds_title = item.title;
+
+
+                    if (item.pay == 1) {
+                        if (dy == "1") {
+                            document.form.action = item.url;
+                            document.form.submit();
+                            return
+                        }
+                        window.location.href = item.url;
+                        return;
+                    }
+                    $.ajax({
+                        url: "/index/index/pay/?f=" + vm.catParam.f + "&vid=" + item.id + "&money=" + item.money,
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: {},
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            console.log(data);
+                            vm.dialog.pay.pay = data;
+                            vm.dialog.pay.status = true;
+
+                        }
+                    });
+                },
+                doGetList(row) {
+                    var vm = this;
+                    console.log(row);
+                    vm.activeIndex = row ? row.id ? row.id : '-1' : '-1'
+                    if (row != undefined && row.id != undefined) {
+                        vm.list = [];
+                        vm.params.page = 1;
+                        vm.params.cid = row.id;
+                    }
+                    if (row == "cat") {
+                        vm.list = [];
+                        vm.finished = false;
+                        vm.params.page = 1;
+                        vm.params.cid = '';
+
+                    }
+                    if (row == "payed") {
+                        vm.list = [];
+                        vm.finished = false;
+                        vm.params.page = 1;
+                        vm.params.payed = 1;
+                        vm.params.cid = '';
+
+                        vm.msg = "空空如也,赶紧去选择心仪的影片吧!";
+                    }
+                    console.log(vm.params);
+
+                    $.ajax({
+                        // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                        url: '/index/index/vlist',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.params,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+                                vm.params.page++;
+
+                                let temp = data.data;
+                                vm.list = vm.list.concat(temp);
+                                vm.loading = false;
+                                // for (let index = 0; index < vm.list.length; index++) {
+                                //     const element = vm.list[index];
+                                //     element.isCurrent = false
+                                // }
+                                // setTimeout(() => {
+                                //     if (!vm.swiper && vm.list.length>0) {vm.swiper = new Swiper('.swiper-container', {
+                                //     slidesPerView: 2,
+                                //     centeredSlides: true,
+                                //     spaceBetween: 0,
+                                //     initialSlide: 1,
+                                //     updateOnImagesReady : true,
+                                //     loop: false,
+                                //     pagination: '',
+                                //     on: {
+                                //         slideChangeTransitionEnd: function () {
+                                //             console.log('end',this.activeIndex, vm.currentIndexForBuy)
+                                //             vm.currentIndexForBuy = this.activeIndex
+                                //         //    if(vm.showBuyLayer) vm.doPay(vm.list[this.activeIndex], this.activeIndex)
+                                //         },
+                                //         init(){
+                                //             console.log(this.activeIndex,'init')
+                                //             this.slideTo(this.activeIndex)
+                                //         }
+                                //     }
+                                // });}else if(vm.swiper){
+                                //     vm.swiper.update()
+                                // }
+                                // });
+                              vm.list.length>0 &&  (vm.banner = [vm.list[0]])
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                    if (data.total === 0) {
+                                        vant.Notify({ type: 'success', message: '空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容' })
+                                    }
+                                    // vant.Notify({ type: 'success', message: vm.msg });
+                                }
+
+                            } else {
+                                layer.alert(data.msg);
+                            }
+                        }
+                    });
+
+
+                },
+                getCat() {
+                    let vm = this;
+                    $.ajax({
+                        // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                        url: '/index/index/cat',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.catParam,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+
+                            // vm.cat = data.data;
+                            /*if (data.status == 1) {
+                                vm.params.page++;
+        
+                                let temp = data.data;
+                                vm.list = vm.list.concat(temp);
+                                vm.loading = false;
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                }
+                            } else {
+                                layer.alert(data.msg);
+                            }*/
+                            if (data.data.length > 0) {
+                                data.data.unshift({
+                                    id: '-1',
+                                    image: '__CDN__/assets/img/iconall@2x.png',
+                                    title: '全部'
+                                })
+
+                                vm.category = data.data.slice()
+                            }
+
+                        }
+                    });
+
+                },
+                doSearch() {
+                    window.location.href = "/index/index/pagecat/?f=<?php echo $_GET['f'];?>";
+                },
+                toYigou() {
+                    this.$router.push('/payed')
+
+                },
+                doFav() {
+                    let vm = this;
+                    vm.dialog.fav.url = "{$fov}";
+
+                    vm.dialog.fav.status = true;
+
+
+                    /* $.ajax({
+                         // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                         url: '/h5/api/dwz.php',
+                         type: 'GET',
+                         dataType: 'JSON',
+                         data: {action: "getUrl", uid: "1"},
+                         complete: function (XMLHttpRequest, textStatus) {
+                         },
+                         success: function (data) {
+                             if (data.status == 1) {
+                                 vm.dialog.fav.url = data.data;
+         
+                                 vm.dialog.fav.status = true;
+                             } else {
+                                 layer.alert(data.message);
+                             }
+                         }
+                     });*/
+                },
+                doGetTgm() {
+                    let vm = this;
+                    vm.dialog.tgm.status = true;
+
+                },
+                doGetVip() {
+                    let vm = this;
+                    vm.dialog.vip.status = true;
+                },
+
+            }
+        }
+        var Payed = {
+            template: '#payed-template',
+            data: function () {
+                return {
+                    params: {
+                        action: "list",
+                        // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+                        f: "<?php echo $_GET['f']?>",
+                        page: 1,
+                        row: 50,
+                        encode: 1,
+                        cid: '',
+                        key: '',
+                        payed: ''
+                    },
+                    msg: '没有更多了',
+                    finished: true,
+                    list: [{ img: 'sldfj', title: 'lskdfjsldf' }],
+                    loading: false
+                }
+            },
+            mounted: function () {
+                this.yigou()
+                // setTimeout(() => {
+                //     this.list = [{ img: 'sldfj', title: 'lskdfjsldf' }]
+                // }, 500);
+                //  setTimeout(() => {
+                //     this.list = [{ title: '扫单i人仍旧', img: '__CDN__/assets/img/IMG_1674.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '龙夸反思扽看东方', img: '__CDN__/assets/img/IMG_1693.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },
+                //     { title: '；赛甲方老干扽个', img: '__CDN__/assets/img/IMG_1683.png', url: '这里填写要跳转的广告连接' },]
+
+                // }, 500);
+            }
+            , methods: {
+                doJump(item) {
+                    //  alert(item.url)
+                    location.href = item.url + '&img=' + item.img
+
+                },
+                doGetList(index, row) {
+                    let vm = this;
+                    console.log(row);
+                    vm.activeIndex = index
+                    vm.params.payed = '';
+                    if (row != undefined && row.id != undefined) {
+                        vm.list = [];
+                        vm.params.page = 1;
+                        vm.params.cid = row.id;
+                    }
+                    if (row == "cat") {
+                        vm.list = [];
+                        vm.finished = false;
+                        vm.params.page = 1;
+                        vm.params.key = '';
+                        vm.params.cid = '';
+                    }
+                    console.log(vm.params);
+                    $.ajax({
+                        // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                        url: '/index/index/vlist',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.params,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+                                vm.params.page++;
+
+                                vm.total = data.total;
+                                let temp = data.data;
+                                vm.list = vm.list.concat(temp);
+                                vm.loading = false;
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                    vm.msg = "没有更多了";
+
+                                }
+                            } else {
+                                layer.alert(data.msg);
+                            }
+                        }
+                    });
+
+
+                },
+                yigou() {
+                    let vm = this;
+
+                    console.log()
+                    vm.finished = false;
+                    vm.params.page = 1;
+                    vm.params.payed = 1;
+                    vm.params.key = '';
+                    vm.params.cid = '';
+                    vm.list = [];
+                    // vm.msg = "空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容";
+
+                    $.ajax({
+                        url: '/index/index/vlist',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.params,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+                                vm.params.page++;
+
+                                vm.total = data.total;
+                                let temp = data.data;
+                                vm.list = data.data;
+                                vm.loading = false;
+                                if (vm.list.length == data.total) {
+                                    vm.finished = true;
+                                    // vant.Notify({ type: 'success', message: vm.msg });
+                                    if (data.total === 0) {
+                                        vant.Notify({ type: 'success', message: '空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容' })
+                                    }
+                                }
+                            } else {
+                                layer.alert(data.msg);
+                            }
+                        }
+                    });
+
+
+                },
+                back() {
+                    history.back()
+                }
+            }
+        }
+        new Vue({
+            el: '#app',
+            router: new VueRouter({
+                mode: 'hash',
+                routes: [{ path: '/', component: Home }, { path: '/payed', component: Payed }]
+            })
+        })
+    </script>
+    <script>
+        var topdata = "20px";
+        function geturl(url) {
+            var httpRequest = new XMLHttpRequest();//第一步：建立所需的对象
+            httpRequest.open('GET', url, true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+            httpRequest.send();//第三步：发送请求  将请求参数写在URL中
+            /**
+             * 获取数据后的处理程序
+             */
+            httpRequest.onreadystatechange = function () {
+                if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                    var json = httpRequest.responseText;//获取到json字符串，还需解析
+                    console.log(json);
+                    return json;
+                }
+            };
+        }
+    </script>
 
 </body>
 
-<script>
-
-    $(document).ready(function () {
-
-        let player = new Player({
-            "id": "mse",
-            "url": "{$hezi.video}",
-            "playsinline": true,
-            "x5-video-player-fullscreen": "false",
-            "x5-video-orientation": "portraint",
-            "x5-video-player-type": "h5",
-            "fluid": true,
-          //  "autoplay": true
-        });
-
-    });
-
-    Vue.config.productionTip = false;
-    Vue.config.lang = 'zh-CN';
-    
-    var dy = "{$dy}";
-        Vue.use(vant.Lazyload, {
-      lazyComponent: true,
-    });
-    Vue.use(vant.Dialog);
-  
-    new Vue({
-        el: '#app',
-        
-        data: {
-            list: [],
-            current: "",
-            itemindex:0,
-            activeClass: -1,
-            cat: [],
-            banner: [],
-            ds_title:"打赏后观影",
-            ds_img:"",
-            total: 0,
-            hezi: false,
-            loading: false,
-            finished: false,
-            vid: 0,
-            msg: '没有更多了',
-            params: {
-                action: "list",
-                f: "<?php echo $_GET['f']?>",
-                page: 1,
-                row: 50,
-                encode: 1,
-                cid: '',
-                key: '',
-                payed: ''
-            },
-            catParam: {
-                limit: 910, f: "<?php echo $_GET['f']?>",
-                encode: 1,
-            },
-
-            dialog: {
-                fav: {
-                    status: false,
-                    img: "",
-                    url: "",
-                },
-                pay: {
-                    status: false,
-                    pay: [],
-
-                }
-            }
-        },
-        mounted: function () {
-            //this.doFav();
-            this.getCat();
-
-    
-            var hezi = this.getQueryVariable('hezi');
-            if (hezi > 0) {
-                this.hezi = true;
-            }
-        },
-        methods: {
-            getQueryVariable(variable) {
-                var query = window.location.search.substring(1);
-                var vars = query.split("&");
-                for (var i = 0; i < vars.length; i++) {
-                    var pair = vars[i].split("=");
-                    if (pair[0] == variable) {
-                        return pair[1];
-                    }
-                }
-                return (false);
-            },
-            setClass(item){
-                return "action"+item.flg
-            },
-            doRate() {
-                
-                return parseInt(Math.random() * (10000 - 90) + 90);
-            },
-            linkTo(e) {
-
-                layer.msg("正在调起支付...", {
-                    icon: 16,
-                    time: 3000
-                });
-                if(dy == "1")
-                {
-                    document.form.action = e;
-                    document.form.submit();
-                     return 
-                }
-                location.href = e;
-            },
-            yigou() {
-                let vm = this;
- 
-            console.log()
-                vm.finished = false;
-                vm.params.page = 1;
-                vm.params.payed = 1;
-                vm.params.key = '';
-                vm.params.cid = '';
-                vm.list = [];
-                vm.msg = "空空如也,赶紧去选择心仪的影片吧!我们即将推送其他精彩内容";
-
-                $.ajax({
-                    url: '/index/index/vlist',
-                    type: 'GET',
-                    dataType: 'JSON',
-                    data: vm.params,
-                    complete: function (XMLHttpRequest, textStatus) {
-                    },
-                    success: function (data) {
-                        if (data.status == 1) {
-                            vm.params.page++;
-
-                            vm.total = data.total;
-                            let temp = data.data;
-                            vm.list = vm.list.concat(temp);
-                            vm.loading = false;
-                            if (vm.list.length == data.total) {
-                                vm.finished = true;
-                                vant.Notify({ type: 'success', message: vm.msg });
-                            }
-                        } else {
-                            layer.alert(data.msg);
-                        }
-                    }
-                });
-
-
-            },
-            sousuoa(e) {
-
-                let vm = this;
-                vm.params.page = 1;
-                vm.list = [];
-                this.doGetList("-1", '');
-            },
-            dingbu(){
-                
-location.reload();
-
-            },
-            doCopyUrl() {
-                let vm = this;
-                var clipboard = new Clipboard("#doCopyValue");
-                clipboard.on('success', function (e) {
-                    vm.$message.success('复制成功');
-                    clipboard.destroy();
-                });
-                clipboard.on('error', function (e) {
-                    vm.$message.errot('复制失败');
-                    console.log(e);
-                });
-            },
-            doPay(item) {
-                console.log(item);
-                let vm = this;
-                vm.vid = item.id;
-                vm.ds_img = item.img;
-                vm.ds_title = item.title;
-
-                if (item.pay == 1) {
-                    
-                     if(dy == "1")
-                {
-                    document.form.action = item.url;
-                    document.form.submit();
-                    return 
-                }
-                
-                    window.location.href = item.url;
-                    return;
-                }
-                $.ajax({
-                    url: "/index/index/pay/?f=<?php echo $_GET['f']?>&vid=" + item.id + "&money=" + item.money,
-                    type: 'GET',
-                    dataType: 'JSON',
-                    data: {},
-                    complete: function (XMLHttpRequest, textStatus) {
-                    },
-                    success: function (data) {
-                        console.log(data);
-
-                        vm.dialog.pay.pay = data;
-                        vm.dialog.pay.status = true;
-                    }
-                });
-            },
-            doGetList(index, row) {
-                let vm = this;
-                console.log(row);
-                
-
-                vm.activeClass = index;
-
-                vm.params.payed = '';
-                if (row != undefined && row.id != undefined) {
-                    vm.list = [];
-                    vm.params.page = 1;
-                    vm.params.cid = row.id;
-                    
-                }
-                if (row == "cat") {
-
-
-                    vm.list = [];
-                    vm.finished = false;
-                    vm.params.page = 1;
-                    vm.params.key = '';
-                    vm.params.cid = '';
-                }
-                console.log(vm.params);
-
-                $.ajax({
-                   
-                    url: '/index/index/vlist',
-                    type: 'GET',
-                    dataType: 'JSON',
-                    data: vm.params,
-                    complete: function (XMLHttpRequest, textStatus) {
-                    },
-                    success: function (data) {
-                        if (data.status == 1) {
-                            vm.params.page++;
-
-                            vm.total = data.total;
-                            let temp = data.data;
-                            vm.list = vm.list.concat(temp);
-                            vm.loading = false;
-                            if (vm.list.length == data.total) {
-                                vm.finished = true;
-                                                vm.msg="没有更多了";
-
-                            }
-                        } else {
-                            layer.alert(data.msg);
-                        }
-                    }
-                });
-
-
-            },
-            getCat() {
-                let vm = this;
-                $.ajax({
-                    url: '/index/index/cat',
-                    type: 'GET',
-                    dataType: 'JSON',
-                    data: vm.catParam,
-                    complete: function (XMLHttpRequest, textStatus) {
-                    },
-                    success: function (data) {
-
-                        vm.cat = data.data;
-                    }
-                });
-
-            },
-            doSearch() {
-                window.location.href = "/index/index/pagecat/?f=<?php echo $_GET['f'];?>";
-
-            },
-            doFav() {
-                let vm = this;
-                vm.dialog.fav.url = "{$fov}";
-
-                vm.dialog.fav.status = true;
-            },
-
-        }
-    })
-</script>
-
+</html>

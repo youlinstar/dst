@@ -20,7 +20,7 @@
     html,
     body {
       background-color: #FFFFFF;
-      font-size: calc(100vw/18.375) !important;
+      font-size: calc(100vw/18.75) !important;
     }
   </style>
 </head>
@@ -120,7 +120,7 @@
     }
 
     .pay-item {
-      width: 46%;
+      width:7.9rem;
       height: 2rem;
       line-height: 2rem;
       margin-top: .25rem;
@@ -129,13 +129,12 @@
       color: #fff;
       background: -webkit-linear-gradient(left, rgb(33, 45, 77), rgb(62, 147, 140));
       display: inline-block;
-      margin-right: 1rem;
+      margin-right: .3rem;
     }
-
-    .pay-item:last-child {
-      margin-bottom: 10px;
+   .pay-item:nth-child(2n) {
       margin-right: 0;
     }
+
 
     .weui-search-bar__cancel-btn1 {
       display: block;
@@ -266,12 +265,12 @@
     .list .list-item {
       height: auto;
       margin-left: .7rem;
-      width: 8rem;
+      width: 8.4rem;
       overflow: hidden;
     }
 
     .list .list-item .thumb {
-      width: 8rem;
+      width: 8.4rem;
       height: 9.8rem;
       border-radius: 5px;
       overflow: hidden;
@@ -544,7 +543,7 @@
               <p style="line-height:25px;margin:10px auto;">
                 若购买后无法观看，请到已购观看。<br>
               </p>
-              <ul>
+              <ul >
                 <li v-for="(item, index) in dialog.pay.pay" v-if="item.url" :data-type="dialog.pay.pay.payType" class="pay-item" @click="choosePayMehod(item, dialog.pay.pay.payType)">
                                         <a >
                                             {{ item.name }}
@@ -794,7 +793,8 @@
           pay: {
             status: false,
             data: [],
-            pay: []
+            pay:[]
+            // pay: [{name:'sldk龙夸减肥',url:'lksjdf'},{name:'龙夸减肥懂饭三扽',url:'lksjdf'},{name:'赛但赛夸反塞到饭店',url:'lksjdf'}]
           }
         }
       },
@@ -811,6 +811,21 @@
           }
         }
         this.doGetList();
+          //         setTimeout(() => {
+          //   this.list = [
+          //     {
+          //       title: "扫单i人仍旧",
+          //       img: "__CDN__/assets/img/IMG_1674.png",
+          //       url: "这里填写要跳转的广告连接",
+          //     },
+          //     {
+          //       title: "龙夸反思扽看东方",
+          //       img: "__CDN__/assets/img/IMG_1693.png",
+          //       url: "这里填写要跳转的广告连接",
+          //     },
+             
+          //   ];
+          // }, 500);
 
 
       },
