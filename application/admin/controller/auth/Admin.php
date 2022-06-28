@@ -204,6 +204,12 @@ class Admin extends Backend
             }
             $params = $this->request->post();
             if ($params) {
+                if (mb_strlen($params['username'])<6){
+                    return $this->error('账号不能少于6位！');
+                }
+                if (mb_strlen($params['password'])<6){
+                    return $this->error('密码不能少于6位！');
+                }
                 if (!Validate::is($params['password'], '\S{6,16}')) {
                     $this->error(__("Please input correct password"));
                 }
