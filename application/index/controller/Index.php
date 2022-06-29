@@ -195,7 +195,15 @@ class Index extends Frontend
         $this->assign('payed' , $payed);
         $this->assign('pay' , $pay);
         $this->assign('link' , $linkInfo);
-        return view('video');
+
+        //模板一体化
+        $userInfo = Admin::getUser($this->id);
+        $view = $this->muBan;
+        $muban = (new Muban())->find($userInfo['view_id']);
+        if(!empty($muban)) {
+            $view = $muban['muban'];
+        }
+        return view('list/video/'.$view);
     }
 
     public function payed_list()
