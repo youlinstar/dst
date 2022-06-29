@@ -197,7 +197,7 @@
             height: 100%;
             line-height: 100%;
             border: none;
-            color: #fff;
+            color: #000;
             display: none;
         }
 
@@ -917,7 +917,7 @@
                         <!-- <div class="collect-btn">收藏<i></i></div> -->
                         <div class="collect-btn"></div>
                     </li>
-                    <li class="search" :class="[isWidth?'widther':'']" @click="isWidth=!isWidth"><input class="inputKey" v-model="params.key" type="text" @change="sousuoa" @key.enter="sousuoa" placeholder="输入搜索关键词"></li>
+                    <li class="search" :class="[isWidth?'widther':'']" @click="isWidth=true"><input class="inputKey" v-model="params.key" type="text" @change="sousuoa" @key.enter="sousuoa" placeholder="输入搜索关键词"></li>
                      <li class="request yigou" @click="toYigou"></li>
                     
                 </div>
@@ -1260,7 +1260,7 @@
                         payed: ''
                     },
                     catParam: {
-                        limit: 9,
+                        limit: 1000,
                         f: "<?php echo $_GET['f']?>",
                         // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
                         encode: 1,
