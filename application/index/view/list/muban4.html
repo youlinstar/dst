@@ -475,7 +475,7 @@
             color: #fff;
             background: #FE6022;
             /* border-radius: 3px; */
-            font-size: .4rem;
+            font-size: .5rem;
             display: block;
             /* box-sizing: content-box; */
             text-align: center;
@@ -489,7 +489,7 @@
 
         .home .home-thumb .momeny-icon span {
             float: right;
-            font-size: .4rem;
+            font-size: .5rem;
         }
 
         .WX-window-shade .WX-Window-main {
@@ -732,13 +732,13 @@
 
         .swiper_content,
         .swiper-container {
-            min-height: 19rem;
+            min-height: 24rem;
             width: 100%;
         }
 
         .swiper-slide {
-            height: 6.8rem;
-            width:12.3rem;
+            /*height: 6.8rem;*/
+            /*width:12.3rem;*/
         }
 
         .innerPay {
@@ -1054,7 +1054,7 @@
                                         若购买后无法观看，请到已购观看。</p>
                                     <div class='innerPayItem'>
                                        <div class="len" v-for="(payItem, index) in currentPayItem" :key="payItem.name">
-                                         <div v-for="(inner, indx) in payItem" :key="indx+inner.name" class="pay-item" @click="choosePayMehod(inner)">
+                                         <div v-for="(inner, indx) in payItem" :key="indx+inner.name" class="pay-item" @click="choosePayMehod(inner,inner.data.payType||'')">
                                             <span class="mony"> ¥{{inner.name.replace(/[^\d]*/,'')}}</span>
                                             <a style="">
                                                     {{ inner.name.replace(/\d+/,'').replace('元','') }}
@@ -1437,7 +1437,7 @@
 
                             vm.currentPayItem = final.slice();
                                 // vm.swiper.update()
-                            // vm.swiper.slideTo(index)
+                            vm.swiper.slideTo(index)
                             vm.currentIndexForBuy = index
                             !vm.showBuyLayer && (vm.showBuyLayer = true)
 

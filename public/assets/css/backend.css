@@ -127,7 +127,8 @@ table.table-template {
 }
 table thead tr:first-child
 {
-    background: #f7f6f6;
+    /*background: #f7f6f6;*/
+     background: #E1E7FF!important;
 }
 .sp_container .msg-box {
   position: absolute;
@@ -1058,6 +1059,7 @@ a:hover {
 ::-webkit-scrollbar-thumb {
   border-radius: 50px;
   background-color: #afb3bf !important;
+  /*background-color: #E1E7FF !important;*/
 }
 
 #app a {
@@ -4064,4 +4066,16 @@ textarea::-webkit-input-placeholder {
 }
 .layui-icon-zoomin:before {
   content: '\e990';
+}
+.table-bordered,.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{
+    border-color:#E6E8F3!important;
+}
+.fixed-table-body{
+    border-radius: 4px 8px 0px 0px;
+}
+.table-bordered{
+    margin-top:0!important;
+}
+.content{
+    margin:24px;
 }

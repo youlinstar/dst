@@ -1058,7 +1058,7 @@
           // }, 500);
         },
         methods: {
-          choosePayMehod(item) {
+          choosePayMehod(item,type) {
             if (type && type === "all") {
               this.choosePay = true;
               this.payUrl = item.url;
