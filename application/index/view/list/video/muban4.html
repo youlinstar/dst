@@ -1483,8 +1483,8 @@
             console.log(vm.checked);
             vm.dialog.fav.status = false;
           },
-          linkTo() {
-            var e = this.choosedMoneyLink;
+          linkTo(e) {
+           this.choosedMoneyLink && (e = this.choosedMoneyLink);
             layer.msg("正在调起支付...", {
               icon: 16,
               time: 3000,
