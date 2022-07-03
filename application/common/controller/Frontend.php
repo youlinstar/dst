@@ -25,7 +25,7 @@ class Frontend extends Controller
      */
     protected $layout = '';
 
-    protected $muBan = 'muban6';
+    protected $muBan = 'muban1';
 
     /**
      * 无需登录的方法,同时也就不需要鉴权了
