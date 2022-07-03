@@ -75,6 +75,26 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','qr','bootstrap-table-
                                  }
                              }
                          },*/
+
+                        /*{
+                            field: 'is_top',
+                            title: "是否置顶",
+                            formatter: function (value, row) {
+                                if (value == 1) {
+                                    return "<span class=\"label label-danger\">置顶</span>";
+                                }
+                                if (value == 0) {
+                                    return "<span class=\"label label-success\">否</span>";
+
+                                }
+                            }
+                        },*/
+                        {
+                            field: 'is_top',
+                            title: "是否置顶",
+                            align: 'center',
+                            formatter: Table.api.formatter.toggle
+                        },
                         {
                             field: 'over_time',
                             title: __('Over_time'),
@@ -117,7 +137,18 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','qr','bootstrap-table-
                                     click:function(config , row){
                                         Controller.api.short(this , false ,  row);
                                     },
-                                }
+                                },
+                                /*{
+                                    name: 'label',
+                                    title:"置顶",
+                                    icon: 'fa fa-unsorted',
+                                    classname: 'btn btn-xs btn-primary btn-click',
+                                    extend:"data-toggle=\"tooltip\"",
+                                    click:function(config , row){
+                                        //Controller.api.short(this , false ,  row);
+                                        Controller.api.setTop(this  ,  row);
+                                    },
+                                }*/
 
                             ],
                             title: __('Operate'),
@@ -337,7 +368,6 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','qr','bootstrap-table-
             });
 
             function addoredit(url, name) {
-
                 layer.open({
                         title: name,
                         type: 2,
@@ -345,8 +375,6 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','qr','bootstrap-table-
                         area: ['60%', '30%'],
                         maxmin: true
                     });
-
-
             }
         },
         add: function () {
@@ -446,6 +474,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','qr','bootstrap-table-
                         area: ['60%', '60%'],
                         maxmin: true
                     });
+            },
+            setTop:function (obj , row){
+
             }
         }
     };

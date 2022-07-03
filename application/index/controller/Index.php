@@ -266,6 +266,52 @@ class Index extends Frontend
         return json(['status' => 1, 'msg' => '' , 'data' => $data  ,'total' =>$total]);
     }
 
+    public function vtop(){
+        $f = $this->request->param('f');
+        $cid = $this->request->param('cid');
+        $payedVid = $this->getPayedVideoId();
+        $where = ['uid' => ['=' , $this->id]];
+        if($cid) {
+            $cname =  (new Category)->find($cid)->name;
+            $where = array_merge($where , ['title' =>['like' , "%{$cname}%"]]);
+        }
+        $link = (new Link())->where($where)->field(['id','cid','video_url','title','img','money','money3','money2','money1','read_num','try_see'])
+            ->where('is_top',1)
+            ->orderRaw('rand()')
+            ->paginate(10 );//前缀加载视频资源数 建议10-15数字越大加载越多访问速度会变慢
+        foreach ($link as &$item)
+        {
+            $item['rand'] = rand(999 , 7777);
+            $item['h'] = rand(90 , 99);
+            if(in_array($item['id'], $payedVid['vid'], true) ||  ($payedVid['is_week'] == 2 || $payedVid['is_date'] == 2 || $payedVid['is_month'] == 2) || $item['try_see'] > 0) {
+                $item['pay'] = 1;
+                $item['url'] = $this->getDomain(2,"/index/index/video")."vid={$item['id']}&f={$f}";
+            } else {
+                if(!empty($this->getDomain(3,"/index/trading/index"))) {
+                    $item['url'] = $this->getDomain(3,"/index/trading/index")."vid={$item['id']}&f={$f}";
+                }else{
+                    $item['url'] = $this->getDomain(2,"/index/trading/index")."vid={$item['id']}&f={$f}";
+                }
+                $item['pay'] = 0;
+            }
+            // $item['pay'] = 1;
+            //  $item['url'] = $domain ."/index/index/video?vid={$item['id']}&f={$f}";
+            /*if (substr($item['img'],-3)=="gpj"){
+                //$item['img']=substr($item['img'],0, -3)."jpg";
+            }*/
+        }
+        $total = $link->total();
+        $list = $link->getCollection()->toArray();
+        shuffle($list);
+        shuffle($list);
+        shuffle($list);
+        $data = $list;
+        if($this->request->param('encode',0) == 0) {
+            $data = strrev(base64_encode(json_encode($list)));
+        }
+        return json(['status' => 1, 'msg' => '' , 'data' => $data  ,'total' =>$total]);
+    }
+
     public function cat()
     {
         $limit = $this->request->param('limit',9999);
