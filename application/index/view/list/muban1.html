@@ -849,6 +849,7 @@
             data: function () {
                 return {
                     list: [],
+                    list2:[],
                     choosePay: false,
                     payUrl: '',
                     banners: true,
@@ -944,6 +945,15 @@
                         key: '',
                         payed: ''
                     },
+                    params2: {
+                        action: "list",
+                        f: "<?php echo $_GET['f']?>",
+                        // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+                        page: 1,
+                        row: 50,
+                        encode: 1,
+                        cid: '',
+                    },
                     catParam: {
                         limit: 30,
                         f: "<?php echo $_GET['f']?>",
@@ -980,7 +990,7 @@
             mounted: function () {
                 //this.doFav();
                 this.getCat();
-
+                this.doGetList2();
                 var hezi = this.getQueryVariable('hezi');
                 if (hezi > 0) {
                     this.hezi = true;
@@ -1086,6 +1096,32 @@
                             vm.dialog.pay.status = true;
                         }
                     });
+                },
+                doGetList2(row) {
+                    let vm = this;
+
+                    $.ajax({
+                        // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                        url: '/index/index/vtop',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.params2,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+
+                                vm.list = data.data.concat(vm.list)
+                                
+                                // if(vm.list2.length>0){
+                                //     vm.list = vm.list2.concat(vm.list)
+                                // }
+                                
+                            } 
+                        }
+                    });
+
+
                 },
                 doGetList(row) {
                     let vm = this;

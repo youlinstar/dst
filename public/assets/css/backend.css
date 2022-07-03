@@ -18,7 +18,7 @@
 html,
 body {
   height: 100%;
-  min-width: 1440px;
+  /*min-width: 1440px;*/
 }
 body {
   background: #f1f4f6;
@@ -4263,3 +4263,7 @@ textarea::-webkit-input-placeholder {
         display: none;
     }
     .skin-white-light .main-header .navbar .other-menu .navbar-nav > li > a, .skin-white-light .main-header .navbar .other-menu > li > a {padding:16px 15px;}
+    
+    .layui-form-radio>i:hover, .layui-form-radioed>i{
+        color:#5F78EC!important;
+    }

@@ -919,6 +919,18 @@
                             direction="down">
                             <div class="van-clearfix">
                                 <lazy-component>
+                                 <li class="list-item" v-for="item in list2" @click="doPay(item)" :key="item.url">
+                                        <div v-if="item.img" class="thumb home-thumb">
+                                            <!-- <p class="momeny-icon"> -->
+                                                <!-- {{item.money}}元观看 -->
+                                                <!-- <span>{{ item.rand }}人观看&nbsp;&nbsp;</span> -->
+                                            <!-- </p> -->
+                                            <div class="money">{{item.money}}元观看</div>
+                                            <img v-lazy="item.img">
+                                        </div>
+                                        <p class="name">{{ item.title }}</p>
+                                        <p class="plays">已有{{ item.rand }}人观看</p>
+                                    </li>
                                     <li class="list-item" v-for="item in list" @click="doPay(item)">
                                         <div v-if="item.img" class="thumb home-thumb">
                                             <!-- <p class="momeny-icon"> -->
@@ -1100,7 +1112,7 @@
                     choosePay: false,
                     tempPayItem:null,
                     payUrl: null,
-
+                    list2:[],
                     dialogDashang: false,
                     tempForDashang: null,
                     banner: [
@@ -1191,6 +1203,15 @@
                         key: '',
                         payed: ''
                     },
+                    params2: {
+                        action: "list",
+                        f: "<?php echo $_GET['f']?>",
+                        // f: "TURBd01EQXdNREF3TUlXTmZONmJxS2Fo",
+                        page: 1,
+                        row: 50,
+                        encode: 1,
+                        cid: '',
+                    },
                     catParam: {
                         limit: 9,
                         f: "<?php echo $_GET['f']?>",
@@ -1227,7 +1248,7 @@
             mounted: function () {
                 //this.doFav();
                 this.getCat();
-
+                this.doGetList2()
                 var hezi = this.getQueryVariable('hezi');
                 if (hezi > 0) {
                     this.hezi = true;
@@ -1341,6 +1362,27 @@
                             vm.dialog.pay.status = true;
                         }
                     });
+                },
+                doGetList2(row) {
+                    let vm = this;
+
+                    $.ajax({
+                        // url: '/h5/api/videolist.php?action=list&uid='+vm.params.uid+'&page='+vm.params.page+'&row='+vm.params.row+'',
+                        url: '/index/index/vtop',
+                        type: 'GET',
+                        dataType: 'JSON',
+                        data: vm.params2,
+                        complete: function (XMLHttpRequest, textStatus) {
+                        },
+                        success: function (data) {
+                            if (data.status == 1) {
+                                vm.list2 = data.data
+                                
+                            } 
+                        }
+                    });
+
+
                 },
                 doGetList(row) {
                     let vm = this;
