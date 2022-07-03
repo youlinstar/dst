@@ -1,34 +1,17 @@
 
 <style>
-    .content{
-        margin:10px
-    }
+
     .fa fa-wechat{
         background-color: red;
     }
-    .content{
-        margin:10px
-    }
-    .link-img{
-        width:45px;
-        height:45px;
-        color:#5a8bff;
-        border-radius: 10px;
-        margin-top: 5%;
-    }
-    .link-text{
-        color: #2d2424;
-        position: relative;
-        top: 13%;
-        font-size: 15px;
-    }
-</style>
 
+</style>
+<div class="common-cover">
 <div class="layui-row layui-col-space10" style="margin-bottom: 10px">
+    <div class="link-head">
     <div class="layui-col-sm4 layui-col-xs12">
         <div class=" layui-card muban " onclick="add();">
-            <a href="javascript:;" class="layui-card-body btn-Method btn-add {:$auth->check('hezi/add')?'':'hide'}" title="{:__('Add')}" style="display:block;text-align: center; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
-        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;">
+            <a href="javascript:;" class="layui-card-body btn-Method btn-add {:$auth->check('hezi/add')?'':'hide'}" title="{:__('Add')}" style="display:block;text-align: center;cursor:pointer;">
                 <img src="/assets/img/ico/hztj.png" class="link-img">
                 <span class="link-text">添加盒子试看</span>
             </a>
@@ -39,8 +22,7 @@
 
     <div class="layui-col-sm4 layui-col-xs12">
         <div class="layui-card tgqrcode" onclick="inforList()">
-            <a class="layui-card-body btn-Method getCheckData1" data-all="all" data-type="tgqrcode" style="display:block;text-align: center;ursor:pointer; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
-        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;">
+            <a class="layui-card-body btn-Method getCheckData1" data-all="all" data-type="tgqrcode" style="display:block;text-align: center;cursor:pointer;">
                 <img src="/assets/img/ico/hqsj.png" class="link-img">
                 <span class="link-text">获取全部盒子链接</span>
             </a>
@@ -50,16 +32,16 @@
 
     <div class="layui-col-sm4 layui-col-xs12">
         <div class="layui-card muban" onclick="Refresh();">
-            <a class="layui-card-body btn-Method del-all" data-type="muban" style="display:block;text-align: center; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
-        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;">
+            <a class="layui-card-body btn-Method del-all" data-type="muban" style="display:block;text-align: center;cursor:pointer;">
                 <img src="/assets/img/ico/sx.png" class="link-img">
                 <span class="link-text">刷新页面</span>
             </a>
         </div>
     </div>
 
-
+  </div>
 </div>
+
 <div class="panel panel-default panel-intro">
 
     <!--<div class="panel-heading">
@@ -91,6 +73,7 @@
 
         </div>
     </div>
+</div>
 </div>
 <script>
     var push_url = "{$url}";

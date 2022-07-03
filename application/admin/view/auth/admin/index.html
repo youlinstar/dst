@@ -19,11 +19,12 @@
 
     }
 </style>
+<div class="common-cover">
 <div class="panel panel-default panel-intro">
 
     <div class="panel-body">
         <div id="myTabContent" class="tab-content">
-            <div class="asked">
+            <div class="asked" style="padding:20px 24px;">
                 <form  id="forms"  class="layui-form" method="post" action="auth/admin/add">
                     <div class="form-group">
                         <label>代理账号:</label>
@@ -87,7 +88,8 @@
 
 
                     {:token()}
-                    <button type="button" id="save" class="btn btn-info btn-block" style="background:#1E9FFF;border:1px solid #1E9FFF">一键新增代理</button>
+                    <div style="width:100%;"></div>
+                    <button type="button" id="save" class="btn btn-info btn-block" style="background:#5F78EC;border:1px solid #5F78EC;width:100px;float:right;">一键新增代理</button>
 
                 </form>
 
@@ -110,7 +112,7 @@
 
         </div>
     </div>
-</div>
+</div></div>
 <script>
 
 

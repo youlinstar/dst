@@ -1,8 +1,4 @@
-<style>
-    .content{
-        margin:10px
-    }
-</style>
+
 
 <style>
     .no-margins{
@@ -12,30 +8,16 @@
     .fa fa-wechat{
         background-color: red;
     }
-    .content{
-        margin:10px
-    }
-    .link-img{
-        width:45px;
-        height:45px;
-        color:#5a8bff;
-        border-radius: 10px;
-        margin-top: 5%;
-    }
-    .link-text{
-        color: #2d2424;
-        position: relative;
-        top: 13%;
-        font-size: 15px;
-    }
+
 </style>
 
-
+<div class="common-cover">
 <div class="layui-row layui-col-space10" style="margin-bottom: 10px">
+    <div class="link-head">
+
     <div class="layui-col-sm4 layui-col-xs12">
         <div class="layui-card shortUrl">
-            <a class="layui-card-body btn-Method add_btn_piliang" data-type="shortUrl" style="text-align: center;display:block; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
-        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;  ">
+            <a class="layui-card-body btn-Method add_btn_piliang" data-type="shortUrl" style="text-align: center;display:block;cursor:pointer; ">
                 <img src="/assets/img/ico/piliangs.png" class="link-img">
                 <span class="link-text">批量添加资源</span>
             </a>
@@ -45,8 +27,7 @@
 
     <div class="layui-col-sm4 layui-col-xs12">
         <div class="layui-card tgqrcode">
-            <a class="layui-card-body btn-Method getCheckData1" data-all="all" data-type="tgqrcode" style="display:block;text-align: center;ursor:pointer; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
-        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;">
+            <a class="layui-card-body btn-Method getCheckData1" data-all="all" data-type="tgqrcode" style="display:block;text-align: center;cursor:pointer; ">
                 <img src="/assets/img/ico/yijian.png" class="link-img">
                 <span class="link-text">一键发布视频</span>
             </a>
@@ -56,14 +37,13 @@
 
     <div class="layui-col-sm4 layui-col-xs12">
         <div class="layui-card muban">
-            <a class="layui-card-body btn-Method del-all" data-type="muban" style="display:block;text-align: center; -moz-box-shadow: 1px 1px 5px #888888; /* 老的 Firefox */
-        box-shadow: 1px 1px 5px #888888; overflow: hidden; height: 100px;">
+            <a class="layui-card-body btn-Method del-all" data-type="muban" style="display:block;text-align: center;cursor:pointer;">
                 <img src="/assets/img/ico/dels.png" class="link-img">
                 <span class="link-text">全部删除</span>
             </a>
         </div>
     </div>
-
+</div>
 </div>
 
 <div class="panel panel-default panel-intro">
@@ -165,4 +145,4 @@
         </div>
     </div>
 </div>
-
+</div>

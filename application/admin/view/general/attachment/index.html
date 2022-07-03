@@ -1,7 +1,46 @@
+<style>
+        .panel-intro > .panel-heading{
+        padding-left:0;
+    }
+    .common-cover{
+        padding:0;
+        margin-top:-15px;
+        padding-bottom: 24px;
+    }
+    .common-cover .panel-intro{
+        background:#F2F6F9;
+        padding:20px;
+    }
+    .common-cover .panel-heading{
+        background:none;
+        border:none;
+    }
+    .content{
+        margin:0;
+    }
+    .common-cover .panel-body{
+        padding:24px;
+        background:#fff;
+    }
+    .panel-intro > .panel-heading .nav-tabs > li > a{
+        background:none;border:none;
+        color:#141621;
+    }
+    .panel-intro > .panel-heading .nav-tabs > li.active > a, .panel-intro > .panel-heading .nav-tabs > li.active > a:hover, .panel-intro > .panel-heading .nav-tabs > li.active > a:focus{
+        color:#141621;
+    }
+    .panel-intro > .panel-heading .nav-tabs > li > a, .panel-intro > .panel-heading .nav-tabs > li > a:hover, .panel-intro > .panel-heading .nav-tabs > li > a:focus{
+        color:#141621;
+        cursor: pointer;
+        background:none;
+        border:none;
+    }
+</style>
+<div class="common-cover">
 <div class="panel panel-default panel-intro">
 
     <div class="panel-heading">
-        {:build_heading(null,FALSE)}
+        <!--{:build_heading(null,FALSE)}-->
         <ul class="nav nav-tabs" data-field="mimetype">
             <li class="active"><a href="#t-all" data-value="" data-toggle="tab">{:__('All')}</a></li>
             {foreach name="mimetypeList" item="vo"}
@@ -24,4 +63,5 @@
 
         </div>
     </div>
+</div>
 </div>

@@ -20,10 +20,47 @@
     .edit-form table > tbody > tr:hover td a.btn-delcfg {
         visibility: visible;
     }
+    .panel-intro > .panel-heading{
+        padding-left:0;
+    }
+    .common-cover{
+        padding:0;
+        margin-top:-15px;
+        padding-bottom:24px;
+    }
+    .common-cover .panel-intro{
+        background:#F2F6F9;
+        padding:20px;
+    }
+    .common-cover .panel-heading{
+        background:none;
+        border:none;
+    }
+    .content{
+        margin:0;
+    }
+    .common-cover .panel-body{
+        padding:24px;
+        background:#fff;
+    }
+    .panel-intro > .panel-heading .nav-tabs > li > a{
+        background:none;border:none;
+        color:#141621;
+    }
+    .panel-intro > .panel-heading .nav-tabs > li.active > a, .panel-intro > .panel-heading .nav-tabs > li.active > a:hover, .panel-intro > .panel-heading .nav-tabs > li.active > a:focus{
+        color:#141621;
+    }
+    .panel-intro > .panel-heading .nav-tabs > li > a, .panel-intro > .panel-heading .nav-tabs > li > a:hover, .panel-intro > .panel-heading .nav-tabs > li > a:focus{
+        color:#141621;
+        cursor: pointer;
+        background:none;
+        border:none;
+    }
 </style>
+<div class="common-cover">
 <div class="panel panel-default panel-intro">
     <div class="panel-heading">
-        {:build_heading(null, false)}
+        <!--{:build_heading(null, false)}-->
         <ul class="nav nav-tabs">
             {foreach $siteList as $index=>$vo}
             <li class="{$vo.active?'active':''}"><a href="#{$vo.name}" data-toggle="tab">{:__($vo.title)}</a></li>
@@ -41,7 +78,7 @@
                 <div class="widget-body no-padding">
                     <form id="{$vo.name}-form" class="edit-form form-horizontal" role="form" data-toggle="validator" method="POST" action="{:url('general.config/edit')}">
                         {:token()}
-                        <table class="table table-striped">
+                        <table class="table table-striped" style="margin-top:20px;">
                             <thead>
                             <tr>
                                 <th width="15%">{:__('Title')}</th>
@@ -256,4 +293,5 @@ value2|title2</textarea>
             </div>
         </div>
     </div>
+</div>
 </div>

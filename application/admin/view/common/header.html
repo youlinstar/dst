@@ -28,6 +28,71 @@
                     /*.header-tab-new > li.active > a, .header-tab-new > li.active > a:hover, .header-tab-new > li.active > a:focus{*/
                         
                     /*}*/
+                    
+                    .custom-tabs-new{
+                        height:40px;
+                        overflow:hidden;
+                        background:#fff;
+                        margin-top:11px;
+                        
+                    }
+                    
+                    
+                    .custom-tabs-new > li > a > img{width:14px;height:14px;}
+                    .custom-tabs-new >li{
+                        min-width: 117px;
+                        height: 32px;
+                        line-height: 32px;
+                        background: #F7F9FA;
+                        border-radius: 4px;
+                        margin-top:8px;
+                        margin-left:10px;
+                    }
+                    #firstnav .menu-img{
+                        width:14px;
+                        height: 14px;
+                    }
+                  .custom-tabs-new > li > a{
+                        padding: 0;
+                        line-height: 32px!important;
+                        height: 32px!important;
+                        margin: 0;
+                        border: none!important;
+                        background: none!important;
+                        padding-left:10px;
+                        width: 80%;
+                        display:inline-block;
+                        
+                    }
+                    .skin-white-light .main-header .navbar .nav > li > a:active, .skin-white-light .main-header .navbar .nav .open > a, .skin-white-light .main-header .navbar .nav > .active > a{
+                        background:none;
+                        border:none;
+                        color:#fff;
+                        padding:0;
+                        width: 100%;
+                        text-align: center;
+                    }
+                    .skin-white-light .main-header .navbar .nav > .active:hover > a{
+                        color:#fff;
+                    }
+                    .custom-tabs-new .fa{
+                        float: right;
+                        margin-top: 0px;
+                        margin-right: 0px;
+                        color:#fff;
+                    }
+                    .custom-tabs-new > li.active{
+                        
+                        background: #7A90F5;
+                        border-radius: 4px;
+                    }
+                    .custom-tabs-new > li.active > a, .custom-tabs-new > li.active > a:hover, .custom-tabs-new > li.active > a:focus{
+                        color: #fff;
+                        background: none;
+                        border: none;
+                        border-bottom-color: transparent;
+                        cursor: default;
+                    }
         </style>
 <!-- 顶部通栏样式 -->
 <nav class="navbar navbar-static-top">
@@ -40,11 +105,12 @@
         </a>
 
         <!--如果不想在顶部显示角标,则给ul加上disable-top-badge类即可-->
-        <ul class="nav nav-tabs nav-addtabs disable-top-badge hidden-xs" role="tablist">
+        <ul class="nav nav-tabs nav-addtabs disable-top-badge hidden-xs  custom-tabs-new" role="tablist">
             {$navlist}
         </ul>
+
        
-        <div class="navbar-custom-menu">
+        <div class="navbar-custom-menu other-menu">
             <ul class="nav navbar-nav">
 
                <!-- <li>
@@ -55,14 +121,14 @@
                 
                 {if $admin.id == 1}
                 <li>
-                    <a href="javascript:;" data-toggle="dropdown" title="{:__('Wipe cache')}">
+                    <a href="javascript:;" data-toggle="dropdown" class="f-transh-a" title="{:__('Wipe cache')}">
                         <i class="fa fa-trash"></i>
                     </a>
                     <ul class="dropdown-menu wipecache">
-                        <li><a href="javascript:;" data-type="all"><i class="fa fa-trash"></i> {:__('Wipe all cache')}</a></li>
+                        <li><a href="javascript:;" data-type="all" ><i class="fa fa-trash"></i> {:__('Wipe all cache')}</a></li>
                         <li class="divider"></li>
                         
-                        <li><a href="javascript:;" data-type="content"><i class="fa fa-file-text"></i> {:__('Wipe content cache')}</a></li>
+                        <li><a href="javascript:;" data-type="content" ><i class="fa fa-file-text"></i> {:__('Wipe content cache')}</a></li>
                         <li><a href="javascript:;" data-type="template"><i class="fa fa-file-image-o"></i> {:__('Wipe template cache')}</a></li>
                         <li><a href="javascript:;" data-type="fwl"><i class="fa fa-rocket"></i> 一键清空访问量</a></li>
                         
@@ -75,7 +141,7 @@
                 <!-- 多语言列表 -->
                 {if $Think.config.lang_switch_on}
                 <li class="hidden-xs">
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-language"></i></a>
+                    <a href="javascript:;" class="dropdown-toggle fa-language-a" data-toggle="dropdown"><i class="fa fa-language"></i></a>
                     <ul class="dropdown-menu">
                         <li class="{$config['language']=='zh-cn'?'active':''}">
                             <a href="?ref=addtabs&lang=zh-cn">简体中文</a>
@@ -89,9 +155,9 @@
 
                 <!-- 全屏按钮 -->
                 <li class="hidden-xs">
-                    <a href="#" data-toggle="fullscreen"><i class="fa fa-arrows-alt"></i></a>
+                    <a href="#" data-toggle="fullscreen" class="f-arrows-alt-a"><i class="fa fa-arrows-alt"></i></a>
                 </li>
-
+               
                 <!-- 账号信息下拉框 -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -121,10 +187,11 @@
                         </li>
                     </ul>
                 </li>
-                <!-- 控制栏切换按钮 -->
+                 <!-- 控制栏切换按钮 -->
                 <li class="hidden-xs">
-                    <a href="javascript:;" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    <a href="javascript:;" data-toggle="control-sidebar" class="fa-gears-a"><i class="fa fa-gears"></i></a>
                 </li>
+
             </ul>
         </div>
     </div>

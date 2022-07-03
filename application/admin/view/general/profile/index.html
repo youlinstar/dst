@@ -36,11 +36,44 @@
         height: 100px;
         opacity: 0;
     }
+    .panel-heading,.self-title{
+        position: relative;
+        padding-left:40px;
+        height: 24px;
+        font-size: 20px;
+        font-weight: 500;
+        color: #141621;
+        line-height: 24px;
+        height: 24px;
+        box-sizing: content-box;
+    }
+    .self-title::before{
+        content:'';
+        width: 4px;
+        height: 18px;
+        background: #7A90F5;
+        border-radius: 2px;
+        position: absolute;
+        left:24px;
+        top:50%;
+        transform: translateY(-50%);
+    }
+    .box-profile{
+        padding:24px;
+    }
+    .box.box-success{
+        border:none;
+    }
+    .control-label{
+        color:#141621;
+        font-size: 14px;
+    }
 </style>
+
 <div class="row animated fadeInRight">
     <div class="col-md-4">
         <div class="box box-success">
-            <div class="panel-heading">
+            <div class="panel-heading self-title">
                 {:__('Profile')}
             </div>
             <div class="panel-body">
@@ -165,13 +198,14 @@
 
     </div>
     <div class="col-md-8">
-        <div class="panel panel-default panel-intro panel-nav">
-            <div class="panel-heading">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#one" data-toggle="tab"><i class="fa fa-list"></i> {:__('Admin log')}</a></li>
-                </ul>
+        <div class="panel">
+            <div class="panel-heading" style="padding-left:20px">
+                <!--<ul class="nav nav-tabs">-->
+                <!--    <li class="active"><a href="#one" data-toggle="tab"></i> {:__('Admin log')}</a></li>-->
+                <!--</ul>-->
+                {:__('Admin log')}
             </div>
-            <div class="panel-body">
+            <div class="panel-body" style="padding:20px;">
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade active in" id="one">
                         <div class="widget-body no-padding">

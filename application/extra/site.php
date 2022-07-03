@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'name' => 'LW打赏系统',
+  'name' => '德云社打赏',
   'beian' => '粤ICP备15000000号-1',
   'cdnurl' => '',
   'version' => '1.0.5',

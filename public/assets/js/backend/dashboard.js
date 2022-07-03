@@ -17,7 +17,9 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'table', 'echarts', 'echart
                     trigger: 'axis'
                 },
                 legend: {
-                    data: [__('Sales'), __('Orders'),__('failure')]
+                    data: [__('Sales'), __('Orders'),__('failure')],
+                    right:0,
+                    top:'top'
                 },
                 toolbox: {
                     show: false,
@@ -34,7 +36,7 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'table', 'echarts', 'echart
                 yAxis: {},
                 grid: [{
                     left: '30',
-                    top: '20',
+                    top: '30',
                     right: '10',
                     bottom: 30
                 }],
@@ -93,7 +95,9 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'table', 'echarts', 'echart
                     trigger: 'axis'
                 },
                 legend: {
-                    data: ['访问量']
+                    data: ['访问量'],
+                    right:0,
+                    top:'top'
                 },
                 toolbox: {
                     show: false,
@@ -110,7 +114,7 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'table', 'echarts', 'echart
                 yAxis: {},
                 grid: [{
                     left: '30',
-                    top: '20',
+                    top: '30',
                     right: '10',
                     bottom: 30
                 }],

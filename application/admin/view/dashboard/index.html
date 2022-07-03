@@ -1,4 +1,5 @@
 <style type="text/css">
+
     .sm-st {
         background: #fff;
         padding: 20px;
@@ -8,14 +9,14 @@
         margin-bottom: 20px;
         /*-webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);*/
         /*box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);*/
-        padding-top:10px;
+        padding-top:24px;
     }
 
     .stat-col {
         /*padding-bottom: 5%;*/
-        padding-top: 2%;
-        margin-left: 1.5%;
-        margin-bottom: 20px;
+        padding-top: 0;
+        margin-top:16px;
+        margin-bottom:16px;
         background: #fff;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
@@ -27,6 +28,23 @@
         transition-duration: 0.3s;
         transition-timing-function: ease;
         transition-delay: 0s;
+        min-height: 110px;
+        border-radius: 8px;
+        width:24%;
+        box-sizing: border-box;
+        padding:0;
+    }
+    .stat-col-cover {
+            display: flex;
+    justify-content: space-between;
+    padding: 0;
+        
+    }
+    .last-stat{
+        margin-right: 0;
+    }
+    .stat-col-no-top{
+        margin-top:0;
     }
 
     .stat-col:hover {
@@ -34,29 +52,37 @@
     }
 
     .sm-st-icon {
-        width: 60px;
-        height: 60px;
-        display: block;
-        line-height: 60px;
         text-align: center;
-        font-size: 30px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        /*float: left;*/
-        margin-right: 10px;
         color: #fff;
+        width: 54px;
+        height: 54px;
+        display: block;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        overflow: hidden;
     }
 
     .sm-st-info {
         font-size: 12px;
         padding-top: 2px;
+        width: 98px;
+        height: 14px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #9798A1;
+        line-height: 14px;
     }
 
-    .sm-st-info span {
+    .sm-st-info span,.sm-st-info .number-animate {
         display: block;
-        font-size: 24px;
+        height: 46px;
+        font-size: 46px;
         font-weight: 600;
+        color: #141621;
+        line-height: 46px;
+    }
+    #totalviews,#totalorder,#totalorderamount{
+        margin-bottom: 8px;
     }
 
     .stat .number-animate {
@@ -144,19 +170,28 @@
         text-overflow: ellipsis;
         display: inline-block;
         margin-right: 10px;
+        padding:24px;
     }
 
     .stat .value {
-        font-size: 20px;
-        line-height: 24px;
         overflow: hidden;
         text-overflow: ellipsis;
+        height: 30px;
+        font-size: 30px;
         font-weight: 500;
+        color: #141621;
+        line-height: 30px;
     }
 
     .stat .name {
         overflow: hidden;
         text-overflow: ellipsis;
+        height: 12px;
+        font-size: 12px;
+        font-weight: 400;
+        color: #9798A1;
+        line-height: 12px;
+        margin-bottom: 16px;
     }
 
     .stat.lg .value {
@@ -168,14 +203,14 @@
         font-size: 16px;
     }
 
-    .stat-col .progress {
-        height: 2px;
-    }
+    /*.stat-col .progress {*/
+    /*    height: 2px;*/
+    /*}*/
 
-    .stat-col .progress-bar {
-        line-height: 2px;
-        height: 2px;
-    }
+    /*.stat-col .progress-bar {*/
+    /*    line-height: 2px;*/
+    /*    height: 2px;*/
+    /*}*/
 
     .item {
         padding: 30px 0;
@@ -190,7 +225,14 @@
             margin-left: 4%;
         }
     }
-
+@media screen and (max-width:1300px){
+    .last-stat{
+        margin-right: 16px;
+    }
+    .stat-col{
+        max-width: 23.7%;
+    }
+}
 
     .layui-colla-title {
         background-color: #fff;
@@ -207,11 +249,245 @@
         padding-left: 4px;
     }
     .s-img{
-        width: 55px;
-        height: 50px;
+        width: 54px;
+        height: 54px;
+        display: block;
+        margin-bottom: 20px;
+        background:#7A90F5;
     }
     .bg-white{
         background: #fff;
+        min-height: 190px;
+    }
+    .notice-container{
+        border-radius: 8px;
+    }
+    .notice-container .layui-card-body{
+        height:385px!important;
+    }
+    .notice-container .layui-card-header{
+        height: 56px;
+        line-height: 56px;
+    }
+    
+.progress{
+    width: 80px;
+    height: 80px!important;
+    line-height: 80px!important;
+    background: none;
+    margin: 0 auto;
+    box-shadow: none;
+    position: absolute;
+    right:26px;
+    top:12px;
+}
+.progress:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 6px solid #f2f5f5;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.progress > span{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+.progress .progress-left{
+    left: 0;
+}
+.progress .progress-bar{
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 6px;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+}
+.progress .progress-left .progress-bar{
+    left: 100%;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-left: 0;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+}
+.progress .progress-right{
+    right: 0;
+}
+.progress .progress-right .progress-bar{
+    left: -100%;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-right: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+    animation: loading-1 1.8s linear forwards;
+}
+.progress .progress-value{
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    color: #434656;
+    text-align: center;
+    position: absolute;
+}
+@keyframes loading-1{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+}
+@keyframes loading-2{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(144deg);
+        transform: rotate(144deg);
+    }
+}
+@keyframes loading-3{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+}
+@keyframes loading-4{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(36deg);
+        transform: rotate(36deg);
+    }
+}
+@keyframes loading-5{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(126deg);
+        transform: rotate(126deg);
+    }
+}
+.progress.blue .progress-bar{
+    border-color: #96CCFE;
+}
+.progress.blue .progress-left .progress-bar{
+    animation: loading-2 1.5s linear forwards 1.8s;
+}
+.progress.yellow .progress-bar{
+    border-color: #FBD976;
+}
+.progress.yellow .progress-left .progress-bar{
+    animation: loading-3 1s linear forwards 1.8s;
+}
+.progress.pink .progress-bar{
+    border-color: #AC75F0;
+}
+.progress.pink .progress-left .progress-bar{
+    animation: loading-4 0.4s linear forwards 1.8s;
+}
+.progress.green .progress-bar{
+    border-color: #78CC7F;
+}
+.progress.green .progress-left .progress-bar{
+    animation: loading-2 1.5s linear forwards 1.8s;
+}
+.progress.perpule .progress-bar{
+    border-color: #96A9FE;
+}
+.progress.perpule .progress-left .progress-bar{
+    animation: loading-3 1s linear forwards 1.8s;
+}
+.progress.oranges .progress-bar{
+    border-color: #F7C895;
+}
+.progress.oranges .progress-left .progress-bar{
+    animation: loading-4 0.4s linear forwards 1.8s;
+}
+.progress.red .progress-bar{
+    border-color: #F0B2B2;
+}
+.progress.red .progress-left .progress-bar{
+    animation: loading-2 1.5s linear forwards 1.8s;
+}
+.progress.dark .progress-bar{
+    border-color: #7C8084;
+}
+.progress.dark .progress-left .progress-bar{
+    animation: loading-2 1.5s linear forwards 1.8s;
+}
+.progress.rorange .progress-bar{
+    border-color: #F4B898;
+}
+.progress.rorange .progress-left .progress-bar{
+    animation: loading-2 1.5s linear forwards 1.8s;
+}
+
+.number-animate .number-animate-dom{
+    width:26px;
+}
+#toDayOrder .number-animate .number-animate-dom,#toDaySuccessOrder .number-animate .number-animate-dom,#toDayFailureOrder .number-animate .number-animate-dom,#toDayKouliang .number-animate .number-animate-dom{
+    width:12px;
+}
+.layui-card{
+    border-radius: 8px;
+}
+.right-dash{
+    width:17.5%;
+    padding-left:0;
+}
+.left-dash{
+    width:82.5%;
+}
+.fast-icon{
+    display: inline-block;
+}
+.fast-title{
+    color:#141621;
+    font-size: 16px;
+    font-weight: 500;
+    height: 56px;
+    line-height: 56px;
+}
+.mjum p{
+    display: inline-block;
+}
+.mjum{
+    width: 23%;
+    height: 78px;
+    background: #F7F9FA;
+    border-radius: 8px;
+    margin-top:20px;
+    margin-left:20px;
+    }
+    .bg-white:first-child{
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+    .bg-white:nth-child(3){
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
     }
 </style>
 <div class="panel panel-default panel-intro">
@@ -227,7 +503,7 @@
             <div class="tab-pane fade active in" id="one">
 
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-10 left-dash">
                         <div class="col-xs-6 col-sm-4 bg-white">
                         <div class="sm-st clearfix">
                             <span class="sm-st-icon">
@@ -263,117 +539,153 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="layui-row layui-col-space15">
-                                <div class="card sameheight-item stats">
-                                    <div class="card-block">
-                                        <div class="row row-sm stats-container">
-
-                                            <!--今日收入-->
-                                            <div class="layui-col-xs12 layui-col-sm12 layui-col-md3   stat-col">
-                                                <div class="stat-icon"><img class="d-img" src="/assets/img/ico/dshouru.png"></div>
-                                                <div class="stat">
-                                                    <div class="value" id="toDayMoney"> 0 </div>
+                            <div class="col-xs-6 col-sm-12 stat-col-cover">
+                            <div class="col-xs-6 col-sm-3 stat-col">
+                                <div class="stat">
                                                     <div class="name"> {:__('toDayMoney')}</div>
+                                                    <div class="value" id="toDayMoney"> 0 </div>
                                                 </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-success" style="width: 25%"></div>
+                                                <div class="progress rorange">
+                                                    <span class="progress-left">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <span class="progress-right">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <div class="progress-value">90%</div>
                                                 </div>
-                                            </div>
-
-                                            <div class="layui-col-xs12 layui-col-sm12 layui-col-md3 stat-col">
-                                                <div class="stat-icon"><img class="d-img" src="/assets/img/ico/dshouru2.png"></div>
-                                                <div class="stat">
-                                                    <div class="value" id="yesterdayMoney"> 0 </div>
-                                                    <div class="name"> {:__('yesterdayMoney')}</div>
-                                                </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar orange" style="width: 35%"></div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="layui-col-xs12 layui-col-sm12 layui-col-md3 stat-col">
-                                                <div class="stat-icon"><img class="d-img" src="/assets/img/ico/dfangwen.png"></div>
-                                                <div class="stat">
-                                                    <div class="value" id="todayUserAccessCount"> 0</div>
-                                                    <div class="name"> {:__('TodayUserAccess')}</div>
-                                                </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar st-violet" style="width: 50%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="layui-col-xs12 layui-col-sm12 layui-col-md3 stat-col">
-                                                <div class="stat-icon"><img class="d-img" src="/assets/img/ico/fangwen2.png"></div>
-                                                <div class="stat">
-                                                    <div class="value" id="yesterdayAccessCount"> 0 </div>
-                                                    <div class="name"> {:__('yesterdayAccessCount')}</div>
-                                                </div>
-                                                <div class="progress">
-                                                    <div class="progress-bar st-red" style="width: 60%"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-
-                        <div class="layui-row layui-col-space15">
-                            <div class="card sameheight-item stats">
-                                <div class="card-block">
-                                    <div class="row row-sm stats-container">
-                                        
-                                        <div class="layui-col-xs12 layui-col-sm12 layui-col-md3  stat-col" style="display:  {if $is_admin == 1} block {else}none{/if}">
-                                            <div class="stat-icon"><img class="d-img" src="/assets/img/ico/o1.png"></div>
-                                            <div class="stat">
-                                                <div class="value" id="toDayOrder"> 0</div>
-                                                <div class="name"> {:__('Today order')}</div>
-                                            </div>
-                                            <div class="progress">
-                                                <div class="progress-bar yellow-b" style="width: 75%"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="layui-col-xs12 layui-col-sm12 layui-col-md3  stat-col">
-                                            <div class="stat-icon"><img class="d-img" src="/assets/img/ico/o2.svg"></div>
-                                            <div class="stat">
-                                                <div class="value" id="toDaySuccessOrder"> 0 </div>
-                                                <div class="name"> {:__('toDaySuccessOrder')}</div>
-                                            </div>
-                                            <div class="progress">
-                                                <div class="progress-bar pink" style="width: 25%"></div>
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                        <div class="layui-col-xs12 layui-col-sm12 layui-col-md3  stat-col" style="display:  {if $is_admin == 1} block {else}none{/if}">
-                                            <div class="stat-icon"><img class="d-img" src="/assets/img/ico/o3.png"></div>
-                                            <div class="stat">
-                                                <div class="value" id="toDayFailureOrder"> 0 </div>
-                                                <div class="name"> {:__('toDayFailureOrder')}</div>
-                                            </div>
-                                            <div class="progress">
-                                                <div class="progress-bar green" style="width: 95%"></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="layui-col-xs12 layui-col-sm12 layui-col-md3  stat-col" style="display:  {if $is_admin == 1} block {else}none{/if}">
-                                            <div class="stat-icon"><img class="d-img" src="/assets/img/ico/liang.png"></div>
-                                            <div class="stat">
-                                                <div class="value" id="toDayKouliang"> 0 </div>
-                                                <div class="name"> {:__('Day kouliang')}</div>
-                                            </div>
-                                            <div class="progress">
-                                                <div class="progress-bar tar" style="width: 67%"></div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
                             </div>
-                        </div>
+                            <div class="col-xs-6 col-sm-3 stat-col">
+                                <div class="stat">
+                                                    <div class="name"> {:__('yesterdayMoney')}</div>
+                                                    <div class="value" id="yesterdayMoney"> 0 </div>
+                                                </div>
+                                                <!--<div class="progress">-->
+                                                <!--    <div class="progress-bar orange" style="width: 35%"></div>-->
+                                                <!--</div>-->
+                                                 <div class="progress oranges">
+                                                    <span class="progress-left">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <span class="progress-right">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <div class="progress-value">90%</div>
+                                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3 stat-col">
+                                 <div class="stat">
+                                                    <div class="name"> {:__('TodayUserAccess')}</div>
+                                                    <div class="value" id="todayUserAccessCount"> 0</div>
+                                                </div>
+                                                <div class="progress perpule">
+                                                    <span class="progress-left">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <span class="progress-right">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <div class="progress-value">90%</div>
+                                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3 stat-col last-stat">
+                                    <div class="stat">
+                                                    <div class="name"> {:__('yesterdayAccessCount')}</div>
+                                                    <div class="value" id="yesterdayAccessCount"> 0 </div>
+                                                </div>
+                                                <!--<div class="progress">-->
+                                                <!--    <div class="progress-bar st-red" style="width: 60%"></div>-->
+                                                <!--</div>-->
+                                                 <div class="progress blue">
+                                                    <span class="progress-left">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <span class="progress-right">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <div class="progress-value">90%</div>
+                                                </div>
+                            </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-12 stat-col-cover">
+                            <div class="col-xs-6 col-sm-3 stat-col stat-col-no-top" style="display:  {if $is_admin == 1} block {else}none{/if}">
+                                            <!--<div class="stat-icon"><img class="d-img" src="/assets/img/ico/o1.png"></div>-->
+                                            <div class="stat">
+                                                <div class="name"> {:__('Today order')}</div>
+                                                <div class="value" id="toDayOrder"> 0</div>
+                                            </div>
+                                            <div class="progress green">
+                                                    <span class="progress-left">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <span class="progress-right">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <div class="progress-value">90%</div>
+                                                </div>
+                            </div>
+                             <div class="col-xs-6 col-sm-3 stat-col stat-col-no-top">
+                              <div class="stat">
+                                                <div class="name"> {:__('toDaySuccessOrder')}</div>
+                                                <div class="value" id="toDaySuccessOrder"> 0 </div>
+                                            </div>
+                                           
+                                            <div class="progress yellow">
+                                                    <span class="progress-left">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <span class="progress-right">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <div class="progress-value">90%</div>
+                                                </div>
+                            </div>
+                             <div class="col-xs-6 col-sm-3 stat-col stat-col-no-top" style="display:  {if $is_admin == 1} block {else}none{/if}">
+                                            <!--<div class="stat-icon"><img class="d-img" src="/assets/img/ico/o3.png"></div>-->
+                                            <div class="stat">
+                                                <div class="name"> {:__('toDayFailureOrder')}</div>
+                                                <div class="value" id="toDayFailureOrder"> 0 </div>
+                                            </div>
+                                            <!--<div class="progress">-->
+                                            <!--    <div class="progress-bar green" style="width: 95%"></div>-->
+                                            <!--</div>-->
+                                            <div class="progress red">
+                                                    <span class="progress-left">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <span class="progress-right">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <div class="progress-value">90%</div>
+                                                </div>
+                             
+                            </div>
+                             <div class="col-xs-6 col-sm-3 stat-col last-stat stat-col-no-top" style="display:  {if $is_admin == 1} block {else}none{/if}">
+                                            <!--<div class="stat-icon"><img class="d-img" src="/assets/img/ico/liang.png"></div>-->
+                                            <div class="stat">
+                                                <div class="name"> {:__('Day kouliang')}</div>
+                                                <div class="value" id="toDayKouliang"> 0 </div>
+                                            </div>
+                                            <!--<div class="progress">-->
+                                            <!--    <div class="progress-bar tar" style="width: 67%"></div>-->
+                                            <!--</div>-->
+                                            <div class="progress dark">
+                                                    <span class="progress-left">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <span class="progress-right">
+                                                        <span class="progress-bar"></span>
+                                                    </span>
+                                                    <div class="progress-value">90%</div>
+                                                </div>
+                             
+                            </div>
+                            </div>
+
+                        
                     </div>
-                    <div class="col-md-3">                    
-                    <div class="">
+                    <div class="col-md-2 right-dash">                    
+                    <div class="notice-container">
                         <div class="layui-card">
                             <div class="layui-card-header">
                                 <span class="fa fa-bullhorn"></span>
@@ -384,7 +696,7 @@
                             <div class="layui-card-body" id="noticeList"
                                  style="height: 232px; padding:0;overflow: auto">
 
-                                <div class="layui-collapse" lay-filter="test">
+                                <div class="layui-collapse" lay-filter="test" style="border:none">
                                     {foreach name="notify" item="vo"}
                                     <div class="layui-colla-item">
                                         <h2 class="layui-colla-title">{$vo.title|mb_substr=0,24,'utf-8'|htmlentities}</h2>
@@ -410,14 +722,14 @@
                 </div>
 
                 <div class="row">
-                    <div>
+                    <div class="col-md-12">
                         <div class="layui-card">
-                            <div class="layui-card-header">快捷操作</div>
+                            <div class="layui-card-header fast-title">快捷操作</div>
                             <div class="layui-card-body" style="">
-                                <div class="layui-row" style="margin-top:15px;">
+                                <div class="layui-row" style="padding-bottom:10px;">
 
                                     <div class="layui-col-xs3 nepadmin-grid mjum" lay-url="/admin/link">
-                                        <span class="">
+                                        <span class="fast-icon">
                                             <img class="t-img" src="/assets/img/ico/tgzq.png">
                                         </span>
                                         <p>推广赚钱</p>
@@ -431,35 +743,35 @@
 
 
                                     <div class="layui-col-xs3 nepadmin-grid mjum" lay-url="/admin/domain">
-                                        <span class="">
+                                        <span class="fast-icon">
                                             <img class="t-img" src="/assets/img/ico/domain.png">
                                         </span>
                                         <p>域名管理</p>
                                     </div>
                                     <div class="layui-col-xs3 nepadmin-grid mjum" lay-url="/admin/cash">
-<span class="">
+<span class="fast-icon">
                                             <img class="t-img" src="/assets/img/ico/money.png">
                                         </span>                                        <p>提现管理</p>
                                     </div>
                                     <div class="layui-col-xs3 nepadmin-grid mjum" lay-url="/admin/auth/admin">
-<span class="">
+<span class="fast-icon">
                                             <img class="t-img" src="/assets/img/ico/daili.png">
                                         </span>                                        <p>代理管理</p>
                                     </div>
 
                                     <div class="layui-col-xs3 nepadmin-grid mjum" lay-url="/admin/order">
-<span class="">
+<span class="fast-icon">
                                             <img class="t-img" src="/assets/img/ico/order.png">
                                         </span>                                        <p>订单列表</p>
                                     </div>
                                     <div class="layui-col-xs3 nepadmin-grid mjum" lay-url="/admin/stock">
-<span class="">
+<span class="fast-icon">
                                             <img class="t-img" src="/assets/img/ico/kk.png">
                                         </span>                                        <p>公共资源库</p>
                                     </div>
 
                                     <div class="layui-col-xs3 nepadmin-grid mjum" lay-url="/admin/general/profile">
-<span class="">
+<span class="fast-icon">
                                             <img class="t-img" src="/assets/img/ico/ser.png">
                                         </span>                                        <p>个人设置</p>
                                     </div>
@@ -474,24 +786,24 @@
             <div class="layui-row layui-col-space15">
                 <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
                     <div class="layui-card">
-                        <div class="layui-card-header">
+                        <div class="layui-card-header fast-title">
                             <span class="fa fa-bullhorn"></span>
                             订单统计(实时)
                         </div>
-                        <div style="padding-left: 2px;padding-right: 2px">
-                            <div id="echart" class="btn-refresh" style="height:300px;"></div>
+                        <div style="padding:24px">
+                            <div id="echart" class="btn-refresh" style="height:312px;"></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="layui-col-xs12 layui-col-sm12 layui-col-md6">
                     <div class="layui-card">
-                        <div class="layui-card-header">
+                        <div class="layui-card-header fast-title">
                             <span class="fa fa-bullhorn"></span>
                             每时访问统计(实时)
                         </div>
-                        <div style="padding-left: 2px;padding-right: 2px">
-                            <div id="echart2" class="btn-refresh" style="height:300px"></div>
+                        <div style="padding:24px">
+                            <div id="echart2" class="btn-refresh" style="height:312px"></div>
                         </div>
                     </div>
                 </div>
