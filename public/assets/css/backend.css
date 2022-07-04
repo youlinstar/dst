@@ -330,16 +330,17 @@ form.form-horizontal .control-label {
   background: #f1f4f6;
   border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
+
 .nav-addtabs > li .close-tab {
   font-size: 10px;
   position: absolute;
-  right: 0px;
+  right: 4px;
   top: 50%;
   margin-top: -8px;
   z-index: 100;
   cursor: pointer;
-  color: #eee;
-  display: none;
+  color: #585151;
+   display: none; 
 }
 .nav-addtabs > li .close-tab:before {
   content: "\e626";
@@ -1824,8 +1825,9 @@ html,
   cursor: pointer;
 }
 .nepadmin-grid > p {
-  color: #999;
-  font-size: 14px;
+  color: #141621;
+  font-size: 16px;
+  font-weight: 500px;
 }
 .nepadmin-grid > p,
 .nepadmin-grid .layui-icon {
@@ -4070,6 +4072,8 @@ textarea::-webkit-input-placeholder {
 }
 .table-bordered,.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{
     border-color:#E6E8F3!important;
+    font-size: 14px;
+    color:#434656;
 }
 .fixed-table-body{
     border-radius: 4px 8px 0px 0px;
@@ -4132,12 +4136,14 @@ textarea::-webkit-input-placeholder {
     }
     .user-menu{
         position: relative;
-        width:80px;
+        width:100px;
+        min-width: 100px;
     }
     .user-menu>a{
-        width: 80px;
         position: relative;
         padding:0;
+        width:100px;
+        min-width: 100px;
     }
     /*.navbar-nav .open .user-image{*/
     /*    margin-top:14px;*/
@@ -4151,6 +4157,8 @@ textarea::-webkit-input-placeholder {
         width:80px;
         text-align: right;
         height: 60px;right:0;line-height: 60px;
+        right:24px;
+        min-width: 80px;
         
     }
     .navbar-nav  li.user-menu,.navbar-nav  li.open{
@@ -4161,7 +4169,7 @@ textarea::-webkit-input-placeholder {
     .skin-white-light .main-header .navbar .navbar-custom-menu .navbar-nav > li > a, .skin-white-light .main-header .navbar .navbar-right > li > a{
         border:none;
         height: 60px;
-        min-width: 60px;
+        min-width: 50px;
         display: block;
         position: relative;
     }
@@ -4266,4 +4274,10 @@ textarea::-webkit-input-placeholder {
     
     .layui-form-radio>i:hover, .layui-form-radioed>i{
         color:#5F78EC!important;
+    }
+    .label-primary{
+        background-color:#5F78EC!important;
+    }
+    .layui-slider-wrap-btn{
+        border-color:#5F78EC!important;
     }
