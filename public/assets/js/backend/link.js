@@ -93,6 +93,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','qr','bootstrap-table-
                             field: 'is_top',
                             title: "是否置顶",
                             align: 'center',
+                            visible:userinfo.id===1,
+                            cardVisible:userinfo.id===1,
+                            switchable:userinfo.id===1,
                             formatter: Table.api.formatter.toggle
                         },
                         {
