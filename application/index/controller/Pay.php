@@ -1897,7 +1897,7 @@ ORDER BY T1.lvl asc;");
 
     public function mahuayun()
     {
-        file_put_contents(ROOT_PATH."pay.txt","qumipay: 订单处理返回结果".json_encode($_REQUEST ,1).PHP_EOL,FILE_APPEND);
+        file_put_contents(ROOT_PATH."pay.txt","mahuayun: 订单处理返回结果".json_encode($_REQUEST ,1).PHP_EOL,FILE_APPEND);
         $transact = $_REQUEST['out_trade_no'];
         $order = (new Order())->where(['transact' => $transact])->find();
         $money = $order['price'];
@@ -1910,7 +1910,7 @@ ORDER BY T1.lvl asc;");
         }
         $res =  $this->saveOrder($transact , $money);
         file_put_contents(ROOT_PATH."pay.txt","订单处理返回结果".$res.PHP_EOL,FILE_APPEND);
-        if((boolean) $res == true) {
+        if($res == true) {
             file_put_contents(ROOT_PATH."pay.txt","success".PHP_EOL,FILE_APPEND);
             echo "success";die;
         }
@@ -1919,7 +1919,7 @@ ORDER BY T1.lvl asc;");
     }
 
     public function dabolang(){
-        file_put_contents(ROOT_PATH."pay.txt","qumipay: 订单处理返回结果".json_encode($_REQUEST ,1).PHP_EOL,FILE_APPEND);
+        file_put_contents(ROOT_PATH."pay.txt","dabolang: 订单处理返回结果".json_encode($_REQUEST ,1).PHP_EOL,FILE_APPEND);
         $transact = $_REQUEST['out_trade_no'];
         $order = (new Order())->where(['transact' => $transact])->find();
         $money = $order['price'];
@@ -1932,7 +1932,7 @@ ORDER BY T1.lvl asc;");
         }
         $res =  $this->saveOrder($transact , $money);
         file_put_contents(ROOT_PATH."pay.txt","订单处理返回结果".$res.PHP_EOL,FILE_APPEND);
-        if((boolean) $res == true) {
+        if((boolean)$res) {
             file_put_contents(ROOT_PATH."pay.txt","success".PHP_EOL,FILE_APPEND);
             echo "success";die;
         }
@@ -1941,7 +1941,7 @@ ORDER BY T1.lvl asc;");
     }
 
     public function feiji(){
-        file_put_contents(ROOT_PATH."pay.txt","qumipay: 订单处理返回结果".json_encode($_REQUEST ,1).PHP_EOL,FILE_APPEND);
+        file_put_contents(ROOT_PATH."pay.txt","feiji: 订单处理返回结果".json_encode($_REQUEST ,1).PHP_EOL,FILE_APPEND);
         $transact = $_REQUEST['out_trade_no'];
         $order = (new Order())->where(['transact' => $transact])->find();
         $money = $order['price'];
@@ -1951,7 +1951,7 @@ ORDER BY T1.lvl asc;");
         }
         $res =  $this->saveOrder($transact , $money);
         file_put_contents(ROOT_PATH."pay.txt","订单处理返回结果".$res.PHP_EOL,FILE_APPEND);
-        if((boolean) $res == true) {
+        if((boolean)$res) {
             file_put_contents(ROOT_PATH."pay.txt","success".PHP_EOL,FILE_APPEND);
             echo "success";die;
         }

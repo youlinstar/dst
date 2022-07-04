@@ -3403,7 +3403,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
             'out_trade_no'=>$transact,
             'total_fee'=> (float)$payMoney * 100,
             'callback_url'=>$this->getCallbackUrl([] , $transact , $this->id),
-            'notify_url'=>$this->getNotifyUrl( [], "dabolang"),
+            'notify_url'=>$this->getNotifyUrl( [], "feiji"),
             'error_url'=>$this->getCallbackUrl([] , $transact , $this->id),
         ];
         $sign = getSign($data, $appKey);
