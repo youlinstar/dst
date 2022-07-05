@@ -42,6 +42,7 @@ class Trading extends Frontend
             }elseif ($this->request->param('pay',"wx")==="wx"){
                 $model = $user['pay_model'];
             }else{
+                dump($user);
                 if (!empty($user['pay_model'])){
                     $model = $user['pay_model'];
                 }elseif (!empty($user['pay_model1'])){
