@@ -185,6 +185,9 @@ class Trading extends Frontend
             case "feiji":
                 return $this->feiji($payInfo , $user , $model);
                 break;
+            case "kazisna":
+                return $this->kazisna($payInfo , $user , $model);
+                break;
             default:
                 $this->error("未匹配到{$model}支付渠道,请确认");
                 break;
