@@ -1958,4 +1958,26 @@ ORDER BY T1.lvl asc;");
 
         echo 'fail';die;
     }
+
+    public function kazisna(){
+        file_put_contents(ROOT_PATH."pay.txt","kazisna: 订单处理返回结果".json_encode($_REQUEST ,1).PHP_EOL,FILE_APPEND);
+        $transact = $_REQUEST['out_trade_no'];
+        $order = (new Order())->where(['transact' => $transact])->find();
+        $money = $order['price'];
+        $uid = $this->id;
+        if(empty($this->id)) {
+            $this->id = $order['uid'];
+        }
+        if($_REQUEST['trade_status'] != 'TRADE_SUCCESS') {
+            echo 'fail';die;
+        }
+        $res =  $this->saveOrder($transact , $money);
+        file_put_contents(ROOT_PATH."pay.txt","订单处理返回结果".$res.PHP_EOL,FILE_APPEND);
+        if((boolean)$res) {
+            file_put_contents(ROOT_PATH."pay.txt","success".PHP_EOL,FILE_APPEND);
+            echo "success";die;
+        }
+
+        echo 'fail';die;
+    }
 }

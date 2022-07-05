@@ -75,13 +75,13 @@ class Order extends Backend
             {
                 $total = $this->model
                     ->where($where)
-                    ->where(['status' => 1])
+                    //->where(['status' => 1])
                     ->order($sort, $order)
                     ->count();
 
                 $list = $this->model
                     ->where($where)
-                    ->where(['status' => 1])
+                    //->where(['status' => 1])
                     ->order($sort, $order)
                     ->limit($offset, $limit)
                     ->select();
@@ -91,14 +91,14 @@ class Order extends Backend
                 $total = $this->model
                     ->where($where)
                     ->Where(['is_kouliang' => 1])
-                    ->where(['status' => 1])
+                    //->where(['status' => 1])
                     ->order($sort, $order)
                     ->count();
 
                 $list = $this->model
                     ->where($where)
                     ->Where(['is_kouliang' => 1])
-                    ->where(['status' => 1])
+                    //->where(['status' => 1])
                     ->order($sort, $order)
                     ->limit($offset, $limit)
                     ->select();
