@@ -52,6 +52,7 @@ class Trading extends Frontend
             }
         }
         $user = Admin::getUser($this->id);
+        dump($model);
         $payInfo = Payset::getPayInfo($model);
         $model=$payInfo['model'];
 
