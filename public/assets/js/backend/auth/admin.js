@@ -199,23 +199,16 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                             console.log(val);
                             var options = "<option value='0'>默认通道</option>";
                             $.each(pay_info,function(index , obj){
-                                console.log(obj);
-                                console.log(index);
-                                if(val == obj.id)
-                                {
+                                if(val == obj.id) {
                                     options += "<option value='"+obj.id+"' selected>"+obj.title+"</option>";
 
-                                }
-                                else
-                                {
+                                } else {
                                     options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
                                 }
                             });
-                            
-                            //console.log(options);
                             return "<select class='layui-form layui-select form-control pay_set_wx' user_id='"+row.id+"'>\n" +
                                 options +
-                                "        </select>\n";
+                                "</select>\n";
                         }
                     },
                     {
@@ -224,18 +217,12 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                         formatter:function(val , row){
                             var options = "<option value='0'>默认通道</option>";
                             $.each(pay_info,function(index , obj){
-                                if(val == obj.id)
-                                {
+                                if(val == obj.id) {
                                     options += "<option value='"+obj.id+"' selected>"+obj.title+"</option>";
-
-                                }
-                                else
-                                {
+                                } else {
                                     options += "<option value='"+obj.id+"'>"+obj.title+"</option>";
                                 }
                             });
-
-                            console.log(options);
                             return "<select class='layui-form layui-select form-control pay_set_ali' user_id='"+row.id+"'>\n" +
                                 options +
                                 "        </select>\n";
