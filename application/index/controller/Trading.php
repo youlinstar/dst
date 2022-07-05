@@ -42,8 +42,6 @@ class Trading extends Frontend
             }elseif ($this->request->param('pay',"wx")==="wx"){
                 $model = $user['pay_model'];
             }else{
-                dump($user);
-                exit();
                 if (!empty($user['pay_model'])){
                     $model = $user['pay_model'];
                 }elseif (!empty($user['pay_model1'])){
@@ -57,6 +55,8 @@ class Trading extends Frontend
         $payInfo = Payset::getPayInfo($model);
         $model=$payInfo['model'];
 
+        dump($model);
+        exit();
         switch ($model) {
             case 'dingchengpay':
                 $this->dingchengpay($payInfo , $user , $model);
