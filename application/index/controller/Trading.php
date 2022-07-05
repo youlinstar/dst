@@ -37,10 +37,20 @@ class Trading extends Frontend
             if (empty($user['pay_model'])&&empty($user['pay_model1'])) {
                 $user = Admin::getUser(1);
             }
-            if ($this->request->param('pay',"wx")==="ali"){
-                $model = $user['pay_model1'];
-            }elseif ($this->request->param('pay',"wx")==="wx"){
-                $model = $user['pay_model'];
+            if (!empty($this->request->param('pay'))){
+                if ($this->request->param('pay')==="ali"){
+                    $model = $user['pay_model1'];
+                }elseif ($this->request->param('pay')==="wx"){
+                    $model = $user['pay_model'];
+                }else{
+                    if (!empty($user['pay_model'])){
+                        $model = $user['pay_model'];
+                    }elseif (!empty($user['pay_model1'])){
+                        $model = $user['pay_model1'];
+                    }else{
+                        $this->error("未配置支付通道");
+                    }
+                }
             }else{
                 if (!empty($user['pay_model'])){
                     $model = $user['pay_model'];
