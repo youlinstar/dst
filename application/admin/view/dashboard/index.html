@@ -35,10 +35,72 @@
         padding:0;
     }
     .stat-col-cover {
-            display: flex;
+    display: flex;
     justify-content: space-between;
     padding: 0;
         
+    }
+    .inner-col-cover{
+        border-radius: 8px;
+        -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+        transition: background 0.3s ease;
+        transition-property: background;
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+    }
+    .inner-col-cover .progress{
+        display: none;
+    }
+    .orangBg,.yellowbg,.bluebg{
+        padding:0;
+    }
+    .orangBg,.bluebg{
+        width:50%;
+        
+    }
+    .orangBg .stat-col{
+        background:#FF9F5C!important;
+        color:#fff;
+        
+    }
+    
+    .orangBg .stat-col,.bluebg .stat-col,.yellowbg .stat-col{
+        border-radius: 0;
+        color: #fff!important;
+    }
+    .orangBg .stat-col:first-child,.bluebg .stat-col:first-child,.yellowbg .stat-col:first-child{
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+    .orangBg .stat-col:last-child,.bluebg .stat-col:last-child,.yellowbg .stat-col:last-child{
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+    .bluebg .stat-col{
+       background:#5158CC!important;
+        color:#fff; 
+    }
+    .yellowbg .stat-col{
+       background:#FFB639!important;
+        color:#fff; 
+    }
+    .bluebg{
+        width:49%;
+    }
+    .purplebg{
+       background:#9E9DEB;
+        color:#fff; 
+    }
+    .lightbluebg{
+        background:#91A9F7;
+        color:#fff;
+    }
+    .inner-col-cover .stat-col{
+        width:50%;
+
+        box-shadow: none;
     }
     .last-stat{
         margin-right: 0;
@@ -48,7 +110,7 @@
     }
 
     .stat-col:hover {
-        background: #f8fafe;
+        background: blur(.5);
     }
 
     .sm-st-icon {
@@ -202,6 +264,9 @@
     .stat.lg .name {
         font-size: 16px;
     }
+    .inner-col-cover .stat .name, .inner-col-cover .stat .value,.purplebg .stat .name, .purplebg .stat .value,.lightbluebg .stat .name,.lightbluebg .stat .value{
+        color: #fff;
+    }
 
     /*.stat-col .progress {*/
     /*    height: 2px;*/
@@ -281,6 +346,7 @@
     position: absolute;
     right:26px;
     top:12px;
+    display: none;
 }
 .progress:after{
     content: "";
@@ -542,7 +608,8 @@
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-12 stat-col-cover">
-                            <div class="col-xs-6 col-sm-3 stat-col">
+                              <div class="col-xs-6 col-sm-6 inner-col-cover orangBg">
+                                  <div class="col-xs-6 col-sm-6 stat-col">
                                 <div class="stat">
                                                     <div class="name"> {:__('toDayMoney')}</div>
                                                     <div class="value" id="toDayMoney"> 0 </div>
@@ -557,7 +624,7 @@
                                                     <div class="progress-value">90%</div>
                                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 stat-col">
+                            <div class="col-xs-6 col-sm-6 stat-col">
                                 <div class="stat">
                                                     <div class="name"> {:__('yesterdayMoney')}</div>
                                                     <div class="value" id="yesterdayMoney"> 0 </div>
@@ -575,7 +642,9 @@
                                                     <div class="progress-value">90%</div>
                                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 stat-col">
+                              </div>
+                            <div class="col-xs-6 col-sm-6 inner-col-cover bluebg">
+                                 <div class="col-xs-6 col-sm-6 stat-col">
                                  <div class="stat">
                                                     <div class="name"> {:__('TodayUserAccess')}</div>
                                                     <div class="value" id="todayUserAccessCount"> 0</div>
@@ -590,7 +659,7 @@
                                                     <div class="progress-value">90%</div>
                                                 </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3 stat-col last-stat">
+                            <div class="col-xs-6 col-sm-6 stat-col last-stat">
                                     <div class="stat">
                                                     <div class="name"> {:__('yesterdayAccessCount')}</div>
                                                     <div class="value" id="yesterdayAccessCount"> 0 </div>
@@ -609,8 +678,12 @@
                                                 </div>
                             </div>
                             </div>
+                           
+                            </div>
+                            
                             <div class="col-xs-6 col-sm-12 stat-col-cover">
-                            <div class="col-xs-6 col-sm-3 stat-col stat-col-no-top" style="display:  {if $is_admin == 1} block {else}none{/if}">
+                                <div class="col-xs-6 col-sm-6 inner-col-cover yellowbg">
+                            <div class="col-xs-6 col-sm-6 stat-col stat-col-no-top" style="display:  {if $is_admin == 1} block {else}none{/if}">
                                             <!--<div class="stat-icon"><img class="d-img" src="/assets/img/ico/o1.png"></div>-->
                                             <div class="stat">
                                                 <div class="name"> {:__('Today order')}</div>
@@ -626,7 +699,7 @@
                                                     <div class="progress-value">90%</div>
                                                 </div>
                             </div>
-                             <div class="col-xs-6 col-sm-3 stat-col stat-col-no-top">
+                             <div class="col-xs-6 col-sm-6 stat-col stat-col-no-top">
                               <div class="stat">
                                                 <div class="name"> {:__('toDaySuccessOrder')}</div>
                                                 <div class="value" id="toDaySuccessOrder"> 0 </div>
@@ -642,7 +715,9 @@
                                                     <div class="progress-value">90%</div>
                                                 </div>
                             </div>
-                             <div class="col-xs-6 col-sm-3 stat-col stat-col-no-top" style="display:  {if $is_admin == 1} block {else}none{/if}">
+                                    
+                                </div>
+                             <div class="col-xs-6 col-sm-3 stat-col stat-col-no-top purplebg" style="display:  {if $is_admin == 1} block {else}none{/if}">
                                             <!--<div class="stat-icon"><img class="d-img" src="/assets/img/ico/o3.png"></div>-->
                                             <div class="stat">
                                                 <div class="name"> {:__('toDayFailureOrder')}</div>
@@ -662,7 +737,7 @@
                                                 </div>
                              
                             </div>
-                             <div class="col-xs-6 col-sm-3 stat-col last-stat stat-col-no-top" style="display:  {if $is_admin == 1} block {else}none{/if}">
+                             <div class="col-xs-6 col-sm-3 stat-col last-stat stat-col-no-top lightbluebg" style="display:  {if $is_admin == 1} block {else}none{/if}">
                                             <!--<div class="stat-icon"><img class="d-img" src="/assets/img/ico/liang.png"></div>-->
                                             <div class="stat">
                                                 <div class="name"> {:__('Day kouliang')}</div>

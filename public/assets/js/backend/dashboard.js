@@ -48,6 +48,7 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'table', 'echarts', 'echart
                         normal: {}
                     },
                     lineStyle: {
+                        color:'#78CC7F',
                         normal: {
                             width: 1.5
                         },
@@ -62,6 +63,7 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'table', 'echarts', 'echart
                             normal: {}
                         },
                         lineStyle: {
+                            color:'#7A90F5',
                             normal: {
                                 width: 1.5
                             }
@@ -126,6 +128,7 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'table', 'echarts', 'echart
                         normal: {}
                     },
                     lineStyle: {
+                        color:'#7A90F5',
                         normal: {
                             width: 1.5
                         },
