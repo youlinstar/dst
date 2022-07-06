@@ -396,6 +396,25 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
 
             // 为表格绑定事件
             Table.api.bindevent(table);
+
+            //批量修改金额
+            $(".editPayModel").click(function () {
+                addoredit("/admin/auth/admin/editPayModel", '一键修改微信支付渠道');
+            });
+            //批量修改金额
+            $(".editPayModel1").click(function () {
+                addoredit("/admin/auth/admin/editPayModel1", '一键修改微信支付渠道');
+            });
+
+            function addoredit(url, name) {
+                layer.open({
+                    title: name,
+                    type: 2,
+                    content: url,
+                    area: ['60%', '80%'],
+                    maxmin: true
+                });
+            }
         },
         add: function () {
             Form.api.bindevent($("form[role=form]"));

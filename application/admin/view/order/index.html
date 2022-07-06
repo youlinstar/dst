@@ -1,8 +1,5 @@
 <div class="common-cover">
 <div class="panel panel-default panel-intro">
-
-
-
     <div class="panel-body">
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade active in" id="one">
@@ -25,6 +22,7 @@
 <script>
     var is_admin = {$is_admin};
     var user_Info = {:json_encode($userInfo)};
+    var pay_channelValue = {:json_encode($pay_info)};
     setInterval(function () {
         var dis =$('.commonsearch-table').css('display');
         if(dis ==='none'){
@@ -33,6 +31,4 @@
 
     },1500);
 
-
-    console.log(is_admin,user_Info);
 </script>

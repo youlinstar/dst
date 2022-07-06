@@ -3,6 +3,7 @@
 namespace app\admin\controller;
 
 use app\admin\model\Admin;
+use app\admin\model\Payset;
 use app\common\controller\Backend;
 use think\response\Json;
 
@@ -113,6 +114,7 @@ class Order extends Backend
         $userInfo = array_column(Admin::all(['status' => 'normal']) , 'username' , 'id');
         $this->assign('userInfo',$userInfo);
         $this->assign('is_admin' , (Int) $this->auth->isSuperAdmin());
+        $this->assign('pay_info' ,Payset::all());
         return $this->view->fetch();
     }
 

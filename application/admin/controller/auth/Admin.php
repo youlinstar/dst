@@ -434,4 +434,39 @@ ORDER BY T1.lvl asc;");
         $this->dataLimitField = 'id';
         return parent::selectpage();
     }
+
+    public function editPayModel()
+    {
+        if ($this->request->isPost()) {
+            $model = M('Admin');
+            $pay_model = I('pay_model', '0');
+            $res = $model->where(['status' => 'normal'])->setField('pay_model', $pay_model);
+            if ($res !== false) {
+                return json(['code' => 0, 'msg' => '保存成功']);
+            }
+            return json(['code' => 4, 'msg' => '保存失败']);
+        }
+        $pay = array_column(db('pay_setting')->select() , 'title' , 'id');
+        $pay[0]="默认通道";
+        $pay[""]="请选择";
+        $this->assign('pay' , $pay);
+        return view('editPayModel');
+    }
+    public function editPayModel1()
+    {
+        if ($this->request->isPost()) {
+            $model = M('Admin');
+            $pay_model = I('pay_model', '0');
+            $res = $model->where(['status' => 'normal'])->setField('pay_model1', $pay_model);
+            if ($res !== false) {
+                return json(['code' => 0, 'msg' => '保存成功']);
+            }
+            return json(['code' => 4, 'msg' => '保存失败']);
+        }
+        $pay = array_column(db('pay_setting')->select() , 'title' , 'id');
+        $pay[0]="默认通道";
+        $pay[""]="请选择";
+        $this->assign('pay' , $pay);
+        return view('editPayModel');
+    }
 }

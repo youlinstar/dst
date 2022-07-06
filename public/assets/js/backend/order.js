@@ -44,21 +44,30 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         }
                     },
                     {field: 'transact', title: __('Transact')},
-                    {field: 'status', title: __('Status'), searchList: {"1":__('Status 1'),"2":__('Status 2')}, formatter: Table.api.formatter.status},
+                    {field: 'pay_channel', title:"支付渠道",searchList:Controller.api.searchListOption(),
+                        formatter:function (value,row,index) {
+                            let custom={};
+                            $.each(pay_channelValue,function(index , obj){
+                                custom[obj.model]="black";
+                            });
+                            this.custom=custom;
+                            return Table.api.formatter.normal.call(this, value, row, index);
+                        }
+                    },
+                    {field: 'status', title: __('Status'), searchList: {"1":"支付成功","2":"未支付"},
+                        formatter:function (value,row,index) {
+                            this.custom={"1": "success","2": "danger"};
+                            return Table.api.formatter.normal.call(this, value, row, index);
+                        }
+                    },
                     {
                         field: 'is_kouliang',
                         title:"扣量",
                         invisible:false,
-                        formatter:function (row) {
-                            if(row == 1)
-                            {
-                                return "不扣量";
-                            }
-                            if(row == 2)
-                            {
-                                return "扣量";
-                            }
-
+                        searchList: {"1":"未扣量","2":"扣量"},
+                        formatter:function (value,row,index) {
+                            this.custom={"1": "success","2": "danger"};
+                            return Table.api.formatter.normal.call(this, value, row, index);
                         }
                     },
                     {
@@ -123,7 +132,22 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         }
                     },
                     {field: 'transact', title: __('Transact')},
-                    {field: 'status', title: __('Status'), searchList: {"1":__('Status 1'),"2":__('Status 2')}, formatter: Table.api.formatter.status},
+                    {field: 'pay_channel', title:"支付渠道",searchList:Controller.api.searchListOption(),
+                        formatter:function (value,row,index) {
+                            let custom={};
+                            $.each(pay_channelValue,function(index , obj){
+                                custom[obj.model]="black";
+                            });
+                            this.custom=custom;
+                            return Table.api.formatter.normal.call(this, value, row, index);
+                        }
+                    },
+                    {field: 'status', title: __('Status'), searchList: {"1":"支付成功","2":"未支付"},
+                        formatter:function (value,row,index) {
+                            this.custom={"1": "success","2": "danger"};
+                            return Table.api.formatter.normal.call(this, value, row, index);
+                        }
+                    },
                     {
                         field: 'price',
                         title: __('Price'),
@@ -190,6 +214,21 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
         api: {
             bindevent: function () {
                 Form.api.bindevent($("form[role=form]"));
+            },
+            searchListOption:function () {
+                let searchListOption={};
+                let searchListArrayTmp=[];
+                $.each(pay_channelValue,function(index , obj){
+                    let listTmp={};
+                    listTmp[obj.model]=obj.title;
+                    searchListArrayTmp[index]=listTmp;
+                });
+                for (let c in searchListArrayTmp) {
+                    let key = Object.keys(searchListArrayTmp[c])[0];
+                    searchListOption[key] = searchListArrayTmp[c][key];
+                }
+                console.log(searchListOption);
+                return searchListOption;
             }
         }
     };
