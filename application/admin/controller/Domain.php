@@ -61,7 +61,7 @@ class Domain extends Backend
                     $r = $k+1;
                     //验证
                     $result = $this->validate($post,[
-                        ['domain|第'.$r.'行域名','require|length:5,150|unique:domain'],
+                        //['domain|第'.$r.'行域名','require|length:5,150|unique:domain'],
                     ]);
 
                     if (true !== $result) {
