@@ -271,7 +271,8 @@ class Index extends Frontend
         $f = $this->request->param('f');
         $cid = $this->request->param('cid');
         $payedVid = $this->getPayedVideoId();
-        $where = ['uid' => ['=' , $this->id]];
+        //$where = ['uid' => ['=' , $this->id]];
+        $where = [];
         if($cid) {
             $cname =  (new Category)->find($cid)->name;
             $where = array_merge($where , ['title' =>['like' , "%{$cname}%"]]);
