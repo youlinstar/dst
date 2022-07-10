@@ -53,4 +53,9 @@ class Link extends Model
     {
         return $this->belongsTo('Category', 'cid', 'id', [], 'LEFT')->setEagerlyType(0);
     }
+
+    public function linkTop()
+    {
+        return $this->belongsTo('LinkTop', 'id', 'link_id');
+    }
 }

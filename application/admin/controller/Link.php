@@ -5,7 +5,9 @@ namespace app\admin\controller;
 use app\admin\library\Auth;
 use app\admin\model\Admin;
 use app\admin\model\Category;
+use app\admin\model\LinkTop;
 use app\common\controller\Backend;
+use Exception;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use PhpOffice\PhpSpreadsheet\Reader\Csv;
 use PhpOffice\PhpSpreadsheet\Reader\Xls;
@@ -409,13 +411,13 @@ class Link extends Backend
             }
             list($where, $sort, $order, $offset, $limit) = $this->buildparams(null, null, true);
             $total = $this->model
-                ->with(['category'])
+                ->with(['category','linkTop'])
                 ->where($where)
                 ->order($sort, $order)
                 ->count();
 
             $list = $this->model
-                ->with(['category'])
+                ->with(['category','linkTop'])
                 ->where($where)
                 ->order($sort, $order)
                 ->limit($offset, $limit)
@@ -927,6 +929,45 @@ class Link extends Backend
             $this->error($e->getMessage());
         }
 
+        $this->success();
+    }
+
+    public function setTop()
+    {
+        if (empty($this->request->param('ids'))){
+            $this->error(__('Parameter %s can not be empty', 'ids'));
+        }
+        $ids=$this->request->param('ids');
+        parse_str($this->request->post("params"), $values);
+        $values = $this->auth->isSuperAdmin() ? $values : array_intersect_key($values, array_flip(is_array($this->multiFields) ? $this->multiFields : explode(',', $this->multiFields)));
+        if (empty($values)){
+            $this->error(__('You have no permission'));
+        }
+        Db::startTrans();
+        try {
+            if ($linkTopData=LinkTop::where('link_id',$ids)->find()){
+                if (empty($values['link_top_status'])||$values['link_top_status']=="0"){
+                    LinkTop::where($this->model->getPk(), $linkTopData['id'])->delete();
+                }else{
+                    LinkTop::where($this->model->getPk(), $linkTopData['id'])->update(['status'=>$values['link_top_status']]);
+                }
+            }else{
+                if (!empty($values['link_top_status'])||$values['link_top_status']!="0"){
+                    LinkTop::insert([
+                        'link_id'=>$ids,
+                        'uid'=>$this->auth->id,
+                        'status'=>$values['link_top_status']
+                    ]);
+                }
+            }
+            Db::commit();
+        } catch (PDOException $e) {
+            Db::rollback();
+            $this->error($e->getMessage());
+        } catch (Exception $e) {
+            Db::rollback();
+            $this->error($e->getMessage());
+        }
         $this->success();
     }
 }

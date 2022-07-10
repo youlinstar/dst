@@ -13,6 +13,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','qr','bootstrap-table-
                     del_url: 'link/del',
                     multi_url: 'link/multi',
                     table: 'link',
+                    setTop_url:'link/setTop',
                 }
             });
 
@@ -90,13 +91,19 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','qr','bootstrap-table-
                             }
                         },*/
                         {
-                            field: 'is_top',
+                            field: 'link_top.status',
                             title: "是否置顶",
                             align: 'center',
                             visible:userinfo.id===1,
                             cardVisible:userinfo.id===1,
                             switchable:userinfo.id===1,
-                            formatter: Table.api.formatter.toggle
+                            formatter: function (value, row,index) {
+                                this.color="success";
+                                this.yes="1";
+                                this.no="0";
+                                this.url="link/setTop";
+                                return Table.api.formatter.toggle.call(this, value, row, index);
+                            }
                         },
                         {
                             field: 'over_time',

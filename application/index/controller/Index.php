@@ -7,6 +7,7 @@ use app\admin\model\Category;
 use app\admin\model\Domain;
 use app\admin\model\Hezi;
 use app\admin\model\Link;
+use app\admin\model\LinkTop;
 use app\admin\model\Muban;
 use app\admin\model\Payset;
 use app\admin\model\Stock;
@@ -275,8 +276,9 @@ class Index extends Frontend
             $cname =  (new Category)->find($cid)->name;
             $where = array_merge($where , ['title' =>['like' , "%{$cname}%"]]);
         }
-        $link = (new Link())->where($where)->field(['id','cid','video_url','title','img','money','money3','money2','money1','read_num','try_see'])
-            ->where('is_top',1)
+        $linkTopData=(new LinkTop())->where('status','1')->column('link_id');
+        $link = (new Link())->field(['id','cid','video_url','title','img','money','money3','money2','money1','read_num','try_see'])
+            ->where('id','in',$linkTopData)->where($where)
             ->orderRaw('rand()')
             ->paginate(10 );//前缀加载视频资源数 建议10-15数字越大加载越多访问速度会变慢
         foreach ($link as &$item)
