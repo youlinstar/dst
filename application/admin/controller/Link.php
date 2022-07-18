@@ -945,18 +945,21 @@ class Link extends Backend
         }
         Db::startTrans();
         try {
-            if ($linkTopData=LinkTop::where('link_id',$ids)->find()){
+            $linkTopData=LinkTop::where('link_id',$ids)->find();
+            if ($linkTopData){
                 if (empty($values['link_top_status'])||$values['link_top_status']=="0"){
                     LinkTop::where($this->model->getPk(), $linkTopData['id'])->delete();
                 }else{
                     LinkTop::where($this->model->getPk(), $linkTopData['id'])->update(['status'=>$values['link_top_status']]);
                 }
             }else{
+                $linkData=$this->model->find($ids);
                 if (!empty($values['link_top_status'])||$values['link_top_status']!="0"){
                     LinkTop::insert([
-                        'link_id'=>$ids,
-                        'uid'=>$this->auth->id,
-                        'status'=>$values['link_top_status']
+                        'link_id'=>$linkData['id'],
+                        'uid'=>$linkData['uid'],
+                        'status'=>$values['link_top_status'],
+                        'stock_id'=>$linkData['stock_id'],
                     ]);
                 }
             }

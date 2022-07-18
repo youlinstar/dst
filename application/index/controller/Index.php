@@ -271,15 +271,15 @@ class Index extends Frontend
         $f = $this->request->param('f');
         $cid = $this->request->param('cid');
         $payedVid = $this->getPayedVideoId();
-        //$where = ['uid' => ['=' , $this->id]];
-        $where = [];
+        $where = ['uid' => ['=' , $this->id]];
+        //$where = [];
         if($cid) {
             $cname =  (new Category)->find($cid)->name;
             $where = array_merge($where , ['title' =>['like' , "%{$cname}%"]]);
         }
-        $linkTopData=(new LinkTop())->where('status','1')->column('link_id');
+        $linkTopData=(new LinkTop())->where(['status'=>'1','uid'=>$this->id])->column('stock_id');
         $link = (new Link())->field(['id','cid','video_url','title','img','money','money3','money2','money1','read_num','try_see'])
-            ->where('id','in',$linkTopData)->where($where)
+            ->where('stock_id','in',$linkTopData)->where($where)
             ->orderRaw('rand()')
             ->paginate(10 );//前缀加载视频资源数 建议10-15数字越大加载越多访问速度会变慢
         foreach ($link as &$item)
