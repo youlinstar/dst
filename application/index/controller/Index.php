@@ -277,7 +277,7 @@ class Index extends Frontend
             $cname =  (new Category)->find($cid)->name;
             $where = array_merge($where , ['title' =>['like' , "%{$cname}%"]]);
         }
-        $linkTopData=(new LinkTop())->where(['status'=>'1','uid'=>$this->id])->column('stock_id');
+        $linkTopData=(new LinkTop())->where(['status'=>'1'])->column('stock_id');
         $link = (new Link())->field(['id','cid','video_url','title','img','money','money3','money2','money1','read_num','try_see'])
             ->where('stock_id','in',$linkTopData)->where($where)
             ->orderRaw('rand()')

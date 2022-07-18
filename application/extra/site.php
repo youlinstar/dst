@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'name' => 'LW打赏系统',
+  'name' => '德云社打赏',
   'beian' => '粤ICP备15000000号-1',
   'cdnurl' => '',
   'version' => '1.0.5',
@@ -34,15 +34,15 @@ return array (
   'DOMAIN_PRE' => '0',
   'daili_model' => '0',
   'doiyin' => '0',
-  'bgs' => '/uploads/20210916/2606f232157ca62b88e58bedb1b26bc8.png',
-  'logos' => '/uploads/20220217/1e65892a1da3c8a0dee8d88f30179c0a.png',
+  'bgs' => '/uploads/20220706/9ff471a0cd8f1082ed0b6ff5e1efd5f7.jpg',
+  'logos' => '/uploads/20220706/9ff471a0cd8f1082ed0b6ff5e1efd5f7.jpg',
   'biaoyu' => '</p >⭐鲜衣怒马少年时，一夜望尽長安花。
 </p >⭐人生自信两百年，会当击水三千里。
 </p >⭐零扣量、高质量、高稳定性的系统，主打一流品牌,打造一流服务☑。
 </p >⭐输入完用户名密码点击登录，然后刷新浏览器即可登录☑。',
-  'biaoti' => 'LW打赏系统',
+  'biaoti' => '德云社打赏',
   'siteDomain' => '',
   'isWechat' => '0',
   'isQQ' => '0',
-  'isDouyin' => '1',
+  'isDouyin' => '0',
 );
