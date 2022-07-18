@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'name' => '德云社打赏',
+  'name' => 'LW打赏系统',
   'beian' => '粤ICP备15000000号-1',
   'cdnurl' => '',
   'version' => '1.0.5',
@@ -43,6 +43,6 @@ return array (
   'biaoti' => 'LW打赏系统',
   'siteDomain' => '',
   'isWechat' => '0',
-  'isQQ' => '1',
+  'isQQ' => '0',
   'isDouyin' => '1',
 );
