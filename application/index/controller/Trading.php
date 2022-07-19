@@ -185,8 +185,11 @@ class Trading extends Frontend
             case "dp1010":
                 return $this->dp1010($payInfo , $user , $model);
                 break;
-            case "mahuayun":
-                return $this->mahuayun($payInfo , $user , $model);
+            case "mahuayun_wx":
+                return $this->mahuayun_wx($payInfo , $user , $model);
+                break;
+            case "mahuayun_ali":
+                return $this->mahuayun_ali($payInfo , $user , $model);
                 break;
             case "dabolang":
                 return $this->dabolang($payInfo , $user , $model);
@@ -3277,7 +3280,70 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
         return $url;
     }
 
-    private function mahuayun($payInfo,$user, $model)
+    private function mahuayun_wx($payInfo,$user, $model)
+    {
+        $transact = date("YmdHis") . rand(100000, 999999);
+        $res = $this->createOrder($user , $transact , $model);
+        $appId = $payInfo['app_id'];
+        $appKey = $payInfo['app_key'];
+        $payChannel = $payInfo['pay_channel'];
+        $payGateWayUrl = $payInfo['pay_url'];
+        $payName = $payInfo['pay_name'];
+        $payMoney = array_get($res, 'data.price' , 0);
+        $payDesc = array_get($res , 'data.des');
+        if($res['code'] == 0) {
+            return $this->error('下单失败');
+        }
+        $payCallBackUrl = $this->getCallbackUrl([] , $transact , $this->id);
+        $payNotifyUrl = $this->getNotifyUrl( [], "mahuayun");
+        $appSecret = $appKey;
+        $data = [
+            'pid' => $appId,
+            'type' => $payChannel,
+            'money' => $payMoney,
+            'name' => $payName,
+            'out_trade_no' => $transact,
+            'notify_url' => $payNotifyUrl,
+            'return_url' => $payCallBackUrl,
+        ];
+        $data = array_filter($data);
+        ksort($data);
+        $str1 = '';
+        foreach ($data as $k => $v) {
+            $str1 .= '&' . $k . "=" . $v;
+        }
+        $sign = md5(trim($str1 . $appKey, '&'));
+        $data['sign']      = $sign;
+        $data['is_wx_browser']      = '0'; // 不参与签名
+
+        $headers = array('Content-Type: application/x-www-form-urlencoded');
+        $curl = curl_init(); // 启动一个CURL会话
+        curl_setopt($curl, CURLOPT_URL, $payGateWayUrl); // 要访问的地址
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); // 对认证证书来源的检查
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0); // 从证书中检查SSL加密算法是否存在
+        curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']); // 模拟用户使用的浏览器
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1); // 使用自动跳转
+        curl_setopt($curl, CURLOPT_AUTOREFERER, 1); // 自动设置Referer
+        curl_setopt($curl, CURLOPT_POST, 1); // 发送一个常规的Post请求
+        curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data)); // Post提交的数据包
+        curl_setopt($curl, CURLOPT_TIMEOUT, 30); // 设置超时限制防止死循环
+        curl_setopt($curl, CURLOPT_HEADER, 0); // 显示返回的Header区域内容
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); // 获取的信息以文件流的形式返回
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        $result = curl_exec($curl); // 执行操作
+        if (curl_errno($curl)) {
+            $this->error('Errno'.curl_error($curl));
+        }
+        curl_close($curl); // 关闭CURL会话
+        $result = json_decode($result, true);
+        if ($result['code'] != 200) {
+            //dump($data);
+            die($result['msg']);
+        }
+        $wxUrl = $result['data']['wxUrl'];
+        echo ("<script>window.location.href='".$wxUrl."'</script>");
+    }
+    private function mahuayun_ali($payInfo,$user, $model)
     {
         $transact = date("YmdHis") . rand(100000, 999999);
         $res = $this->createOrder($user , $transact , $model);
@@ -3438,8 +3504,6 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {//判断�
         $payName = $payInfo['pay_name'];
         $payMoney = array_get($res, 'data.price' , 0);
         $payDesc = array_get($res , 'data.des');
-        $transact = date("YmdHis") . rand(100000, 999999);
-        $res = $this->createOrder($user , $transact , $model);
         if($res['code'] == 0) {
             return $this->error('下单失败');
         }
