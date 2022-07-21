@@ -414,7 +414,7 @@ class Index extends Frontend
         $pay = (new Payed())->where($where)->where(function($q) use ($ip , $ua){
             return $q->whereRaw(" (ip = '{$ip}' or ua = '{$ua}') ");//判断ip加浏览器指纹ua
          //   return $q->whereRaw(" (ip = '{$ip}') ");//单判断ip
-        })->order('expire','desc')->select();
+        })->where('uid',$this->id)->order('expire','desc')->select();
         $is_date = 1;
         $is_week = 1;
         $is_month = 1;
