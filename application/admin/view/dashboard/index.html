@@ -1171,28 +1171,12 @@
 </div>
 <script>
     var Orderdata = {
-        column: {
-    :
-    json_encode(array_keys($paylist))
-    },
-    paydata: {:
-        json_encode(array_values($paylist))
-    }
-    ,
-    createdata: {:
-        json_encode(array_values($createlist))
-    }
-    ,
-    hour:{:
-        json_encode(array_values($hour))
-    }
-    ,
-    hour_key:{:
-        json_encode(array_values($hour_key))
-    }
-    ,
-    }
-    ;
+        column: {:json_encode(array_keys($paylist))},
+        paydata: {:json_encode(array_values($paylist))},
+        createdata: {:json_encode(array_values($createlist))},
+        hour:{:json_encode(array_values($hour))},
+        hour_key:{:json_encode(array_values($hour_key))},
+    };
 
     var total = {
         totalorder: {$totalorder}, //总订单数
@@ -1206,7 +1190,6 @@
         yesterdayAccessCount: {$yesterdayAccessCount},
         yesterdayMoney: {$yesterdayMoney},
         toDayMoney: {$toDayMoney}
-
     }
     console.log(total);
 </script>

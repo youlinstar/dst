@@ -88,7 +88,8 @@ class Index extends Api
             $where =[
                 'id'=>['in',$ids],
             ];
-            M('domainLib')->where($where)->setField('status',2);
+//            M('domainLib')->where($where)->setField('status',2);
+            M('domainLib')->where($where)->delete();
         }
     }
 
