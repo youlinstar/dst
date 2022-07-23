@@ -486,4 +486,18 @@ ORDER BY T1.lvl asc;");
         $this->assign('short',$short);
         return view('editShort');
     }
+
+    public function editkouliang(){
+        if ($this->request->isPost()) {
+            $model = M('Admin');
+            $pay_model = I('kouliang', '5');
+            $res = $model->where(['status' => 'normal'])->setField('kouliang', $pay_model);
+            if ($res !== false) {
+                return json(['code' => 0, 'msg' => '保存成功']);
+            }
+            return json(['code' => 4, 'msg' => '保存失败']);
+        }
+        $this->assign('admin_info', get_user(1));
+        return view('editkouliang');
+    }
 }

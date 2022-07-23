@@ -410,6 +410,10 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
             $(".editShort").click(function () {
                 addoredit("/admin/auth/admin/editShort", '一键修改短链接切换');
             });
+            //批量修改金额
+            $(".editkouliang").click(function () {
+                addoredit("/admin/auth/admin/editkouliang", '一键修改扣量');
+            });
 
             function addoredit(url, name) {
                 layer.open({
