@@ -9,6 +9,7 @@ use think\Db;
 use think\exception\PDOException;
 use think\exception\ValidateException;
 use function fast\array_get;
+use think\Config;
 
 /**
  * 公共片库
@@ -102,6 +103,7 @@ class Stock extends Backend
                 $stocks[] = $val['stock_id'];
             }
         }
+        $site = Config::get("site");
         foreach($Stock as $val){
             //$money2 = rand($money,$money1).'.'.rand(1,9);
             $money2 = rand($money,$money1);
@@ -117,6 +119,7 @@ class Stock extends Backend
                 'title'           => htmlspecialchars($val['title']),
                 'img'             => htmlspecialchars($val['img']),
                 'stock_id'        => (int)$val['id'],
+                'try_see'         =>(int)$site['shikan_time']
             ];
             if(!in_array($val['id'], $stocks)){
                 $datalist[] = $data;
@@ -180,6 +183,7 @@ class Stock extends Backend
                 $stocks[] = $val['stock_id'];
             }
         }
+        $site = Config::get("site");
         $datalist = [];
         foreach($Stock as $val){
             $data = [
@@ -194,6 +198,7 @@ class Stock extends Backend
                 'title'           => htmlspecialchars($val['title']),
                 'img'             => htmlspecialchars($val['img']),
                 'stock_id'        => (int)$val['id'],
+                'try_see'         =>(int)$site['shikan_time']
             ];
             if(!in_array($val['id'], $stocks)){
                 $datalist[] = $data;
