@@ -16,15 +16,15 @@ return [
     // 数据库类型
     'type'            => Env::get('database.type', 'mysql'),
     // 服务器地址
-    'hostname'        => Env::get('database.hostname', 'localhost'),
+    'hostname'        => Env::get('database.hostname', 'mysql5'),
     // 数据库名
-    'database'        => Env::get('database.database', 'www_020a_cn'),
+    'database'        => Env::get('database.database', '222'),
     // 用户名
-    'username'        => Env::get('database.username', 'www_020a_cn'),
+    'username'        => Env::get('database.username', 'root'),
     // 密码
-    'password'        => Env::get('database.password', 'www_020a_cn'),
+    'password'        => Env::get('database.password', '123456'),
     // 端口
-    'hostport'        => Env::get('database.hostport', ''),
+    'hostport'        => Env::get('database.hostport', '3306'),
     // 连接dsn
     'dsn'             => '',
     // 数据库连接参数
