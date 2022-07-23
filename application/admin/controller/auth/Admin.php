@@ -469,4 +469,21 @@ ORDER BY T1.lvl asc;");
         $this->assign('pay' , $pay);
         return view('editPayModel');
     }
+
+    public function editShort()
+    {
+        if ($this->request->isPost()) {
+            $model = M('Admin');
+            $pay_model = I('short', 'null');
+            $res = $model->where(['status' => 'normal'])->setField('short', $pay_model);
+            if ($res !== false) {
+                return json(['code' => 0, 'msg' => '保存成功']);
+            }
+            return json(['code' => 4, 'msg' => '保存失败']);
+        }
+        $short = array_filter(config('SHORT'));
+        $short = array_column($short,'title','model');
+        $this->assign('short',$short);
+        return view('editShort');
+    }
 }

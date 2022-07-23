@@ -406,6 +406,11 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form','layui'], function ($,
                 addoredit("/admin/auth/admin/editPayModel1", '一键修改微信支付渠道');
             });
 
+            //批量修改金额
+            $(".editShort").click(function () {
+                addoredit("/admin/auth/admin/editShort", '一键修改短链接切换');
+            });
+
             function addoredit(url, name) {
                 layer.open({
                     title: name,
