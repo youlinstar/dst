@@ -1,0 +1,110 @@
+#ribbon {
+    display: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.yellowbg .stat-col-no-top {
+    display: flex !important;
+    justify-content: center;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .col-lg-12 {
+        width: 100%;
+    }
+
+    #myTabContent .col-sm-4 {
+        width: 33%;
+    }
+
+    .orangBg, .yellowbg, .purplebg {
+        display: flex;
+        justify-content: center;
+    }
+
+    .stat-col-no-top .stat {
+        padding-left: 0;
+        padding-right: 0;
+        display: flex;
+        flex-flow: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    #myTabContent .stat-col-cover {
+        display: block;
+    }
+
+    .lightbluebg {
+        margin-left: 10px;
+    }
+
+    #myTabContent .right-dash {
+        width: 100%;
+        margin-left: 10px;
+        margin-bottom: 20px
+    }
+
+    #myTabContent .yellowbg {
+        width: 50% !important;
+    }
+
+    #myTabContent .mjum {
+        width: 25%;
+        margin-top: 0;
+        margin-left: 0;
+        text-align: center;
+        padding-top: 15px;
+    }
+
+    #myTabContent .t-img {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    #myTabContent .mjum p {
+        font-size: 12px;
+    }
+}
+
+
+
+@media (min-width: 768px) {
+    #myTabContent .right-dash {
+        width: 100%;
+        margin-left: 10px;
+        margin-bottom: 20px
+    }
+
+    .bluebg, .purplebg {
+        width: 50% !important;
+    }
+
+    .orangBg, .bluebg, .yellowbg, .lightbluebg {
+        display: flex;
+        justify-content: center;
+    }
+
+    .purplebg {
+        background: transparent !important;
+    }
+
+    .purplebg .stat {
+        width: 90%;
+        background: #9E9DEB;
+        margin-left: 5%;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-flow: column;
+    }
+
+    .lightbluebg {
+        margin-left: 2.5%;
+    }
+}
