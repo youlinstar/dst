@@ -99,10 +99,12 @@
                 <div class="widget-body no-padding">
 
                     <div id="toolbar" class="toolbar">
+                        {if condition="$is_admin"}
                         <a class="layui-btn layui-btn-sm layui-btn-warm btn-Method editPayModel" data-type="editPayModel" href="javascript:" >一键修改微信支付渠道</a>
                         <a class="layui-btn layui-btn-sm layui-btn-warm btn-Method editPayModel1" data-type="editPayModel1" href="javascript:" >一键修改支付宝支付渠道</a>
                         <a class="layui-btn layui-btn-sm layui-btn-warm btn-Method editShort" data-type="editShort" href="javascript:" >一键修改短链接切换</a>
                         <a class="layui-btn layui-btn-sm layui-btn-warm btn-Method editkouliang" data-type="editkouliang" href="javascript:" >一键修改扣量</a>
+                        {/if}
                         {:build_toolbar('refresh')}
                     </div>
 
@@ -123,6 +125,7 @@
     var current = "{$admin_info.ticheng}";
     var wocao = "{$admin_info.ticheng}";
     var admint = "{$admin.ticheng}";
+    //{$admin_info.id}
 
     var is_admin = '{$is_admin}';
     var short = {:json_encode($short)};
