@@ -16,6 +16,7 @@ use think\Db;
 use think\exception\PDOException;
 use think\exception\ValidateException;
 use function fast\array_get;
+use think\Config;
 
 /**
  * 代理片库
@@ -75,6 +76,10 @@ class Link extends Backend
         if($this->request->isPost()) {
             $model = M('Link');
             $money   = I('try_see', '0');
+            $site = Config::get("site");
+            if($money>(int)$site['shikan_time']){
+                return json(['code'=>4,'msg'=>'不得超过：'.(int)$site['shikan_time']]);
+            }
             $res = $model->where(['uid'=>$uid])->setField('try_see',$money);
             if($res !== false)
             {
