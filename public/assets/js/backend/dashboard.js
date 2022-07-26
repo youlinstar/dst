@@ -243,9 +243,12 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'table', 'echarts', 'echart
                 });
 
 
-                    var toDayKouliang = new Odometer('#toDayKouliang',{
-                        num : total.toDayKouliang
-                    });
+                var toDayKouliang = new Odometer('#toDayKouliang',{
+                    num : total.toDayKouliang
+                });
+                var toDayKouliangMoney = new Odometer('#toDayKouliangMoney',{
+                    num : total.toDayKouliangMoney
+                });
 
 
 
@@ -274,6 +277,7 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'table', 'echarts', 'echart
                         toDayFailureOrder.update(e.data.toDayFailureOrder);
 
                         toDayKouliang.update(e.data.toDayKouliang);
+                        toDayKouliangMoney.update(e.data.toDayKouliangMoney);
                         yesterdayAccessCount.update(e.data.yesterdayAccessCount);
                         yesterdayMoney.update(e.data.yesterdayMoney);
                         toDayMoney.update(e.data.toDayMoney);

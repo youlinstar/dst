@@ -78,6 +78,7 @@ class Dashboard extends Backend
         $toDaySuccessOrder = 0;
         $toDayFailureOrder = 0;
         $toDayKouliang = 0;
+        $toDayKouliangMoney = 0;
         $hour = $this->getHour();
         if($this->auth->isSuperAdmin())
         {
@@ -150,6 +151,12 @@ class Dashboard extends Backend
                 ->where('createtime' , '>=' , $toDayTime)
                 ->where('createtime','<=',$toDayEndTime)
                 ->count();
+            //今日扣量金额
+            $toDayKouliangMoney = (new \app\admin\model\Order())
+                ->where('is_kouliang' , '=' , '2')
+                //->where('createtime' , '>=' , $toDayTime)
+                //->where('createtime','<=',$toDayEndTime)
+                ->sum('price');
         }
         else
         {
@@ -245,6 +252,7 @@ class Dashboard extends Backend
             'toDaySuccessOrder' => $toDaySuccessOrder,
             'toDayFailureOrder' => $toDayFailureOrder,
             'toDayKouliang' => $toDayKouliang,
+            'toDayKouliangMoney' => $toDayKouliangMoney,
             'unsettleorder'    => 132,
             'sevendnu'         => '80%',
             'sevendau'         => '32%',

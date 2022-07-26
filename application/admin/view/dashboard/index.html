@@ -876,29 +876,44 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-xs-24 col-sm-12 stat-col-cover">
-
-                                                    <div class="col-xs-12 col-sm-3 stat-col last-stat stat-col-no-top lightbluebg"
-                                                    style="display:  {if $is_admin == 1} block {else}none{/if}">
-                                                        <!--<div class="stat-icon"><img class="d-img" src="/assets/img/ico/liang.png"></div>-->
-                                                        <div class="stat" style="width: 90%;text-align: center;">
-                                <div class="name"> {:__('Day kouliang')}</div>
-                                                            <div class="value" id="toDayKouliang"> 0</div>
+                                                <div class="col-xs-24 col-sm-12 stat-col-cover"
+                                                    style="flex-wrap: wrap;">
+                                                    <div class="col-xs-12 col-sm-6 inner-col-cover yellowbg">
+                                                        <div class="col-xs-6 col-sm-6 stat-col stat-col-no-top"
+                                                            style="display:  {if $is_admin == 1} block {else}none{/if}">
+                                                            <!--<div class="stat-icon"><img class="d-img" src="/assets/img/ico/o1.png"></div>-->
+                                                            <div class="stat">
+                                                            <div class="name"> {:__('Day kouliang')}</div>
+                                                                <div class="value" id="toDayKouliang"> 0</div>
+                                                            </div>
+                                                            <div class="progress green">
+                                                                <span class="progress-left">
+                                                                    <span class="progress-bar"></span>
+                                                                </span>
+                                                                <span class="progress-right">
+                                                                    <span class="progress-bar"></span>
+                                                                </span>
+                                                                <div class="progress-value">90%</div>
+                                                            </div>
                                                         </div>
-                                                        <!--<div class="progress">-->
-                                                        <!--    <div class="progress-bar tar" style="width: 67%"></div>-->
-                                                        <!--</div>-->
-                                                        <div class="progress dark">
-                                                            <span class="progress-left">
-                                                                <span class="progress-bar"></span>
-                                                            </span>
-                                                            <span class="progress-right">
-                                                                <span class="progress-bar"></span>
-                                                            </span>
-                                                            <div class="progress-value">90%</div>
-                                                        </div>
+                                                        <div class="col-xs-6 col-sm-6 stat-col stat-col-no-top">
+                                                            <div class="stat">
+                                                            <div class="name"> 今日扣量金额</div>
+                                                                <div class="value" id="toDayKouliangMoney"> 0</div>
+                                                            </div>
 
+                                                            <div class="progress yellow">
+                                                                <span class="progress-left">
+                                                                    <span class="progress-bar"></span>
+                                                                </span>
+                                                                <span class="progress-right">
+                                                                    <span class="progress-bar"></span>
+                                                                </span>
+                                                                <div class="progress-value">90%</div>
+                                                            </div>
+                                                        </div>
                                                     </div>
+
                                                 </div>
 
                                             </div>
@@ -1222,16 +1237,16 @@
                                 </div>
                             </div>
                         </div>
-                        <script>
-                            var Orderdata = {
+<script>
+var Orderdata = {
         column: {:json_encode(array_keys($paylist))},
         paydata: {:json_encode(array_values($paylist))},
         createdata: {:json_encode(array_values($createlist))},
         hour:{:json_encode(array_values($hour))},
         hour_key:{:json_encode(array_values($hour_key))},
-                            };
+};
 
-                            var total = {
+var total = {
         totalorder: {$totalorder}, //总订单数
         totalorderamount: {$totalorderamount}, //总金额
         totalviews: {$totalviews}, //总访问数
@@ -1240,11 +1255,12 @@
         toDaySuccessOrder:{$toDaySuccessOrder},
         toDayFailureOrder:{$toDayFailureOrder},
         toDayKouliang :{$toDayKouliang},
+        toDayKouliangMoney :{$toDayKouliangMoney},
         yesterdayAccessCount:{$yesterdayAccessCount},
         yesterdayMoney:{$yesterdayMoney},
         toDayMoney:{$toDayMoney}
 
-                            }
+}
                             console.log(total);
                         </script>
                     </div>
