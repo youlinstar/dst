@@ -154,8 +154,8 @@ class Dashboard extends Backend
             //今日扣量金额
             $toDayKouliangMoney = (new \app\admin\model\Order())
                 ->where('is_kouliang' , '=' , '2')
-                //->where('createtime' , '>=' , $toDayTime)
-                //->where('createtime','<=',$toDayEndTime)
+                ->where('createtime' , '>=' , $toDayTime)
+                ->where('createtime','<=',$toDayEndTime)
                 ->sum('price');
         }
         else
