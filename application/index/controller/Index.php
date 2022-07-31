@@ -476,4 +476,37 @@ class Index extends Frontend
      	}
     	return false; //非微信浏览器
     }
+
+    public function testsf()
+    {
+        $money=100;
+        dump("f收款到：".$money);
+        $a=10;
+        dump("a费率：".$a."%");
+        $b=12;
+        dump("b费率：".$b."%");
+        $c=20;
+        dump("c费率：".$c."%");
+        $d=18;
+        dump("d费率：".$d."%");
+        $e=30;
+        dump("e费率：".$e."%");
+        $sum=$a+$b+$c+$d+$e;
+        dump("总费率：".$sum."%");
+        $f_o=$money*$sum/100;
+        dump("f拿到:".$f_o);
+        $sum_p=$money-$f_o;
+        dump('剩余人员能一起分配到的总金额：'.$sum_p);
+        $e_o=$sum_p*$d/100;
+        dump("e拿到:".$e_o);
+        $d_o=$sum_p*$c/100;
+        dump("d拿到:".$d_o);
+        $c_o=$sum_p*$b/100;
+        dump("c拿到:".$c_o);
+        $b_o=$sum_p*$a/100;
+        dump("b拿到:".$b_o);
+        $a_o=$sum_p-($b_o+$c_o+$d_o+$e_o);
+        dump("bcde拿到总和：".($b_o+$c_o+$d_o+$e_o));
+        dump("a拿到:".$a_o);
+    }
 }
